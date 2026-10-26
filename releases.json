@@ -13,10 +13,10 @@
   "sales-erp": {
     "version": "1.0.0",
     "date": "2026-10-26",
-    "sizeMB": 224,
-    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Sales ERP\\Meta Origin - Sales ERP Setup.exe",
-    "kind": "EXE",
-    "asset": "Meta-Origin-Sales-ERP-1.0.0-Setup.exe",
+    "sizeMB": 227,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Sales ERP\\Meta Origin - Sales ERP.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Sales-ERP-1.0.0.rar",
     "tag": "sales-erp-v1.0.0",
     "notes": [],
     "published": false
@@ -144,10 +144,10 @@
   "cashier-clothes": {
     "version": "0.8.0",
     "date": "2026-10-21",
-    "sizeMB": 134,
-    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes Setup.exe",
-    "kind": "EXE",
-    "asset": "Meta-Origin-Cashier-Clothes-0.8.0-Setup.exe",
+    "sizeMB": 135,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Cashier-Clothes-0.8.0.rar",
     "tag": "cashier-clothes-v0.8.0",
     "notes": [
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
