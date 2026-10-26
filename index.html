@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Origin | برامج إدارة الشركات والمحلات</title>
+    <meta name="description" content="Meta Origin شركة برمجيات مصرية بتطوّر أنظمة إدارة متكاملة للصيدليات والعيادات والمدارس والفنادق والمصانع والمخازن والمطاعم والمحلات والشركات التجارية: الحسابات، والمخازن، والمرتبات، والكاشير، والتقارير. هدفنا برامج عربية سهلة الاستخدام، بتشتغل على جهاز واحد أو على شبكة كاملة أو أونلاين، ومعاها دعم فني قريب منك من أول التركيب لحد ما الشغل يمشي بسلاسة.">
+    <meta property="og:title" content="Meta Origin | برامج إدارة الشركات والمحلات">
+    <meta property="og:description" content="Meta Origin شركة برمجيات مصرية بتطوّر أنظمة إدارة متكاملة للصيدليات والعيادات والمدارس والفنادق والمصانع والمخازن والمطاعم والمحلات والشركات التجارية: الحسابات، والمخازن، والمرتبات، والكاشير، والتقارير. هدفنا برامج عربية سهلة الاستخدام، بتشتغل على جهاز واحد أو على شبكة كاملة أو أونلاين، ومعاها دعم فني قريب منك من أول التركيب لحد ما الشغل يمشي بسلاسة.">
+    <meta property="og:image" content="img/company-logo.png">
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="icon" href="./img/company-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
+    <style>
+        :root { --acc: #3b82f6; --acc-rgb: 59,130,246; --on-acc: #0b0f19; }
+        body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+        .acc { color: var(--acc); } .bg-acc { background: var(--acc); color: var(--on-acc); } .bg-acc:hover { filter: brightness(1.1); }
+        .bg-acc-soft { background: rgba(var(--acc-rgb), .12); color: var(--acc); } .border-acc { border-color: rgba(var(--acc-rgb), .45); }
+        .glow-effect { box-shadow: 0 0 35px -5px rgba(var(--acc-rgb), .3); }
+        .card-hover { transition: all .3s cubic-bezier(.4, 0, .2, 1); }
+        .card-hover:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 10px 25px -5px rgba(var(--acc-rgb), .18); }
+        .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
+        .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
+        .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 blur-3xl -z-10 pointer-events-none" style="background: linear-gradient(to bottom, rgba(var(--acc-rgb), .12), rgba(59,130,246,.05), transparent)"></div>
+    <header class="w-full border-b border-gray-800/60 bg-darkbg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+            <a href="./" class="flex items-center gap-3">
+                <img src="./img/company-logo.png" alt="Meta Origin" class="w-10 h-10 object-cover rounded-xl bg-gray-900 border border-gray-800 p-0.5">
+                <div>
+                    <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-l from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block leading-tight">Meta Origin</span>
+                    <span class="text-[10px] text-gray-400 font-semibold block">إدارة الأنظمة والبرمجيات</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-2">
+                <a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">البرامج</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">تواصل معنا</a>
+                <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
+                    <i class="fa-solid fa-share-nodes acc"></i><span>مشاركة الصفحة</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-14">
+        <section class="text-center space-y-6">
+            <img src="img/company-logo.png" alt="Meta Origin" class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl border border-gray-800 bg-gray-900 p-1 glow-effect">
+            <div class="space-y-3">
+                <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide">Meta Origin</h1>
+                <p class="text-gray-400 font-bold">Software Studio — استوديو برمجيات</p>
+                <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">Meta Origin شركة برمجيات مصرية بتطوّر أنظمة إدارة متكاملة للصيدليات والعيادات والمدارس والفنادق والمصانع والمخازن والمطاعم والمحلات والشركات التجارية: الحسابات، والمخازن، والمرتبات، والكاشير، والتقارير. هدفنا برامج عربية سهلة الاستخدام، بتشتغل على جهاز واحد أو على شبكة كاملة أو أونلاين، ومعاها دعم فني قريب منك من أول التركيب لحد ما الشغل يمشي بسلاسة.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#programs" class="bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95 flex items-center gap-2"><i class="fa-solid fa-grip"></i> تصفّح البرامج</a>
+                <a href="https://wa.me/201150606002?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AA%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%20Meta%20Origin" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> كلّمنا واتساب</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong class="text-white">18</strong> برنامج</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-network-wired acc"></i><span>جهاز واحد أو شبكة أو أونلاين</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>14 يوم تجربة مجانية</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-headset acc"></i><span>دعم فني وتركيب</span></div>
+            </div>
+        </section>
+
+        <section id="programs" class="space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-grip acc"></i><span>برامجنا</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">اختار البرنامج عشان تشوف تفاصيله وتحمّله</p>
+                <div class="max-w-md mx-auto pt-2"><input oninput="filterPrograms(this.value)" placeholder="ابحث عن برنامج (صيدلية، مطعم، مدرسة، مرتبات…)" class="w-full bg-cardbg border border-gray-700 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"></div>
+            </div>
+            <div data-cat="retail" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-r-4 pr-3" style="border-color:#3b82f6">الكاشير ونقاط البيع</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="cashier/" data-prog="Meta Origin - Cashier كاشير السوبر ماركت السوبر ماركت باركود وميزان، ورديات، دليفري." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#22c55e">
+                    <img src="icons/cashier.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#22c55e">كاشير السوبر ماركت</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">باركود وميزان، ورديات، دليفري.</p>
+                    </div>
+                </a>
+                <a href="cashier-stores/" data-prog="Meta Origin - Cashier Stores كاشير لكل المحلات المحلات المتنوعة ملابس وعطور وموبايلات وأدوات منزلية." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#8b5cf6">
+                    <img src="icons/cashier-stores.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier Stores</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#8b5cf6">كاشير لكل المحلات</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">ملابس وعطور وموبايلات وأدوات منزلية.</p>
+                    </div>
+                </a>
+                <a href="cashier-lite/" data-prog="Meta Origin - Cashier Lite كاشير ماركت لجهاز واحد الماركت والمحلات الصغيرة بيع بالباركود، دليفري وعروض، تقفيل وأرباح." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#f59e0b">
+                    <img src="icons/cashier-lite.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier Lite</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#f59e0b">كاشير ماركت لجهاز واحد</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">بيع بالباركود، دليفري وعروض، تقفيل وأرباح.</p>
+                    </div>
+                </a>
+                <a href="cashier-clothes/" data-prog="Meta Origin - Cashier Clothes كاشير محلات الملابس محلات الملابس مقاسات وألوان، استبدال ومرتجع، تقسيط." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#ec4899">
+                    <img src="icons/cashier-clothes.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier Clothes</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#ec4899">كاشير محلات الملابس</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">مقاسات وألوان، استبدال ومرتجع، تقسيط.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="accounting" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-r-4 pr-3" style="border-color:#3b82f6">الحسابات والمخازن والمصانع</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="sales-erp/" data-prog="Meta Origin - Sales ERP المبيعات والمخازن والحسابات المبيعات والمخازن والحسابات سحابي من أي مكان أو ديسكتوب من غير نت: بيع ومخازن وحسابات و94 تقرير." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#e3b85c">
+                    <img src="icons/sales-erp.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Sales ERP</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-amber-400 text-black">جديد</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#e3b85c">المبيعات والمخازن والحسابات</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">سحابي من أي مكان أو ديسكتوب من غير نت: بيع ومخازن وحسابات و94 تقرير.</p>
+                    </div>
+                </a>
+                <a href="erp/" data-prog="Meta Origin - ERP System إدارة مصانع الملابس مصانع الملابس قص وإنتاج، جودة وتعبئة، تكاليف وحسابات." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#ea580c">
+                    <img src="icons/erp.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">ERP System</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#ea580c">إدارة مصانع الملابس</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">قص وإنتاج، جودة وتعبئة، تكاليف وحسابات.</p>
+                    </div>
+                </a>
+                <a href="acc/" data-prog="Meta Origin - Acc الحسابات العامة الحسابات العامة قيود وخزن وبنوك وقوائم مالية، بحزم حسب النشاط." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#00c2a8">
+                    <img src="icons/acc.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Acc</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#00c2a8">الحسابات العامة</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">قيود وخزن وبنوك وقوائم مالية، بحزم حسب النشاط.</p>
+                    </div>
+                </a>
+                <a href="acc-new/" data-prog="Meta Origin - Acc New حسابات ونقطة بيع حسابات المحلات والشركات والمصانع محل أو شركة تجارية أو مصنع: مبيعات ومخزون وتصنيع وقيود." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#3d5afe">
+                    <img src="icons/acc-new.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Acc New</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#3d5afe">حسابات ونقطة بيع</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">محل أو شركة تجارية أو مصنع: مبيعات ومخزون وتصنيع وقيود.</p>
+                    </div>
+                </a>
+                <a href="stores/" data-prog="Meta Origin - Stores المخازن ومتابعة الإنتاج المخازن والمصانع أذونات وجرد، أوامر إنتاج، متابعة الموديلات." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#34d399">
+                    <img src="icons/stores.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Stores</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#34d399">المخازن ومتابعة الإنتاج</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">أذونات وجرد، أوامر إنتاج، متابعة الموديلات.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="medical" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-r-4 pr-3" style="border-color:#3b82f6">الصيدليات والعيادات</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="pharmacy/" data-prog="Meta Origin - Pharmacy نظام الصيدليات إدارة الصيدليات والأدوية صيدلية واحدة أو سلسلة فروع: صلاحية وتشغيلات، تأمين، وأدوية مراقبة." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#16a34a">
+                    <img src="icons/pharmacy.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Pharmacy</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">متاح للتحميل</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#16a34a">نظام الصيدليات</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">صيدلية واحدة أو سلسلة فروع: صلاحية وتشغيلات، تأمين، وأدوية مراقبة.</p>
+                    </div>
+                </a>
+                <a href="clinic/" data-prog="Meta Origin - Clinic إدارة العيادات والمراكز الطبية العيادات والمراكز الطبية حجز وطابور، ملف المريض، روشتة، وكل التخصصات." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#00b3a4">
+                    <img src="icons/clinic.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Clinic</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#00b3a4">إدارة العيادات والمراكز الطبية</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">حجز وطابور، ملف المريض، روشتة، وكل التخصصات.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="hospitality" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-r-4 pr-3" style="border-color:#3b82f6">الفنادق والمطاعم</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="restaurant/" data-prog="Meta Origin - Restaurant كاشير المطاعم والكافيهات المطاعم والكافيهات والدليفري صالة وطاولات، مطبخ ودليفري، مخزن ووصفات." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#e85d12">
+                    <img src="icons/restaurant.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Restaurant</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#e85d12">كاشير المطاعم والكافيهات</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">صالة وطاولات، مطبخ ودليفري، مخزن ووصفات.</p>
+                    </div>
+                </a>
+                <a href="hotel/" data-prog="Meta Origin - Hotel إدارة الفنادق والشقق الفندقية الفنادق والشقق وسكن الطلاب حجوزات، سكن طلاب، حجز أونلاين." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#f97316">
+                    <img src="icons/hotel.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Hotel</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#f97316">إدارة الفنادق والشقق الفندقية</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">حجوزات، سكن طلاب، حجز أونلاين.</p>
+                    </div>
+                </a>
+                <a href="hotel-pro/" data-prog="Meta Origin - Hotel Pro إدارة الفنادق (برو) الفنادق مخطط الحجوزات، هاوس كيبنج، تقارير." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#d4a24c">
+                    <img src="icons/hotel-pro.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Hotel Pro</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#d4a24c">إدارة الفنادق (برو)</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">مخطط الحجوزات، هاوس كيبنج، تقارير.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="education" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-r-4 pr-3" style="border-color:#3b82f6">المدارس</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="school/" data-prog="Meta Origin - School حسابات وإدارة المدارس المدارس والجامعات مصروفات وأقساط، حضور ودرجات، باصات وكانتين." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#f43f5e">
+                    <img src="icons/school.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">School</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#f43f5e">حسابات وإدارة المدارس</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">مصروفات وأقساط، حضور ودرجات، باصات وكانتين.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="hr" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-r-4 pr-3" style="border-color:#3b82f6">شئون العاملين والمرتبات</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="hr/" data-prog="Meta Origin - HR شئون العاملين والمرتبات شئون العاملين بصمة وحضور، مرتبات وتأمينات، إجازات وسلف." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#38bdf8">
+                    <img src="icons/hr.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">HR</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#38bdf8">شئون العاملين والمرتبات</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">بصمة وحضور، مرتبات وتأمينات، إجازات وسلف.</p>
+                    </div>
+                </a>
+                <a href="hr-pro/" data-prog="Meta Origin - HR Pro الحضور والانصراف والمرتبات للمصانع شئون العاملين للمصانع حضور وانصراف، سحب البصمة تلقائي، ورديات." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#10b981">
+                    <img src="icons/hr-pro.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">HR Pro</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#10b981">الحضور والانصراف والمرتبات للمصانع</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">حضور وانصراف، سحب البصمة تلقائي، ورديات.</p>
+                    </div>
+                </a>
+                <a href="hr-enterprise/" data-prog="Meta Origin - HR Enterprise شئون العاملين للشركات الكبيرة شئون العاملين على SQL Server SQL Server، مرتبات، بصمة — لأجهزة كتير وبيانات أكبر." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#eab308">
+                    <img src="icons/hr-enterprise.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">HR Enterprise</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#eab308">شئون العاملين للشركات الكبيرة</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">SQL Server، مرتبات، بصمة — لأجهزة كتير وبيانات أكبر.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <p id="noResult" class="text-center text-gray-400" style="display:none">مفيش برنامج بالاسم ده — <a class="acc underline" href="https://wa.me/201150606002?text=%D9%85%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%84%D9%86%D8%B4%D8%A7%D8%B7%D9%8A" target="_blank" rel="noopener noreferrer">كلّمنا</a> وهنساعدك.</p>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#3b82f6"><i class="fa-solid fa-language text-2xl text-blue-400"></i><h3 class="text-lg font-bold text-white">عربي وسهل</h3><p class="text-gray-400 text-xs leading-relaxed">برامج بالعربي، شاشات واضحة، وشرح تفصيلي وفيديوهات لكل برنامج.</p></div>
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#22c55e"><i class="fa-solid fa-network-wired text-2xl text-emerald-400"></i><h3 class="text-lg font-bold text-white">جهاز أو شبكة أو أونلاين</h3><p class="text-gray-400 text-xs leading-relaxed">جهاز رئيسي وأجهزة على الشبكة، ومن المتصفح والموبايل، ونسخ احتياطي تلقائي.</p></div>
+            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#a855f7"><i class="fa-solid fa-shield-halved text-2xl text-purple-400"></i><h3 class="text-lg font-bold text-white">أمان وصلاحيات</h3><p class="text-gray-400 text-xs leading-relaxed">صلاحيات لكل موظف وسجل لكل عملية، وحماية الفلوس من التلاعب.</p></div>
+        </section>
+
+        <section id="team" class="space-y-6 pt-4">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-users acc"></i><span>فريق العمل وطرق التواصل</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">تواصل معنا مباشرة للدعم الفني والاستفسارات والتركيب</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+                    <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                        <img src="./img/mahmoud.png" alt="Mahmoud Youssef" title="اضغط لعرض الكارت كامل" onclick="zoomImg('./img/mahmoud_card.png')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:var(--acc)">
+                        <div>
+                            <span class="text-xs font-bold block mb-1" style="color:var(--acc)">المؤسس والمدير التنفيذي</span>
+                            <h3 class="text-lg font-extrabold text-white">محمود يوسف</h3>
+                            <span class="text-[11px] text-gray-400">Mahmoud Youssef</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed">يقود رؤية Meta Origin وتطوير منتجاتها. خبرته في فهم احتياجات المؤسسات وتحويلها لأنظمة عملية بتوفّر الوقت وبتظبط الحسابات، وبيتابع بنفسه تصميم الحلول وتركيبها ودعم العملاء.</p>
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs font-bold text-gray-200 flex items-center gap-1.5 mb-2"><i class="fa-solid fa-headset text-sky-400"></i> للتواصل والواتساب:</div>
+                        <div class="flex items-center justify-between bg-darkbg border border-acc p-2.5 rounded-xl" style="background:rgba(var(--acc-rgb),.05)">
+                            <span class="font-mono font-bold text-sm text-white" dir="ltr">01150606002</span>
+                            <a href="https://wa.me/201150606002" target="_blank" rel="noopener noreferrer" class="bg-acc px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm "></i> واتساب (الأساسي)
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01277122615</span>
+                            <a href="https://wa.me/201277122615" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> واتساب
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01011121145</span>
+                            <a href="https://wa.me/201011121145" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+                    <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                        <img src="./img/omar.png" alt="Omar Saleh" title="اضغط لعرض الكارت كامل" onclick="zoomImg('./img/omar_card.png')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:#38bdf8">
+                        <div>
+                            <span class="text-xs font-bold block mb-1" style="color:#38bdf8">الشريك المؤسس</span>
+                            <h3 class="text-lg font-extrabold text-white">عمر صالح</h3>
+                            <span class="text-[11px] text-gray-400">Omar Saleh</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed">شريك في تأسيس Meta Origin ومسؤول عن تطوير الأعمال والعلاقة مع العملاء. بيحرص إن كل مؤسسة تاخد النظام المناسب لحجمها وطريقة شغلها، وبيتابع التدريب وخدمة ما بعد البيع.</p>
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs font-bold text-gray-200 flex items-center gap-1.5 mb-2"><i class="fa-solid fa-headset text-sky-400"></i> للتواصل والواتساب:</div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01200966258</span>
+                            <a href="https://wa.me/201200966258" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white border px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" style="border-color:rgba(var(--acc-rgb),.5)">
+        <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">تم النسخ بنجاح!</span>
+    </div>
+    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <img src="./img/company-logo.png" alt="Meta Origin" class="w-6 h-6 object-cover opacity-70 rounded-lg">
+                <span class="font-bold text-gray-400">Meta Origin Software</span>
+            </div>
+            <p>جميع الحقوق محفوظة &copy; 2026 - Meta Origin</p>
+        </div>
+    </footer>
+    <script>
+        function copyTextToClipboard(text, msg) {
+            (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => { const t = document.createElement('input'); document.body.appendChild(t); t.value = text; t.select(); document.execCommand('copy'); t.remove(); });
+            showToast(msg);
+        }
+        function copyPassword(p) { copyTextToClipboard(p, 'تم نسخ كلمة السر (' + p + ') بنجاح!'); }
+        function copyPageLink() { copyTextToClipboard(location.href, 'تم نسخ رابط الصفحة بنجاح!'); }
+        function sharePage() { if (navigator.share) navigator.share({ title: document.title, url: location.href }).catch(() => {}); else copyPageLink(); }
+        function showToast(m) {
+            const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
+            t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
+        function filterPrograms(q) {
+            q = q.trim(); let shown = 0;
+            document.querySelectorAll('[data-prog]').forEach((el) => { const ok = !q || el.dataset.prog.includes(q); el.style.display = ok ? '' : 'none'; if (ok) shown++; });
+            document.querySelectorAll('[data-cat]').forEach((sec) => { sec.style.display = [...sec.querySelectorAll('[data-prog]')].some((e) => e.style.display !== 'none') ? '' : 'none'; });
+            const n = document.getElementById('noResult'); if (n) n.style.display = shown ? 'none' : '';
+        }
+    </script>
+</body>
+</html>
