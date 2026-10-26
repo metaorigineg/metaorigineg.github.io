@@ -7,6 +7,26 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const D = JSON.parse(fs.readFileSync(path.join(HERE, 'programs.json'), 'utf8'));
+const SHOTS = JSON.parse(fs.readFileSync(path.join(HERE, 'shots.json'), 'utf8'));
+const SITE = 'https://metaorigineg.github.io/';
+
+// فيديوهات الشرح: من قناة اليوتيوب نفسها (آخر الفيديوهات) — أي فيديو عنوانه فيه «Meta Origin - <البرنامج>» و«الشرح الكامل» بيتربط بصفحة البرنامج
+// لوحده. اللي مالوش فيديو لسه بيروح على القناة. لو مفيش نت وقت البناء: آخر روابط اتحفظت في videos.json.
+const CHANNEL_ID = 'UC3KHIkXcJqMmrjqbYZbK0Aw';
+const VIDEOS_FILE = path.join(HERE, 'videos.json');
+let VIDEOS = {};
+try { VIDEOS = JSON.parse(fs.readFileSync(VIDEOS_FILE, 'utf8')); } catch { /* أول مرة */ }
+try {
+  const xml = await (await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`)).text();
+  const byLength = [...D.programs].sort((a, b) => b.product.length - a.product.length);
+  const fresh = new Set(); // الفيد بيبدأ بالأحدث: أحدث فيديو للبرنامج بيكسب (لو اتمسح فيديو واترفع غيره)
+  for (const [, id, title] of xml.matchAll(/<yt:videoId>(.*?)<\/yt:videoId>[\s\S]*?<title>(.*?)<\/title>/g)) {
+    const p = byLength.find((x) => title.includes(x.product));
+    if (p && /الشرح الكامل/.test(title) && !fresh.has(p.slug)) { VIDEOS[p.slug] = `https://youtu.be/${id}`; fresh.add(p.slug); }
+  }
+  fs.writeFileSync(VIDEOS_FILE, JSON.stringify(VIDEOS, null, 2) + '\n');
+} catch (e) { console.log('مقدرتش أجيب فيديوهات القناة (هستخدم المحفوظ):', e.message); }
+for (const p of D.programs) if (!p.video && VIDEOS[p.slug]) p.video = VIDEOS[p.slug];
 const YEAR = new Date().getFullYear();
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const wa = (n, text) => `https://wa.me/2${n}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
@@ -27,7 +47,7 @@ function head({ title, desc, accent, base, image }) {
     <meta name="description" content="${esc(desc)}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(desc)}">
-    <meta property="og:image" content="${esc(image)}">
+    <meta property="og:image" content="${esc(SITE + image.replace(/^(\.\.\/|\.\/)/, ''))}">
     <meta name="theme-color" content="#0b0f19">
     <link rel="icon" href="${base}img/company-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,7 +84,7 @@ function header(base, { back } = {}) {
                 </div>
             </a>
             <div class="flex items-center gap-2">
-                ${back ? `<a href="${base}#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>كل البرامج</span></a>` : `<a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">البرامج</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">تواصل معنا</a>`}
+                ${back ? `<a href="${base}#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>كل البرامج</span></a>` : `<a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">البرامج</a><a href="#why" class="hidden md:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">المميزات</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">تواصل معنا</a>`}
                 <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
                     <i class="fa-solid fa-share-nodes acc"></i><span>مشاركة الصفحة</span>
                 </button>
@@ -111,11 +131,16 @@ function footer(base, name) {
         <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">تم النسخ بنجاح!</span>
     </div>
     <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <a href="${wa(D.company.whatsapp, name === 'Meta Origin' ? 'عايز أعرف أكتر عن برامج Meta Origin' : `عندي سؤال عن ${name}`)}" target="_blank" rel="noopener noreferrer" title="كلّمنا واتساب" class="fixed bottom-5 left-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
     <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <img src="${base}img/company-logo.png" alt="Meta Origin" class="w-6 h-6 object-cover opacity-70 rounded-lg">
                 <span class="font-bold text-gray-400">Meta Origin Software</span>
+            </div>
+            <div class="flex justify-center gap-4 text-base">
+                <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="hover:text-red-500" title="يوتيوب"><i class="fa-brands fa-youtube"></i> يوتيوب</a>
+                <a href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="واتساب"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
             </div>
             <p>جميع الحقوق محفوظة &copy; ${YEAR} - ${esc(name)}</p>
         </div>
@@ -147,6 +172,69 @@ function footer(base, name) {
 }
 
 // ---------------- صفحة البرنامج ----------------
+function gallery(p, base) {
+  const list = SHOTS[p.slug] || [];
+  if (!list.length) return '';
+  return `
+        <section id="screens" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-images acc"></i><span>صور من البرنامج</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">اضغط على أي صورة عشان تكبّرها</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+${list.map((x) => `                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('${base}${x.f}')">
+                    <img src="${base}${x.f}" alt="${esc(x.t)}" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">${esc(x.t)}</figcaption>
+                </figure>`).join('\n')}
+            </div>
+        </section>`;
+}
+
+const FAQ = [
+  ['البرنامج مجاني؟', 'بتجربه 14 يوم كاملين بكل الشاشات، وبعدها محتاج ترخيص — كلّمنا على الواتساب وهنقولك الأسعار المناسبة لنشاطك.'],
+  ['ينفع يشتغل على أكتر من جهاز؟', 'أيوه: جهاز رئيسي عليه البيانات وأجهزة تانية على نفس الشبكة، وكتير من البرامج بتتفتح كمان من المتصفح والموبايل.'],
+  ['بياناتي في أمان؟', 'البيانات على جهازك أنت، ومعاها نسخ احتياطي تلقائي في مكانين، وصلاحيات لكل موظف وسجل لكل عملية.'],
+  ['البرنامج بالإنجليزي كمان؟', 'أيوه، البرنامج بيشتغل بالعربي والإنجليزي وتقدر تبدّل بينهم.'],
+  ['لو حصلت مشكلة؟', 'جوّه البرنامج فيه زرار «إرسال تقرير مشكلة»، أو كلّمنا على الواتساب مباشرة وهنساعدك.'],
+];
+function installAndFaq(p) {
+  const steps = [
+    'حمّل البرنامج من أي سيرفر فوق وفك الضغط (لو الملف RAR).',
+    `شغّل «${p.product} Setup.exe» واختار: الجهاز الرئيسي (اللي عليه البيانات) أو جهاز تاني على الشبكة.`,
+    'اختار «تجربة 14 يوم» أو اكتب الترخيص — وكود الجهاز بيظهر في المعالج لو عايز تفعّل.',
+    'افتح البرنامج وادخل، وابدأ من الشرح التفصيلي اللي جوّاه أو كلّمنا ونساعدك.',
+  ];
+  const req = [
+    ['fa-brands fa-windows', 'Windows 10 أو 11 (64-bit)'],
+    ['fa-solid fa-memory', 'رامات 4 جيجا أو أكتر (8 للجهاز الرئيسي على شبكة كبيرة)'],
+    ['fa-solid fa-hard-drive', 'مساحة فاضية 1 جيجا على الأقل'],
+    ['fa-solid fa-wifi', 'الشبكة: الأجهزة على نفس الراوتر/الشبكة بتاعة الجهاز الرئيسي'],
+    ['fa-solid fa-print', 'بيشتغل مع طابعات الفواتير الحرارية و A4 وقارئ الباركود'],
+  ];
+  return `
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-list-ol acc"></i> خطوات التسطيب</h2>
+                <ol class="space-y-3 text-sm text-gray-300">
+${steps.map((t, i) => `                    <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-acc flex items-center justify-center text-xs font-black flex-shrink-0">${i + 1}</span><span class="pt-0.5">${esc(t)}</span></li>`).join('\n')}
+                </ol>
+            </div>
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-microchip acc"></i> متطلبات التشغيل</h2>
+                <ul class="space-y-2.5 text-sm text-gray-300">
+${req.map(([ic, t]) => `                    <li class="flex gap-2"><i class="${ic} acc mt-1"></i> ${esc(t)}</li>`).join('\n')}
+                </ul>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white text-center flex items-center justify-center gap-2"><i class="fa-solid fa-circle-question acc"></i> أسئلة متكررة</h2>
+            <div class="space-y-3 max-w-3xl mx-auto">
+${FAQ.map(([q, a]) => `                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">${esc(q)}<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">${esc(a)}</p></details>`).join('\n')}
+            </div>
+        </section>`;
+}
+
 function downloadCard(d, wide) {
   const color = d.tone || '#9ca3af';
   return `                <div class="bg-cardbg border ${d.password ? '' : 'border-gray-800'} rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4${wide ? ' md:col-span-2' : ''}" ${d.password ? `style="border-color:${color}55"` : ''}>
@@ -203,7 +291,12 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-desktop acc"></i><span>النظام: <strong class="text-white">Windows (64-bit)</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid ${p.icon} acc"></i><span>التصنيف: <strong class="text-white">${esc(p.category)}</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-shield-halved acc"></i><span>الحالة: <strong class="text-emerald-400">مفحوص وآمن 100%</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>اللغة: <strong class="text-white">عربي / English</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span><strong class="text-white">14 يوم</strong> تجربة مجانية</span></div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#downloads" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-download"></i> تحميل البرنامج</a>
+                <a href="${esc(p.video || D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-brands fa-youtube text-lg"></i> ${p.video ? 'شاهد فيديو الشرح' : 'فيديوهات الشرح على اليوتيوب'}</a>
             </div>
         </section>
 
@@ -227,6 +320,18 @@ ${p.features.map((f, i) => `                <div class="bg-cardbg border border-
                 </div>`).join('\n')}
             </div>
         </section>
+${p.video ? `
+        <section id="video" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-brands fa-youtube text-red-500"></i><span>فيديو الشرح</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">شرح كامل للبرنامج بالعامية المصرية — <a class="acc underline" href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer">وفيديوهات تانية على القناة</a></p>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-2xl aspect-video bg-black">
+                <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/${esc(p.video.split('/').pop())}" title="${esc(p.product)}" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>` : ''}
+${gallery(p, base)}
+${installAndFaq(p)}
 ${team(base)}
 
         <section class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl" style="background:linear-gradient(90deg, rgba(var(--acc-rgb),.12), #111827, rgba(37,99,235,.12))">
@@ -270,9 +375,11 @@ function homePage() {
             <div class="flex flex-wrap justify-center gap-3">
                 <a href="#programs" class="bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95 flex items-center gap-2"><i class="fa-solid fa-grip"></i> تصفّح البرامج</a>
                 <a href="${wa(D.company.whatsapp, 'عايز أعرف أكتر عن برامج Meta Origin')}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> كلّمنا واتساب</a>
+                <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-youtube"></i> قناتنا على اليوتيوب</a>
             </div>
             <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong class="text-white">${D.programs.length}</strong> برنامج</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>عربي و English</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-network-wired acc"></i><span>جهاز واحد أو شبكة أو أونلاين</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>14 يوم تجربة مجانية</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-headset acc"></i><span>دعم فني وتركيب</span></div>
@@ -294,10 +401,18 @@ ${c.items.map(card).join('\n')}
             <p id="noResult" class="text-center text-gray-400" style="display:none">مفيش برنامج بالاسم ده — <a class="acc underline" href="${wa(D.company.whatsapp, 'محتاج برنامج لنشاطي')}" target="_blank" rel="noopener noreferrer">كلّمنا</a> وهنساعدك.</p>
         </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#3b82f6"><i class="fa-solid fa-language text-2xl text-blue-400"></i><h3 class="text-lg font-bold text-white">عربي وسهل</h3><p class="text-gray-400 text-xs leading-relaxed">برامج بالعربي، شاشات واضحة، وشرح تفصيلي وفيديوهات لكل برنامج.</p></div>
-            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#22c55e"><i class="fa-solid fa-network-wired text-2xl text-emerald-400"></i><h3 class="text-lg font-bold text-white">جهاز أو شبكة أو أونلاين</h3><p class="text-gray-400 text-xs leading-relaxed">جهاز رئيسي وأجهزة على الشبكة، ومن المتصفح والموبايل، ونسخ احتياطي تلقائي.</p></div>
-            <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#a855f7"><i class="fa-solid fa-shield-halved text-2xl text-purple-400"></i><h3 class="text-lg font-bold text-white">أمان وصلاحيات</h3><p class="text-gray-400 text-xs leading-relaxed">صلاحيات لكل موظف وسجل لكل عملية، وحماية الفلوس من التلاعب.</p></div>
+        <section id="why" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-star acc"></i><span>ليه برامج Meta Origin؟</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">حاجات موجودة في كل برامجنا</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+${D.company.strengths.map((x) => `                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:${x.color}">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:${x.color}1f;color:${x.color}"><i class="fa-solid ${x.icon}"></i></div>
+                    <h3 class="text-base font-bold text-white">${esc(x.t)}</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">${esc(x.d)}</p>
+                </div>`).join('\n')}
+            </div>
         </section>
 ${team(base)}
     </main>` + footer(base, 'Meta Origin');
@@ -310,4 +425,10 @@ for (const p of D.programs) {
 }
 // صفحة 404: أي رابط غلط يرجع للرئيسية
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
+fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`)].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+</urlset>
+`);
+fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);
 console.log(`index.html + ${D.programs.length} صفحة برنامج`);

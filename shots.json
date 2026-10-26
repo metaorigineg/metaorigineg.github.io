@@ -1,0 +1,470 @@
+{
+ "pharmacy": [
+  {
+   "f": "shots/pharmacy/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/pharmacy/2.jpg",
+   "t": "العملاء والآجل"
+  },
+  {
+   "f": "shots/pharmacy/3.jpg",
+   "t": "الأصناف"
+  },
+  {
+   "f": "shots/pharmacy/4.jpg",
+   "t": "المشتريات"
+  },
+  {
+   "f": "shots/pharmacy/5.jpg",
+   "t": "التقارير"
+  },
+  {
+   "f": "shots/pharmacy/6.jpg",
+   "t": "نقطة البيع"
+  }
+ ],
+ "sales-erp": [
+  {
+   "f": "shots/sales-erp/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/sales-erp/2.jpg",
+   "t": "فواتير المشتريات"
+  },
+  {
+   "f": "shots/sales-erp/3.jpg",
+   "t": "الخزينة"
+  },
+  {
+   "f": "shots/sales-erp/4.jpg",
+   "t": "العملاء"
+  },
+  {
+   "f": "shots/sales-erp/5.jpg",
+   "t": "التقارير والاستعلامات"
+  },
+  {
+   "f": "shots/sales-erp/6.jpg",
+   "t": "نقطة البيع"
+  }
+ ],
+ "clinic": [
+  {
+   "f": "shots/clinic/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/clinic/2.jpg",
+   "t": "استقبال النهارده (الطابور)"
+  },
+  {
+   "f": "shots/clinic/3.jpg",
+   "t": "التحاليل والأشعة"
+  },
+  {
+   "f": "shots/clinic/4.jpg",
+   "t": "الفواتير والتحصيل"
+  },
+  {
+   "f": "shots/clinic/5.jpg",
+   "t": "العمليات"
+  },
+  {
+   "f": "shots/clinic/6.jpg",
+   "t": "بيع (الصيدلية)"
+  }
+ ],
+ "school": [
+  {
+   "f": "shots/school/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/school/2.jpg",
+   "t": "التحصيل"
+  },
+  {
+   "f": "shots/school/3.jpg",
+   "t": "الطلاب"
+  },
+  {
+   "f": "shots/school/4.jpg",
+   "t": "الحضور والغياب"
+  },
+  {
+   "f": "shots/school/5.jpg",
+   "t": "تقارير الإدارة"
+  },
+  {
+   "f": "shots/school/6.jpg",
+   "t": "خطوط الباصات"
+  }
+ ],
+ "erp": [
+  {
+   "f": "shots/erp/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/erp/2.jpg",
+   "t": "وحدات القياس"
+  },
+  {
+   "f": "shots/erp/3.jpg",
+   "t": "الموديلات"
+  },
+  {
+   "f": "shots/erp/4.jpg",
+   "t": "اقتراحات الشراء"
+  },
+  {
+   "f": "shots/erp/5.jpg",
+   "t": "تخطيط القص"
+  },
+  {
+   "f": "shots/erp/6.jpg",
+   "t": "أوامر الإنتاج"
+  }
+ ],
+ "acc": [
+  {
+   "f": "shots/acc/1.jpg",
+   "t": "الرئيسية"
+  },
+  {
+   "f": "shots/acc/2.jpg",
+   "t": "التحصيل السريع"
+  },
+  {
+   "f": "shots/acc/3.jpg",
+   "t": "قائمة الطلاب"
+  },
+  {
+   "f": "shots/acc/4.jpg",
+   "t": "التحصيل"
+  },
+  {
+   "f": "shots/acc/5.jpg",
+   "t": "السنوات الدراسية والتراما"
+  },
+  {
+   "f": "shots/acc/6.jpg",
+   "t": "مركز التقارير"
+  }
+ ],
+ "acc-new": [
+  {
+   "f": "shots/acc-new/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/acc-new/2.jpg",
+   "t": "فواتير المبيعات"
+  },
+  {
+   "f": "shots/acc-new/3.jpg",
+   "t": "الأصناف"
+  },
+  {
+   "f": "shots/acc-new/4.jpg",
+   "t": "العملاء"
+  },
+  {
+   "f": "shots/acc-new/5.jpg",
+   "t": "الموظفين والمرتبات"
+  },
+  {
+   "f": "shots/acc-new/6.jpg",
+   "t": "نقطة البيع"
+  }
+ ],
+ "stores": [
+  {
+   "f": "shots/stores/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/stores/2.jpg",
+   "t": "فواتير الشراء"
+  },
+  {
+   "f": "shots/stores/3.jpg",
+   "t": "المخزون"
+  },
+  {
+   "f": "shots/stores/4.jpg",
+   "t": "التخطيط والمتابعة"
+  },
+  {
+   "f": "shots/stores/5.jpg",
+   "t": "أوامر الإنتاج"
+  },
+  {
+   "f": "shots/stores/6.jpg",
+   "t": "الإنتاج (التسجيل اليومي)"
+  }
+ ],
+ "hotel": [
+  {
+   "f": "shots/hotel/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/hotel/2.jpg",
+   "t": "الحجوزات"
+  },
+  {
+   "f": "shots/hotel/3.jpg",
+   "t": "الوحدات والغرف"
+  },
+  {
+   "f": "shots/hotel/4.jpg",
+   "t": "التنضيف"
+  },
+  {
+   "f": "shots/hotel/5.jpg",
+   "t": "التقارير"
+  },
+  {
+   "f": "shots/hotel/6.jpg",
+   "t": "تقويم الحجوزات"
+  }
+ ],
+ "hotel-pro": [
+  {
+   "f": "shots/hotel-pro/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/hotel-pro/2.jpg",
+   "t": "إدارة الغرف"
+  },
+  {
+   "f": "shots/hotel-pro/3.jpg",
+   "t": "الفواتير والمدفوعات"
+  },
+  {
+   "f": "shots/hotel-pro/4.jpg",
+   "t": "سجل العمليات"
+  },
+  {
+   "f": "shots/hotel-pro/5.jpg",
+   "t": "مخطط الحجوزات"
+  },
+  {
+   "f": "shots/hotel-pro/6.jpg",
+   "t": "الحجوزات"
+  }
+ ],
+ "cashier": [
+  {
+   "f": "shots/cashier/1.jpg",
+   "t": "البيع"
+  },
+  {
+   "f": "shots/cashier/2.jpg",
+   "t": "العملاء والآجل"
+  },
+  {
+   "f": "shots/cashier/3.jpg",
+   "t": "الأصناف والمخزن"
+  },
+  {
+   "f": "shots/cashier/4.jpg",
+   "t": "المشتريات"
+  },
+  {
+   "f": "shots/cashier/5.jpg",
+   "t": "لوحة المالك"
+  },
+  {
+   "f": "shots/cashier/6.jpg",
+   "t": "الوردية"
+  }
+ ],
+ "cashier-stores": [
+  {
+   "f": "shots/cashier-stores/1.jpg",
+   "t": "الرئيسية"
+  },
+  {
+   "f": "shots/cashier-stores/2.jpg",
+   "t": "المنتجات والمخزون"
+  },
+  {
+   "f": "shots/cashier-stores/3.jpg",
+   "t": "العملاء"
+  },
+  {
+   "f": "shots/cashier-stores/4.jpg",
+   "t": "الموظفين"
+  },
+  {
+   "f": "shots/cashier-stores/5.jpg",
+   "t": "نقطة البيع"
+  },
+  {
+   "f": "shots/cashier-stores/6.jpg",
+   "t": "الفواتير والمرتجع"
+  }
+ ],
+ "cashier-lite": [
+  {
+   "f": "shots/cashier-lite/1.jpg",
+   "t": "إضافة صنف جديد"
+  },
+  {
+   "f": "shots/cashier-lite/2.jpg",
+   "t": "فاتورة عادية"
+  },
+  {
+   "f": "shots/cashier-lite/3.jpg",
+   "t": "فتح وقفل الوردية"
+  },
+  {
+   "f": "shots/cashier-lite/4.jpg",
+   "t": "شاشة الفواتير (F4)"
+  },
+  {
+   "f": "shots/cashier-lite/5.jpg",
+   "t": "الدليفري وطلبات التليفون"
+  },
+  {
+   "f": "shots/cashier-lite/6.jpg",
+   "t": "العملاء"
+  }
+ ],
+ "cashier-clothes": [
+  {
+   "f": "shots/cashier-clothes/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/cashier-clothes/2.jpg",
+   "t": "العملاء"
+  },
+  {
+   "f": "shots/cashier-clothes/3.jpg",
+   "t": "المصاريف النثرية"
+  },
+  {
+   "f": "shots/cashier-clothes/4.jpg",
+   "t": "نقطة البيع"
+  },
+  {
+   "f": "shots/cashier-clothes/5.jpg",
+   "t": "الفواتير"
+  },
+  {
+   "f": "shots/cashier-clothes/6.jpg",
+   "t": "المرتجعات"
+  }
+ ],
+ "restaurant": [
+  {
+   "f": "shots/restaurant/1.jpg",
+   "t": "الكاشير"
+  },
+  {
+   "f": "shots/restaurant/2.jpg",
+   "t": "المطبخ"
+  },
+  {
+   "f": "shots/restaurant/3.jpg",
+   "t": "المنيو والأسعار"
+  },
+  {
+   "f": "shots/restaurant/4.jpg",
+   "t": "الوردية"
+  },
+  {
+   "f": "shots/restaurant/5.jpg",
+   "t": "المتابعة"
+  },
+  {
+   "f": "shots/restaurant/6.jpg",
+   "t": "الصالة والطاولات"
+  }
+ ],
+ "hr": [
+  {
+   "f": "shots/hr/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/hr/2.jpg",
+   "t": "الموظفين"
+  },
+  {
+   "f": "shots/hr/3.jpg",
+   "t": "الحضور والانصراف"
+  },
+  {
+   "f": "shots/hr/4.jpg",
+   "t": "المرتبات"
+  },
+  {
+   "f": "shots/hr/5.jpg",
+   "t": "التقارير"
+  },
+  {
+   "f": "shots/hr/6.jpg",
+   "t": "إدارة المستخدمين"
+  }
+ ],
+ "hr-pro": [
+  {
+   "f": "shots/hr-pro/1.jpg",
+   "t": "الرئيسية"
+  },
+  {
+   "f": "shots/hr-pro/2.jpg",
+   "t": "الموظفون"
+  },
+  {
+   "f": "shots/hr-pro/3.jpg",
+   "t": "الحضور اليومي"
+  },
+  {
+   "f": "shots/hr-pro/4.jpg",
+   "t": "مسير الرواتب"
+  },
+  {
+   "f": "shots/hr-pro/5.jpg",
+   "t": "الورديات"
+  },
+  {
+   "f": "shots/hr-pro/6.jpg",
+   "t": "أجهزة البصمة"
+  }
+ ],
+ "hr-enterprise": [
+  {
+   "f": "shots/hr-enterprise/1.jpg",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/hr-enterprise/2.jpg",
+   "t": "الموظفين"
+  },
+  {
+   "f": "shots/hr-enterprise/3.jpg",
+   "t": "الحضور والانصراف"
+  },
+  {
+   "f": "shots/hr-enterprise/4.jpg",
+   "t": "المرتبات"
+  },
+  {
+   "f": "shots/hr-enterprise/5.jpg",
+   "t": "التقارير"
+  },
+  {
+   "f": "shots/hr-enterprise/6.jpg",
+   "t": "إدارة المستخدمين"
+  }
+ ]
+}
