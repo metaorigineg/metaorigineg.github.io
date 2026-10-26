@@ -67,7 +67,12 @@
       }
     ],
     "youtube": "https://www.youtube.com/@Meta.Origin-eg",
-    "facebook": "https://www.facebook.com/meta.origin.eg"
+    "facebook": "https://www.facebook.com/meta.origin.eg",
+    "instagram": "https://www.instagram.com/meta.origin.coding/",
+    "emails": [
+      "meta.origin@outlook.com",
+      "meta.origin.eg@gmail.com"
+    ]
   },
   "categories": {
     "retail": "الكاشير ونقاط البيع",

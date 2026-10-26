@@ -127,6 +127,11 @@ ${m.phones.map((p) => `                        <div class="flex items-center jus
                     </div>
                 </div>`).join('\n')}
             </div>
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+${D.company.emails.map((e) => `                <a href="mailto:${esc(e)}" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="truncate" dir="ltr">${esc(e)}</span></a>`).join('\n')}
+                <a href="${esc(D.company.instagram)}" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-instagram text-pink-500"></i> انستجرام</a>
+                <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-facebook text-[#1877f2]"></i> فيسبوك</a>
+            </div>
         </section>`;
 }
 
@@ -146,7 +151,11 @@ function footer(base, name) {
             <div class="flex justify-center gap-4 text-base">
                 <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877f2]" title="فيسبوك"><i class="fa-brands fa-facebook"></i> فيسبوك</a>
                 <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="hover:text-red-500" title="يوتيوب"><i class="fa-brands fa-youtube"></i> يوتيوب</a>
+                <a href="${esc(D.company.instagram)}" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500" title="انستجرام"><i class="fa-brands fa-instagram"></i> انستجرام</a>
                 <a href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="واتساب"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
+                ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
             <p>جميع الحقوق محفوظة &copy; ${YEAR} - ${esc(name)}</p>
         </div>
@@ -395,6 +404,8 @@ function homePage() {
                 <a href="${wa(D.company.whatsapp, 'عايز أعرف أكتر عن برامج Meta Origin')}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> كلّمنا واتساب</a>
                 <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-youtube"></i> قناتنا على اليوتيوب</a>
                 <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="bg-[#1877f2] hover:brightness-110 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-facebook"></i> صفحتنا على الفيسبوك</a>
+                <a href="${esc(D.company.instagram)}" target="_blank" rel="noopener noreferrer" class="text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:brightness-110" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)"><i class="fa-brands fa-instagram"></i> انستجرام</a>
+                <a href="mailto:${esc(D.company.emails[0])}" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-solid fa-envelope acc"></i> راسلنا بالإيميل</a>
             </div>
             <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong class="text-white">${D.programs.length}</strong> برنامج</span></div>
