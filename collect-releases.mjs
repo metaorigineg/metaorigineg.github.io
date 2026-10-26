@@ -22,7 +22,7 @@ const MAP = {
   'cashier-stores': ['Meta Origin - Cashier Stores', 'kashier'], 'cashier-lite': ['Meta Origin - Cashier Lite', 'cashierlite'], 'cashier-clothes': ['Meta Origin - Cashier Clothes', 'clothes'],
   restaurant: ['Meta Origin - Restaurant', 'restaurant'], hr: ['Meta Origin - HR', 'hr'], 'hr-pro': ['Meta Origin - HR Pro', 'hrpro'], 'hr-enterprise': ['Meta Origin - HR Enterprise', 'hrenterprise'],
 };
-const NOT_LIVE = /أونلاين|طلب تفعيل/;
+const NOT_LIVE = /$^/; // سيرفر التراخيص الأونلاين شغال من 2026-10-20 — مفيش حاجة تتخبّى
 
 // ملاحظات whats-new (الملف مكتوب للمتصفح: بنشغّله في بيئة وهمية ونطلّع NOTES)
 let NOTES = {};
@@ -43,7 +43,14 @@ for (const p of D.programs) {
   const file = dir && path.join(END, dir, `${dir} Setup.exe`);
   if (!file || !fs.existsSync(file)) { console.log('مفيش معالج:', p.slug); continue; }
   const version = ver(file);
-  const notes = ((NOTES[key] || {})[version] || []).filter((x) => !NOT_LIVE.test(x));
+  let notes = ((NOTES[key] || {})[version] || []).filter((x) => !NOT_LIVE.test(x));
+  // HR و HR Enterprise ليهم «إيه الجديد» لوحدهم في services/changelog.py
+  const SRC = { hr: 'Meta Origin - HR', 'hr-enterprise': 'Meta Origin - HR SQL Server' }[p.slug];
+  const cl = SRC && path.join(ROOT, SRC, 'services', 'changelog.py');
+  if (!notes.length && cl && fs.existsSync(cl)) {
+    const m = fs.readFileSync(cl, 'utf8').match(new RegExp(`\\('${version.replace(/\./g, '\\.')}',[^\\[]*\\[([\\s\\S]*?)\\]\\),`));
+    if (m) notes = [...m[1].matchAll(/'((?:[^'\\]|\\.)*)'/g)].map((x) => x[1]).filter((x) => !NOT_LIVE.test(x));
+  }
   // الملف اللي بيترفع: الـ RAR اللي صاحب البرامج بيعمله جوّه فولدر البرنامج (نفس اللي على مواقع الرفع التانية)، وإلا المعالج نفسه
   const rar = path.join(END, dir, `${dir}.rar`);
   const up = fs.existsSync(rar) ? rar : file;
