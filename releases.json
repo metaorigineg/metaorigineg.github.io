@@ -8,7 +8,7 @@
     "asset": "Meta-Origin-Pharmacy-1.1.0.rar",
     "tag": "pharmacy-v1.1.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "sales-erp": {
     "version": "1.0.0",
@@ -19,7 +19,7 @@
     "asset": "Meta-Origin-Sales-ERP-1.0.0.rar",
     "tag": "sales-erp-v1.0.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "clinic": {
     "version": "1.11.0",
@@ -30,7 +30,7 @@
     "asset": "Meta-Origin-Clinic-1.11.0.rar",
     "tag": "clinic-v1.11.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "school": {
     "version": "1.7.0",
@@ -41,7 +41,7 @@
     "asset": "Meta-Origin-School-1.7.0.rar",
     "tag": "school-v1.7.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "erp": {
     "version": "1.6.0",
@@ -55,7 +55,7 @@
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
       "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل)."
     ],
-    "published": false
+    "published": true
   },
   "acc": {
     "version": "1.6.0",
@@ -69,7 +69,7 @@
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
       "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل)."
     ],
-    "published": false
+    "published": true
   },
   "acc-new": {
     "version": "1.8.0",
@@ -82,7 +82,7 @@
     "notes": [
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
     ],
-    "published": false
+    "published": true
   },
   "stores": {
     "version": "1.7.0",
@@ -97,7 +97,7 @@
       "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل).",
       "زرار «تغيير كلمة المرور» في قائمة المستخدم بقى شغال."
     ],
-    "published": false
+    "published": true
   },
   "cashier": {
     "version": "1.14.0",
@@ -108,7 +108,7 @@
     "asset": "Meta-Origin-Cashier-1.14.0.rar",
     "tag": "cashier-v1.14.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "cashier-stores": {
     "version": "1.17.0",
@@ -122,7 +122,7 @@
       "تسجيل الدخول وموافقة المدير بقوا بتشفير قوي للرقم السري، و5 محاولات غلط بتقفل دقيقة (الرقم القديم بيتحوّل لوحده أول دخول).",
       "قفل الوردية بقى فيه مطابقة إجمالي ماكينة الفيزا واللي وصل على المحفظة باللي اتسجل، والفرق بيظهر للمدير."
     ],
-    "published": false
+    "published": true
   },
   "cashier-lite": {
     "version": "0.9.0",
@@ -139,7 +139,7 @@
       "قفل الوردية بقى فيه مطابقة الدفع الإلكتروني: إجمالي تقرير ماكينة الفيزا واللي وصل على انستاباي والمحفظة بيتقارن باللي اتسجل، والفرق بيظهر للمدير في سجل العمليات.",
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
     ],
-    "published": false
+    "published": true
   },
   "cashier-clothes": {
     "version": "0.8.0",
@@ -152,7 +152,7 @@
     "notes": [
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
     ],
-    "published": false
+    "published": true
   },
   "restaurant": {
     "version": "1.2.0",
@@ -163,7 +163,7 @@
     "asset": "Meta-Origin-Restaurant-1.2.0.rar",
     "tag": "restaurant-v1.2.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "hotel": {
     "version": "1.11.0",
@@ -177,7 +177,7 @@
       "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
       "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل)."
     ],
-    "published": false
+    "published": true
   },
   "hotel-pro": {
     "version": "3.14.0",
@@ -188,7 +188,7 @@
     "asset": "Meta-Origin-Hotel-Pro-3.14.0.rar",
     "tag": "hotel-pro-v3.14.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "hr": {
     "version": "1.8.0",
@@ -199,7 +199,7 @@
     "asset": "Meta-Origin-HR-1.8.0.rar",
     "tag": "hr-v1.8.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "hr-pro": {
     "version": "0.7.0",
@@ -210,7 +210,7 @@
     "asset": "Meta-Origin-HR-Pro-0.7.0.rar",
     "tag": "hr-pro-v0.7.0",
     "notes": [],
-    "published": false
+    "published": true
   },
   "hr-enterprise": {
     "version": "1.2.0",
@@ -221,6 +221,6 @@
     "asset": "Meta-Origin-HR-Enterprise-1.2.0.rar",
     "tag": "hr-enterprise-v1.2.0",
     "notes": [],
-    "published": false
+    "published": true
   }
 }
