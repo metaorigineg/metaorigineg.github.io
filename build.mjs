@@ -139,6 +139,7 @@ function footer(base, name) {
                 <span class="font-bold text-gray-400">Meta Origin Software</span>
             </div>
             <div class="flex justify-center gap-4 text-base">
+                <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877f2]" title="فيسبوك"><i class="fa-brands fa-facebook"></i> فيسبوك</a>
                 <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="hover:text-red-500" title="يوتيوب"><i class="fa-brands fa-youtube"></i> يوتيوب</a>
                 <a href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="واتساب"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
             </div>
@@ -376,6 +377,7 @@ function homePage() {
                 <a href="#programs" class="bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95 flex items-center gap-2"><i class="fa-solid fa-grip"></i> تصفّح البرامج</a>
                 <a href="${wa(D.company.whatsapp, 'عايز أعرف أكتر عن برامج Meta Origin')}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> كلّمنا واتساب</a>
                 <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-youtube"></i> قناتنا على اليوتيوب</a>
+                <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="bg-[#1877f2] hover:brightness-110 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-facebook"></i> صفحتنا على الفيسبوك</a>
             </div>
             <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong class="text-white">${D.programs.length}</strong> برنامج</span></div>
