@@ -1,0 +1,226 @@
+{
+  "pharmacy": {
+    "version": "1.1.0",
+    "date": "2026-10-25",
+    "sizeMB": 244,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Pharmacy\\Meta Origin - Pharmacy.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Pharmacy-1.1.0.rar",
+    "tag": "pharmacy-v1.1.0",
+    "notes": [],
+    "published": false
+  },
+  "sales-erp": {
+    "version": "1.0.0",
+    "date": "2026-10-26",
+    "sizeMB": 224,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Sales ERP\\Meta Origin - Sales ERP Setup.exe",
+    "kind": "EXE",
+    "asset": "Meta-Origin-Sales-ERP-1.0.0-Setup.exe",
+    "tag": "sales-erp-v1.0.0",
+    "notes": [],
+    "published": false
+  },
+  "clinic": {
+    "version": "1.11.0",
+    "date": "2026-10-21",
+    "sizeMB": 428,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Clinic\\Meta Origin - Clinic.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Clinic-1.11.0.rar",
+    "tag": "clinic-v1.11.0",
+    "notes": [],
+    "published": false
+  },
+  "school": {
+    "version": "1.7.0",
+    "date": "2026-10-21",
+    "sizeMB": 369,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - School\\Meta Origin - School.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-School-1.7.0.rar",
+    "tag": "school-v1.7.0",
+    "notes": [],
+    "published": false
+  },
+  "erp": {
+    "version": "1.6.0",
+    "date": "2026-10-21",
+    "sizeMB": 388,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - ERP System\\Meta Origin - ERP System.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-ERP-System-1.6.0.rar",
+    "tag": "erp-v1.6.0",
+    "notes": [
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
+      "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل)."
+    ],
+    "published": false
+  },
+  "acc": {
+    "version": "1.6.0",
+    "date": "2026-10-21",
+    "sizeMB": 383,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc\\Meta Origin - Acc.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Acc-1.6.0.rar",
+    "tag": "acc-v1.6.0",
+    "notes": [
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
+      "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل)."
+    ],
+    "published": false
+  },
+  "acc-new": {
+    "version": "1.8.0",
+    "date": "2026-10-21",
+    "sizeMB": 224,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc New\\Meta Origin - Acc New.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Acc-New-1.8.0.rar",
+    "tag": "acc-new-v1.8.0",
+    "notes": [
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
+    ],
+    "published": false
+  },
+  "stores": {
+    "version": "1.7.0",
+    "date": "2026-10-21",
+    "sizeMB": 164,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Stores\\Meta Origin - Stores.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Stores-1.7.0.rar",
+    "tag": "stores-v1.7.0",
+    "notes": [
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
+      "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل).",
+      "زرار «تغيير كلمة المرور» في قائمة المستخدم بقى شغال."
+    ],
+    "published": false
+  },
+  "cashier": {
+    "version": "1.14.0",
+    "date": "2026-10-21",
+    "sizeMB": 233,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier\\Meta Origin - Cashier.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Cashier-1.14.0.rar",
+    "tag": "cashier-v1.14.0",
+    "notes": [],
+    "published": false
+  },
+  "cashier-stores": {
+    "version": "1.17.0",
+    "date": "2026-10-21",
+    "sizeMB": 224,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Stores\\Meta Origin - Cashier Stores.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Cashier-Stores-1.17.0.rar",
+    "tag": "cashier-stores-v1.17.0",
+    "notes": [
+      "تسجيل الدخول وموافقة المدير بقوا بتشفير قوي للرقم السري، و5 محاولات غلط بتقفل دقيقة (الرقم القديم بيتحوّل لوحده أول دخول).",
+      "قفل الوردية بقى فيه مطابقة إجمالي ماكينة الفيزا واللي وصل على المحفظة باللي اتسجل، والفرق بيظهر للمدير."
+    ],
+    "published": false
+  },
+  "cashier-lite": {
+    "version": "0.9.0",
+    "date": "2026-10-21",
+    "sizeMB": 117,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Lite\\Meta Origin - Cashier Lite.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Cashier-Lite-0.9.0.rar",
+    "tag": "cashier-lite-v0.9.0",
+    "notes": [
+      "قفل الوردية بقى «عدّ أعمى» للكاشير من الأول: مابيشوفش المفروض في الدرج ولا العجز والزيادة إلا بباسورد المدير (المدير يقدر يقفلها من الإعدادات ← الوردية).",
+      "البيع الآجل بقى بس للعميل اللي المدير حدّدله حد آجل — العميل الجديد (أو اللي حدّه صفر) مالوش آجل من الكاشير، والمدير حر.",
+      "حد الآجل للعميل بقى المدير بس اللي يحدده.",
+      "قفل الوردية بقى فيه مطابقة الدفع الإلكتروني: إجمالي تقرير ماكينة الفيزا واللي وصل على انستاباي والمحفظة بيتقارن باللي اتسجل، والفرق بيظهر للمدير في سجل العمليات.",
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
+    ],
+    "published": false
+  },
+  "cashier-clothes": {
+    "version": "0.8.0",
+    "date": "2026-10-21",
+    "sizeMB": 134,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes Setup.exe",
+    "kind": "EXE",
+    "asset": "Meta-Origin-Cashier-Clothes-0.8.0-Setup.exe",
+    "tag": "cashier-clothes-v0.8.0",
+    "notes": [
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب."
+    ],
+    "published": false
+  },
+  "restaurant": {
+    "version": "1.2.0",
+    "date": "2026-10-21",
+    "sizeMB": 226,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Restaurant\\Meta Origin - Restaurant.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Restaurant-1.2.0.rar",
+    "tag": "restaurant-v1.2.0",
+    "notes": [],
+    "published": false
+  },
+  "hotel": {
+    "version": "1.11.0",
+    "date": "2026-10-21",
+    "sizeMB": 330,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel\\Meta Origin - Hotel.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Hotel-1.11.0.rar",
+    "tag": "hotel-v1.11.0",
+    "notes": [
+      "التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.",
+      "الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل)."
+    ],
+    "published": false
+  },
+  "hotel-pro": {
+    "version": "3.14.0",
+    "date": "2026-10-21",
+    "sizeMB": 229,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel Pro\\Meta Origin - Hotel Pro.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Hotel-Pro-3.14.0.rar",
+    "tag": "hotel-pro-v3.14.0",
+    "notes": [],
+    "published": false
+  },
+  "hr": {
+    "version": "1.8.0",
+    "date": "2026-10-21",
+    "sizeMB": 220,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR\\Meta Origin - HR.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-HR-1.8.0.rar",
+    "tag": "hr-v1.8.0",
+    "notes": [],
+    "published": false
+  },
+  "hr-pro": {
+    "version": "0.7.0",
+    "date": "2026-10-21",
+    "sizeMB": 354,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR Pro\\Meta Origin - HR Pro.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-HR-Pro-0.7.0.rar",
+    "tag": "hr-pro-v0.7.0",
+    "notes": [],
+    "published": false
+  },
+  "hr-enterprise": {
+    "version": "1.2.0",
+    "date": "2026-10-21",
+    "sizeMB": 451,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR Enterprise\\Meta Origin - HR Enterprise.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-HR-Enterprise-1.2.0.rar",
+    "tag": "hr-enterprise-v1.2.0",
+    "notes": [],
+    "published": false
+  }
+}

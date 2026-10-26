@@ -8,6 +8,11 @@ import { fileURLToPath } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const D = JSON.parse(fs.readFileSync(path.join(HERE, 'programs.json'), 'utf8'));
 const SHOTS = JSON.parse(fs.readFileSync(path.join(HERE, 'shots.json'), 'utf8'));
+// الإصدارات والتحميل المباشر من GitHub Releases (collect-releases.mjs) — الزرار بيظهر بس بعد ما الملف يترفع (published)
+const REL = fs.existsSync(path.join(HERE, 'releases.json')) ? JSON.parse(fs.readFileSync(path.join(HERE, 'releases.json'), 'utf8')) : {};
+const RELEASE_REPO = 'metaorigineg/metaorigineg.github.io';
+const directUrl = (r) => `https://github.com/${RELEASE_REPO}/releases/download/${r.tag}/${r.asset}`;
+const fmtDay = (d) => { const [y, m, dd] = d.split('-'); return `${Number(dd)}/${Number(m)}/${y}`; };
 const SITE = 'https://metaorigineg.github.io/';
 
 // فيديوهات الشرح: من قناة اليوتيوب نفسها (آخر الفيديوهات) — أي فيديو عنوانه فيه «Meta Origin - <البرنامج>» و«الشرح الكامل» بيتربط بصفحة البرنامج
@@ -200,7 +205,8 @@ const FAQ = [
 ];
 function installAndFaq(p) {
   const steps = [
-    'حمّل البرنامج من أي سيرفر فوق وفك الضغط (لو الملف RAR).',
+    'حمّل البرنامج من «التحميل المباشر» أو أي سيرفر فوق، وفك الضغط (الملف RAR — بيتفتح بـ WinRAR أو 7-Zip).',
+    'لو ويندوز طلّع رسالة «Windows protected your PC»: اضغط More info ← Run anyway (دي رسالة عادية لأي برنامج جديد مش من متجر مايكروسوفت).',
     `شغّل «${p.product} Setup.exe» واختار: الجهاز الرئيسي (اللي عليه البيانات) أو جهاز تاني على الشبكة.`,
     'اختار «تجربة 14 يوم» أو اكتب الترخيص — وكود الجهاز بيظهر في المعالج لو عايز تفعّل.',
     'افتح البرنامج وادخل، وابدأ من الشرح التفصيلي اللي جوّاه أو كلّمنا ونساعدك.',
@@ -259,6 +265,11 @@ function downloadCard(d, wide) {
 
 function programPage(p) {
   const base = '../';
+  const rel = REL[p.slug];
+  if (rel && rel.published) {
+    p.downloads = [{ name: 'تحميل مباشر', icon: 'fa-brands fa-github', tone: p.color, badge: 'الرسمي والأسرع', note: `${rel.kind === 'RAR' ? 'ملف RAR' : 'ملف التسطيب'} — ${rel.sizeMB} ميجا · الإصدار ${rel.version}`, url: directUrl(rel), primary: true },
+      ...(p.downloads || []).map((d) => ({ ...d, primary: false }))];
+  }
   const has = (p.downloads || []).length > 0;
   const ask = wa(D.company.whatsapp, `عايز برنامج ${p.product} (${p.nameAr})`);
   const grid = has ? `
@@ -291,7 +302,9 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             <div class="flex flex-wrap justify-center items-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-desktop acc"></i><span>النظام: <strong class="text-white">Windows (64-bit)</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid ${p.icon} acc"></i><span>التصنيف: <strong class="text-white">${esc(p.category)}</strong></span></div>
-                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-shield-halved acc"></i><span>الحالة: <strong class="text-emerald-400">مفحوص وآمن 100%</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-certificate acc"></i><span><strong class="text-emerald-400">النسخة الرسمية</strong> من Meta Origin</span></div>
+                ${rel ? `<div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-code-branch acc"></i><span>الإصدار: <strong class="text-white" dir="ltr">${esc(rel.version)}</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-calendar-day acc"></i><span>آخر تحديث: <strong class="text-white">${fmtDay(rel.date)}</strong></span></div>` : ''}
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>اللغة: <strong class="text-white">عربي / English</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span><strong class="text-white">14 يوم</strong> تجربة مجانية</span></div>
             </div>
@@ -306,6 +319,10 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-cloud-arrow-down acc"></i><span>${has ? 'سيرفرات التحميل المتاحة' : 'تحميل البرنامج'}</span></h2>
                 <p class="text-gray-400 text-xs md:text-sm">${has ? 'اختر المنصة أو السيرفر المفضل لديك لبدء التحميل المباشر' : 'تواصل معنا وهنوصلك البرنامج'}</p>
             </div>${grid}
+            ${rel && rel.notes.length ? `<details class="bg-cardbg border border-gray-800 rounded-2xl p-5 group" open>
+                <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center"><span><i class="fa-solid fa-wand-magic-sparkles acc"></i> إيه الجديد في الإصدار <span dir="ltr">${esc(rel.version)}</span></span><i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary>
+                <ul class="mt-3 space-y-2 text-sm text-gray-300">${rel.notes.map((n) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${esc(n)}</span></li>`).join('')}</ul>
+            </details>` : ''}
         </section>
 
         <section class="space-y-8 pt-4">
@@ -358,7 +375,7 @@ function homePage() {
                         <div class="flex items-center gap-2 flex-wrap">
                             <h3 class="font-extrabold text-white text-base" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</h3>
                             ${p.isNew ? '<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-amber-400 text-black">جديد</span>' : ''}
-                            ${(p.downloads || []).length ? '<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">متاح للتحميل</span>' : '<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>'}
+                            ${(p.downloads || []).length || REL[p.slug]?.published ? '<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">متاح للتحميل</span>' : '<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">قريبًا</span>'}
                         </div>
                         <div class="text-sm font-bold" style="color:${p.color}">${esc(p.nameAr)}</div>
                         <p class="text-xs text-gray-400 leading-relaxed">${esc(p.short)}</p>
