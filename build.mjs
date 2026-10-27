@@ -157,6 +157,7 @@ function footer(base, name) {
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
+            <p><a href="${base}privacy/" class="hover:text-white underline">سياسة الخصوصية · Privacy Policy</a></p>
             <p>جميع الحقوق محفوظة &copy; ${YEAR} - ${esc(name)}</p>
         </div>
     </footer>
@@ -448,7 +449,63 @@ ${team(base)}
     </main>` + footer(base, 'Meta Origin');
 }
 
+/** سياسة الخصوصية (عربي + إنجليزي) — جوجل ومايكروسوفت بيطلبوا رابطها عشان النسخ الاحتياطي على Google Drive / OneDrive */
+function privacyPage() {
+  const base = '../';
+  const mail = D.company.emails[0];
+  const sec = (t, body) => `<section class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-3"><h2 class="text-lg md:text-xl font-bold text-white">${t}</h2>${body}</section>`;
+  const ul = (items) => `<ul class="list-disc ps-6 space-y-2 text-gray-300 leading-8">${items.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+  return head({ title: 'سياسة الخصوصية | Meta Origin', desc: 'سياسة الخصوصية لبرامج Meta Origin — Privacy Policy', accent: '#3b82f6', base, image: 'img/company-logo.png' }) + header(base, { back: true }) + `
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 w-full">
+        <h1 class="text-3xl md:text-4xl font-black text-white">سياسة الخصوصية</h1>
+        <p class="text-gray-400">آخر تحديث: 28 أكتوبر 2026 — تنطبق على كل برامج Meta Origin (Meta Origin Software).</p>
+${sec('بياناتك على جهازك', ul([
+  'برامجنا بتشتغل على أجهزة العميل نفسه: كل بيانات الشغل (المبيعات، الحسابات، العملاء، الموظفين…) بتتحفظ على جهاز العميل أو السيرفر بتاعه، ومش بتتبعت لينا.',
+  'إحنا مش بنبيع ولا بنشارك أي بيانات مع أي حد، ومش بنستخدمها في إعلانات.',
+]))}
+${sec('الترخيص', ul([
+  'عشان التفعيل، البرنامج بيبعت لسيرفر التراخيص بتاعنا «كود الجهاز» (رقم محسوب من مكونات الجهاز، مش بيكشف أي بيانات شخصية) واسم البرنامج وإصداره.',
+  'لو العميل بعت «طلب تفعيل» بنفسه، بيوصلنا الاسم ورقم الواتساب ونوع النشاط اللي كتبهم — بنستخدمهم للتواصل معاه بس.',
+]))}
+${sec('النسخ الاحتياطي على Google Drive و OneDrive', ul([
+  'الميزة اختيارية — العميل هو اللي بيربط حسابه من صفحة الدخول الرسمية بتاعة جوجل أو مايكروسوفت، والبرنامج <b>عمره ما بيشوف باسورد الحساب</b>.',
+  'الإذن اللي البرنامج بيطلبه محدود: في Google Drive الملفات اللي البرنامج نفسه عملها بس (drive.file)، وفي OneDrive فولدر البرنامج بس (App Folder). البرنامج مايقدرش يشوف أي ملف تاني على الحساب.',
+  'البرنامج بيستخدم الإذن ده في حاجة واحدة: رفع نسخ احتياطية من بيانات البرنامج، وعرضها، وتنزيلها للاسترجاع، ومسح الأقدم حسب العدد اللي العميل اختاره.',
+  'كل نسخة بتتشفّر (AES-256) بكلمة سر بيختارها العميل <b>قبل</b> ما تطلع من جهازه — ولا جوجل ولا مايكروسوفت ولا إحنا نقدر نفتحها.',
+  'بيانات الربط (التوكن) بتتحفظ متشفّرة على جهاز العميل بس، ومش بتتبعت لسيرفراتنا. النسخ بتروح مباشرة من جهاز العميل لحسابه.',
+  'تقدر تفك الربط من البرنامج («فك الربط») أو من إعدادات حسابك: <a class="acc underline" href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">حساب جوجل</a> / <a class="acc underline" href="https://account.live.com/consent/Manage" target="_blank" rel="noopener">حساب مايكروسوفت</a>.',
+  'استخدام ونقل أي معلومات جاية من Google APIs ملتزم بـ <a class="acc underline" href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a> بما فيها شروط Limited Use.',
+]))}
+${sec('التواصل', `<p class="text-gray-300 leading-8">لأي سؤال عن الخصوصية: <a class="acc underline" href="mailto:${esc(mail)}">${esc(mail)}</a> أو واتساب <a class="acc underline" href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener">${esc(D.company.whatsapp)}</a>.</p>`)}
+
+        <div dir="ltr" lang="en" class="space-y-6 pt-6 text-left">
+        <h1 class="text-3xl md:text-4xl font-black text-white">Privacy Policy</h1>
+        <p class="text-gray-400">Last updated: October 28, 2026 — applies to all Meta Origin programs (Meta Origin Software).</p>
+${sec('Your data stays on your computer', ul([
+  'Our programs run on the customer\'s own computers. All business data (sales, accounts, customers, employees…) is stored on the customer\'s device or their own server and is not sent to us.',
+  'We do not sell or share any data with anyone, and we do not use it for advertising.',
+]))}
+${sec('Licensing', ul([
+  'For activation, the program sends our license server a "machine code" (a value derived from the computer\'s hardware that does not reveal personal information), the program name and its version.',
+  'If a customer chooses to send an "activation request", we receive the name, WhatsApp number and business type they entered — used only to contact them.',
+]))}
+${sec('Backups to Google Drive and OneDrive', ul([
+  'This feature is optional. The customer connects their own account through Google\'s or Microsoft\'s official sign-in page; the program <b>never sees the account password</b>.',
+  'The requested access is limited: on Google Drive only the files the program itself created (drive.file scope); on OneDrive only the program\'s app folder (Files.ReadWrite.AppFolder). The program cannot see any other file in the account.',
+  'The access is used for one purpose only: uploading backups of the program\'s data, listing them, downloading them for restore, and deleting older backups beyond the number the customer chose.',
+  'Every backup is encrypted (AES-256) with a password chosen by the customer <b>before</b> it leaves their computer — neither Google, Microsoft nor we can open it.',
+  'The connection tokens are stored encrypted on the customer\'s computer only and are never sent to our servers. Backups go directly from the customer\'s computer to their own account.',
+  'You can disconnect from the program ("Disconnect") or from your account settings: <a class="acc underline" href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account</a> / <a class="acc underline" href="https://account.live.com/consent/Manage" target="_blank" rel="noopener">Microsoft account</a>.',
+  'Meta Origin\'s use and transfer of information received from Google APIs adheres to the <a class="acc underline" href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.',
+]))}
+${sec('Contact', `<p class="text-gray-300 leading-8">Privacy questions: <a class="acc underline" href="mailto:${esc(mail)}">${esc(mail)}</a> or WhatsApp +20 ${esc(D.company.whatsapp)}.</p>`)}
+        </div>
+    </main>` + footer(base, 'Meta Origin');
+}
+
 fs.writeFileSync(path.join(HERE, 'index.html'), homePage());
+fs.mkdirSync(path.join(HERE, 'privacy'), { recursive: true });
+fs.writeFileSync(path.join(HERE, 'privacy', 'index.html'), privacyPage());
 for (const p of D.programs) {
   fs.mkdirSync(path.join(HERE, p.slug), { recursive: true });
   fs.writeFileSync(path.join(HERE, p.slug, 'index.html'), programPage(p));
@@ -457,7 +514,7 @@ for (const p of D.programs) {
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
 fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`)].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`), `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);
