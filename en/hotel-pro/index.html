@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Origin - Hotel Pro | Official download</title>
+    <meta name="description" content="Hotel management (Pro): rooms and the booking chart, guests and ID photos, invoices, cash and shifts, housekeeping, expenses and reports. Data saved in 3 places, with a main PC and sub devices.">
+    <meta property="og:title" content="Meta Origin - Hotel Pro | Official download">
+    <meta property="og:description" content="Hotel management (Pro): rooms and the booking chart, guests and ID photos, invoices, cash and shifts, housekeeping, expenses and reports. Data saved in 3 places, with a main PC and sub devices.">
+    <meta property="og:image" content="https://metaorigineg.github.io/icons/hotel-pro.png">
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="icon" href="../../img/company-logo.png">
+    <link rel="alternate" hreflang="ar" href="https://metaorigineg.github.io/hotel-pro/">
+    <link rel="alternate" hreflang="en" href="https://metaorigineg.github.io/en/hotel-pro/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
+    <style>
+        :root { --acc: #d4a24c; --acc-rgb: 212,162,76; --on-acc: #0b0f19; }
+        body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+        .acc { color: var(--acc); } .bg-acc { background: var(--acc); color: var(--on-acc); } .bg-acc:hover { filter: brightness(1.1); }
+        .bg-acc-soft { background: rgba(var(--acc-rgb), .12); color: var(--acc); } .border-acc { border-color: rgba(var(--acc-rgb), .45); }
+        .glow-effect { box-shadow: 0 0 35px -5px rgba(var(--acc-rgb), .3); }
+        .card-hover { transition: all .3s cubic-bezier(.4, 0, .2, 1); }
+        .card-hover:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 10px 25px -5px rgba(var(--acc-rgb), .18); }
+        .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
+        .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
+        .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 blur-3xl -z-10 pointer-events-none" style="background: linear-gradient(to bottom, rgba(var(--acc-rgb), .12), rgba(59,130,246,.05), transparent)"></div>
+    <header class="w-full border-b border-gray-800/60 bg-darkbg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+            <a href="../../en/" class="flex items-center gap-3">
+                <img src="../../img/company-logo.png" alt="Meta Origin" class="w-10 h-10 object-cover rounded-xl bg-gray-900 border border-gray-800 p-0.5">
+                <div>
+                    <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-l from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block leading-tight">Meta Origin</span>
+                    <span class="text-[10px] text-gray-400 font-semibold block">Business software</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-2">
+                <a href="../../en/#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>All programs</span></a>
+                <a href="../../hotel-pro/" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
+                <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
+                    <i class="fa-solid fa-share-nodes acc"></i><span class="hidden sm:inline">Share</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-12">
+        <section class="text-center space-y-6">
+            <div class="relative inline-block">
+                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-3xl ring-grad p-1 shadow-2xl glow-effect">
+                    <div class="w-full h-full bg-cardbg rounded-[22px] flex items-center justify-center overflow-hidden p-2">
+                        <img src="../../icons/hotel-pro.png" alt="Meta Origin - Hotel Pro" class="w-full h-full object-cover rounded-2xl">
+                    </div>
+                </div>
+                <span class="absolute -bottom-2 -left-2 bg-acc text-xs font-black px-3 py-1 rounded-full border-2 border-darkbg flex items-center gap-1 shadow-lg"><i class="fa-solid fa-circle-check text-[10px]"></i> Official version</span>
+            </div>
+            <div class="space-y-3">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide" dir="ltr">Meta Origin - Hotel Pro</h1>
+                <p class="text-lg md:text-xl font-bold acc">Hotel Management (Pro)</p>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Hotel management (Pro): rooms and the booking chart, guests and ID photos, invoices, cash and shifts, housekeeping, expenses and reports. Data saved in 3 places, with a main PC and sub devices.</p>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-desktop acc"></i><span>System: <strong class="text-white">Windows (64-bit)</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-bell-concierge acc"></i><span>Category: <strong class="text-white">Hotels</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-certificate acc"></i><span><strong class="text-emerald-400">Official version</strong> from Meta Origin</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-code-branch acc"></i><span>Version: <strong class="text-white" dir="ltr">3.14.0</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-calendar-day acc"></i><span>Updated: <strong class="text-white">21/10/2026</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>Language: <strong class="text-white">English / عربي</strong></span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span><strong class="text-white">14-day</strong> free trial</span></div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#downloads" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-download"></i> Download</a>
+                <a href="https://youtu.be/80g8oXtmq20" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-brands fa-youtube text-lg"></i> Watch the video guide</a>
+            </div>
+        </section>
+
+        <section id="downloads" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-cloud-arrow-down acc"></i><span>Download servers</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Pick any platform or server to start downloading</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4" >
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:#d4a24c1a;color:#d4a24c"><i class="fa-brands fa-github"></i></div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-bold text-white text-base md:text-lg">Direct download</h3>
+                                <span class="text-[10px] md:text-xs px-2 py-0.5 rounded-full font-bold border" style="background:#d4a24c1a;color:#d4a24c;border-color:#d4a24c33">Official &amp; fastest</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-1">RAR file — 229 MB · version 3.14.0</p>
+                        </div>
+                    </div>
+                    <a href="https://github.com/metaorigineg/metaorigineg.github.io/releases/download/hotel-pro-v3.14.0/Meta-Origin-Hotel-Pro-3.14.0.rar" target="_blank" rel="noopener noreferrer" class="bg-acc px-4 md:px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition flex items-center gap-2 flex-shrink-0 active:scale-95 shadow-md" >
+                        <span>Download</span><i class="fa-solid fa-download text-xs"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="space-y-8 pt-4">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white">Why Meta Origin - Hotel Pro?</h2>
+                <p class="text-gray-400 text-xs md:text-sm">Key features that make your work easier and more accurate</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:var(--acc)">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold" style="background:rgba(var(--acc-rgb),.12);color:var(--acc)"><i class="fa-solid fa-table-cells"></i></div>
+                    <h3 class="text-lg font-bold text-white">Booking chart</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Rooms and bookings chart with drag &amp; drop.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#3b82f6">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold" style="background:rgba(59,130,246,.12);color:#60a5fa"><i class="fa-solid fa-broom"></i></div>
+                    <h3 class="text-lg font-bold text-white">Housekeeping</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Room cleaning follow-up and expenses.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-6 rounded-2xl space-y-3 border-t-2" style="border-top-color:#a855f7">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold" style="background:rgba(168,85,247,.12);color:#c084fc"><i class="fa-solid fa-vault"></i></div>
+                    <h3 class="text-lg font-bold text-white">Cash &amp; reports</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Invoices, cash, shifts and reports.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-brands fa-youtube text-red-500"></i><span>Video guide</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">A full walkthrough of the program (in Egyptian Arabic) — <a class="acc underline" href="https://www.youtube.com/@Meta.Origin-eg" target="_blank" rel="noopener noreferrer">more videos on our channel</a></p>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-2xl aspect-video bg-black">
+                <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/80g8oXtmq20" title="Meta Origin - Hotel Pro" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="screens" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-images acc"></i><span>Screenshots</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Click any image to enlarge it</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../../shots/hotel-pro/1.webp')">
+                    <img src="../../shots/hotel-pro/1.webp" alt="Dashboard" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">Dashboard</figcaption>
+                </figure>
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../../shots/hotel-pro/2.webp')">
+                    <img src="../../shots/hotel-pro/2.webp" alt="Rooms" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">Rooms</figcaption>
+                </figure>
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../../shots/hotel-pro/3.webp')">
+                    <img src="../../shots/hotel-pro/3.webp" alt="Invoices &amp; payments" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">Invoices &amp; payments</figcaption>
+                </figure>
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../../shots/hotel-pro/4.webp')">
+                    <img src="../../shots/hotel-pro/4.webp" alt="Activity log" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">Activity log</figcaption>
+                </figure>
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../../shots/hotel-pro/5.webp')">
+                    <img src="../../shots/hotel-pro/5.webp" alt="Booking chart" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">Booking chart</figcaption>
+                </figure>
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../../shots/hotel-pro/6.webp')">
+                    <img src="../../shots/hotel-pro/6.webp" alt="Bookings" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                    <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">Bookings</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-list-ol acc"></i> Installation steps</h2>
+                <ol class="space-y-3 text-sm text-gray-300">
+                    <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-acc flex items-center justify-center text-xs font-black flex-shrink-0">1</span><span class="pt-0.5">Download the program from «Direct download» or any server above and extract it (it is a RAR file — open it with WinRAR or 7-Zip).</span></li>
+                    <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-acc flex items-center justify-center text-xs font-black flex-shrink-0">2</span><span class="pt-0.5">If Windows shows «Windows protected your PC», click More info → Run anyway (this is normal for any new program not from the Microsoft Store).</span></li>
+                    <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-acc flex items-center justify-center text-xs font-black flex-shrink-0">3</span><span class="pt-0.5">Run «Meta Origin - Hotel Pro Setup.exe» and choose: the main PC (the one that holds the data) or another device on the network.</span></li>
+                    <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-acc flex items-center justify-center text-xs font-black flex-shrink-0">4</span><span class="pt-0.5">Choose «14-day trial» or enter your license — the machine code appears in the setup wizard if you want to activate.</span></li>
+                    <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-acc flex items-center justify-center text-xs font-black flex-shrink-0">5</span><span class="pt-0.5">Open the program, sign in, and start from the detailed guide inside it — or contact us and we will help.</span></li>
+                </ol>
+            </div>
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-microchip acc"></i> System requirements</h2>
+                <ul class="space-y-2.5 text-sm text-gray-300">
+                    <li class="flex gap-2"><i class="fa-brands fa-windows acc mt-1"></i> Windows 10 or 11 (64-bit)</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-memory acc mt-1"></i> 4 GB RAM or more (8 GB for the main PC on a large network)</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-hard-drive acc mt-1"></i> At least 1 GB of free disk space</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-wifi acc mt-1"></i> Network: devices on the same router/network as the main PC</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-print acc mt-1"></i> Works with thermal and A4 invoice printers and barcode readers</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white text-center flex items-center justify-center gap-2"><i class="fa-solid fa-circle-question acc"></i> FAQ</h2>
+            <div class="space-y-3 max-w-3xl mx-auto">
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Is the program free?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">You get a full 14-day trial with every screen; after that you need a license — message us on WhatsApp for prices that fit your business.</p></details>
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Does it work on more than one PC?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Yes: a main PC holds the data and other devices connect on the same network, and many programs also open from the browser and the phone.</p></details>
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Is my data safe?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Your data stays on your own computer, with automatic backups in two places (and encrypted backups to Google Drive or OneDrive), permissions for every employee and a log of every action.</p></details>
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Is the program in English too?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Yes, the programs work in Arabic and English and you can switch between them.</p></details>
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">What if something goes wrong?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Inside the program there is a «Send problem report» button, or message us directly on WhatsApp and we will help.</p></details>
+            </div>
+        </section>
+
+        <section id="team" class="space-y-6 pt-4">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-users acc"></i><span>Our team & contact</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Contact us directly for support, questions and installation</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+                    <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                        <img src="../../img/mahmoud.webp" alt="Mahmoud Youssef" title="Click to view the full card" onclick="zoomImg('../../img/mahmoud_card.webp')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:var(--acc)">
+                        <div>
+                            <span class="text-xs font-bold block mb-1" style="color:var(--acc)">Founder &amp; CEO</span>
+                            <h3 class="text-lg font-extrabold text-white">Mahmoud Youssef</h3>
+                            <span class="text-[11px] text-gray-400">محمود يوسف</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed">Leads Meta Origin's vision and product development. He turns what organizations really need into practical systems that save time and keep the books right, and personally follows solution design, installation and customer support.</p>
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs font-bold text-gray-200 flex items-center gap-1.5 mb-2"><i class="fa-solid fa-headset text-sky-400"></i> Call or WhatsApp:</div>
+                        <div class="flex items-center justify-between bg-darkbg border border-acc p-2.5 rounded-xl" style="background:rgba(var(--acc-rgb),.05)">
+                            <span class="font-mono font-bold text-sm text-white" dir="ltr">01150606002</span>
+                            <a href="https://wa.me/201150606002" target="_blank" rel="noopener noreferrer" class="bg-acc px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm "></i> WhatsApp (main)
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01277122615</span>
+                            <a href="https://wa.me/201277122615" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> WhatsApp
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01011121145</span>
+                            <a href="https://wa.me/201011121145" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+                    <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                        <img src="../../img/omar.webp" alt="Omar Saleh" title="Click to view the full card" onclick="zoomImg('../../img/omar_card.webp')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:#38bdf8">
+                        <div>
+                            <span class="text-xs font-bold block mb-1" style="color:#38bdf8">Co-founder</span>
+                            <h3 class="text-lg font-extrabold text-white">Omar Saleh</h3>
+                            <span class="text-[11px] text-gray-400">عمر صالح</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed">Co-founded Meta Origin and leads business development and customer relations. He makes sure every organization gets the system that fits its size and way of working, and follows training and after-sales service.</p>
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs font-bold text-gray-200 flex items-center gap-1.5 mb-2"><i class="fa-solid fa-headset text-sky-400"></i> Call or WhatsApp:</div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01200966258</span>
+                            <a href="https://wa.me/201200966258" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+                <a href="mailto:meta.origin@outlook.com" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="truncate" dir="ltr">meta.origin@outlook.com</span></a>
+                <a href="mailto:meta.origin.eg@gmail.com" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="truncate" dir="ltr">meta.origin.eg@gmail.com</span></a>
+                <a href="https://www.instagram.com/meta.origin.coding/" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-instagram text-pink-500"></i> Instagram</a>
+                <a href="https://www.facebook.com/meta.origin.eg" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-facebook text-[#1877f2]"></i> Facebook</a>
+            </div>
+        </section>
+
+        <section class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl" style="background:linear-gradient(90deg, rgba(var(--acc-rgb),.12), #111827, rgba(37,99,235,.12))">
+            <div class="space-y-2 text-center md:text-left">
+                <h3 class="text-xl font-extrabold text-white">Share the download link</h3>
+                <p class="text-gray-400 text-xs md:text-sm">Copy this page link and share it with anyone.</p>
+            </div>
+            <div class="flex items-center gap-3 w-full md:w-auto">
+                <button onclick="copyPageLink()" class="w-full md:w-auto bg-acc font-extrabold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg active:scale-95 text-sm"><i class="fa-regular fa-copy"></i><span>Copy page link</span></button>
+                <a href="../../en/#programs" class="w-full md:w-auto bg-gray-800 hover:bg-gray-700 text-white font-bold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2 border border-gray-700 text-sm"><i class="fa-solid fa-grip"></i><span>All programs</span></a>
+            </div>
+        </section>
+    </main>
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white border px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" style="border-color:rgba(var(--acc-rgb),.5)">
+        <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">Copied!</span>
+    </div>
+    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <a href="https://wa.me/201150606002?text=I%20have%20a%20question%20about%20Meta%20Origin%20-%20Hotel%20Pro" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
+    <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <img src="../../img/company-logo.png" alt="Meta Origin" class="w-6 h-6 object-cover opacity-70 rounded-lg">
+                <span class="font-bold text-gray-400">Meta Origin Software</span>
+            </div>
+            <div class="flex justify-center gap-4 text-base">
+                <a href="https://www.facebook.com/meta.origin.eg" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877f2]" title="Facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://www.youtube.com/@Meta.Origin-eg" target="_blank" rel="noopener noreferrer" class="hover:text-red-500" title="YouTube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                <a href="https://www.instagram.com/meta.origin.coding/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500" title="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/201150606002" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
+                <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
+            </div>
+            <p><a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
+            <p>All rights reserved &copy; 2026 - Meta Origin - Hotel Pro</p>
+        </div>
+    </footer>
+    <script>
+        function copyTextToClipboard(text, msg) {
+            (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => { const t = document.createElement('input'); document.body.appendChild(t); t.value = text; t.select(); document.execCommand('copy'); t.remove(); });
+            showToast(msg);
+        }
+        function copyPassword(p) { copyTextToClipboard(p, 'Password (' + p + ') copied!'); }
+        function copyPageLink() { copyTextToClipboard(location.href, 'Page link copied!'); }
+        function sharePage() { if (navigator.share) navigator.share({ title: document.title, url: location.href }).catch(() => {}); else copyPageLink(); }
+        function showToast(m) {
+            const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
+            t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
+        function filterPrograms(q) {
+            q = q.trim(); let shown = 0;
+            document.querySelectorAll('[data-prog]').forEach((el) => { const ok = !q || el.dataset.prog.includes(q); el.style.display = ok ? '' : 'none'; if (ok) shown++; });
+            document.querySelectorAll('[data-cat]').forEach((sec) => { sec.style.display = [...sec.querySelectorAll('[data-prog]')].some((e) => e.style.display !== 'none') ? '' : 'none'; });
+            const n = document.getElementById('noResult'); if (n) n.style.display = shown ? 'none' : '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Origin | Business management software</title>
+    <meta name="description" content="Meta Origin is an Egyptian software company building complete management systems for pharmacies, clinics, schools, hotels, factories, warehouses, restaurants, shops and trading companies: accounting, inventory, payroll, point of sale and reports. Our goal is easy-to-use software that runs on a single PC, on a whole network or online — with technical support close to you from installation until everything runs smoothly.">
+    <meta property="og:title" content="Meta Origin | Business management software">
+    <meta property="og:description" content="Meta Origin is an Egyptian software company building complete management systems for pharmacies, clinics, schools, hotels, factories, warehouses, restaurants, shops and trading companies: accounting, inventory, payroll, point of sale and reports. Our goal is easy-to-use software that runs on a single PC, on a whole network or online — with technical support close to you from installation until everything runs smoothly.">
+    <meta property="og:image" content="https://metaorigineg.github.io/img/company-logo.png">
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="icon" href="../img/company-logo.png">
+    <link rel="alternate" hreflang="ar" href="https://metaorigineg.github.io/">
+    <link rel="alternate" hreflang="en" href="https://metaorigineg.github.io/en/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
+    <style>
+        :root { --acc: #3b82f6; --acc-rgb: 59,130,246; --on-acc: #0b0f19; }
+        body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+        .acc { color: var(--acc); } .bg-acc { background: var(--acc); color: var(--on-acc); } .bg-acc:hover { filter: brightness(1.1); }
+        .bg-acc-soft { background: rgba(var(--acc-rgb), .12); color: var(--acc); } .border-acc { border-color: rgba(var(--acc-rgb), .45); }
+        .glow-effect { box-shadow: 0 0 35px -5px rgba(var(--acc-rgb), .3); }
+        .card-hover { transition: all .3s cubic-bezier(.4, 0, .2, 1); }
+        .card-hover:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 10px 25px -5px rgba(var(--acc-rgb), .18); }
+        .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
+        .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
+        .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 blur-3xl -z-10 pointer-events-none" style="background: linear-gradient(to bottom, rgba(var(--acc-rgb), .12), rgba(59,130,246,.05), transparent)"></div>
+    <header class="w-full border-b border-gray-800/60 bg-darkbg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+            <a href="../en/" class="flex items-center gap-3">
+                <img src="../img/company-logo.png" alt="Meta Origin" class="w-10 h-10 object-cover rounded-xl bg-gray-900 border border-gray-800 p-0.5">
+                <div>
+                    <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-l from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block leading-tight">Meta Origin</span>
+                    <span class="text-[10px] text-gray-400 font-semibold block">Business software</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-2">
+                <a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">Programs</a><a href="#why" class="hidden md:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">Features</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">Contact</a>
+                <a href="../" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
+                <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
+                    <i class="fa-solid fa-share-nodes acc"></i><span class="hidden sm:inline">Share</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-14">
+        <section class="text-center space-y-6">
+            <img src="../img/company-logo.png" alt="Meta Origin" class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl border border-gray-800 bg-gray-900 p-1 glow-effect">
+            <div class="space-y-3">
+                <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide">Meta Origin</h1>
+                <p class="text-gray-400 font-bold">Software Studio</p>
+                <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">Meta Origin is an Egyptian software company building complete management systems for pharmacies, clinics, schools, hotels, factories, warehouses, restaurants, shops and trading companies: accounting, inventory, payroll, point of sale and reports. Our goal is easy-to-use software that runs on a single PC, on a whole network or online — with technical support close to you from installation until everything runs smoothly.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#programs" class="bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95 flex items-center gap-2"><i class="fa-solid fa-grip"></i> Browse programs</a>
+                <a href="https://wa.me/201150606002?text=I%20would%20like%20to%20know%20more%20about%20Meta%20Origin%20programs" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp us</a>
+                <a href="https://www.youtube.com/@Meta.Origin-eg" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-youtube"></i> Our YouTube channel</a>
+                <a href="https://www.facebook.com/meta.origin.eg" target="_blank" rel="noopener noreferrer" class="bg-[#1877f2] hover:brightness-110 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-facebook"></i> Facebook page</a>
+                <a href="https://www.instagram.com/meta.origin.coding/" target="_blank" rel="noopener noreferrer" class="text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:brightness-110" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="mailto:meta.origin@outlook.com" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-solid fa-envelope acc"></i> Email us</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong class="text-white">15</strong> programs</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>English & Arabic</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-network-wired acc"></i><span>One PC, network or online</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>14-day free trial</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-headset acc"></i><span>Support & installation</span></div>
+            </div>
+        </section>
+
+        <section id="programs" class="space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-grip acc"></i><span>Our programs</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Pick a program to see its details and download it</p>
+                <div class="max-w-md mx-auto pt-2"><input oninput="filterPrograms(this.value.toLowerCase())" placeholder="Search (pharmacy, restaurant, school, payroll…)" class="w-full bg-cardbg border border-gray-700 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"></div>
+            </div>
+            <div data-cat="retail" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-l-4 pl-3" style="border-color:#3b82f6">Point of sale &amp; shops</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="cashier/" data-prog="meta origin - cashier كاشير السوبر ماركت السوبر ماركت باركود وميزان، ورديات، دليفري. supermarket cashier supermarkets barcode and scale, shifts, delivery." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#22c55e">
+                    <img src="../icons/cashier.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#22c55e">Supermarket Cashier</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Barcode and scale, shifts, delivery.</p>
+                    </div>
+                </a>
+                <a href="cashier-stores/" data-prog="meta origin - cashier stores كاشير لكل المحلات المحلات المتنوعة ملابس وعطور وموبايلات وأدوات منزلية. cashier for every shop all kinds of shops clothes, perfumes, mobiles and home goods." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#8b5cf6">
+                    <img src="../icons/cashier-stores.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier Stores</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#8b5cf6">Cashier for Every Shop</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Clothes, perfumes, mobiles and home goods.</p>
+                    </div>
+                </a>
+                <a href="cashier-lite/" data-prog="meta origin - cashier lite كاشير ماركت لجهاز واحد الماركت والمحلات الصغيرة بيع بالباركود، دليفري وعروض، تقفيل وأرباح. market cashier (single pc) markets &amp; small shops barcode selling, delivery and offers, shift closing and profit." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#f59e0b">
+                    <img src="../icons/cashier-lite.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Cashier Lite</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#f59e0b">Market Cashier (single PC)</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Barcode selling, delivery and offers, shift closing and profit.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="accounting" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-l-4 pl-3" style="border-color:#3b82f6">Accounting, inventory &amp; factories</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="sales-erp/" data-prog="meta origin - sales erp المبيعات والمخازن والحسابات المبيعات والمخازن والحسابات سحابي من أي مكان أو ديسكتوب من غير نت: بيع ومخازن وحسابات و94 تقرير. sales, inventory &amp; accounting sales, inventory &amp; accounting cloud from anywhere or desktop without internet: sales, stock, accounts and 94 reports." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#e3b85c">
+                    <img src="../icons/sales-erp.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Sales ERP</h3>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-amber-400 text-black">New</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#e3b85c">Sales, Inventory &amp; Accounting</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Cloud from anywhere or desktop without internet: sales, stock, accounts and 94 reports.</p>
+                    </div>
+                </a>
+                <a href="erp/" data-prog="meta origin - erp system إدارة مصانع الملابس مصانع الملابس قص وإنتاج، جودة وتعبئة، تكاليف وحسابات. garment factory management garment factories cutting and production, quality and packing, costing and accounts." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#ea580c">
+                    <img src="../icons/erp.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">ERP System</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#ea580c">Garment Factory Management</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Cutting and production, quality and packing, costing and accounts.</p>
+                    </div>
+                </a>
+                <a href="acc/" data-prog="meta origin - acc الحسابات العامة الحسابات العامة قيود وخزن وبنوك وقوائم مالية، بحزم حسب النشاط. general accounting general accounting journals, cash, banks and financial statements, with packages per business." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#00c2a8">
+                    <img src="../icons/acc.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Acc</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#00c2a8">General Accounting</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Journals, cash, banks and financial statements, with packages per business.</p>
+                    </div>
+                </a>
+                <a href="acc-new/" data-prog="meta origin - acc new حسابات ونقطة بيع حسابات المحلات والشركات والمصانع محل أو شركة تجارية أو مصنع: مبيعات ومخزون وتصنيع وقيود. accounting &amp; point of sale shops, trading companies &amp; factories a shop, trading company or factory: sales, stock, manufacturing and journals." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#3d5afe">
+                    <img src="../icons/acc-new.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Acc New</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#3d5afe">Accounting &amp; Point of Sale</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">A shop, trading company or factory: sales, stock, manufacturing and journals.</p>
+                    </div>
+                </a>
+                <a href="stores/" data-prog="meta origin - stores المخازن ومتابعة الإنتاج المخازن والمصانع أذونات وجرد، أوامر إنتاج، متابعة الموديلات. warehouses &amp; production tracking warehouses &amp; factories stock vouchers and counts, production orders, style tracking." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#34d399">
+                    <img src="../icons/stores.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Stores</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#34d399">Warehouses &amp; Production Tracking</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Stock vouchers and counts, production orders, style tracking.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="medical" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-l-4 pl-3" style="border-color:#3b82f6">Pharmacies &amp; clinics</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="pharmacy/" data-prog="meta origin - pharmacy نظام الصيدليات إدارة الصيدليات والأدوية صيدلية واحدة أو سلسلة فروع: صلاحية وتشغيلات، تأمين، وأدوية مراقبة. pharmacy management pharmacies &amp; medicines one pharmacy or a chain: batches &amp; expiry, insurance and controlled drugs." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#16a34a">
+                    <img src="../icons/pharmacy.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Pharmacy</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#16a34a">Pharmacy Management</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">One pharmacy or a chain: batches &amp; expiry, insurance and controlled drugs.</p>
+                    </div>
+                </a>
+                <a href="clinic/" data-prog="meta origin - clinic إدارة العيادات والمراكز الطبية العيادات والمراكز الطبية حجز وطابور، ملف المريض، روشتة، وكل التخصصات. clinics &amp; medical centers clinics &amp; medical centers bookings and queue, patient file, prescriptions and every specialty." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#00b3a4">
+                    <img src="../icons/clinic.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Clinic</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#00b3a4">Clinics &amp; Medical Centers</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Bookings and queue, patient file, prescriptions and every specialty.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="hospitality" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-l-4 pl-3" style="border-color:#3b82f6">Hotels &amp; restaurants</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="restaurant/" data-prog="meta origin - restaurant كاشير المطاعم والكافيهات المطاعم والكافيهات والدليفري صالة وطاولات، مطبخ ودليفري، مخزن ووصفات. restaurant &amp; café cashier restaurants, cafés &amp; delivery dining hall and tables, kitchen and delivery, store and recipes." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#e85d12">
+                    <img src="../icons/restaurant.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Restaurant</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#e85d12">Restaurant &amp; Café Cashier</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Dining hall and tables, kitchen and delivery, store and recipes.</p>
+                    </div>
+                </a>
+                <a href="hotel/" data-prog="meta origin - hotel إدارة الفنادق والشقق الفندقية الفنادق والشقق وسكن الطلاب حجوزات، سكن طلاب، حجز أونلاين. hotels &amp; serviced apartments hotels, apartments &amp; student housing bookings, student housing, online booking." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#f97316">
+                    <img src="../icons/hotel.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Hotel</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#f97316">Hotels &amp; Serviced Apartments</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Bookings, student housing, online booking.</p>
+                    </div>
+                </a>
+                <a href="hotel-pro/" data-prog="meta origin - hotel pro إدارة الفنادق (برو) الفنادق مخطط الحجوزات، هاوس كيبنج، تقارير. hotel management (pro) hotels booking chart, housekeeping, reports." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#d4a24c">
+                    <img src="../icons/hotel-pro.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">Hotel Pro</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#d4a24c">Hotel Management (Pro)</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Booking chart, housekeeping, reports.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="education" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-l-4 pl-3" style="border-color:#3b82f6">Schools</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="school/" data-prog="meta origin - school حسابات وإدارة المدارس المدارس والجامعات مصروفات وأقساط، حضور ودرجات، باصات وكانتين. school accounting &amp; management schools &amp; universities fees and installments, attendance and grades, buses and canteen." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#f43f5e">
+                    <img src="../icons/school.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">School</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#f43f5e">School Accounting &amp; Management</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Fees and installments, attendance and grades, buses and canteen.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div data-cat="hr" class="space-y-4">
+                <h3 class="text-lg font-extrabold text-gray-200 border-l-4 pl-3" style="border-color:#3b82f6">HR &amp; payroll</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="hr-pro/" data-prog="meta origin - hr pro الحضور والانصراف والمرتبات للمصانع شئون العاملين للمصانع حضور وانصراف، سحب البصمة تلقائي، ورديات. attendance &amp; payroll for factories hr for factories attendance, automatic fingerprint download, shifts." class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:#10b981">
+                    <img src="../icons/hr-pro.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 space-y-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-extrabold text-white text-base" dir="ltr">HR Pro</h3>
+                            
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Available</span>
+                        </div>
+                        <div class="text-sm font-bold" style="color:#10b981">Attendance &amp; Payroll for Factories</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">Attendance, automatic fingerprint download, shifts.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <p id="noResult" class="text-center text-gray-400" style="display:none">No program matches — <a class="acc underline" href="https://wa.me/201150606002?text=I%20need%20a%20program%20for%20my%20business" target="_blank" rel="noopener noreferrer">contact us</a> and we will help.</p>
+        </section>
+
+        <section id="why" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-star acc"></i><span>Why Meta Origin?</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Included in all our programs</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#3b82f6">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#3b82f61f;color:#3b82f6"><i class="fa-solid fa-language"></i></div>
+                    <h3 class="text-base font-bold text-white">Arabic &amp; English</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Every program works in Arabic and English and you can switch at any time — invoices and reports follow the same language.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#22c55e">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#22c55e1f;color:#22c55e"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3 class="text-base font-bold text-white">One PC, network or online</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">A single PC, a main PC with devices on the network, or from the browser and phone from anywhere.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#a855f7">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#a855f71f;color:#a855f7"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="text-base font-bold text-white">Security &amp; permissions</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Permissions for every employee and a log of every action, with protection against money tampering (discounts, voids and credit need the manager).</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#0ea5e9">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#0ea5e91f;color:#0ea5e9"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <h3 class="text-base font-bold text-white">Automatic backups</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Automatic backups in two places plus encrypted backups to Google Drive or OneDrive, backup testing and an alert if a backup is late.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#f43f5e">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#f43f5e1f;color:#f43f5e"><i class="fa-solid fa-palette"></i></div>
+                    <h3 class="text-base font-bold text-white">Your look, your brand</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">More than 45 themes in light and dark mode, different styles and menu layouts, and your shop's name and logo inside the program.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#f59e0b">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#f59e0b1f;color:#f59e0b"><i class="fa-solid fa-file-export"></i></div>
+                    <h3 class="text-base font-bold text-white">Reports &amp; export</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Detailed reports and dashboards, Excel and PDF export, invoices and statements on WhatsApp, and importing items from Excel.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#10b981">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#10b9811f;color:#10b981"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3 class="text-base font-bold text-white">Your phone in your hand</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">A manager page on the phone, a barcode reader using the phone camera, and a daily report by email.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#ef4444">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#ef44441f;color:#ef4444"><i class="fa-solid fa-circle-play"></i></div>
+                    <h3 class="text-base font-bold text-white">Guides &amp; videos</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Step-by-step help for every screen inside the program, a PDF user guide, and explainer videos on YouTube.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#8b5cf6">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#8b5cf61f;color:#8b5cf6"><i class="fa-solid fa-flask"></i></div>
+                    <h3 class="text-base font-bold text-white">Try before you buy</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">A full 14-day trial, plus a demo copy full of sample data to try every screen without touching your own data.</p>
+                </div>
+                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:#14b8a6">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:#14b8a61f;color:#14b8a6"><i class="fa-solid fa-headset"></i></div>
+                    <h3 class="text-base font-bold text-white">Support &amp; updates</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Installation, training and support on WhatsApp, and updates installed from inside the program without affecting your data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="space-y-6 pt-4">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-users acc"></i><span>Our team & contact</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Contact us directly for support, questions and installation</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+                    <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                        <img src="../img/mahmoud.webp" alt="Mahmoud Youssef" title="Click to view the full card" onclick="zoomImg('../img/mahmoud_card.webp')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:var(--acc)">
+                        <div>
+                            <span class="text-xs font-bold block mb-1" style="color:var(--acc)">Founder &amp; CEO</span>
+                            <h3 class="text-lg font-extrabold text-white">Mahmoud Youssef</h3>
+                            <span class="text-[11px] text-gray-400">محمود يوسف</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed">Leads Meta Origin's vision and product development. He turns what organizations really need into practical systems that save time and keep the books right, and personally follows solution design, installation and customer support.</p>
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs font-bold text-gray-200 flex items-center gap-1.5 mb-2"><i class="fa-solid fa-headset text-sky-400"></i> Call or WhatsApp:</div>
+                        <div class="flex items-center justify-between bg-darkbg border border-acc p-2.5 rounded-xl" style="background:rgba(var(--acc-rgb),.05)">
+                            <span class="font-mono font-bold text-sm text-white" dir="ltr">01150606002</span>
+                            <a href="https://wa.me/201150606002" target="_blank" rel="noopener noreferrer" class="bg-acc px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm "></i> WhatsApp (main)
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01277122615</span>
+                            <a href="https://wa.me/201277122615" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> WhatsApp
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01011121145</span>
+                            <a href="https://wa.me/201011121145" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+                    <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                        <img src="../img/omar.webp" alt="Omar Saleh" title="Click to view the full card" onclick="zoomImg('../img/omar_card.webp')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:#38bdf8">
+                        <div>
+                            <span class="text-xs font-bold block mb-1" style="color:#38bdf8">Co-founder</span>
+                            <h3 class="text-lg font-extrabold text-white">Omar Saleh</h3>
+                            <span class="text-[11px] text-gray-400">عمر صالح</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed">Co-founded Meta Origin and leads business development and customer relations. He makes sure every organization gets the system that fits its size and way of working, and follows training and after-sales service.</p>
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs font-bold text-gray-200 flex items-center gap-1.5 mb-2"><i class="fa-solid fa-headset text-sky-400"></i> Call or WhatsApp:</div>
+                        <div class="flex items-center justify-between bg-darkbg border border-gray-800 p-2.5 rounded-xl" >
+                            <span class="font-mono font-bold text-sm text-gray-300" dir="ltr">01200966258</span>
+                            <a href="https://wa.me/201200966258" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-sm acc"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+                <a href="mailto:meta.origin@outlook.com" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="truncate" dir="ltr">meta.origin@outlook.com</span></a>
+                <a href="mailto:meta.origin.eg@gmail.com" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="truncate" dir="ltr">meta.origin.eg@gmail.com</span></a>
+                <a href="https://www.instagram.com/meta.origin.coding/" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-instagram text-pink-500"></i> Instagram</a>
+                <a href="https://www.facebook.com/meta.origin.eg" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-facebook text-[#1877f2]"></i> Facebook</a>
+            </div>
+        </section>
+    </main>
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white border px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" style="border-color:rgba(var(--acc-rgb),.5)">
+        <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">Copied!</span>
+    </div>
+    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <a href="https://wa.me/201150606002?text=I%20would%20like%20to%20know%20more%20about%20Meta%20Origin%20programs" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
+    <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <img src="../img/company-logo.png" alt="Meta Origin" class="w-6 h-6 object-cover opacity-70 rounded-lg">
+                <span class="font-bold text-gray-400">Meta Origin Software</span>
+            </div>
+            <div class="flex justify-center gap-4 text-base">
+                <a href="https://www.facebook.com/meta.origin.eg" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877f2]" title="Facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://www.youtube.com/@Meta.Origin-eg" target="_blank" rel="noopener noreferrer" class="hover:text-red-500" title="YouTube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                <a href="https://www.instagram.com/meta.origin.coding/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500" title="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/201150606002" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
+                <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
+            </div>
+            <p><a href="../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
+            <p>All rights reserved &copy; 2026 - Meta Origin</p>
+        </div>
+    </footer>
+    <script>
+        function copyTextToClipboard(text, msg) {
+            (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => { const t = document.createElement('input'); document.body.appendChild(t); t.value = text; t.select(); document.execCommand('copy'); t.remove(); });
+            showToast(msg);
+        }
+        function copyPassword(p) { copyTextToClipboard(p, 'Password (' + p + ') copied!'); }
+        function copyPageLink() { copyTextToClipboard(location.href, 'Page link copied!'); }
+        function sharePage() { if (navigator.share) navigator.share({ title: document.title, url: location.href }).catch(() => {}); else copyPageLink(); }
+        function showToast(m) {
+            const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
+            t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
+        function filterPrograms(q) {
+            q = q.trim(); let shown = 0;
+            document.querySelectorAll('[data-prog]').forEach((el) => { const ok = !q || el.dataset.prog.includes(q); el.style.display = ok ? '' : 'none'; if (ok) shown++; });
+            document.querySelectorAll('[data-cat]').forEach((sec) => { sec.style.display = [...sec.querySelectorAll('[data-prog]')].some((e) => e.style.display !== 'none') ? '' : 'none'; });
+            const n = document.getElementById('noResult'); if (n) n.style.display = shown ? 'none' : '';
+        }
+    </script>
+</body>
+</html>
