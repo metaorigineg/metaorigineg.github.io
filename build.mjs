@@ -32,6 +32,9 @@ try {
   fs.writeFileSync(VIDEOS_FILE, JSON.stringify(VIDEOS, null, 2) + '\n');
 } catch (e) { console.log('مقدرتش أجيب فيديوهات القناة (هستخدم المحفوظ):', e.message); }
 for (const p of D.programs) if (!p.video && VIDEOS[p.slug]) p.video = VIDEOS[p.slug];
+// برامج مخفية مؤقتًا من الموقع ("hidden": true في programs.json): مالهاش كارت ولا صفحة ولا مكان في الخريطة (صفحتها القديمة بتتمسح)
+for (const p of D.programs.filter((x) => x.hidden)) fs.rmSync(path.join(HERE, p.slug), { recursive: true, force: true });
+D.programs = D.programs.filter((p) => !p.hidden);
 const YEAR = new Date().getFullYear();
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const wa = (n, text) => `https://wa.me/2${n}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
