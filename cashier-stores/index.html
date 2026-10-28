@@ -26,10 +26,11 @@
     <link rel="alternate" hreflang="x-default" href="https://metaorigineg.github.io/cashier-stores/">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Meta Origin - Cashier Stores","alternateName":"كاشير لكل المحلات","description":"كاشير المحلات المتنوعة: نقطة بيع سريعة بالباركود، المخزون والمشتريات، السيريال والضمان والصيانة، الورديات والخزينة، العملاء، وتقارير المبيعات والأرباح. جهاز رئيسي وأجهزة فرعية.","applicationCategory":"BusinessApplication","applicationSubCategory":"المحلات المتنوعة","operatingSystem":"Windows 10, Windows 11","url":"https://metaorigineg.github.io/cashier-stores/","image":"https://metaorigineg.github.io/icons/cashier-stores.png","inLanguage":["ar","en"],"softwareVersion":"1.18.0","dateModified":"2026-10-28","downloadUrl":"https://github.com/metaorigineg/metaorigineg.github.io/releases/download/cashier-stores-v1.18.0/Meta-Origin-Cashier-Stores-1.18.0.rar","fileSize":"224 MB","publisher":{"@type":"Organization","name":"Meta Origin","url":"https://metaorigineg.github.io/"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"مناسب لأي نوع محل؟","acceptedAnswer":{"@type":"Answer","text":"أيوه، للمحلات المتنوعة: ملابس وعطور وموبايلات وأدوات منزلية."}},{"@type":"Question","name":"فيه سيريال وضمان وصيانة؟","acceptedAnswer":{"@type":"Answer","text":"أيوه، السيريال والضمان والصيانة، مناسب لمحلات الموبايلات والأجهزة."}},{"@type":"Question","name":"بيطلّع أرباح المحل؟","acceptedAnswer":{"@type":"Answer","text":"أيوه، تقارير المبيعات والأرباح، والورديات والخزينة."}},{"@type":"Question","name":"البرنامج مجاني؟","acceptedAnswer":{"@type":"Answer","text":"بتجربه 14 يوم كاملين بكل الشاشات، وبعدها محتاج ترخيص — كلّمنا على الواتساب وهنقولك الأسعار المناسبة لنشاطك."}},{"@type":"Question","name":"ينفع يشتغل على أكتر من جهاز؟","acceptedAnswer":{"@type":"Answer","text":"أيوه: جهاز رئيسي عليه البيانات وأجهزة تانية على نفس الشبكة، وكتير من البرامج بتتفتح كمان من المتصفح والموبايل."}},{"@type":"Question","name":"بياناتي في أمان؟","acceptedAnswer":{"@type":"Answer","text":"البيانات على جهازك أنت، ومعاها نسخ احتياطي تلقائي في مكانين (ونسخة متشفّرة على Google Drive أو OneDrive لو حبيت)، وصلاحيات لكل موظف وسجل لكل عملية."}},{"@type":"Question","name":"البرنامج بالإنجليزي كمان؟","acceptedAnswer":{"@type":"Answer","text":"أيوه، البرنامج بيشتغل بالعربي والإنجليزي وتقدر تبدّل بينهم."}},{"@type":"Question","name":"لو حصلت مشكلة؟","acceptedAnswer":{"@type":"Answer","text":"جوّه البرنامج فيه زرار «إرسال تقرير مشكلة»، أو كلّمنا على الواتساب مباشرة وهنساعدك."}}]}</script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/site.css?v=03d43039e8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
     <style>
         :root { --acc: #8b5cf6; --acc-rgb: 139,92,246; --on-acc: #0b0f19; }
         body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
@@ -57,6 +58,8 @@
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="../compare/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-scale-balanced acc"></i>مقارنة البرامج</a>
+                <a href="../articles/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-newspaper acc"></i>مقالات</a>
                 <a href="../updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>آخر التحديثات</a>
                 <a href="../#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>كل البرامج</span></a>
                 <a href="../en/cashier-stores/" hreflang="en" lang="en" title="English version" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>English</span></a>
@@ -127,6 +130,15 @@
             
         </section>
 
+
+        <a href="../compare/#cashier" class="block bg-cardbg border border-gray-800 hover:border-gray-600 rounded-2xl p-5 card-hover">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-acc-soft flex items-center justify-center text-xl flex-shrink-0"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="min-w-0 flex-1"><div class="font-extrabold text-white">مش متأكد ده ولا <bdi>Cashier</bdi> ولا <bdi>Cashier Lite</bdi>؟</div>
+                <div class="text-sm text-gray-400">شوف المقارنة بينهم في جدول واحد</div></div>
+                <i class="fa-solid fa-arrow-left acc"></i>
+            </div>
+        </a>
         <section class="space-y-8 pt-4">
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white">لماذا <span dir="ltr">Meta Origin - Cashier Stores</span>؟</h2>
@@ -231,6 +243,26 @@
             </div>
         </section>
 
+        <section id="request" class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 space-y-5 glow-effect">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-paper-plane acc"></i><span>اطلب البرنامج</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">اكتب بياناتك ودوس «ابعت على الواتساب» — هتتفتح رسالة جاهزة تبعتها لينا، ونرد عليك بسرعة.</p>
+            </div>
+            <form onsubmit="return sendRequest(this)" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">الاسم *</span><input name="name" required maxlength="60" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="اسمك"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">اسم المكان ونشاطه *</span><input name="biz" required maxlength="80" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="مثلًا: صيدلية النور"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">البرنامج</span><select name="prog" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc"><option value="">مش متأكد — ساعدوني أختار</option><option value="Meta Origin - Pharmacy">Pharmacy — نظام الصيدليات</option><option value="Meta Origin - Sales ERP">Sales ERP — المبيعات والمخازن والحسابات</option><option value="Meta Origin - Clinic">Clinic — إدارة العيادات والمراكز الطبية</option><option value="Meta Origin - School">School — حسابات وإدارة المدارس</option><option value="Meta Origin - ERP System">ERP System — إدارة مصانع الملابس</option><option value="Meta Origin - Acc">Acc — الحسابات العامة</option><option value="Meta Origin - Acc New">Acc New — حسابات ونقطة بيع</option><option value="Meta Origin - Stores">Stores — المخازن ومتابعة الإنتاج</option><option value="Meta Origin - Cashier">Cashier — كاشير السوبر ماركت</option><option value="Meta Origin - Cashier Stores" selected>Cashier Stores — كاشير لكل المحلات</option><option value="Meta Origin - Cashier Lite">Cashier Lite — كاشير ماركت لجهاز واحد</option><option value="Meta Origin - Restaurant">Restaurant — كاشير المطاعم والكافيهات</option><option value="Meta Origin - Hotel">Hotel — إدارة الفنادق والشقق الفندقية</option><option value="Meta Origin - Hotel Pro">Hotel Pro — إدارة الفنادق (برو)</option><option value="Meta Origin - HR Pro">HR Pro — الحضور والانصراف والمرتبات للمصانع</option></select></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">المحافظة / المدينة</span><input name="city" maxlength="40" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="مثلًا: بورسعيد"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">عدد الأجهزة</span><select name="pcs" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc"><option>جهاز واحد</option><option>2 – 3 أجهزة</option><option>4 – 10 أجهزة</option><option>أكتر من 10</option><option>لسه مش عارف</option></select></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">محتاج إيه؟</span><select name="need" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc"><option>أعرف السعر</option><option>أجرّب البرنامج</option><option>تركيب وتدريب</option><option>عندي سؤال</option></select></label>
+                <label class="space-y-1 md:col-span-2"><span class="text-xs font-bold text-gray-300">ملاحظات (اختياري)</span><textarea name="notes" rows="2" maxlength="400" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="أي تفاصيل عن شغلك"></textarea></label>
+                <div class="md:col-span-2 flex flex-col items-center gap-2 pt-1">
+                    <button class="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3 rounded-xl font-extrabold flex items-center gap-2 shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp text-lg"></i> ابعت على الواتساب</button>
+                    <p class="text-[11px] text-gray-500">البيانات مش بتتحفظ في الموقع — بتروح في رسالة الواتساب اللي انت بتبعتها بنفسك.</p>
+                </div>
+            </form>
+        </section>
+
         <section id="team" class="space-y-6 pt-4">
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-users acc"></i><span>فريق العمل وطرق التواصل</span></h2>
@@ -329,7 +361,7 @@
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
             </div>
-            <p><a href="../updates/" class="hover:text-white underline">آخر التحديثات</a> · <a href="../privacy/" class="hover:text-white underline">سياسة الخصوصية · Privacy Policy</a></p>
+            <p><a href="../updates/" class="hover:text-white underline">آخر التحديثات</a> · <a href="../compare/" class="hover:text-white underline">مقارنة البرامج</a> · <a href="../articles/" class="hover:text-white underline">مقالات ونصايح</a> · <a href="../privacy/" class="hover:text-white underline">سياسة الخصوصية · Privacy Policy</a></p>
             <p>جميع الحقوق محفوظة &copy; 2026 - Meta Origin - Cashier Stores</p>
         </div>
     </footer>
@@ -345,6 +377,15 @@
             const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+
+        function sendRequest(f) {
+            const v = (n) => (f.elements[n].value || '').trim();
+            const rows = [["الاسم", v('name')], ["المكان", v('biz')], ["البرنامج", v('prog') || "مش متأكد — ساعدوني أختار"],
+                ["المدينة", v('city')], ["عدد الأجهزة", v('pcs')], ["محتاج", v('need')], ["ملاحظات", v('notes')]];
+            const text = "السلام عليكم، عايز أطلب برنامج من Meta Origin:" + '\n\n' + rows.filter((r) => r[1]).map((r) => r[0] + ': ' + r[1]).join('\n');
+            window.open('https://wa.me/201150606002?text=' + encodeURIComponent(text), '_blank', 'noopener');
+            return false;
         }
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });

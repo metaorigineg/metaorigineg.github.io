@@ -110,7 +110,7 @@ const onColor = (hex) => {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.18 ? '#0b0f19' : '#ffffff';
 };
 
-function head({ title, desc, accent, base, image, sub = '', ld = [] }) {
+function head({ title, desc, accent, base, image, sub = '', ld = [], arOnly = false }) {
   const url = LANG === 'en' ? `${SITE}en/${sub}` : `${SITE}${sub}`;
   const img = SITE + image.replace(/^(?:\.\.\/)+|^\.\//, '');
   const wide = /img\/og\//.test(image); // صورة الدعاية العريضة 1200×630 (غير كده = أيقونة مربعة)
@@ -137,14 +137,15 @@ function head({ title, desc, accent, base, image, sub = '', ld = [] }) {
     <meta name="twitter:image" content="${esc(img)}">
     <meta name="theme-color" content="#0b0f19">
     <link rel="icon" href="${base}img/company-logo.png">
-    <link rel="alternate" hreflang="ar" href="${SITE}${sub}">
+${arOnly ? '' : `    <link rel="alternate" hreflang="ar" href="${SITE}${sub}">
     <link rel="alternate" hreflang="en" href="${SITE}en/${sub}">
-    <link rel="alternate" hreflang="x-default" href="${SITE}${sub}">${ld.map((x) => `
+    <link rel="alternate" hreflang="x-default" href="${SITE}${sub}">`}${ld.map((x) => `
     <script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('')}
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="${base}assets/site.css?v=__CSSV__">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
     <style>
         :root { --acc: ${accent}; --acc-rgb: ${rgb(accent)}; --on-acc: ${onColor(accent)}; }
         body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
@@ -176,6 +177,8 @@ function header(base, { back, sub = '' } = {}) {
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="${LANG === 'en' ? base + 'en/' : base}compare/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-scale-balanced acc"></i>${L('مقارنة البرامج', 'Compare')}</a>
+                ${LANG === 'ar' ? `<a href="${base}articles/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-newspaper acc"></i>مقالات</a>` : ''}
                 <a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>${L('آخر التحديثات', 'Updates')}</a>
                 ${back ? `<a href="${LANG === 'en' ? base + 'en/' : base}#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>${L('كل البرامج', 'All programs')}</span></a>` : `<a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('البرامج', 'Programs')}</a><a href="#why" class="hidden md:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('المميزات', 'Features')}</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('تواصل معنا', 'Contact')}</a>`}
                 <a href="${otherLang(base, sub)}" hreflang="${L('en', 'ar')}" lang="${L('en', 'ar')}" title="${L('English version', 'النسخة العربي')}" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>${L('English', 'عربي')}</span></a>
@@ -246,7 +249,7 @@ function footer(base, name) {
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
-            <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a></p>
+            <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${LANG === 'en' ? base + 'en/' : base}compare/" class="hover:text-white underline">${L('مقارنة البرامج', 'Compare programs')}</a> · ${LANG === 'ar' ? `<a href="${base}articles/" class="hover:text-white underline">مقالات ونصايح</a> · ` : ''}<a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a></p>
             <p>${L('جميع الحقوق محفوظة', 'All rights reserved')} &copy; ${YEAR} - ${esc(name)}</p>
         </div>
     </footer>
@@ -263,6 +266,7 @@ function footer(base, name) {
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
         }
+${requestJs()}
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
             document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
@@ -469,6 +473,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             ${LANG === 'en' && Object.keys(UPDATES[p.slug] || {}).length ? `<p class="text-center text-sm"><a href="${base}en/updates/#${p.slug}" class="font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> Release history${rel ? ` (latest: ${esc(rel.version)})` : ''}</a></p>` : ''}
         </section>
 
+${compareLink(p, base)}
         <section class="space-y-8 pt-4">
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white">${L(`لماذا <span dir="ltr">${esc(p.product)}</span>؟`, `Why ${esc(p.product)}?`)}</h2>
@@ -494,6 +499,7 @@ ${p.video ? `
         </section>` : ''}
 ${gallery(p, base)}
 ${installAndFaq(p)}
+${requestForm(base, p)}
 ${team(base)}
 
         <section class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl" style="background:linear-gradient(90deg, rgba(var(--acc-rgb),.12), #111827, rgba(37,99,235,.12))">
@@ -558,7 +564,8 @@ ${PICKER.map((x, i) => `                <div data-pick="${i}" style="display:non
 ${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
                     </div>
                 </div>`).join('\n')}
-                <p class="text-center text-xs text-gray-500 pt-3">${L('مش لاقي نشاطك؟', 'Not sure?')} <a class="acc underline" href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer">${L('كلّمنا واتساب وهنقولك المناسب', 'WhatsApp us and we will advise you')}</a></p>
+                <p class="text-center text-sm pt-3"><a href="${homeOf(base)}compare/" class="font-bold acc hover:underline"><i class="fa-solid fa-scale-balanced"></i> ${L('محتار بين برنامجين؟ شوف المقارنة بينهم', 'Torn between two programs? See the comparison')}</a></p>
+                <p class="text-center text-xs text-gray-500 pt-1">${L('مش لاقي نشاطك؟', 'Not sure?')} <a class="acc underline" href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer">${L('كلّمنا واتساب وهنقولك المناسب', 'WhatsApp us and we will advise you')}</a></p>
             </div>
         </section>`;
   const totalDl = Object.entries(DLS).filter(([s]) => D.programs.some((p) => p.slug === s)).reduce((a, [, n]) => a + n, 0);
@@ -623,11 +630,147 @@ ${D.company.strengths.map((x, i) => (LANG === 'en' && EN.company.strengths[i] ? 
                 </div>`).join('\n')}
             </div>
         </section>
+${requestForm(base)}
 ${team(base)}
     </main>` + footer(base, 'Meta Origin');
 }
 
-/** «آخر التحديثات»: أحدث إصدار لكل برنامج بتاريخه (الأحدث فوق) + سجل كل الإصدارات لكل برنامج (updates.json) */
+// ---------------- المقارنات + المقالات + فورم الطلب ----------------
+const CMP = JSON.parse(fs.readFileSync(path.join(HERE, 'compare.json'), 'utf8')).groups
+  .map((g) => ({ ...g, slugs: g.slugs.filter((s) => D.programs.some((p) => p.slug === s)) })).filter((g) => g.slugs.length > 1);
+const ART = JSON.parse(fs.readFileSync(path.join(HERE, 'articles.json'), 'utf8')).articles;
+const prog = (s) => D.programs.find((p) => p.slug === s);
+// النص العربي اللي فيه أسماء إنجليزي (Cashier ولا Hotel Pro؟): كل اسم إنجليزي في <bdi> عشان علامات الترقيم ماتتنقلش
+const bidi = (t) => (LANG === 'ar' ? esc(t).replace(/[A-Za-z][A-Za-z0-9.]*(?:[ -][A-Za-z0-9][A-Za-z0-9.]*)*/g, (m) => `<bdi>${m}</bdi>`) : esc(t));
+const homeOf = (base) => (LANG === 'en' ? base + 'en/' : base);
+
+/** فورم «اطلب البرنامج»: بيكتب رسالة واتساب جاهزة بالبيانات (مفيش أي حاجة بتتحفظ أو بتتبعت لسيرفر) */
+function requestForm(base, p) {
+  const opts = D.programs.map((x) => `<option value="${esc(x.product)}"${p && x.slug === p.slug ? ' selected' : ''}>${esc(x.product.replace('Meta Origin - ', ''))} — ${esc(pName(x))}</option>`).join('');
+  const field = 'w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc';
+  return `
+        <section id="request" class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 space-y-5 glow-effect">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-paper-plane acc"></i><span>${p ? L('اطلب البرنامج', 'Request the program') : L('اطلب برنامجك', 'Request a program')}</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">${L('اكتب بياناتك ودوس «ابعت على الواتساب» — هتتفتح رسالة جاهزة تبعتها لينا، ونرد عليك بسرعة.', 'Fill in your details and press «Send on WhatsApp» — a ready message opens for you to send us, and we reply quickly.')}</p>
+            </div>
+            <form onsubmit="return sendRequest(this)" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('الاسم', 'Name')} *</span><input name="name" required maxlength="60" class="${field}" placeholder="${L('اسمك', 'Your name')}"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('اسم المكان ونشاطه', 'Business name & type')} *</span><input name="biz" required maxlength="80" class="${field}" placeholder="${L('مثلًا: صيدلية النور', 'e.g. Al Nour Pharmacy')}"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('البرنامج', 'Program')}</span><select name="prog" class="${field}"><option value="">${L('مش متأكد — ساعدوني أختار', 'Not sure — help me choose')}</option>${opts}</select></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('المحافظة / المدينة', 'City')}</span><input name="city" maxlength="40" class="${field}" placeholder="${L('مثلًا: بورسعيد', 'e.g. Cairo')}"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('عدد الأجهزة', 'Number of PCs')}</span><select name="pcs" class="${field}"><option>${L('جهاز واحد', 'One PC')}</option><option>${L('2 – 3 أجهزة', '2 – 3 PCs')}</option><option>${L('4 – 10 أجهزة', '4 – 10 PCs')}</option><option>${L('أكتر من 10', 'More than 10')}</option><option>${L('لسه مش عارف', 'Not sure yet')}</option></select></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('محتاج إيه؟', 'What do you need?')}</span><select name="need" class="${field}"><option>${L('أعرف السعر', 'A price quote')}</option><option>${L('أجرّب البرنامج', 'To try the program')}</option><option>${L('تركيب وتدريب', 'Installation & training')}</option><option>${L('عندي سؤال', 'I have a question')}</option></select></label>
+                <label class="space-y-1 md:col-span-2"><span class="text-xs font-bold text-gray-300">${L('ملاحظات (اختياري)', 'Notes (optional)')}</span><textarea name="notes" rows="2" maxlength="400" class="${field}" placeholder="${L('أي تفاصيل عن شغلك', 'Anything about your business')}"></textarea></label>
+                <div class="md:col-span-2 flex flex-col items-center gap-2 pt-1">
+                    <button class="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3 rounded-xl font-extrabold flex items-center gap-2 shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp text-lg"></i> ${L('ابعت على الواتساب', 'Send on WhatsApp')}</button>
+                    <p class="text-[11px] text-gray-500">${L('البيانات مش بتتحفظ في الموقع — بتروح في رسالة الواتساب اللي انت بتبعتها بنفسك.', 'Nothing is stored on this site — the details go only in the WhatsApp message you send yourself.')}</p>
+                </div>
+            </form>
+        </section>`;
+}
+const requestJs = () => {
+  const T = (ar, en) => JSON.stringify(L(ar, en));
+  return `
+        function sendRequest(f) {
+            const v = (n) => (f.elements[n].value || '').trim();
+            const rows = [[${T('الاسم', 'Name')}, v('name')], [${T('المكان', 'Business')}, v('biz')], [${T('البرنامج', 'Program')}, v('prog') || ${T('مش متأكد — ساعدوني أختار', 'Not sure — help me choose')}],
+                [${T('المدينة', 'City')}, v('city')], [${T('عدد الأجهزة', 'PCs')}, v('pcs')], [${T('محتاج', 'Need')}, v('need')], [${T('ملاحظات', 'Notes')}, v('notes')]];
+            const text = ${T('السلام عليكم، عايز أطلب برنامج من Meta Origin:', 'Hello, I would like to request a Meta Origin program:')} + '\\n\\n' + rows.filter((r) => r[1]).map((r) => r[0] + ': ' + r[1]).join('\\n');
+            window.open('https://wa.me/2${D.company.whatsapp}?text=' + encodeURIComponent(text), '_blank', 'noopener');
+            return false;
+        }`;
+};
+
+/** كارت «مش عارف تختار؟» في صفحة البرنامج لو ليه مقارنة */
+function compareLink(p, base) {
+  const g = CMP.find((x) => x.slugs.includes(p.slug));
+  if (!g) return '';
+  const others = g.slugs.filter((s) => s !== p.slug).map((s) => `<bdi>${esc(prog(s).product.replace('Meta Origin - ', ''))}</bdi>`).join(L(' ولا ', ' and '));
+  return `
+        <a href="${homeOf(base)}compare/#${g.id}" class="block bg-cardbg border border-gray-800 hover:border-gray-600 rounded-2xl p-5 card-hover">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-acc-soft flex items-center justify-center text-xl flex-shrink-0"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="min-w-0 flex-1"><div class="font-extrabold text-white">${L('مش متأكد ده ولا ' + others + '؟', 'Not sure between this and ' + others + '?')}</div>
+                <div class="text-sm text-gray-400">${L('شوف المقارنة بينهم في جدول واحد', 'See them compared side by side')}</div></div>
+                <i class="fa-solid fa-arrow-${L('left', 'right')} acc"></i>
+            </div>
+        </a>`;
+}
+
+function comparePage() {
+  const base = L('../', '../../');
+  const home = homeOf(base);
+  return head({ title: L('مقارنة البرامج | Meta Origin', 'Compare programs | Meta Origin'), desc: L('الفرق بين برامج Meta Origin القريبة من بعض: الكاشيرات، الفنادق، الحسابات، والمصانع — عشان تختار المناسب.', 'The difference between similar Meta Origin programs: cashiers, hotels, accounting and factories.'), accent: '#3b82f6', base, image: 'img/company-logo.png', sub: 'compare/' }) + header(base, { back: true, sub: 'compare/' }) + `
+    <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-12">
+        <section class="text-center space-y-3">
+            <h1 class="text-3xl md:text-5xl font-black text-white flex items-center justify-center gap-3"><i class="fa-solid fa-scale-balanced acc"></i>${L('مقارنة البرامج', 'Compare programs')}</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">${L('محتار بين برنامجين شبه بعض؟ هنا الفرق بينهم في جدول واحد.', 'Torn between two similar programs? Here is the difference in one table.')}</p>
+            <div class="flex flex-wrap justify-center gap-2 pt-2">${CMP.map((g) => `<a href="#${g.id}" class="bg-cardbg border border-gray-700 hover:border-gray-500 px-4 py-2 rounded-xl text-sm font-bold text-gray-200"><i class="fa-solid ${g.icon} acc"></i> <span>${bidi(g[LANG].t)}</span></a>`).join('')}</div>
+        </section>
+${CMP.map((g) => { const ps = g.slugs.map(prog); return `        <section id="${g.id}" class="space-y-5 scroll-mt-24">
+            <div class="space-y-1">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid ${g.icon} acc"></i><span class="min-w-0">${bidi(g[LANG].t)}</span></h2>
+                <p class="text-gray-400 text-sm">${bidi(g[LANG].d)}</p>
+            </div>
+            <div class="overflow-x-auto rounded-2xl border border-gray-800">
+                <table class="w-full text-sm min-w-[560px]">
+                    <thead><tr class="bg-cardbg">
+                        <th class="p-3 w-36"></th>
+${ps.map((p) => `                        <th class="p-3 text-${L('right', 'left')} align-top"><a href="${home}${p.slug}/" class="flex items-center gap-2 group"><img src="${base}icons/${p.slug}.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0"><span><span class="block font-extrabold text-white group-hover:underline" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-[11px] font-bold" style="color:${p.color}">${esc(pName(p))}</span></span></a></th>`).join('\n')}
+                    </tr></thead>
+                    <tbody>
+${g.rows.map((r) => `                        <tr class="border-t border-gray-800"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-bold align-top">${esc(r[LANG])}</th>${ps.map((p) => { const c = (r.v[p.slug] || ['—', '—'])[LANG === 'en' ? 1 : 0]; return `<td class="p-3 text-gray-200 align-top">${c === '✓' ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : esc(c)}</td>`; }).join('')}</tr>`).join('\n')}
+                        <tr class="border-t border-gray-800 bg-cardbg"><th class="p-3 text-${L('right', 'left')} acc font-bold align-top">${L('اختاره لو…', 'Choose it if…')}</th>${ps.map((p) => `<td class="p-3 align-top"><p class="text-white font-bold">${esc((g.pick[p.slug] || ['', ''])[LANG === 'en' ? 1 : 0])}</p><a href="${home}${p.slug}/" class="inline-flex items-center gap-1 mt-2 text-xs font-bold acc hover:underline">${L('تفاصيل وتحميل', 'Details & download')} <i class="fa-solid fa-arrow-${L('left', 'right')}"></i></a></td>`).join('')}</tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>`; }).join('\n')}
+${requestForm(base)}
+    </main>` + footer(base, 'Meta Origin');
+}
+
+/** المقالات (عربي بس): فهرس + صفحة لكل مقالة */
+function articlesIndex() {
+  const base = '../';
+  return head({ title: 'مقالات ونصايح | Meta Origin', desc: 'نصايح عملية لأصحاب المحلات والصيدليات والمطاعم والشركات: اختيار البرنامج، تقفيل الوردية، النسخ الاحتياطي.', accent: '#3b82f6', base, image: 'img/company-logo.png', sub: 'articles/', arOnly: true }) + header(base, { back: true, sub: '' }) + `
+    <main class="max-w-4xl mx-auto px-4 py-10 w-full space-y-8">
+        <section class="text-center space-y-3">
+            <h1 class="text-3xl md:text-5xl font-black text-white flex items-center justify-center gap-3"><i class="fa-solid fa-newspaper acc"></i>مقالات ونصايح</h1>
+            <p class="text-gray-400">نصايح عملية لشغلك — من خبرتنا مع المحلات والصيدليات والمطاعم والشركات.</p>
+        </section>
+${ART.map((a) => `        <a href="${a.slug}/" class="block bg-cardbg border border-gray-800 rounded-2xl p-6 card-hover space-y-2">
+            <div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-acc-soft flex items-center justify-center text-lg flex-shrink-0"><i class="fa-solid ${a.icon}"></i></div><h2 class="text-lg md:text-xl font-extrabold text-white">${esc(a.t)}</h2></div>
+            <p class="text-gray-400 text-sm leading-relaxed">${esc(a.d)}</p>
+            <span class="text-xs text-gray-500"><i class="fa-solid fa-calendar-day"></i> ${fmtDay(a.date)}</span>
+        </a>`).join('\n')}
+    </main>` + footer(base, 'Meta Origin');
+}
+
+function articlePage(a) {
+  const base = '../../';
+  const url = `${SITE}articles/${a.slug}/`;
+  const ld = [{ '@context': 'https://schema.org', '@type': 'Article', headline: a.t, description: a.d, datePublished: a.date, dateModified: a.date, inLanguage: 'ar',
+    mainEntityOfPage: url, image: `${SITE}img/company-logo.png`, author: { '@type': 'Organization', name: 'Meta Origin', url: SITE }, publisher: { '@type': 'Organization', name: 'Meta Origin', logo: { '@type': 'ImageObject', url: `${SITE}img/company-logo.png` } } }];
+  const block = ([k, v]) => k === 'h' ? `<h2 class="text-xl md:text-2xl font-bold text-white pt-4">${esc(v)}</h2>`
+    : k === 'ul' ? `<ul class="list-disc ps-6 space-y-2 text-gray-300 leading-8">${v.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`
+    : k === 'tip' ? `<div class="bg-acc-soft border border-acc rounded-2xl p-5 text-gray-100 leading-8"><i class="fa-solid fa-lightbulb acc"></i> ${esc(v)}</div>`
+    : `<p class="text-gray-300 leading-8">${esc(v)}</p>`;
+  const rel = a.related.map(prog).filter(Boolean);
+  return head({ title: `${a.t} | Meta Origin`, desc: a.d, accent: rel[0]?.color || '#3b82f6', base, image: rel[0] && fs.existsSync(path.join(HERE, 'img', 'og', `${rel[0].slug}.jpg`)) ? `img/og/${rel[0].slug}.jpg` : 'img/company-logo.png', sub: `articles/${a.slug}/`, ld, arOnly: true }) + header(base, { back: true, sub: '' }) + `
+    <main class="max-w-3xl mx-auto px-4 py-10 w-full space-y-5">
+        <a href="../" class="text-sm acc font-bold hover:underline"><i class="fa-solid fa-arrow-right"></i> كل المقالات</a>
+        <h1 class="text-3xl md:text-4xl font-black text-white leading-tight">${esc(a.t)}</h1>
+        <p class="text-gray-500 text-sm"><i class="fa-solid fa-calendar-day"></i> ${fmtDay(a.date)} · Meta Origin</p>
+        <article class="space-y-4">
+${a.b.map(block).join('\n')}
+        </article>
+        ${rel.length ? `<section class="pt-6 space-y-3"><h2 class="text-lg font-bold text-white">برامج ليها علاقة</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${rel.map((p) => `<a href="${base}${p.slug}/" class="flex items-center gap-3 bg-cardbg border border-gray-800 hover:border-gray-600 rounded-xl p-3"><img src="${base}icons/${p.slug}.png" alt="" class="w-10 h-10 rounded-lg"><span><span class="block font-bold text-white text-sm" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-xs" style="color:${p.color}">${esc(p.nameAr)}</span></span></a>`).join('')}</div></section>` : ''}
+${requestForm(base, rel.length === 1 ? rel[0] : null)}
+    </main>` + footer(base, 'Meta Origin');
+}
+
+/** «آخر التحديثات»:أحدث إصدار لكل برنامج بتاريخه (الأحدث فوق) + سجل كل الإصدارات لكل برنامج (updates.json) */
 function updatesPage() {
   const base = L('../', '../../');
   const home = LANG === 'en' ? base + 'en/' : base;
@@ -750,6 +893,14 @@ for (const lang of ['ar', 'en']) {
   fs.writeFileSync(path.join(root, 'index.html'), homePage());
   fs.mkdirSync(path.join(root, 'updates'), { recursive: true });
   fs.writeFileSync(path.join(root, 'updates', 'index.html'), updatesPage());
+  fs.mkdirSync(path.join(root, 'compare'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'compare', 'index.html'), comparePage());
+  if (lang === 'ar') {
+    fs.rmSync(path.join(HERE, 'articles'), { recursive: true, force: true });
+    fs.mkdirSync(path.join(HERE, 'articles'), { recursive: true });
+    fs.writeFileSync(path.join(HERE, 'articles', 'index.html'), articlesIndex());
+    for (const a of ART) { fs.mkdirSync(path.join(HERE, 'articles', a.slug), { recursive: true }); fs.writeFileSync(path.join(HERE, 'articles', a.slug, 'index.html'), articlePage(a)); }
+  }
   for (const p of D.programs) {
     fs.mkdirSync(path.join(root, p.slug), { recursive: true });
     fs.writeFileSync(path.join(root, p.slug, 'index.html'), programPage(p));
@@ -760,8 +911,14 @@ LANG = 'ar';
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
 fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}en/`, ...D.programs.map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);
 console.log(`index.html + ${D.programs.length} صفحة برنامج (عربي + إنجليزي تحت /en/)`);
+// ملف التصميم الجاهز من الـ classes اللي في الصفحات، وبعدين رقم نسخته (hash) في كل صفحة عشان المتصفح مايفضلش على القديم
+const { buildCss } = await import('./build-css.mjs');
+await buildCss();
+const cssHash = (await import('node:crypto')).createHash('sha1').update(fs.readFileSync(path.join(HERE, 'assets', 'site.css'))).digest('hex').slice(0, 10);
+const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? (['.git', 'node_modules', 'assets', 'img', 'icons', 'shots'].includes(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []));
+for (const f of walk(HERE)) { const h = fs.readFileSync(f, 'utf8'); if (h.includes('__CSSV__')) fs.writeFileSync(f, h.replaceAll('__CSSV__', cssHash)); }

@@ -26,10 +26,11 @@
     <link rel="alternate" hreflang="x-default" href="https://metaorigineg.github.io/hr-pro/">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Meta Origin - HR Pro","alternateName":"Attendance & Payroll for Factories","description":"HR Pro: employees and the organization chart, downloading attendance from fingerprint devices (ZKTeco and others), shifts and schedules, leaves, permissions and overtime, payroll, advances and piece rates, regulations, and an employee portal on the phone. Server (Windows service) and devices.","applicationCategory":"BusinessApplication","applicationSubCategory":"HR for factories","operatingSystem":"Windows 10, Windows 11","url":"https://metaorigineg.github.io/en/hr-pro/","image":"https://metaorigineg.github.io/icons/hr-pro.png","inLanguage":["ar","en"],"softwareVersion":"0.8.0","dateModified":"2026-10-28","downloadUrl":"https://github.com/metaorigineg/metaorigineg.github.io/releases/download/hr-pro-v0.8.0/Meta-Origin-HR-Pro-0.8.0.rar","fileSize":"354 MB","publisher":{"@type":"Organization","name":"Meta Origin","url":"https://metaorigineg.github.io/"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it pull fingerprint data from the devices by itself?","acceptedAnswer":{"@type":"Answer","text":"Yes, attendance is pulled automatically from fingerprint devices (ZKTeco and others)."}},{"@type":"Question","name":"Does it calculate payroll and overtime?","acceptedAnswer":{"@type":"Answer","text":"Yes: shifts and schedules, leaves, permissions and overtime, payroll, loans, piece-rate and policies."}},{"@type":"Question","name":"Can employees see their own data?","acceptedAnswer":{"@type":"Answer","text":"Yes, through the employee portal on their phones."}},{"@type":"Question","name":"Is the program free?","acceptedAnswer":{"@type":"Answer","text":"You get a full 14-day trial with every screen; after that you need a license — message us on WhatsApp for prices that fit your business."}},{"@type":"Question","name":"Does it work on more than one PC?","acceptedAnswer":{"@type":"Answer","text":"Yes: a main PC holds the data and other devices connect on the same network, and many programs also open from the browser and the phone."}},{"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"Your data stays on your own computer, with automatic backups in two places (and encrypted backups to Google Drive or OneDrive), permissions for every employee and a log of every action."}},{"@type":"Question","name":"Is the program in English too?","acceptedAnswer":{"@type":"Answer","text":"Yes, the programs work in Arabic and English and you can switch between them."}},{"@type":"Question","name":"What if something goes wrong?","acceptedAnswer":{"@type":"Answer","text":"Inside the program there is a «Send problem report» button, or message us directly on WhatsApp and we will help."}}]}</script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../assets/site.css?v=03d43039e8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
     <style>
         :root { --acc: #10b981; --acc-rgb: 16,185,129; --on-acc: #0b0f19; }
         body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
@@ -57,6 +58,8 @@
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="../../en/compare/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-scale-balanced acc"></i>Compare</a>
+                
                 <a href="../../en/updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>Updates</a>
                 <a href="../../en/#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>All programs</span></a>
                 <a href="../../hr-pro/" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
@@ -122,6 +125,7 @@
             
             <p class="text-center text-sm"><a href="../../en/updates/#hr-pro" class="font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> Release history (latest: 0.8.0)</a></p>
         </section>
+
 
         <section class="space-y-8 pt-4">
             <div class="text-center space-y-2">
@@ -227,6 +231,26 @@
             </div>
         </section>
 
+        <section id="request" class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 space-y-5 glow-effect">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-paper-plane acc"></i><span>Request the program</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Fill in your details and press «Send on WhatsApp» — a ready message opens for you to send us, and we reply quickly.</p>
+            </div>
+            <form onsubmit="return sendRequest(this)" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto">
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">Name *</span><input name="name" required maxlength="60" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="Your name"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">Business name & type *</span><input name="biz" required maxlength="80" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="e.g. Al Nour Pharmacy"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">Program</span><select name="prog" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc"><option value="">Not sure — help me choose</option><option value="Meta Origin - Pharmacy">Pharmacy — Pharmacy Management</option><option value="Meta Origin - Sales ERP">Sales ERP — Sales, Inventory &amp; Accounting</option><option value="Meta Origin - Clinic">Clinic — Clinics &amp; Medical Centers</option><option value="Meta Origin - School">School — School Accounting &amp; Management</option><option value="Meta Origin - ERP System">ERP System — Garment Factory Management</option><option value="Meta Origin - Acc">Acc — General Accounting</option><option value="Meta Origin - Acc New">Acc New — Accounting &amp; Point of Sale</option><option value="Meta Origin - Stores">Stores — Warehouses &amp; Production Tracking</option><option value="Meta Origin - Cashier">Cashier — Supermarket Cashier</option><option value="Meta Origin - Cashier Stores">Cashier Stores — Cashier for Every Shop</option><option value="Meta Origin - Cashier Lite">Cashier Lite — Market Cashier (single PC)</option><option value="Meta Origin - Restaurant">Restaurant — Restaurant &amp; Café Cashier</option><option value="Meta Origin - Hotel">Hotel — Hotels &amp; Serviced Apartments</option><option value="Meta Origin - Hotel Pro">Hotel Pro — Hotel Management (Pro)</option><option value="Meta Origin - HR Pro" selected>HR Pro — Attendance &amp; Payroll for Factories</option></select></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">City</span><input name="city" maxlength="40" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="e.g. Cairo"></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">Number of PCs</span><select name="pcs" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc"><option>One PC</option><option>2 – 3 PCs</option><option>4 – 10 PCs</option><option>More than 10</option><option>Not sure yet</option></select></label>
+                <label class="space-y-1"><span class="text-xs font-bold text-gray-300">What do you need?</span><select name="need" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc"><option>A price quote</option><option>To try the program</option><option>Installation & training</option><option>I have a question</option></select></label>
+                <label class="space-y-1 md:col-span-2"><span class="text-xs font-bold text-gray-300">Notes (optional)</span><textarea name="notes" rows="2" maxlength="400" class="w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc" placeholder="Anything about your business"></textarea></label>
+                <div class="md:col-span-2 flex flex-col items-center gap-2 pt-1">
+                    <button class="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3 rounded-xl font-extrabold flex items-center gap-2 shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp text-lg"></i> Send on WhatsApp</button>
+                    <p class="text-[11px] text-gray-500">Nothing is stored on this site — the details go only in the WhatsApp message you send yourself.</p>
+                </div>
+            </form>
+        </section>
+
         <section id="team" class="space-y-6 pt-4">
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-users acc"></i><span>Our team & contact</span></h2>
@@ -325,7 +349,7 @@
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
             </div>
-            <p><a href="../../en/updates/" class="hover:text-white underline">Latest updates</a> · <a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
+            <p><a href="../../en/updates/" class="hover:text-white underline">Latest updates</a> · <a href="../../en/compare/" class="hover:text-white underline">Compare programs</a> · <a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
             <p>All rights reserved &copy; 2026 - Meta Origin - HR Pro</p>
         </div>
     </footer>
@@ -341,6 +365,15 @@
             const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+
+        function sendRequest(f) {
+            const v = (n) => (f.elements[n].value || '').trim();
+            const rows = [["Name", v('name')], ["Business", v('biz')], ["Program", v('prog') || "Not sure — help me choose"],
+                ["City", v('city')], ["PCs", v('pcs')], ["Need", v('need')], ["Notes", v('notes')]];
+            const text = "Hello, I would like to request a Meta Origin program:" + '\n\n' + rows.filter((r) => r[1]).map((r) => r[0] + ': ' + r[1]).join('\n');
+            window.open('https://wa.me/201150606002?text=' + encodeURIComponent(text), '_blank', 'noopener');
+            return false;
         }
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });

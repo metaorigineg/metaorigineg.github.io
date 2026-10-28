@@ -22,10 +22,11 @@
     <link rel="alternate" hreflang="ar" href="https://metaorigineg.github.io/updates/">
     <link rel="alternate" hreflang="en" href="https://metaorigineg.github.io/en/updates/">
     <link rel="alternate" hreflang="x-default" href="https://metaorigineg.github.io/updates/">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../assets/site.css?v=03d43039e8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
     <style>
         :root { --acc: #3b82f6; --acc-rgb: 59,130,246; --on-acc: #0b0f19; }
         body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
@@ -53,6 +54,8 @@
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="../../en/compare/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-scale-balanced acc"></i>Compare</a>
+                
                 <a href="../../en/updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>Updates</a>
                 <a href="../../en/#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>All programs</span></a>
                 <a href="../../updates/" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
@@ -730,7 +733,7 @@
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
             </div>
-            <p><a href="../../en/updates/" class="hover:text-white underline">Latest updates</a> · <a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
+            <p><a href="../../en/updates/" class="hover:text-white underline">Latest updates</a> · <a href="../../en/compare/" class="hover:text-white underline">Compare programs</a> · <a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
             <p>All rights reserved &copy; 2026 - Meta Origin</p>
         </div>
     </footer>
@@ -746,6 +749,15 @@
             const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+
+        function sendRequest(f) {
+            const v = (n) => (f.elements[n].value || '').trim();
+            const rows = [["Name", v('name')], ["Business", v('biz')], ["Program", v('prog') || "Not sure — help me choose"],
+                ["City", v('city')], ["PCs", v('pcs')], ["Need", v('need')], ["Notes", v('notes')]];
+            const text = "Hello, I would like to request a Meta Origin program:" + '\n\n' + rows.filter((r) => r[1]).map((r) => r[0] + ': ' + r[1]).join('\n');
+            window.open('https://wa.me/201150606002?text=' + encodeURIComponent(text), '_blank', 'noopener');
+            return false;
         }
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });

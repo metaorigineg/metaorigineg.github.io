@@ -1,0 +1,119 @@
+{
+  "_note": "صفحة المقارنات (/compare/). كل خانة من وصف البرنامج ومميزاته بس — ماتكتبش «مش موجود» غير لو متأكد. البرنامج المخفي بيتشال لوحده.",
+  "groups": [
+    {
+      "id": "cashier",
+      "icon": "fa-cash-register",
+      "ar": { "t": "Cashier ولا Cashier Lite ولا Cashier Stores؟", "d": "التلاتة نقطة بيع بالباركود — الفرق في نوع المحل وعدد الأجهزة." },
+      "en": { "t": "Cashier, Cashier Lite or Cashier Stores?", "d": "All three are barcode points of sale — the difference is the kind of shop and the number of PCs." },
+      "slugs": ["cashier", "cashier-lite", "cashier-stores"],
+      "rows": [
+        { "ar": "مناسب لـ", "en": "Best for", "v": {
+          "cashier": ["سوبر ماركت وبقالة", "Supermarkets and groceries"],
+          "cashier-lite": ["محل صغير", "A small shop"],
+          "cashier-stores": ["محلات متنوعة: ملابس وعطور وموبايلات وأدوات منزلية", "All kinds of shops: clothes, perfumes, mobiles, home goods"] } },
+        { "ar": "الأجهزة", "en": "PCs", "v": {
+          "cashier": ["جهاز رئيسي وأجهزة فرعية", "Main PC + branch PCs"],
+          "cashier-lite": ["جهاز واحد", "One PC"],
+          "cashier-stores": ["جهاز رئيسي وأجهزة فرعية", "Main PC + branch PCs"] } },
+        { "ar": "أهم حاجة فيه", "en": "Highlights", "v": {
+          "cashier": ["الباركود والميزان، الآجل ونقاط الولاء، الدليفري", "Barcode and scale, credit and loyalty points, delivery"],
+          "cashier-lite": ["بسيط وسريع، الدليفري والعروض ونقاط الولاء", "Simple and fast, delivery, offers and loyalty points"],
+          "cashier-stores": ["السيريال والضمان والصيانة", "Serial numbers, warranty and repairs"] } },
+        { "ar": "الورديات والخزنة", "en": "Shifts & cash", "v": {
+          "cashier": ["ورديات وتقفيل خزنة", "Shifts and cash closing"],
+          "cashier-lite": ["تقفيل الوردية والأرباح اليومية", "Shift closing and daily profit"],
+          "cashier-stores": ["ورديات وخزينة", "Shifts and cash"] } },
+        { "ar": "قارئ باركود بكاميرا الموبايل", "en": "Phone camera as barcode reader", "v": {
+          "cashier": ["✓", "✓"], "cashier-lite": ["✓", "✓"], "cashier-stores": ["✓", "✓"] } }
+      ],
+      "pick": {
+        "cashier": ["اختاره لو عندك سوبر ماركت فيه ميزان أو أكتر من كاشير.", "Choose it for a supermarket with a scale or several cashiers."],
+        "cashier-lite": ["اختاره لو محلك صغير وكفاية عليه جهاز واحد.", "Choose it for a small shop with one PC."],
+        "cashier-stores": ["اختاره لو بتبيع حاجات بسيريال وضمان، أو محلك مش سوبر ماركت.", "Choose it if you sell items with serials and warranty, or your shop is not a supermarket."] }
+    },
+    {
+      "id": "hotel",
+      "icon": "fa-hotel",
+      "ar": { "t": "Hotel ولا Hotel Pro؟", "d": "الاتنين لإدارة الحجوزات — Pro فيه أدوات أكتر لفريق الاستقبال والتشغيل." },
+      "en": { "t": "Hotel or Hotel Pro?", "d": "Both manage reservations — Pro has more tools for the front desk and operations team." },
+      "slugs": ["hotel", "hotel-pro"],
+      "rows": [
+        { "ar": "مناسب لـ", "en": "Best for", "v": {
+          "hotel": ["فنادق وشقق فندقية وسكن طلاب", "Hotels, serviced apartments and student housing"],
+          "hotel-pro": ["فنادق فيها استقبال وفريق تشغيل", "Hotels with a front desk and an operations team"] } },
+        { "ar": "الأجهزة", "en": "PCs", "v": {
+          "hotel": ["جهاز واحد أو سيرفر وأجهزة", "One PC or a server with client PCs"],
+          "hotel-pro": ["جهاز رئيسي وأجهزة فرعية", "Main PC + branch PCs"] } },
+        { "ar": "الحجوزات", "en": "Reservations", "v": {
+          "hotel": ["الغرف والحجوزات والنزلاء، والحجز أونلاين", "Rooms, reservations and guests, plus online booking"],
+          "hotel-pro": ["مخطط الحجوزات، والنزلاء بصور الهوية", "Reservations chart, guests with ID photos"] } },
+        { "ar": "التشغيل", "en": "Operations", "v": {
+          "hotel": ["الاستقبال والمغادرة، الفواتير والمدفوعات، تقارير الإشغال", "Check-in/out, invoices and payments, occupancy reports"],
+          "hotel-pro": ["الخزنة والورديات، الهاوس كيبنج، المصروفات والتقارير", "Cash and shifts, housekeeping, expenses and reports"] } },
+        { "ar": "حفظ البيانات", "en": "Data safety", "v": {
+          "hotel": ["نسخ احتياطي تلقائي", "Automatic backups"],
+          "hotel-pro": ["البيانات في 3 أماكن حفظ", "Data saved in 3 places"] } }
+      ],
+      "pick": {
+        "hotel": ["اختاره لو عايز حجز أونلاين، أو عندك شقق أو سكن طلاب.", "Choose it if you want online booking, or you run apartments or student housing."],
+        "hotel-pro": ["اختاره لو عندك استقبال بورديات وهاوس كيبنج.", "Choose it if you have front-desk shifts and housekeeping."] }
+    },
+    {
+      "id": "accounting",
+      "icon": "fa-calculator",
+      "ar": { "t": "Acc ولا Acc New ولا Sales ERP؟", "d": "التلاتة فيهم حسابات — بس كل واحد بيبدأ من حتة مختلفة." },
+      "en": { "t": "Acc, Acc New or Sales ERP?", "d": "All three include accounting — but each one starts from a different place." },
+      "slugs": ["acc", "acc-new", "sales-erp"],
+      "rows": [
+        { "ar": "مناسب لـ", "en": "Best for", "v": {
+          "acc": ["المحاسبين والحسابات العامة للشركة", "Accountants and the company's general accounts"],
+          "acc-new": ["محل أو شركة تجارية أو مصنع", "A shop, trading company or factory"],
+          "sales-erp": ["المحلات والشركات التجارية متعددة الفروع", "Shops and trading companies with several branches"] } },
+        { "ar": "البداية", "en": "Starts from", "v": {
+          "acc": ["دليل الحسابات والقيود", "Chart of accounts and journal entries"],
+          "acc-new": ["المبيعات والمخزون والقيود مع بعض", "Sales, inventory and entries together"],
+          "sales-erp": ["نقطة البيع والمخازن والفروع", "Point of sale, stores and branches"] } },
+        { "ar": "أهم حاجة فيه", "en": "Highlights", "v": {
+          "acc": ["الخزن والبنوك والشيكات، الأصول والموازنات، القوائم المالية، وحزم حسب النشاط", "Cash, banks, cheques, assets, budgets, financial statements and packages per business"],
+          "acc-new": ["المخزون والتصنيع، العملاء والموردين والشيكات، ومساعد ذكي", "Inventory and manufacturing, customers, suppliers, cheques and a smart assistant"],
+          "sales-erp": ["البيع بالوحدات و3 أسعار، البيّاعين والعمولات، و94 تقرير", "Selling by units with 3 prices, salespeople and commissions, 94 reports"] } },
+        { "ar": "الأجهزة", "en": "PCs", "v": {
+          "acc": ["سيرفر وأجهزة، وكمان من المتصفح", "Server and client PCs, also from the browser"],
+          "acc-new": ["جهاز رئيسي وأجهزة على الشبكة", "Main PC and PCs on the network"],
+          "sales-erp": ["ديسكتوب بيشتغل من غير نت", "Desktop that works offline"] } }
+      ],
+      "pick": {
+        "acc": ["اختاره لو انت محاسب أو عايز حسابات كاملة وقوائم مالية.", "Choose it if you are an accountant or need full accounts and financial statements."],
+        "acc-new": ["اختاره لو عايز البيع والمخزون والحسابات في برنامج واحد بسيط.", "Choose it if you want sales, stock and accounts in one simple program."],
+        "sales-erp": ["اختاره لو عندك فروع ومخازن وبيّاعين.", "Choose it if you have branches, warehouses and salespeople."] }
+    },
+    {
+      "id": "factory",
+      "icon": "fa-industry",
+      "ar": { "t": "ERP System ولا Stores؟", "d": "الاتنين للمصانع — ERP بيمشي مع الإنتاج كله، و Stores مركز على المخازن." },
+      "en": { "t": "ERP System or Stores?", "d": "Both are for factories — ERP follows the whole production, Stores focuses on the warehouses." },
+      "slugs": ["erp", "stores"],
+      "rows": [
+        { "ar": "مناسب لـ", "en": "Best for", "v": {
+          "erp": ["مصانع الملابس", "Garment factories"],
+          "stores": ["مخازن المصنع والشركة", "Factory and company warehouses"] } },
+        { "ar": "الإنتاج", "en": "Production", "v": {
+          "erp": ["أوامر الإنتاج ومراحله، تخطيط القص، الجودة والتعبئة، أجر القطعة", "Production orders and stages, cutting plans, quality and packing, piece-rate"],
+          "stores": ["أوامر الإنتاج وتكلفتها ولوحة متابعة الموديلات", "Production orders with cost and a style follow-up board"] } },
+        { "ar": "المخازن", "en": "Warehouses", "v": {
+          "erp": ["الخامات والمخازن", "Materials and warehouses"],
+          "stores": ["الأصناف والأرصدة، أذون الإضافة والصرف والتحويل، الجرد", "Items and balances, receipt/issue/transfer vouchers, stock counts"] } },
+        { "ar": "الحسابات", "en": "Accounts", "v": {
+          "erp": ["التكاليف، المبيعات والمشتريات", "Costing, sales and purchases"],
+          "stores": ["الموردين وتقارير حركة المخزون", "Suppliers and stock movement reports"] } },
+        { "ar": "الأجهزة", "en": "PCs", "v": {
+          "erp": ["سيرفر وأجهزة، وكمان من المتصفح", "Server and client PCs, also from the browser"],
+          "stores": ["سيرفر وأجهزة، وكمان من المتصفح", "Server and client PCs, also from the browser"] } }
+      ],
+      "pick": {
+        "erp": ["اختاره لو عايز تتابع المصنع كله من القص لحد التعبئة.", "Choose it to follow the whole factory from cutting to packing."],
+        "stores": ["اختاره لو أهم حاجة عندك المخازن والأرصدة وأوامر الإنتاج.", "Choose it if warehouses, balances and production orders matter most."] }
+    }
+  ]
+}
