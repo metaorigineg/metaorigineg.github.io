@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية | Meta Origin</title>
     <meta name="description" content="سياسة الخصوصية لبرامج Meta Origin — Privacy Policy">
+    <link rel="canonical" href="https://metaorigineg.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Meta Origin">
+    <meta property="og:locale" content="ar_EG">
+    <meta property="og:url" content="https://metaorigineg.github.io/">
     <meta property="og:title" content="سياسة الخصوصية | Meta Origin">
     <meta property="og:description" content="سياسة الخصوصية لبرامج Meta Origin — Privacy Policy">
     <meta property="og:image" content="https://metaorigineg.github.io/img/company-logo.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="سياسة الخصوصية | Meta Origin">
+    <meta name="twitter:description" content="سياسة الخصوصية لبرامج Meta Origin — Privacy Policy">
+    <meta name="twitter:image" content="https://metaorigineg.github.io/img/company-logo.png">
     <meta name="theme-color" content="#0b0f19">
     <link rel="icon" href="../img/company-logo.png">
     <link rel="alternate" hreflang="ar" href="https://metaorigineg.github.io/">
     <link rel="alternate" hreflang="en" href="https://metaorigineg.github.io/en/">
+    <link rel="alternate" hreflang="x-default" href="https://metaorigineg.github.io/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,6 +37,7 @@
         .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
         .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
         .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
 </head>
@@ -42,6 +53,7 @@
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="../updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>آخر التحديثات</a>
                 <a href="../#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>كل البرامج</span></a>
                 <a href="../en/" hreflang="en" lang="en" title="English version" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>English</span></a>
                 <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
@@ -87,7 +99,7 @@
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
             </div>
-            <p><a href="../privacy/" class="hover:text-white underline">سياسة الخصوصية · Privacy Policy</a></p>
+            <p><a href="../updates/" class="hover:text-white underline">آخر التحديثات</a> · <a href="../privacy/" class="hover:text-white underline">سياسة الخصوصية · Privacy Policy</a></p>
             <p>جميع الحقوق محفوظة &copy; 2026 - Meta Origin</p>
         </div>
     </footer>
@@ -103,6 +115,11 @@
             const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function pickBiz(i, btn) {
+            document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
+            document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
+            const r = document.getElementById('pickResult'); if (r && r.getBoundingClientRect().top > innerHeight - 120) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
         function filterPrograms(q) {

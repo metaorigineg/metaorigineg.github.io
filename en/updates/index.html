@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest updates | Meta Origin</title>
+    <meta name="description" content="Every new release of Meta Origin programs and what each one added.">
+    <link rel="canonical" href="https://metaorigineg.github.io/en/updates/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Meta Origin">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://metaorigineg.github.io/en/updates/">
+    <meta property="og:title" content="Latest updates | Meta Origin">
+    <meta property="og:description" content="Every new release of Meta Origin programs and what each one added.">
+    <meta property="og:image" content="https://metaorigineg.github.io/img/company-logo.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Latest updates | Meta Origin">
+    <meta name="twitter:description" content="Every new release of Meta Origin programs and what each one added.">
+    <meta name="twitter:image" content="https://metaorigineg.github.io/img/company-logo.png">
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="icon" href="../../img/company-logo.png">
+    <link rel="alternate" hreflang="ar" href="https://metaorigineg.github.io/updates/">
+    <link rel="alternate" hreflang="en" href="https://metaorigineg.github.io/en/updates/">
+    <link rel="alternate" hreflang="x-default" href="https://metaorigineg.github.io/updates/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { darkbg: '#0b0f19', cardbg: '#111827' }, fontFamily: { sans: ['Cairo', 'sans-serif'] } } } }</script>
+    <style>
+        :root { --acc: #3b82f6; --acc-rgb: 59,130,246; --on-acc: #0b0f19; }
+        body { font-family: 'Cairo', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+        .acc { color: var(--acc); } .bg-acc { background: var(--acc); color: var(--on-acc); } .bg-acc:hover { filter: brightness(1.1); }
+        .bg-acc-soft { background: rgba(var(--acc-rgb), .12); color: var(--acc); } .border-acc { border-color: rgba(var(--acc-rgb), .45); }
+        .glow-effect { box-shadow: 0 0 35px -5px rgba(var(--acc-rgb), .3); }
+        .card-hover { transition: all .3s cubic-bezier(.4, 0, .2, 1); }
+        .card-hover:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 10px 25px -5px rgba(var(--acc-rgb), .18); }
+        .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
+        .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
+        .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
+        .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 blur-3xl -z-10 pointer-events-none" style="background: linear-gradient(to bottom, rgba(var(--acc-rgb), .12), rgba(59,130,246,.05), transparent)"></div>
+    <header class="w-full border-b border-gray-800/60 bg-darkbg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+            <a href="../../en/" class="flex items-center gap-3">
+                <img src="../../img/company-logo.png" alt="Meta Origin" class="w-10 h-10 object-cover rounded-xl bg-gray-900 border border-gray-800 p-0.5">
+                <div>
+                    <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-l from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block leading-tight">Meta Origin</span>
+                    <span class="text-[10px] text-gray-400 font-semibold block">Business software</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-2">
+                <a href="../../en/updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>Updates</a>
+                <a href="../../en/#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>All programs</span></a>
+                <a href="../../updates/" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
+                <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
+                    <i class="fa-solid fa-share-nodes acc"></i><span class="hidden sm:inline">Share</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-12">
+        <section class="text-center space-y-3">
+            <h1 class="text-3xl md:text-5xl font-black text-white flex items-center justify-center gap-3"><i class="fa-solid fa-bolt acc"></i>Latest updates</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">Our programs keep improving — every new release is listed here with its date and what it added.</p>
+            <p class="text-xs text-gray-500">Release notes are written in Arabic.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-star acc"></i>Newest releases</h2>
+            <article class="bg-cardbg border border-gray-800 rounded-2xl p-5 space-y-4" style="border-left:3px solid var(--acc)">
+                <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-calendar-day acc"></i> 28/10/2026 · released for <strong class="text-white">15</strong> programs</div>
+                <ul class="space-y-1.5 text-gray-200" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    <a href="../../en/acc/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/acc.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Acc</span><span class="block text-[11px] truncate" style="color:#00c2a8">General Accounting</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.7.0</span>
+                    </a>
+                    <a href="../../en/acc-new/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/acc-new.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Acc New</span><span class="block text-[11px] truncate" style="color:#3d5afe">Accounting &amp; Point of Sale</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.9.0</span>
+                    </a>
+                    <a href="../../en/cashier/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/cashier.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Cashier</span><span class="block text-[11px] truncate" style="color:#22c55e">Supermarket Cashier</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.15.0</span>
+                    </a>
+                    <a href="../../en/cashier-lite/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/cashier-lite.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Cashier Lite</span><span class="block text-[11px] truncate" style="color:#f59e0b">Market Cashier (single PC)</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v0.10.0</span>
+                    </a>
+                    <a href="../../en/cashier-stores/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/cashier-stores.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Cashier Stores</span><span class="block text-[11px] truncate" style="color:#8b5cf6">Cashier for Every Shop</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.18.0</span>
+                    </a>
+                    <a href="../../en/clinic/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/clinic.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Clinic</span><span class="block text-[11px] truncate" style="color:#00b3a4">Clinics &amp; Medical Centers</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.12.0</span>
+                    </a>
+                    <a href="../../en/erp/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/erp.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">ERP System</span><span class="block text-[11px] truncate" style="color:#ea580c">Garment Factory Management</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.7.0</span>
+                    </a>
+                    <a href="../../en/hotel/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/hotel.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Hotel</span><span class="block text-[11px] truncate" style="color:#f97316">Hotels &amp; Serviced Apartments</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.12.0</span>
+                    </a>
+                    <a href="../../en/hotel-pro/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/hotel-pro.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Hotel Pro</span><span class="block text-[11px] truncate" style="color:#d4a24c">Hotel Management (Pro)</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v3.15.0</span>
+                    </a>
+                    <a href="../../en/hr-pro/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/hr-pro.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">HR Pro</span><span class="block text-[11px] truncate" style="color:#10b981">Attendance &amp; Payroll for Factories</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v0.8.0</span>
+                    </a>
+                    <a href="../../en/pharmacy/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/pharmacy.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Pharmacy</span><span class="block text-[11px] truncate" style="color:#16a34a">Pharmacy Management</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.2.0</span>
+                    </a>
+                    <a href="../../en/restaurant/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/restaurant.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Restaurant</span><span class="block text-[11px] truncate" style="color:#e85d12">Restaurant &amp; Café Cashier</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.3.0</span>
+                    </a>
+                    <a href="../../en/sales-erp/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/sales-erp.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Sales ERP</span><span class="block text-[11px] truncate" style="color:#e3b85c">Sales, Inventory &amp; Accounting</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.4.0</span>
+                    </a>
+                    <a href="../../en/school/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/school.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">School</span><span class="block text-[11px] truncate" style="color:#f43f5e">School Accounting &amp; Management</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.8.0</span>
+                    </a>
+                    <a href="../../en/stores/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="../../icons/stores.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">Stores</span><span class="block text-[11px] truncate" style="color:#34d399">Warehouses &amp; Production Tracking</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v1.8.0</span>
+                    </a>
+                </div>
+            </article>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left acc"></i>Release history by program</h2>
+            <details id="pharmacy" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/pharmacy.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Pharmacy</div><div class="text-xs text-gray-400">1 release</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.2.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="sales-erp" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/sales-erp.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Sales ERP</div><div class="text-xs text-gray-400">4 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.3.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لوحة التحكم تفاعلية: اضغط على أي كارت أو عمود في الرسم تفتح نافذة بتفاصيله (الفواتير، طرق الدفع، الأقسام، الأصناف، الخزنة، الديون…) وتدوس على أي فاتورة تفتحها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>كروت الأقسام في ملخص الأداء: مبيعات كل قسم النهارده والشهر وعدد القطع والربح، وأي قسم جديد بيظهر لوحده.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مراجعة الوردية: «المبيعات بالأقسام» (السجاير اتباع منها بكام بعد المرتجعات) واضغط على القسم تشوف الأصناف — للمدير بس والكاشير بيقفل أعمى.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تقارير الأقسام: مبيعات الوردية بالأقسام والأصناف، المبيعات بالقسم والصنف لأي فترة، ومبيعات الأقسام باليوم.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المبيعات باليوم والشهر مترتبة بالتاريخ وبفلتر القسم والتصنيف.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>كل النوافذ بتفتح في نص الشاشة بحجم مناسب ومن غير سكرول يمين وشمال (وعلى الموبايل كمان).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نافذة الصنف: التصنيف الرئيسي وبعده الفرعي، والضريبة بتختفي لو اتقفلت من الإعدادات.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.2.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأقسام (حلويات / مشروبات / سجاير…): كل تصنيف بيتبع قسم، وكل قسم ليه أرباح وخسائر ومصروفات وقيمة مخزون لوحده — في ملخص الأداء وتقرير «الأقسام» و«حساب قسم تفصيلي».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التصنيف الرئيسي والفرعي في نافذة الصنف (بقالة ← بسكوت) وإضافة تصنيف جديد من هناك على طول.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوحدات أوضح: جنب كل وحدة معناها (كرتونة = 12 علبة = 144 قطعة) وتحذير لو الرقم غلط، والسعر الفاضي بياخد المقترح.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقارير: ملخص ورسم فوق كل تقرير، فلتر بالقسم والتصنيف، اضغط على الفاتورة تفتحها، المبيعات بالساعة، وتقرير الكاشير بالخصومات والموافقات والإلغاءات والمرتجعات.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مراجعة الورديات: جدول مختصر و«التفاصيل الكاملة» (المفروض والمعدود لكل طريقة، الفواتير، الإلغاءات، المرتجعات، الموافقات، السندات). المدير العام بيراجع ورديته كمان.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إقفال الفترة (للمالك): مفيش فاتورة تتسجل بتاريخ في شهر اتراجع واتقفل.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضريبة ممكن تتقفل من الإعدادات لو المحل مابيحسبش ضريبة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>سجل تغيير الأسعار + تنبيه لو حد نزّل سعر أكتر من 10%، وتنبيهات أكتر للمالك (كلمة سر موظف، صلاحيات، إلغاءات، مرتجع مشتريات، إعدادات الحماية).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حماية أكتر: مدير الفرع مايلمسش موظفين فرع تاني ولا يدّي صلاحيات مش عنده، والصنف/العميل/الحساب اللي عليه رصيد مايتوقفش.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الفاتورة مابتتسجلش مرتين لو النت قطع، والأرقام العربي (١٢٣) بتتقري صح، وتعديل الفاتورة بقى شغال في نسخة الديسكتوب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.1.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>وردية الكاشير بالقفل الأعمى: بيفتح بالفكة ويقفل بالعدّ (النقدي والفيزا والمحافظ) من غير ما يعرف المفروض، والمدير بس بيشوف العجز والزيادة ويراجع.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>موافقة المدير على العملية دي بس: خصم الكاشير أو تغيير السعر، رد فلوس المرتجع، التوالف وعجز الجرد، والدفع من الخزنة في فاتورة الشراء — بتتسجل باسم المدير.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأصناف بصلاحية: دفعات بتاريخ الانتهاء، البيع من الأقرب انتهاءً والمنتهي مايتباعش، وتقرير «المنتهي والقرّب ينتهي».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأصناف بسيريال: السيريال في الشراء والبيع والمرتجع والتحويل والجرد، وامسح سيريال القطعة في نقطة البيع، و«تتبّع سيريال» بيقولك هي فين ومين اشتراها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي (الديسكتوب): نسخة كل يوم لوحدها بتتجرّب، ونسخة على OneDrive، واسترجاع بنسخة أمان، وتنبيه لو عدّى 3 أيام من غير نسخة. والسحابي: تنزيل كل البيانات في ملف.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تعديل فاتورة البيع (بصلاحية): بتتلغي وبتتعمل فاتورة جديدة مكانها مربوطة بيها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات للمالك: الإلغاءات والتعديلات والموافقات وفروق الورديات والتوالف — وكل تنبيه بزرار واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>رابط كشف الحساب للعميل: بيفتح كشفه من الموبايل من غير دخول لمدة 5 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الجرد الأعمى لأمين المخزن، واللوحة التنفيذية لكل الفروع، والبيع من فرع تاني وتاريخ المرتجع بصلاحياتهم.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الحسابات: خصم الفاتورة بقى بيقلّل الضريبة، والمرتجعات بتنزل من تقرير الضرائب وقائمة الدخل من غير ضريبتها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الكاشير بيشوف مبيعاته هو بس، والعميل بسعر الجملة للمدير بس، والصنف اللي مالوش سعر مايتباعش ببلاش.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>عروض الأسعار: احفظ الفاتورة كعرض سعر وابعته واتساب، و«حوّله فاتورة» لما العميل يوافق.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>اقتراح الشراء: الأصناف اللي تحت حد الطلب بتتجمّع في فاتورة شراء جاهزة بالكمية وآخر مورد.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تذكير الآجل: العملاء اللي عليهم فلوس برسالة واتساب جاهزة لكل واحد.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الاستيراد من Excel: الأصناف (بوحداتها وأسعارها ورصيدها) والعملاء والموردين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قراءة الباركود بالكاميرا، والموبايل كقارئ باركود للكمبيوتر.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الجداول: كل خانة تحت عنوان عمودها بالظبط (على الشاشة وفي الطباعة).</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="clinic" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/clinic.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Clinic</div><div class="text-xs text-gray-400">1 release</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.12.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="school" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/school.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - School</div><div class="text-xs text-gray-400">1 release</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.8.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="erp" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/erp.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - ERP System</div><div class="text-xs text-gray-400">7 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.7.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.6.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>كشف المرتبات مابيترحّلش لو فيه كشف تاني مترحّل لنفس العمال في نفس الفترة (عشان محدش يتقبض مرتين).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>اسم ملف التصدير لـ Excel بقى بتاريخ اليوم المحلي (كان بيطلع تاريخ امبارح بعد 12 بالليل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغط على «حفظ» مرتين بسرعة مابقاش بيسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 5 محاولات دخول غلط لنفس المستخدم لازم يستنى دقيقة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تنبيه لو مفيش أي نسخة احتياطية اتعملت.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: المرفقات اللي مش صور أو PDF بتتنزّل كملف بدل ما تتفتح جوه البرنامج.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لوحة أوامر الإنتاج (كانبان): كل أمر في المرحلة اللي وصلها فعليًا، والمتأخر باللون الأحمر.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.3.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>القوائم بقت واضحة في كل الثيمات.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="acc" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/acc.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Acc</div><div class="text-xs text-gray-400">7 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.7.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.6.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استيراد الدفعات من Excel: التاريخ بقى بيتقري صح (كان بيطلع اليوم اللي قبله).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>اسم ملف التصدير وعلامة «الأقساط المتأخرة» بقوا باليوم المحلي (كانوا بيتلخبطوا بعد 12 بالليل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغط على «حفظ» مرتين بسرعة مابقاش بيسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 5 محاولات دخول غلط لنفس المستخدم لازم يستنى دقيقة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إلغاء قيد مابقاش بيتسجل بتاريخ قبل القيد الأصلي.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تنبيه لو مفيش أي نسخة احتياطية اتعملت.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: المرفقات اللي مش صور أو PDF بتتنزّل كملف بدل ما تتفتح جوه البرنامج.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.3.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>القوائم بقت واضحة في كل الثيمات.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="acc-new" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/acc-new.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Acc New</div><div class="text-xs text-gray-400">8 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.9.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.8.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.7.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>صلاحية جديدة «الخصم والبيع بأقل من سعر الصنف»: اللي مالوش الصلاحية دي (الكاشير والمندوب) أي خصم أو سعر أقل من الصنف أو مردود بسعر أعلى بيطلب موافقة المدير (اسم دخوله وكلمة مروره) على الفاتورة دي.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>فاتورة الكاشير بتتسجل بتاريخ النهارده وعلى ورديته هو.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى أعمى للكاشير: مابيشوفش المفروض في الدرج ولا العجز والزيادة، ومايقدرش يقفل وردية حد تاني.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البيع الآجل بقى بس للعميل اللي له حد ائتمان، وحد الائتمان وأسعار الجملة والرصيد الافتتاحي للمحاسب والمدير بس.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.6.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغطة المكررة على أي زرار حفظ (سندات، مرتجعات، إنتاج، تحويل…) مابقتش بتسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مراجعة كاملة للحسابات: الميزان والميزانية والمخزون والعملاء والموردين مطابقين للأستاذ في البيع والشرا والمرتجعات والتصنيع.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.6.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>خانات الأرقام بقت بتقبل الكسور (زي سعر 12.50 أو وزن 1.5) — كانت بترفض وقت الحفظ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغط على «حفظ» مرتين بسرعة مابقاش بيسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 5 محاولات دخول غلط لنفس المستخدم لازم يستنى دقيقة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التواريخ باليوم المحلي: الفواتير بعد 12 بالليل بتتسجل في يومها الصح، والقسط الشهري بيقف على آخر الشهر.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تعديل أو حذف فاتورة شراء بيرجّع متوسط التكلفة، ومابيخليش المخزون بالسالب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الفاتورة مابتقبلش سعر أو خصم أو مدفوع بالسالب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>أعمار الديون بتتحسب على المتبقي بس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الاسترجاع بيتأكد إن الملف نسخة سليمة من البرنامج قبل ما يبدّل البيانات.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مردود المشتريات: حساب المخزون بيفضل مساوي لقيمة المخزون الفعلية، وفرق السعر على تكلفة البضاعة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المستخدم اللي المدير يوقفه بيخرج على طول (حتى على الأجهزة الفرعية)، وتغيير الصلاحيات بيتطبّق من غير خروج.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استيراد الأصناف والعملاء والموردين والموظفين من Excel.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نسخة احتياطية تلقائية كل ساعة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل فيه جزء «محتاج متابعة».</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل لكل الأنشطة (الإعدادات ← التقرير بالإيميل).</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="stores" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/stores.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Stores</div><div class="text-xs text-gray-400">8 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.8.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.7.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «تغيير كلمة المرور» في قائمة المستخدم بقى شغال.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.6.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تذكير قرب انتهاء الترخيص بيرجع تاني يوم بتوقيت مصر (كان بيرجع الساعة 2 الفجر).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.6.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.5.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مرتجعات للموردين (المشتريات ← مرتجعات للموردين): من فاتورة شراء — الكمية مش بتزيد عن اللي اتستلم ولسه في المخزن والسعر من الفاتورة — أو من غير فاتورة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المرتجع بيخصم من المخزن على طول، وتقدر تطبعه أو تطلعه Excel، والمدير يقدر يلغيه (الكمية بترجع للمخزن).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغط على «حفظ» مرتين بسرعة مابقاش بيسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 5 محاولات دخول غلط لنفس المستخدم لازم يستنى دقيقة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقارير والفلاتر بقت بتحسب باليوم المحلي (العمليات بعد 12 بالليل كانت بتروح لليوم اللي قبله).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حذف فاتورة شراء بيرجّع الكمية اللي اتستلمت فعلًا، ومينفعش تتحذف لو البضاعة اتصرفت.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>أوامر الإنتاج مابتقبلش أجور أو مصاريف أو كميات بالسالب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حذف صنف أو مخزن عليه حركات بيقول السبب بوضوح.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استرجاع النسخة الاحتياطية بقى بيتأكد إن النسخة سليمة وبياخد نسخة أمان قبلها، ومابقاش محتاج إعادة تشغيل — وللمدير الكامل بس.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.4.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>أوامر الإنتاج والتكلفة: الموديل ومكوناته، وأمر الإنتاج بالتكلفة المخططة قصاد الفعلية (خامات مصروفة + أجور + مصاريف).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استيراد الأصناف والموردين والعملاء من Excel.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لوحة متابعة الموديلات: كل موديل في آخر مرحلة وصلها (قص، إنتاج، جودة، تعبئة، مخزن، شحن).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>صفحة موبايل للمدير: أرقام النهارده من الموبايل على شبكة المصنع (حول البرنامج).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.3.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل (الإعدادات ← التقرير بالإيميل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إرسال فاتورة الشراء للمورد على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الخطوط بقت شغالة من غير إنترنت.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="cashier" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/cashier.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Cashier</div><div class="text-xs text-gray-400">9 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.15.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.14.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.13.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى فيه مطابقة الدفع الإلكتروني: اكتب إجمالي تقرير ماكينة الفيزا واللي وصل فعلًا على المحفظة وإنستاباي، والبرنامج بيقارنه باللي اتسجل ويطلّع الفرق للمدير (كاش اتسجل فيزا بيبان هنا).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.12.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى «عدّ أعمى»: الكاشير بيعدّ الدرج ويكتب اللي معاه من غير ما يشوف المفروض ولا الفرق — المدير بس اللي بيشوف الزيادة والعجز.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>موافقة المدير على الخصم بقت على مبلغ محدد: الكاشير يكتب الخصم الأول، والفاتورة ماتقبلش خصم أكبر من اللي المدير وافق عليه.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>أي فلوس طالعة من الدرج (مصروف، دفع لمورد، سلفة) ماتعديش اللي في الدرج فعلًا.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>رجوع عربون الحجز بقى محتاج صلاحية المرتجع أو موافقة المدير.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التحصيل من العملاء لازم وردية مفتوحة عشان الفلوس تدخل الدرج.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البيع الآجل بقى بس للعميل اللي المدير حدّدله حد آجل — العميل الجديد (أو اللي حدّه صفر) مالوش آجل من الكاشير، والمدير حر.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.11.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المرتجع الكاش مايزيدش عن اللي اتدفع فعلًا في الفاتورة — فاتورة الآجل بترجع على حساب العميل (كانت بتطلّع كاش من الدرج والدين فاضل عليه).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المرتجع الكاش لازم وردية مفتوحة عشان يتحسب على الدرج.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغطة المكررة على أي زرار حفظ أو دفع مابقتش بتسجّل العملية مرتين (دفع المورد، تحصيل الدليفري، الخزنة، الجرد…).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>اسم ملف النسخة الاحتياطية بقى بتاريخ اليوم الصح بعد 12 بالليل.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.11.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.10.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>خانات الأرقام بقت بتقبل الكسور (زي سعر 12.50 أو وزن 1.5) — كانت بترفض وقت الحفظ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 5 محاولات دخول غلط لنفس المستخدم لازم يستنى دقيقة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نقاط الولاء بتتحسب على المدفوع بس (مش الآجل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المرتجع من فاتورة توصيل بيرجّع تمن البضاعة بس (كان بيرجّع جزء من مصاريف التوصيل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الكاشير اللي المدير يوقفه بيخرج على طول (حتى على الأجهزة الفرعية)، وتغيير الصلاحيات بيتطبّق من غير خروج.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.10.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قراءة الباركود بكاميرا الموبايل (من شاشة البيع).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخة الاحتياطية التلقائية بقت بتتعمل كل يوم لوحدها.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.9.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البرنامج مابقاش بيعلّق لما تفتح الإعدادات وطابعة الشبكة مفصولة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تغيير التصميم أو الاستايل بيتطبّق على طول.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="cashier-stores" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/cashier-stores.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Cashier Stores</div><div class="text-xs text-gray-400">8 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.18.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.17.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تسجيل الدخول وموافقة المدير بقوا بتشفير قوي للرقم السري، و5 محاولات غلط بتقفل دقيقة (الرقم القديم بيتحوّل لوحده أول دخول).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى فيه مطابقة إجمالي ماكينة الفيزا واللي وصل على المحفظة باللي اتسجل، والفرق بيظهر للمدير.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.16.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى «عدّ أعمى» لأي حد غير المدير: مابيشوفش المفروض في الدرج والخانة مش متعبّية — المدير بس اللي بيشوف العجز والزيادة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>موافقة المدير على المرتجع بقت للفاتورة دي بس، وبتروح لو الشاشة اتقفلت.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>السحب النقدي من رصيد العميل ورد العربون بقوا محتاجين صلاحية المرتجع أو موافقة المدير.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المسحوبات الشخصية والكارت المجاني وحد الائتمان ونوع العميل وشريحة الأسعار بقوا للمدير بس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البيع الآجل بقى بس للعميل اللي المدير حدّدله حد آجل — العميل الجديد (أو اللي حدّه صفر) مالوش آجل من الكاشير، والمدير حر.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.15.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مرتب نفس الشهر مايتصرفش مرتين للموظف.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخة الاحتياطية اليومية بقت بتاريخ اليوم الصح بعد 12 بالليل.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.15.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.14.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>خانات الأرقام بقت بتقبل الكسور (زي سعر 12.50 أو وزن 1.5) — كانت بترفض وقت الحفظ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نقاط الولاء بتتحسب على المدفوع بس (مش الآجل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المرتجع الجزئي من فاتورة توصيل بيرجّع تمن البضاعة بس — رسوم التوصيل بترجع لما الفاتورة كلها ترجع.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقارير: المبيعات حسب المستخدم بقت بتطرح المرتجع في يومه، فمجموعها بيساوي صافي المبيعات.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.14.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قراءة الباركود بكاميرا الموبايل (من شاشة البيع).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.13.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل (الإعدادات).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البرنامج مابقاش بيعلّق لو طابعة الشبكة مفصولة.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="cashier-lite" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/cashier-lite.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Cashier Lite</div><div class="text-xs text-gray-400">28 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.10.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.9.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى «عدّ أعمى» للكاشير من الأول: مابيشوفش المفروض في الدرج ولا العجز والزيادة إلا بباسورد المدير (المدير يقدر يقفلها من الإعدادات ← الوردية).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البيع الآجل بقى بس للعميل اللي المدير حدّدله حد آجل — العميل الجديد (أو اللي حدّه صفر) مالوش آجل من الكاشير، والمدير حر.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حد الآجل للعميل بقى المدير بس اللي يحدده.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى فيه مطابقة الدفع الإلكتروني: إجمالي تقرير ماكينة الفيزا واللي وصل على انستاباي والمحفظة بيتقارن باللي اتسجل، والفرق بيظهر للمدير في سجل العمليات.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.8.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغطة المكررة على أي زرار حفظ أو دفع مابقتش بتسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الجداول: الباركود والتليفون ورقم الفاتورة والوقت بقوا تحت عنوان العمود بالظبط.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شيل فولدر النسخ الاحتياطي التاني بقى للمدير بس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.8.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.22</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>خانات الأرقام بقت بتقبل الكسور (زي سعر 12.50 أو وزن 1.5) — كانت بترفض وقت الحفظ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل بقى بيتعمل من غير رسالة خطأ.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.20</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>معاينة ملصقات الباركود بتنبهك لو باركود طويل على مقاس الملصق (الخطوط هتطلع رفيعة والماسح ممكن مايقراهوش).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.19</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>ورقة التقفيل المطبوعة: البنود الطويلة بتنزل سطر بدل ما الأرقام تتقص، و«الفلوس اللي خرجت» مكتوب فيها من الدرج ومن برا كل واحد في سطر.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>كشف حساب العميل والمورد على بكرة 58 مم: التاريخ في سطر والأرقام تحته (كانت الأرقام بتطلع برّه الورقة).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.18</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>وردية واحدة بس تبقى مفتوحة (الدرج واحد): الكاشير مايقدرش يفتح وردية لحد ما اللي قبلها تتقفل. لو الكاشير اللي قبله مشي، المدير يقفل ورديته من صفحة الوردية بعد ما يعد الدرج.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.17</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تكلفة الأصناف في الفواتير (سعر الشراء) مابتوصلش لشاشة الكاشير.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.16</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الكاشير يقدر يلغي فواتيره بس (فاتورة كاشير تاني كانت بتطلّع الفلوس من درج التاني وتبان عجز عنده) — المدير يلغي أي فاتورة.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.15</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>سعر الشراء مابيوصلش لشاشات الكاشير خالص (قبل كده كان مستخبي من الشاشة بس).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.14</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تقرير تليجرام اليومي بيقول المصروفات اللي من برا الدرج، والفرق بين قفل وردية وفتح اللي بعدها لو حصل.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.13</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لو ملف (صورة أو PDF) اتسحب على البرنامج بالغلط، البرنامج مابيتقفلش ولا الفاتورة بتضيع — الملف بيتجاهل.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.12</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>فحص البيانات بيتأكد إن الجزء اللي اتدفع من الدرج في المشتريات والموردين والموظفين وشحن الرصيد = حركة الدرج بتاعته، وبينبهك لو فيه عملاء قدام بنفس رقم التليفون.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.11</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زراير الإلغاء في خدمات الشحن والموظفين والتحويل بين المخازن ماكانتش بتشتغل — اتصلّحت (بتطلب السبب في شاشة صغيرة).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تقدر تلغي شحن رصيد لمزود اتسجل غلط (من «الحركة»)، واللي كان من الدرج بيرجع للدرج.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مرتب شهر لسه ماجاش مايتحسبش.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.10</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لو وردية بدأت بمبلغ غير اللي الوردية اللي قبلها اتقفلت بيه (فلوس اتاخدت أو اتحطت بين الورديتين)، الفرق بيظهر في سجل العمليات والتقفيل وبيتبعت تنبيه على تليجرام.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.9</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة الدخول: بعد 5 محاولات غلط على نفس الحساب بيستنى دقيقة، والمحاولات الغلط بتظهر في سجل العمليات.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>«حفظ نسخة من البيانات» في شاشة الترخيص بقى بباسورد المدير (قبل كده أي حد كان يقدر ياخد البيانات كلها).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.8</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نقاط الولاء: الجزء الآجل من الفاتورة مابيكسبش نقاط، ولو النقاط أكتر من الفاتورة بيتخصم بس اللي محتاجه.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التالف مايتسجلش أكتر من الموجود في المكان، وفاتورة الشراء اللي اتباع من بضاعتها مابتتلغيش (اعمل مرتجع للمورد باللي فاضل) — عشان المخزون مايبقاش بالسالب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.7</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>«عليهم فلوس» في العملاء بقى بيجيب كل المديونين حتى لو عندك أكتر من 500 عميل، وإجمالي الديون على كل العملاء.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>رقم التليفون مايتكررش لعميلين — البرنامج بيقولك الرقم متسجل لمين، وطلب الدليفري بنفس الرقم بيتربط بالعميل الموجود.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الجرد: مسح باركود الكرتونة بيعدّ القطع اللي فيها.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.6</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تقدر تلغي تحصيل من عميل أو دفعة لمورد اتسجلوا غلط (من كشف الحساب، للمدير بسبب).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إلغاء سلفة أو مرتب بعد قفل الوردية بقى ممكن: اللي كان من الدرج بيرجع للوردية المفتوحة.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.5</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المرتجع كاش، والاستبدال، وإلغاء فاتورة أو خدمة أو مرتجع مورد مايطلّعوش من الدرج أكتر من اللي فيه — البرنامج بيقولك ترجّع بطريقة تانية أو تعمل إيداع الأول.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المصروف بتاريخ قديم في صفحة الحسابات بيتسجل من برا الدرج (الدرج للنهارده بس).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.4</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>أي فلوس طالعة (مصروف، مشتريات، دفعة لمورد، سلفة أو مرتب، شحن رصيد) تقدر تدفع جزء منها من الدرج والباقي من برا الدرج.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الدرج مايطلعش منه أكتر من اللي فيه — البرنامج بيقولك تحط الباقي من برا.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقفيل والتقارير فيها المصروفات كلها (من الدرج ومن برا) وجدول «الفلوس اللي خرجت» لكل بند: من الدرج، من برا، والإجمالي.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.3</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لو باركود اتمسح بالغلط في خانة مبلغ أو كمية، البرنامج بيرفضه (&quot;الرقم كبير قوي&quot;) بدل ما يتسجل ويبوّظ الحسابات.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>فلوس فتح وقفل الوردية مينفعش تبقى بالسالب، وأي خانة رقم فيها كلام بتطلّع رسالة واضحة.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.2</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البرنامج بيفتح أسرع، وقفل الوردية مابيوقفش الشاشة (النسخة الاحتياطية بتتعمل بعدها).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تنبيه &quot;الرف مش كفاية&quot; بقى شغال في كل أشكال شاشة البيع.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لو أرقام الوردية مخفية عن الكاشير، إجمالي المبيعات في شاشة الفواتير بيتخفي كمان.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>باسورد المدير في الوردية: بعد 5 محاولات غلط بيستنى دقيقة.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الفاتورة متقصوصة من ناحية؟ الإعدادات ← بيانات المحل والطباعة ← &quot;اطبع مسطرة تجربة&quot; وظبّط منطقة الطباعة على طابعتك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>لو البرنامج مقدرش يفتح (بيانات بايظة أو من نسخة قديمة) بتظهر رسالة بالسبب ومكان البيانات، بدل ما يفضل شغال في الخلفية من غير شباك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الكمية بالسالب ممنوعة في فورم الصنف واستيراد Excel.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.7.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الكرتونة والقطعة: باركود للكرتونة وسعر جملة، وسعر شراء الكرتونة بيحسب سعر القطعة لوحده.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المحل والمخازن: البضاعة في كل مكان بالكراتين والقطع من فورم الصنف وفاتورة الشراء، والسحب من المخزن للرف.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>فاتورة الشراء: سعر بيع القطعة والكرتونة، وكل كمية هتتحط فين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>سجل العمليات: كل اللي اتعمل ومين عمله، والاختلافات متعلّم عليها (الإدارة ← سجل العمليات).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوردية للكاشير: إخفاء أرقامها وقفلها بباسورد المدير (الإعدادات ← المستخدمين).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الطباعة على مقاس بكرة الفواتير (80 أو 58 مم)، ولوجو المحل فوق الفاتورة، واختيار تطبع الفاتورة أو لأ وقت الدفع.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البرنامج بيتظبط لوحده على الشاشات الصغيرة، وملء الشاشة من الإعدادات ← الأجهزة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح تفصيلي للبرنامج كله، وترجيع الأصناف المتوقفة وباركودها.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.6.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نقاط الولاء: العميل بياخد نقط على كل فاتورة ويقدر يخصمها (الإعدادات).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استيراد العملاء من Excel.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قراءة الباركود بكاميرا الموبايل (من شاشة البيع).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.5.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل (الإعدادات ← التقرير بالإيميل).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إرسال الفاتورة للعميل على واتساب من شاشة الفاتورة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تحديث البرنامج من ملف (الإعدادات ← تحديث البرنامج).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>البرنامج مابقاش بيعلّق لو طابعة الشبكة مفصولة.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="restaurant" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/restaurant.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Restaurant</div><div class="text-xs text-gray-400">4 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.3.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.2.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.1.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية أعمى للآخر: الكاشير مابيشوفش المفروض ولا العجز والزيادة حتى بعد القفل، وورقة الوردية بتاعته فيها اللي سلّمه بس — المدير بيشوف الحساب كامل من التقارير.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.0.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>أول إصدار من كاشير المطاعم والكافيهات والدليفري: الكاشير والصالة والمطبخ والدليفري والمخزن والوصفات، والويتر من الموبايل.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الورديات والخزنة والمصروفات (والثابتة) والمرتبات والسلف والتقارير والتقرير اليومي بالإيميل.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>منيو QR (عربي وإنجليزي) والكشك وشاشة الزبون وشاشة نداء الطلبات، وكروت الهدايا وأكواد الخصم ونقاط الولاء والآجل.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="hotel" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/hotel.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Hotel</div><div class="text-xs text-gray-400">8 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.12.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.11.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التسطيب الجديد بيعرض اسم المستخدم وكلمة السر، وتقدر تختار كلمة سر المدير بنفسك وقت التسطيب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الدخول بكلمة سر المدير الافتراضية بيطلب تغييرها قبل أي حاجة (أي حد يعرف الافتراضية كان يقدر يدخل).</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.10.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>موافقة المدير (اسم دخوله وكلمة مروره) على: سعر ليلة أقل من الخطة السعرية، الخصم، الاسترداد عند إلغاء الحجز، شيل خدمة من الحجز، وسعر خدمة أقل من المتسجل.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى أعمى لموظف الاستقبال: مابيشوفش المفروض في الدرج ولا العجز والزيادة — المدير والمحاسب بس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المصروف من درج الوردية مايعديش الفلوس اللي في الدرج.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.9.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الجداول: الموبايل والرقم القومي ونسبة الإشغال بقوا تحت عنوان العمود بالظبط.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>فيديوهات الشرح على يوتيوب بتتفتح من «شرح البرنامج» في المتصفح.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.9.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.8.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>خانات الأرقام بقت بتقبل الكسور (زي سعر 12.50 أو وزن 1.5) — كانت بترفض وقت الحفظ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغط على «حفظ» مرتين بسرعة مابقاش بيسجّل العملية مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 5 محاولات دخول غلط لنفس المستخدم لازم يستنى دقيقة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>ورقة التنظيف باليوم المحلي.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حذف غرفة عليها حجوزات بيقول السبب بوضوح.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الدفعة مابتقبلش مبلغ أكبر من المتبقي على الحجز.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حذف دفعة اتحصّلت بقى للمدير بس.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.8.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي التلقائي بقى شغال من الأول.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقويم: اسحب الحجز لغرفة تانية أو يوم تاني عشان تنقله.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تقرير الإشغال: نسبة الإشغال لكل يوم ولكل غرفة (التقارير) مع Excel.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل فيه جزء «محتاج متابعة».</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v1.7.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل (الإعدادات).</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="hotel-pro" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/hotel-pro.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - Hotel Pro</div><div class="text-xs text-gray-400">9 releases</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.15.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.14.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التفعيل أونلاين: لما تشتري الترخيص البرنامج بيتفعّل لوحده أول ما يتصل بالنت — من غير ما تكتب حاجة.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال طلب تفعيل» في شاشة التفعيل وصفحة الترخيص: اكتب اسمك ورقم الواتساب واسم النشاط، وهنكلمك.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.13.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>قفل الوردية بقى أعمى لموظف الاستقبال: مابيشوفش المفروض في الدرج ولا العجز والزيادة، والخانة مش متعبّية — المدير والمحاسب بس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>سعر ليلة أقل من سعر الغرفة بقى محتاج موافقة المدير (اسم دخوله وكلمة مروره).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>المصروف من الدرج مايعديش الفلوس اللي فيه.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.12.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الضغطة المكررة على «تأكيد التحصيل» أو المغادرة أو الاسترجاع مابقتش بتسجّل الدفعة مرتين.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شاشة «إيه الجديد» بتظهر مرة واحدة بس بعد التحديث.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.12.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>شرح البرنامج بقى دليل تفصيلي: لكل شاشة بتعمل إيه وفين، خطوات الشغل، الخانات المهمة، مثال عملي، ومشاكل شائعة وحلها — مع بحث وزرار «افتح الشاشة».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>نفس الشرح بالصور في ملف PDF «دليل الاستخدام» اللي مع ملفات التسطيب.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.11.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استرجاع فلوس للنزيل (للمدير): من تفاصيل الحجز ← «استرجاع فلوس» بالمبلغ والطريقة والسبب، مع إيصال رد مبلغ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إلغاء دفعة اتسجّلت غلط (للمدير): زرار «إلغاء» جنب الدفعة، والإيصال الأصلي بيتعلّم عليه «ملغي».</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الاسترجاع والإلغاء بيتسجّلوا في الوردية المفتوحة، فالوردية والتقرير اليومي بيطلعوا صح.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>حذف نزيل ليه حجوزات قديمة بيخفيه بس، والفواتير والإيصالات القديمة بتفضل باسمه.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.10.1</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الألوان: الروابط والتبويبات والقوائم والعلامات بقت واضحة في كل الثيمات (نهاري وليلي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>خانات الأرقام بقت بتقبل الكسور (زي سعر 12.50 أو وزن 1.5) — كانت بترفض وقت الحفظ.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقارير: إيراد الغرف المشتركة بيتحسب لكل سرير، والإيراد حسب نوع الغرفة بسعر كل ليلة الحقيقي.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الحجز مابيقبلش سعر أو مقدم بالسالب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الأمان: بعد 20 محاولة بمفتاح مشاركة غلط من نفس الجهاز لازم يستنى دقيقة.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.10.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>جرس التنبيهات: كل اللي محتاج متابعة (متأخرات، نواقص، نسخ احتياطية...) في مكان واحد، وتقدر تخفي التنبيه لبكره.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «إرسال تقرير مشكلة» في حول البرنامج: بيجهّز ملف بتفاصيل المشكلة تبعته للدعم على واتساب.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>زرار «اختبار آخر نسخة احتياطية» بيتأكد إن النسخة سليمة وتنفع تترجع، وتنبيه لو آخر نسخة عدّى عليها 3 أيام.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>الوضع التجريبي: من شاشة الدخول «افتح على بيانات تجريبية» بيفتح نسخة منفصلة مليانة بيانات عشان تجرّب كل الشاشات — بياناتك الحقيقية مش بتتلمس.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>استيراد الغرف والنزلاء من Excel.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>مخطط الحجوزات: اسحب الحجز لغرفة تانية أو يوم تاني عشان تنقله.</span></li></ul>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v3.9.0</div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>سجل العمليات: مين عمل إيه وإمتى، بفلتر بالمستخدم والتاريخ وبحث وطباعة (للمدير).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>صفحة الموبايل: صاحب الفندق يشوف أرقام النهارده من موبايله على شبكة الفندق برقم سري (الإعدادات ← الشبكة).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>التقرير اليومي بالإيميل: تقرير امبارح PDF بيوصلك كل يوم (الإعدادات ← التقرير اليومي).</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>تحديث البرنامج من ملف (الإعدادات ← تحديث البرنامج).</span></li></ul>
+                    </div>
+                </div>
+            </details>
+            <details id="hr-pro" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    <img src="../../icons/hr-pro.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">Meta Origin - HR Pro</div><div class="text-xs text-gray-400">1 release</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 border-l-2 pl-4 border-gray-800">
+                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v0.8.0 <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">current</span></div>
+                        <ul class="space-y-1 text-sm text-gray-300" dir="rtl" lang="ar"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من شاشة النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها.</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>إنت بتختار عدد النسخ اللي تفضل على الحساب (والأقدم بيتمسح لوحده)، ولو الجهاز باظ تسترجع من النت على أي جهاز.</span></li></ul>
+                    </div>
+                </div>
+            </details>
+        </section>
+    </main>
+    <script>if (location.hash) { const d = document.getElementById(location.hash.slice(1)); if (d && d.tagName === 'DETAILS') d.open = true; }</script>
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white border px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" style="border-color:rgba(var(--acc-rgb),.5)">
+        <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">Copied!</span>
+    </div>
+    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <a href="https://wa.me/201150606002?text=I%20would%20like%20to%20know%20more%20about%20Meta%20Origin%20programs" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
+    <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <img src="../../img/company-logo.png" alt="Meta Origin" class="w-6 h-6 object-cover opacity-70 rounded-lg">
+                <span class="font-bold text-gray-400">Meta Origin Software</span>
+            </div>
+            <div class="flex justify-center gap-4 text-base">
+                <a href="https://www.facebook.com/meta.origin.eg" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877f2]" title="Facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://www.youtube.com/@Meta.Origin-eg" target="_blank" rel="noopener noreferrer" class="hover:text-red-500" title="YouTube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                <a href="https://www.instagram.com/meta.origin.coding/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500" title="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/201150606002" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
+                <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
+            </div>
+            <p><a href="../../en/updates/" class="hover:text-white underline">Latest updates</a> · <a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
+            <p>All rights reserved &copy; 2026 - Meta Origin</p>
+        </div>
+    </footer>
+    <script>
+        function copyTextToClipboard(text, msg) {
+            (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => { const t = document.createElement('input'); document.body.appendChild(t); t.value = text; t.select(); document.execCommand('copy'); t.remove(); });
+            showToast(msg);
+        }
+        function copyPassword(p) { copyTextToClipboard(p, 'Password (' + p + ') copied!'); }
+        function copyPageLink() { copyTextToClipboard(location.href, 'Page link copied!'); }
+        function sharePage() { if (navigator.share) navigator.share({ title: document.title, url: location.href }).catch(() => {}); else copyPageLink(); }
+        function showToast(m) {
+            const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
+            t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function pickBiz(i, btn) {
+            document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
+            document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
+            const r = document.getElementById('pickResult'); if (r && r.getBoundingClientRect().top > innerHeight - 120) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
+        function filterPrograms(q) {
+            q = q.trim(); let shown = 0;
+            document.querySelectorAll('[data-prog]').forEach((el) => { const ok = !q || el.dataset.prog.includes(q); el.style.display = ok ? '' : 'none'; if (ok) shown++; });
+            document.querySelectorAll('[data-cat]').forEach((sec) => { sec.style.display = [...sec.querySelectorAll('[data-prog]')].some((e) => e.style.display !== 'none') ? '' : 'none'; });
+            const n = document.getElementById('noResult'); if (n) n.style.display = shown ? 'none' : '';
+        }
+    </script>
+</body>
+</html>

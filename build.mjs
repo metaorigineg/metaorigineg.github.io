@@ -32,6 +32,59 @@ try {
   fs.writeFileSync(VIDEOS_FILE, JSON.stringify(VIDEOS, null, 2) + '\n');
 } catch (e) { console.log('مقدرتش أجيب فيديوهات القناة (هستخدم المحفوظ):', e.message); }
 for (const p of D.programs) if (!p.video && VIDEOS[p.slug]) p.video = VIDEOS[p.slug];
+
+// أسئلة خاصة بكل برنامج (faq.json: {slug: {ar: [[س, ج]], en: [...]}}) — بتتعرض قبل الأسئلة العامة
+const PFAQ = JSON.parse(fs.readFileSync(path.join(HERE, 'faq.json'), 'utf8'));
+
+// سجل الإصدارات (صفحة «آخر التحديثات»): كل إصدار وملاحظاته من tools/shared/whats-new/whats-new.js (+ changelog.py بتاع HR)،
+// بيتحفظ في updates.json عشان البناء يشتغل حتى لو الفولدرات دي مش موجودة.
+const WN_KEY = { pharmacy: 'pharmacy', 'sales-erp': 'saleserp', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
+  hotel: 'hotel', 'hotel-pro': 'hotelpro', cashier: 'cashier', 'cashier-stores': 'kashier', 'cashier-lite': 'cashierlite', 'cashier-clothes': 'clothes',
+  restaurant: 'restaurant', hr: 'hr', 'hr-pro': 'hrpro', 'hr-enterprise': 'hrenterprise' };
+const UPDATES_FILE = path.join(HERE, 'updates.json');
+let UPDATES = {};
+try { UPDATES = JSON.parse(fs.readFileSync(UPDATES_FILE, 'utf8')); } catch { /* أول مرة */ }
+try {
+  const vm = await import('node:vm');
+  const src = fs.readFileSync(path.join(HERE, '..', 'tools', 'shared', 'whats-new', 'whats-new.js'), 'utf8').replace(/var NOTES = \{/, 'var NOTES = globalThis.__NOTES = {');
+  const noop = () => null;
+  const ctx = { console: { log: noop, warn: noop }, setTimeout: noop, localStorage: { getItem: noop, setItem: noop },
+    document: { addEventListener: noop, querySelector: noop, readyState: 'loading', createElement: () => ({ style: {}, appendChild: noop, setAttribute: noop }), head: { appendChild: noop }, body: { appendChild: noop } } };
+  ctx.globalThis = ctx; ctx.window = ctx;
+  vm.runInNewContext(src, ctx);
+  const N = ctx.__NOTES || {};
+  const fresh = {};
+  for (const [slug, key] of Object.entries(WN_KEY)) if (N[key]) fresh[slug] = JSON.parse(JSON.stringify(N[key]));
+  for (const [slug, dir] of [['hr', 'Meta Origin - HR'], ['hr-enterprise', 'Meta Origin - HR SQL Server']]) {
+    const f = path.join(HERE, '..', dir, 'services', 'changelog.py');
+    if (!fs.existsSync(f)) continue;
+    fresh[slug] = {};
+    for (const m of fs.readFileSync(f, 'utf8').matchAll(/\('(\d+\.\d+\.\d+)',[^\[]*\[([\s\S]*?)\]\),/g)) fresh[slug][m[1]] = [...m[2].matchAll(/'((?:[^'\\]|\\.)*)'/g)].map((x) => x[1]);
+  }
+  if (Object.keys(fresh).length) { UPDATES = fresh; fs.writeFileSync(UPDATES_FILE, JSON.stringify(UPDATES, null, 1) + '\n'); }
+} catch (e) { console.log('مقدرتش أقرا ملاحظات الإصدارات (هستخدم المحفوظ):', e.message); }
+const vcmp = (a, b) => { const x = a.split('.').map(Number), y = b.split('.').map(Number); for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (y[i] || 0) - (x[i] || 0); return 0; };
+
+// عدد مرات التحميل من GitHub Releases (كل إصدارات البرنامج مع بعض) — بيتحفظ في downloads.json لو مفيش نت
+const DL_FILE = path.join(HERE, 'downloads.json');
+let DLS = {};
+try { DLS = JSON.parse(fs.readFileSync(DL_FILE, 'utf8')); } catch { /* أول مرة */ }
+try {
+  const fresh = {};
+  for (let page = 1; page < 20; page++) {
+    const r = await fetch(`https://api.github.com/repos/${RELEASE_REPO}/releases?per_page=100&page=${page}`, { headers: { 'User-Agent': 'MetaOrigin-Website', Accept: 'application/vnd.github+json' } });
+    if (!r.ok) throw new Error('GitHub ' + r.status);
+    const list = await r.json();
+    for (const rel of list) {
+      const slug = String(rel.tag_name).replace(/-v[\d.]+$/, '');
+      fresh[slug] = (fresh[slug] || 0) + rel.assets.reduce((s, a) => s + (a.download_count || 0), 0);
+    }
+    if (list.length < 100) break;
+  }
+  DLS = fresh; fs.writeFileSync(DL_FILE, JSON.stringify(DLS, null, 2) + '\n');
+} catch (e) { console.log('مقدرتش أجيب عدد التحميلات (هستخدم المحفوظ):', e.message); }
+const DL_MIN = 10; // أقل من كده مابيظهرش (رقم صغير شكله وحش)
+const fmtNum = (n) => n.toLocaleString('en-US');
 // برامج مخفية مؤقتًا من الموقع ("hidden": true في programs.json): مالهاش كارت ولا صفحة ولا مكان في الخريطة (صفحتها القديمة بتتمسح)
 for (const p of D.programs.filter((x) => x.hidden)) fs.rmSync(path.join(HERE, p.slug), { recursive: true, force: true });
 D.programs = D.programs.filter((p) => !p.hidden);
@@ -57,7 +110,10 @@ const onColor = (hex) => {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.18 ? '#0b0f19' : '#ffffff';
 };
 
-function head({ title, desc, accent, base, image, sub = '' }) {
+function head({ title, desc, accent, base, image, sub = '', ld = [] }) {
+  const url = LANG === 'en' ? `${SITE}en/${sub}` : `${SITE}${sub}`;
+  const img = SITE + image.replace(/^(?:\.\.\/)+|^\.\//, '');
+  const wide = /img\/og\//.test(image); // صورة الدعاية العريضة 1200×630 (غير كده = أيقونة مربعة)
   return `<!DOCTYPE html>
 <html lang="${LANG}" dir="${L('rtl', 'ltr')}" class="dark">
 <head>
@@ -65,13 +121,26 @@ function head({ title, desc, accent, base, image, sub = '' }) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(desc)}">
+    <link rel="canonical" href="${url}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Meta Origin">
+    <meta property="og:locale" content="${L('ar_EG', 'en_US')}">
+    <meta property="og:url" content="${url}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(desc)}">
-    <meta property="og:image" content="${esc(SITE + image.replace(/^(?:\.\.\/)+|^\.\//, ''))}">
+    <meta property="og:image" content="${esc(img)}">${wide ? `
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">` : ''}
+    <meta name="twitter:card" content="${wide ? 'summary_large_image' : 'summary'}">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(desc)}">
+    <meta name="twitter:image" content="${esc(img)}">
     <meta name="theme-color" content="#0b0f19">
     <link rel="icon" href="${base}img/company-logo.png">
     <link rel="alternate" hreflang="ar" href="${SITE}${sub}">
     <link rel="alternate" hreflang="en" href="${SITE}en/${sub}">
+    <link rel="alternate" hreflang="x-default" href="${SITE}${sub}">${ld.map((x) => `
+    <script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('')}
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -87,6 +156,7 @@ function head({ title, desc, accent, base, image, sub = '' }) {
         .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
         .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
         .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
 </head>
@@ -106,6 +176,7 @@ function header(base, { back, sub = '' } = {}) {
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>${L('آخر التحديثات', 'Updates')}</a>
                 ${back ? `<a href="${LANG === 'en' ? base + 'en/' : base}#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>${L('كل البرامج', 'All programs')}</span></a>` : `<a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('البرامج', 'Programs')}</a><a href="#why" class="hidden md:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('المميزات', 'Features')}</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('تواصل معنا', 'Contact')}</a>`}
                 <a href="${otherLang(base, sub)}" hreflang="${L('en', 'ar')}" lang="${L('en', 'ar')}" title="${L('English version', 'النسخة العربي')}" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>${L('English', 'عربي')}</span></a>
                 <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
@@ -175,7 +246,7 @@ function footer(base, name) {
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
-            <p><a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a></p>
+            <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a></p>
             <p>${L('جميع الحقوق محفوظة', 'All rights reserved')} &copy; ${YEAR} - ${esc(name)}</p>
         </div>
     </footer>
@@ -191,6 +262,11 @@ function footer(base, name) {
             const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function pickBiz(i, btn) {
+            document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
+            document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
+            const r = document.getElementById('pickResult'); if (r && r.getBoundingClientRect().top > innerHeight - 120) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
         function filterPrograms(q) {
@@ -227,7 +303,7 @@ ${list.map((x, i) => (LANG === 'en' && enP(p).shots?.[i] ? { ...x, t: enP(p).sho
 const FAQ_AR = [
   ['البرنامج مجاني؟', 'بتجربه 14 يوم كاملين بكل الشاشات، وبعدها محتاج ترخيص — كلّمنا على الواتساب وهنقولك الأسعار المناسبة لنشاطك.'],
   ['ينفع يشتغل على أكتر من جهاز؟', 'أيوه: جهاز رئيسي عليه البيانات وأجهزة تانية على نفس الشبكة، وكتير من البرامج بتتفتح كمان من المتصفح والموبايل.'],
-  ['بياناتي في أمان؟', 'البيانات على جهازك أنت، ومعاها نسخ احتياطي تلقائي في مكانين، وصلاحيات لكل موظف وسجل لكل عملية.'],
+  ['بياناتي في أمان؟', 'البيانات على جهازك أنت، ومعاها نسخ احتياطي تلقائي في مكانين (ونسخة متشفّرة على Google Drive أو OneDrive لو حبيت)، وصلاحيات لكل موظف وسجل لكل عملية.'],
   ['البرنامج بالإنجليزي كمان؟', 'أيوه، البرنامج بيشتغل بالعربي والإنجليزي وتقدر تبدّل بينهم.'],
   ['لو حصلت مشكلة؟', 'جوّه البرنامج فيه زرار «إرسال تقرير مشكلة»، أو كلّمنا على الواتساب مباشرة وهنساعدك.'],
 ];
@@ -238,8 +314,10 @@ const FAQ_EN = [
   ['Is the program in English too?', 'Yes, the programs work in Arabic and English and you can switch between them.'],
   ['What if something goes wrong?', 'Inside the program there is a «Send problem report» button, or message us directly on WhatsApp and we will help.'],
 ];
+/** أسئلة البرنامج نفسه الأول وبعدين العامة (نفس القايمة بتروح لجوجل في FAQPage) */
+const faqList = (p) => [...((PFAQ[p.slug] || {})[LANG] || []), ...(LANG === 'en' ? FAQ_EN : FAQ_AR)];
 function installAndFaq(p) {
-  const FAQ = LANG === 'en' ? FAQ_EN : FAQ_AR;
+  const FAQ = faqList(p);
   const steps = LANG === 'en' ? [
     'Download the program from «Direct download» or any server above and extract it (it is a RAR file — open it with WinRAR or 7-Zip).',
     'If Windows shows «Windows protected your PC», click More info → Run anyway (this is normal for any new program not from the Microsoft Store).',
@@ -282,7 +360,7 @@ ${req.map(([ic, t]) => `                    <li class="flex gap-2"><i class="${i
             </div>
         </section>
 
-        <section class="space-y-4">
+        <section id="faq" class="space-y-4">
             <h2 class="text-2xl font-bold text-white text-center flex items-center justify-center gap-2"><i class="fa-solid fa-circle-question acc"></i> ${L('أسئلة متكررة', 'FAQ')}</h2>
             <div class="space-y-3 max-w-3xl mx-auto">
 ${FAQ.map(([q, a]) => `                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">${esc(q)}<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">${esc(a)}</p></details>`).join('\n')}
@@ -332,7 +410,21 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
                 <a href="${ask}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp text-lg"></i> ${L('اطلب البرنامج على الواتساب', 'Request it on WhatsApp')}</a>
             </div>`;
   const title = `${p.product} | ${L('مركز التحميل الرسمي', 'Official download')}`;
-  return head({ title, desc: pField(p, 'about'), accent: p.color, base, image: `${base}icons/${p.slug}.png`, sub }) + header(base, { back: true, sub }) + `
+  const dl = DLS[p.slug] || 0;
+  const pageUrl = LANG === 'en' ? `${SITE}en/${sub}` : `${SITE}${sub}`;
+  // بيانات لجوجل: البرنامج نفسه + الأسئلة المتكررة
+  const ld = [{
+    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: p.product, alternateName: pName(p), description: pField(p, 'about'),
+    applicationCategory: 'BusinessApplication', applicationSubCategory: pField(p, 'category'), operatingSystem: 'Windows 10, Windows 11',
+    url: pageUrl, image: `${SITE}icons/${p.slug}.png`, inLanguage: ['ar', 'en'],
+    ...(rel ? { softwareVersion: rel.version, dateModified: rel.date, ...(rel.published ? { downloadUrl: directUrl(rel), fileSize: `${rel.sizeMB} MB` } : {}) } : {}),
+    publisher: { '@type': 'Organization', name: 'Meta Origin', url: SITE },
+  }, {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqList(p).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  }];
+  const ogImg = fs.existsSync(path.join(HERE, 'img', 'og', `${p.slug}.jpg`)) ? `${base}img/og/${p.slug}.jpg` : `${base}icons/${p.slug}.png`;
+  return head({ title, desc: pField(p, 'about'), accent: p.color, base, image: ogImg, sub, ld }) + header(base, { back: true, sub }) + `
     <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-12">
         <section class="text-center space-y-6">
             <div class="relative inline-block">
@@ -354,6 +446,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-certificate acc"></i><span>${L('<strong class="text-emerald-400">النسخة الرسمية</strong> من Meta Origin', '<strong class="text-emerald-400">Official version</strong> from Meta Origin')}</span></div>
                 ${rel ? `<div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-code-branch acc"></i><span>${L('الإصدار:', 'Version:')} <strong class="text-white" dir="ltr">${esc(rel.version)}</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-calendar-day acc"></i><span>${L('آخر تحديث:', 'Updated:')} <strong class="text-white">${fmtDay(rel.date)}</strong></span></div>` : ''}
+                ${dl >= DL_MIN ? `<div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-download acc"></i><span>${L('اتحمّل', 'Downloaded')} <strong class="text-white">${fmtNum(dl)}</strong> ${L('مرة', 'times')}</span></div>` : ''}
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>${L('اللغة:', 'Language:')} <strong class="text-white">${L('عربي / English', 'English / عربي')}</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>${L('<strong class="text-white">14 يوم</strong> تجربة مجانية', '<strong class="text-white">14-day</strong> free trial')}</span></div>
             </div>
@@ -371,7 +464,9 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             ${rel && rel.notes.length && LANG === 'ar' ? `<details class="bg-cardbg border border-gray-800 rounded-2xl p-5 group" open>
                 <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center"><span><i class="fa-solid fa-wand-magic-sparkles acc"></i> إيه الجديد في الإصدار <span dir="ltr">${esc(rel.version)}</span></span><i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary>
                 <ul class="mt-3 space-y-2 text-sm text-gray-300">${rel.notes.map((n) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${esc(n)}</span></li>`).join('')}</ul>
+                ${Object.keys(UPDATES[p.slug] || {}).length > 1 ? `<a href="${base}updates/#${p.slug}" class="inline-flex items-center gap-1.5 mt-4 text-sm font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> كل الإصدارات اللي فاتت</a>` : ''}
             </details>` : ''}
+            ${LANG === 'en' && Object.keys(UPDATES[p.slug] || {}).length ? `<p class="text-center text-sm"><a href="${base}en/updates/#${p.slug}" class="font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> Release history${rel ? ` (latest: ${esc(rel.version)})` : ''}</a></p>` : ''}
         </section>
 
         <section class="space-y-8 pt-4">
@@ -428,9 +523,51 @@ function homePage() {
                         </div>
                         <div class="text-sm font-bold" style="color:${p.color}">${esc(pName(p))}</div>
                         <p class="text-xs text-gray-400 leading-relaxed">${esc(pField(p, 'short'))}</p>
+                        ${(DLS[p.slug] || 0) >= DL_MIN ? `<p class="text-[11px] text-gray-500"><i class="fa-solid fa-download"></i> ${L('اتحمّل', 'Downloaded')} ${fmtNum(DLS[p.slug])} ${L('مرة', 'times')}</p>` : ''}
                     </div>
                 </a>`;
-  return head({ title: L('Meta Origin | برامج إدارة الشركات والمحلات', 'Meta Origin | Business management software'), desc: company('about'), accent: '#3b82f6', base, image: 'img/company-logo.png' }) + header(base) + `
+  // «إيه البرنامج المناسب ليك؟» — نوع النشاط ← البرامج المناسبة (المخفية بتتشال لوحدها)
+  const PICKER = [
+    ['fa-prescription-bottle-medical', 'صيدلية', 'Pharmacy', ['pharmacy']],
+    ['fa-stethoscope', 'عيادة أو مركز طبي', 'Clinic or medical center', ['clinic']],
+    ['fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
+    ['fa-cart-shopping', 'سوبر ماركت أو بقالة', 'Supermarket or grocery', ['cashier', 'cashier-lite']],
+    ['fa-shirt', 'محل ملابس أو عطور أو موبايلات', 'Clothes, perfume or mobile shop', ['cashier-stores', 'cashier-clothes']],
+    ['fa-store', 'محل صغير بجهاز واحد', 'Small shop with one PC', ['cashier-lite']],
+    ['fa-utensils', 'مطعم أو كافيه أو دليفري', 'Restaurant, café or delivery', ['restaurant']],
+    ['fa-hotel', 'فندق أو شقق أو سكن طلاب', 'Hotel, apartments or student housing', ['hotel-pro', 'hotel']],
+    ['fa-industry', 'مصنع ملابس', 'Garment factory', ['erp', 'stores']],
+    ['fa-truck', 'شركة تجارية أو توزيع (فروع ومخازن)', 'Trading or distribution company', ['sales-erp', 'acc-new']],
+    ['fa-warehouse', 'مخازن وأوامر إنتاج', 'Warehouses & production orders', ['stores', 'acc-new']],
+    ['fa-calculator', 'حسابات شركة', 'Company accounting', ['acc', 'acc-new']],
+    ['fa-id-card', 'مرتبات وحضور وبصمة', 'Payroll, attendance & fingerprint', ['hr-pro', 'hr', 'hr-enterprise']],
+  ].map(([ic, ar, en, slugs]) => ({ ic, t: L(ar, en), items: slugs.map((s) => D.programs.find((p) => p.slug === s)).filter(Boolean) })).filter((x) => x.items.length);
+  const picker = `
+        <section id="picker" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-wand-magic-sparkles acc"></i><span>${L('إيه البرنامج المناسب ليك؟', 'Which program is right for you?')}</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">${L('اختار نشاطك وإحنا نقولك تبدأ بإيه', 'Pick your business and we will tell you where to start')}</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-2">
+${PICKER.map((x, i) => `                <button data-pick-btn onclick="pickBiz(${i}, this)" class="bg-cardbg border border-gray-700 hover:border-gray-500 text-gray-200 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition active:scale-95"><i class="fa-solid ${x.ic}"></i>${esc(x.t)}</button>`).join('\n')}
+            </div>
+            <div id="pickResult">
+${PICKER.map((x, i) => `                <div data-pick="${i}" style="display:none" class="space-y-3">
+                    <p class="text-center text-sm text-gray-300">${x.items.length > 1 ? L(`قدامك ${x.items.length === 2 ? 'اختيارين' : `<strong class="text-white">${x.items.length}</strong> اختيارات`} — الأول هو الأنسب لأغلب الناس:`, `<strong class="text-white">${x.items.length}</strong> options — the first one fits most people:`) : L('البرنامج المناسب ليك:', 'The right program for you:')}</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
+                    </div>
+                </div>`).join('\n')}
+                <p class="text-center text-xs text-gray-500 pt-3">${L('مش لاقي نشاطك؟', 'Not sure?')} <a class="acc underline" href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer">${L('كلّمنا واتساب وهنقولك المناسب', 'WhatsApp us and we will advise you')}</a></p>
+            </div>
+        </section>`;
+  const totalDl = Object.entries(DLS).filter(([s]) => D.programs.some((p) => p.slug === s)).reduce((a, [, n]) => a + n, 0);
+  const ld = [{
+    '@context': 'https://schema.org', '@type': 'Organization', name: 'Meta Origin', alternateName: 'Meta Origin Software', url: SITE, logo: `${SITE}img/company-logo.png`,
+    email: D.company.emails[0], sameAs: [D.company.facebook, D.company.youtube, D.company.instagram].filter(Boolean),
+    contactPoint: { '@type': 'ContactPoint', telephone: `+20${D.company.whatsapp.replace(/^0/, '')}`, contactType: 'customer support', availableLanguage: ['Arabic', 'English'] },
+  }, { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Meta Origin', url: SITE, inLanguage: LANG }];
+  return head({ title: L('Meta Origin | برامج إدارة الشركات والمحلات', 'Meta Origin | Business management software'), desc: company('about'), accent: '#3b82f6', base, image: 'img/company-logo.png', ld }) + header(base) + `
     <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-14">
         <section class="text-center space-y-6">
             <img src="${base}img/company-logo.png" alt="Meta Origin" class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl border border-gray-800 bg-gray-900 p-1 glow-effect">
@@ -453,8 +590,10 @@ function homePage() {
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-network-wired acc"></i><span>${L('جهاز واحد أو شبكة أو أونلاين', 'One PC, network or online')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>${L('14 يوم تجربة مجانية', '14-day free trial')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-headset acc"></i><span>${L('دعم فني وتركيب', 'Support & installation')}</span></div>
+                ${totalDl >= DL_MIN ? `<div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-download acc"></i><span><strong class="text-white">${fmtNum(totalDl)}</strong> ${L('تحميل', 'downloads')}</span></div>` : ''}
             </div>
         </section>
+${picker}
 
         <section id="programs" class="space-y-8">
             <div class="text-center space-y-2">
@@ -486,6 +625,65 @@ ${D.company.strengths.map((x, i) => (LANG === 'en' && EN.company.strengths[i] ? 
         </section>
 ${team(base)}
     </main>` + footer(base, 'Meta Origin');
+}
+
+/** «آخر التحديثات»: أحدث إصدار لكل برنامج بتاريخه (الأحدث فوق) + سجل كل الإصدارات لكل برنامج (updates.json) */
+function updatesPage() {
+  const base = L('../', '../../');
+  const home = LANG === 'en' ? base + 'en/' : base;
+  const progs = D.programs.filter((p) => REL[p.slug] || Object.keys(UPDATES[p.slug] || {}).length);
+  const latest = progs.filter((p) => REL[p.slug]).sort((a, b) => REL[b.slug].date.localeCompare(REL[a.slug].date) || a.product.localeCompare(b.product));
+  // الإصدارات اللي نزلت نفس اليوم بنفس الملاحظات (زي ميزة نزلت في كل البرامج) = كارت واحد
+  const groups = [];
+  for (const p of latest) {
+    const r = REL[p.slug]; const key = r.date + '|' + r.notes.join('|');
+    const g = groups.find((x) => x.key === key);
+    if (g) g.items.push(p); else groups.push({ key, date: r.date, notes: r.notes, items: [p] });
+  }
+  const notesDir = LANG === 'en' ? ' dir="rtl" lang="ar"' : '';
+  const li = (n) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>${esc(n)}</span></li>`;
+  const icon = (p) => `<img src="${base}icons/${p.slug}.png" alt="" class="w-12 h-12 rounded-xl flex-shrink-0" loading="lazy">`;
+  return head({ title: L('آخر التحديثات | Meta Origin', 'Latest updates | Meta Origin'), desc: L('كل الإصدارات الجديدة من برامج Meta Origin وإيه اللي اتضاف في كل إصدار.', 'Every new release of Meta Origin programs and what each one added.'), accent: '#3b82f6', base, image: 'img/company-logo.png', sub: 'updates/' }) + header(base, { back: true, sub: 'updates/' }) + `
+    <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-12">
+        <section class="text-center space-y-3">
+            <h1 class="text-3xl md:text-5xl font-black text-white flex items-center justify-center gap-3"><i class="fa-solid fa-bolt acc"></i>${L('آخر التحديثات', 'Latest updates')}</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">${L('برامجنا بتتطور باستمرار — كل إصدار جديد هنا بتاريخه وإيه اللي اتضاف فيه.', 'Our programs keep improving — every new release is listed here with its date and what it added.')}</p>
+            ${LANG === 'en' ? '<p class="text-xs text-gray-500">Release notes are written in Arabic.</p>' : ''}
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-star acc"></i>${L('أحدث الإصدارات', 'Newest releases')}</h2>
+${groups.map((g) => `            <article class="bg-cardbg border border-gray-800 rounded-2xl p-5 space-y-4" style="border-${L('right', 'left')}:3px solid ${g.items.length === 1 ? g.items[0].color : 'var(--acc)'}">
+                <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-calendar-day acc"></i> ${fmtDay(g.date)}${g.items.length > 1 ? ` · ${L(`نزل في <strong class="text-white">${g.items.length}</strong> برنامج`, `released for <strong class="text-white">${g.items.length}</strong> programs`)}` : ''}</div>
+                ${g.notes.length ? `<ul class="space-y-1.5 text-gray-200"${notesDir}>${g.notes.map(li).join('')}</ul>` : ''}
+                <div class="grid grid-cols-1 sm:grid-cols-2 ${g.items.length > 2 ? 'lg:grid-cols-3' : ''} gap-2">
+${g.items.map((p) => `                    <a href="${home}${p.slug}/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+                        <img src="${base}icons/${p.slug}.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
+                        <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-[11px] truncate" style="color:${p.color}">${esc(pName(p))}</span></span>
+                        <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v${esc(REL[p.slug].version)}</span>
+                    </a>`).join('\n')}
+                </div>
+            </article>`).join('\n')}
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left acc"></i>${L('سجل الإصدارات لكل برنامج', 'Release history by program')}</h2>
+${progs.filter((p) => Object.keys(UPDATES[p.slug] || {}).length).map((p) => { const vs = Object.keys(UPDATES[p.slug]).sort(vcmp); return `            <details id="${p.slug}" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+                <summary class="cursor-pointer list-none flex items-center gap-4">
+                    ${icon(p)}
+                    <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">${esc(p.product)}</div><div class="text-xs text-gray-400">${vs.length} ${L('إصدار', vs.length > 1 ? 'releases' : 'release')}</div></div>
+                    <i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i>
+                </summary>
+                <div class="mt-4 space-y-4 ${L('border-r-2 pr-4', 'border-l-2 pl-4')} border-gray-800">
+${vs.map((v) => `                    <div class="space-y-1.5">
+                        <div class="font-bold text-white text-sm" dir="ltr">v${esc(v)}${REL[p.slug]?.version === v ? ` <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">${L('الحالي', 'current')}</span>` : ''}</div>
+                        <ul class="space-y-1 text-sm text-gray-300"${notesDir}>${(UPDATES[p.slug][v] || []).map(li).join('')}</ul>
+                    </div>`).join('\n')}
+                </div>
+            </details>`; }).join('\n')}
+        </section>
+    </main>
+    <script>if (location.hash) { const d = document.getElementById(location.hash.slice(1)); if (d && d.tagName === 'DETAILS') d.open = true; }</script>` + footer(base, 'Meta Origin');
 }
 
 /** سياسة الخصوصية (عربي + إنجليزي) — جوجل ومايكروسوفت بيطلبوا رابطها عشان النسخ الاحتياطي على Google Drive / OneDrive */
@@ -550,6 +748,8 @@ for (const lang of ['ar', 'en']) {
   const root = lang === 'en' ? path.join(HERE, 'en') : HERE;
   fs.mkdirSync(root, { recursive: true });
   fs.writeFileSync(path.join(root, 'index.html'), homePage());
+  fs.mkdirSync(path.join(root, 'updates'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'updates', 'index.html'), updatesPage());
   for (const p of D.programs) {
     fs.mkdirSync(path.join(root, p.slug), { recursive: true });
     fs.writeFileSync(path.join(root, p.slug, 'index.html'), programPage(p));
@@ -560,7 +760,7 @@ LANG = 'ar';
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
 fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`), `${SITE}en/`, ...D.programs.map((p) => `${SITE}en/${p.slug}/`), `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}en/`, ...D.programs.map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);

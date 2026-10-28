@@ -58,7 +58,7 @@ for (const p of D.programs) {
   const ext = path.extname(up);
   const asset = `${dir.replace(/\s+-\s+/g, '-').replace(/\s+/g, '-')}-${version}${ext === '.exe' ? '-Setup' : ''}${ext}`;
   const prev = old[p.slug] || {};
-  out[p.slug] = { version, date: fs.statSync(file).mtime.toISOString().slice(0, 10), sizeMB: Math.round(st.size / 1048576), file: up, kind: ext.slice(1).toUpperCase(), asset, tag: `${p.slug}-v${version}`,
+  out[p.slug] = { version, date: fs.statSync(file).mtime.toLocaleDateString('en-CA'), sizeMB: Math.round(st.size / 1048576), file: up, kind: ext.slice(1).toUpperCase(), asset, tag: `${p.slug}-v${version}`,
     notes, published: !!prev.published && prev.version === version && prev.asset === asset };
   console.log(p.slug.padEnd(16), version.padEnd(8), out[p.slug].date, `${out[p.slug].sizeMB} MB`, notes.length ? `${notes.length} ملاحظة` : '', out[p.slug].published ? 'مرفوع' : '');
 }

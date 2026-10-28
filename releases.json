@@ -1,7 +1,7 @@
 {
   "pharmacy": {
     "version": "1.2.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 244,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Pharmacy\\Meta Origin - Pharmacy.rar",
     "kind": "RAR",
@@ -15,7 +15,7 @@
   },
   "sales-erp": {
     "version": "1.4.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 229,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Sales ERP\\Meta Origin - Sales ERP.rar",
     "kind": "RAR",
@@ -57,7 +57,7 @@
   },
   "erp": {
     "version": "1.7.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 388,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - ERP System\\Meta Origin - ERP System.rar",
     "kind": "RAR",
@@ -71,7 +71,7 @@
   },
   "acc": {
     "version": "1.7.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 383,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc\\Meta Origin - Acc.rar",
     "kind": "RAR",
@@ -85,7 +85,7 @@
   },
   "acc-new": {
     "version": "1.9.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 224,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc New\\Meta Origin - Acc New.rar",
     "kind": "RAR",
@@ -99,7 +99,7 @@
   },
   "stores": {
     "version": "1.8.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 164,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Stores\\Meta Origin - Stores.rar",
     "kind": "RAR",
@@ -113,7 +113,7 @@
   },
   "cashier": {
     "version": "1.15.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 233,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier\\Meta Origin - Cashier.rar",
     "kind": "RAR",
@@ -127,7 +127,7 @@
   },
   "cashier-stores": {
     "version": "1.18.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 224,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Stores\\Meta Origin - Cashier Stores.rar",
     "kind": "RAR",
@@ -141,7 +141,7 @@
   },
   "cashier-lite": {
     "version": "0.10.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 117,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Lite\\Meta Origin - Cashier Lite.rar",
     "kind": "RAR",
@@ -155,7 +155,7 @@
   },
   "cashier-clothes": {
     "version": "0.9.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 135,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes.rar",
     "kind": "RAR",
@@ -169,7 +169,7 @@
   },
   "restaurant": {
     "version": "1.3.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 226,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Restaurant\\Meta Origin - Restaurant.rar",
     "kind": "RAR",
@@ -183,7 +183,7 @@
   },
   "hotel": {
     "version": "1.12.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 330,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel\\Meta Origin - Hotel.rar",
     "kind": "RAR",
@@ -197,7 +197,7 @@
   },
   "hotel-pro": {
     "version": "3.15.0",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "sizeMB": 229,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel Pro\\Meta Origin - Hotel Pro.rar",
     "kind": "RAR",
@@ -210,17 +210,17 @@
     "published": true
   },
   "hr": {
-    "version": "1.8.1",
-    "date": "2026-10-26",
+    "version": "1.9.0",
+    "date": "2026-10-28",
     "sizeMB": 219,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR\\Meta Origin - HR.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-HR-1.8.1.rar",
-    "tag": "hr-v1.8.1",
+    "asset": "Meta-Origin-HR-1.9.0.rar",
+    "tag": "hr-v1.9.0",
     "notes": [
-      "تصليح: «إرسال طلب تفعيل» والتفعيل الأونلاين كانوا بيقولوا «مش قادر يبعت الطلب» حتى والجهاز على النت — دلوقتي بيوصلوا للسيرفر."
+      "النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من الإعدادات ← النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها، وتختار عدد النسخ اللي تفضل، وتسترجع من النت على أي جهاز."
     ],
-    "published": true
+    "published": false
   },
   "hr-pro": {
     "version": "0.8.0",
@@ -237,16 +237,16 @@
     "published": true
   },
   "hr-enterprise": {
-    "version": "1.2.1",
-    "date": "2026-10-26",
+    "version": "1.3.0",
+    "date": "2026-10-28",
     "sizeMB": 450,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR Enterprise\\Meta Origin - HR Enterprise.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-HR-Enterprise-1.2.1.rar",
-    "tag": "hr-enterprise-v1.2.1",
+    "asset": "Meta-Origin-HR-Enterprise-1.3.0.rar",
+    "tag": "hr-enterprise-v1.3.0",
     "notes": [
-      "تصليح: «إرسال طلب تفعيل» والتفعيل الأونلاين كانوا بيقولوا «مش قادر يبعت الطلب» حتى والجهاز على النت — دلوقتي بيوصلوا للسيرفر."
+      "النسخ الاحتياطي على النت: اربط حساب Google Drive أو OneDrive من الإعدادات ← النسخ الاحتياطي (من صفحة جوجل/مايكروسوفت نفسها — البرنامج مابيشوفش باسورد حسابك)، وكل نسخة بتترفع لوحدها متشفّرة بكلمة سر بتختارها، وتختار عدد النسخ اللي تفضل، وتسترجع من النت على أي جهاز."
     ],
-    "published": true
+    "published": false
   }
 }

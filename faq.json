@@ -1,0 +1,452 @@
+{
+  "pharmacy": {
+    "ar": [
+      [
+        "ينفع لسلسلة صيدليات بأكتر من فرع؟",
+        "أيوه — الفروع والتحويلات بينها في نفس البرنامج، وجهاز رئيسي وأجهزة كاشير على الشبكة، وصاحب الصيدلية يتابع من موبايله."
+      ],
+      [
+        "البرنامج بينبّه على الصلاحية والنواقص؟",
+        "أيوه، الأصناف متسجلة بالتشغيلات والصلاحية، وفيه تنبيهات للنواقص واللي صلاحيته قرّبت تخلص، واقتراح الطلبية."
+      ],
+      [
+        "بيبيع بالعلبة والشريط؟",
+        "أيوه، نقطة البيع بالباركود بتبيع بالعلبة أو بالشريط، ومعاها التأمين والآجل والأدوية المزمنة."
+      ]
+    ],
+    "en": [
+      [
+        "Does it work for a pharmacy chain with several branches?",
+        "Yes — branches and transfers between them are in the same program, with a main PC and cashier PCs on the network, and the owner can follow up from the phone."
+      ],
+      [
+        "Does it warn about expiry dates and shortages?",
+        "Yes, items are stored by batch and expiry date, with alerts for shortages and near-expiry stock, plus a suggested purchase order."
+      ],
+      [
+        "Can I sell by box and by strip?",
+        "Yes, the barcode point of sale sells by box or by strip, together with insurance, credit and chronic-medication customers."
+      ]
+    ]
+  },
+  "sales-erp": {
+    "ar": [
+      [
+        "البرنامج محتاج نت؟",
+        "لأ — نسخة الديسكتوب بتشتغل من غير نت خالص على جهازك."
+      ],
+      [
+        "ينفع أبيع بالقطعة والعلبة والكرتونة؟",
+        "أيوه، نقطة البيع بالوحدات (قطعة/علبة/كرتونة) وبـ 3 أسعار للصنف."
+      ],
+      [
+        "فيه متابعة للبيّاعين والفروع؟",
+        "أيوه: البيّاعين وعمولاتهم، والتحويل بين الفروع والجرد، والعملاء والموردين والشيكات والخزينة والبنوك، و94 تقرير."
+      ]
+    ],
+    "en": [
+      [
+        "Does it need the internet?",
+        "No — the desktop version works fully offline on your own computer."
+      ],
+      [
+        "Can I sell by piece, box and carton?",
+        "Yes, the point of sale works with units (piece/box/carton) and 3 prices per item."
+      ],
+      [
+        "Does it track salespeople and branches?",
+        "Yes: salespeople and their commissions, transfers between branches and stock counts, customers, suppliers, cheques, cash and banks, and 94 reports."
+      ]
+    ]
+  },
+  "clinic": {
+    "ar": [
+      [
+        "ينفع لمركز طبي فيه أكتر من تخصص؟",
+        "أيوه — الأسنان والعلاج الطبيعي والمعمل والأشعة وتخصصات تانية، والتخصصات اللي عندك بيحددها الترخيص."
+      ],
+      [
+        "فيه حجز وطابور وشاشة انتظار؟",
+        "أيوه: الحجز والطابور وشاشة الانتظار، والكشف والروشتة من ملف المريض."
+      ],
+      [
+        "ينفع أفتحه من المتصفح؟",
+        "أيوه، سيرفر وأجهزة، وكمان بيتفتح من المتصفح على شبكة العيادة."
+      ]
+    ],
+    "en": [
+      [
+        "Does it fit a medical center with several specialties?",
+        "Yes — dental, physiotherapy, lab, radiology and more; the specialties you get are set by your license."
+      ],
+      [
+        "Is there booking, a queue and a waiting screen?",
+        "Yes: booking, the queue and a waiting-room screen, plus the visit and prescription from the patient file."
+      ],
+      [
+        "Can I open it from a browser?",
+        "Yes — a server and client PCs, and it also opens from a browser on the clinic network."
+      ]
+    ]
+  },
+  "school": {
+    "ar": [
+      [
+        "البرنامج بيتابع المصروفات والأقساط المتأخرة؟",
+        "أيوه: تحصيل المصروفات والأقساط والمتأخرات لكل طالب، ومعاها الحسابات والقوائم المالية."
+      ],
+      [
+        "فيه حضور ودرجات وتواصل مع ولي الأمر؟",
+        "أيوه، الحضور والدرجات وواتساب ولي الأمر من البرنامج."
+      ],
+      [
+        "ينفع للحضانات والجامعات؟",
+        "أيوه، للمدارس والجامعات، ومعاه الباصات والكانتين والأنشطة والمرتبات."
+      ]
+    ],
+    "en": [
+      [
+        "Does it track fees and overdue installments?",
+        "Yes: fee and installment collection and arrears for every student, together with accounting and financial statements."
+      ],
+      [
+        "Is there attendance, grades and parent contact?",
+        "Yes, attendance, grades and WhatsApp to parents from inside the program."
+      ],
+      [
+        "Does it fit universities too?",
+        "Yes, for schools and universities, with buses, canteen, activities and payroll."
+      ]
+    ]
+  },
+  "erp": {
+    "ar": [
+      [
+        "البرنامج مناسب لمصنع ملابس؟",
+        "أيوه، معمول لمصانع الملابس: أوامر الإنتاج ومراحله، تخطيط القص، الجودة والتعبئة، وأجر القطعة."
+      ],
+      [
+        "بيحسب تكلفة الموديل؟",
+        "أيوه، التكاليف من الخامات والإنتاج، ومعاها المبيعات والمشتريات والتقارير."
+      ],
+      [
+        "ينفع على أكتر من جهاز؟",
+        "أيوه، سيرفر وأجهزة على الشبكة، وكمان بيتفتح من المتصفح."
+      ]
+    ],
+    "en": [
+      [
+        "Is it suitable for a garment factory?",
+        "Yes, it is built for garment factories: production orders and stages, cutting plans, quality and packing, and piece-rate wages."
+      ],
+      [
+        "Does it calculate the cost of a style?",
+        "Yes, costs from materials and production, together with sales, purchases and reports."
+      ],
+      [
+        "Does it work on several PCs?",
+        "Yes, a server and client PCs on the network, and it also opens from a browser."
+      ]
+    ]
+  },
+  "acc": {
+    "ar": [
+      [
+        "ده برنامج حسابات عامة؟",
+        "أيوه: دليل الحسابات والقيود، الخزن والبنوك والشيكات، الموردين والأصول والموازنات، والقوائم المالية."
+      ],
+      [
+        "فيه حاجة مخصوصة لنشاطي؟",
+        "أيوه، فيه حزم حسب النشاط: مدارس، جامعات، مصانع، شركات، ومحلات."
+      ],
+      [
+        "ينفع أكتر من محاسب يشتغلوا مع بعض؟",
+        "أيوه، سيرفر وأجهزة على الشبكة بصلاحيات لكل مستخدم، وكمان من المتصفح."
+      ]
+    ],
+    "en": [
+      [
+        "Is this a general accounting program?",
+        "Yes: chart of accounts and journal entries, cash, banks and cheques, suppliers, assets, budgets and financial statements."
+      ],
+      [
+        "Is there something specific to my business?",
+        "Yes, there are packages per business type: schools, universities, factories, companies and shops."
+      ],
+      [
+        "Can several accountants work together?",
+        "Yes, a server and client PCs on the network with permissions per user, and also from the browser."
+      ]
+    ]
+  },
+  "acc-new": {
+    "ar": [
+      [
+        "ينفع لمحل وشركة ومصنع؟",
+        "أيوه — بتختار نشاطك (محل أو شركة تجارية أو مصنع) وكل نشاط ليه قاعدة بيانات لوحده."
+      ],
+      [
+        "فيه نقطة بيع ومخزون؟",
+        "أيوه: المبيعات ونقطة البيع، المخزون والتصنيع، العملاء والموردين والشيكات، والقيود والتقارير."
+      ],
+      [
+        "يعني إيه مساعد ذكي؟",
+        "بتسأله بالعربي عن شغلك (مقارنة الشهر، العملاء المتأخرين، الأصناف اللي هتخلص، أكتر صنف بيكسب…) وبيرد من أرقامك الحقيقية. محتاج نت ومفتاح خدمة الذكاء الاصطناعي."
+      ]
+    ],
+    "en": [
+      [
+        "Does it work for a shop, a trading company and a factory?",
+        "Yes — you pick your business (shop, trading company or factory) and each one has its own database."
+      ],
+      [
+        "Is there a point of sale and inventory?",
+        "Yes: sales and point of sale, inventory and manufacturing, customers, suppliers and cheques, journal entries and reports."
+      ],
+      [
+        "What is the smart assistant?",
+        "Ask it in Arabic about your business (this month vs last, late customers, items running out, best-selling item…) and it answers from your real numbers. It needs the internet and an AI service key."
+      ]
+    ]
+  },
+  "stores": {
+    "ar": [
+      [
+        "البرنامج بيتابع رصيد كل صنف؟",
+        "أيوه: الأصناف والأرصدة، أذون الإضافة والصرف والتحويل، والجرد، وتقارير حركة المخزون."
+      ],
+      [
+        "فيه أوامر إنتاج؟",
+        "أيوه، أوامر الإنتاج وتكلفتها ولوحة متابعة الموديلات."
+      ],
+      [
+        "ينفع أكتر من مخزن وجهاز؟",
+        "أيوه، سيرفر وأجهزة على الشبكة، وكمان بيتفتح من المتصفح."
+      ]
+    ],
+    "en": [
+      [
+        "Does it track the balance of every item?",
+        "Yes: items and balances, receipt, issue and transfer vouchers, stock counts and stock movement reports."
+      ],
+      [
+        "Are there production orders?",
+        "Yes, production orders with their cost and a board to follow up styles."
+      ],
+      [
+        "Does it support several warehouses and PCs?",
+        "Yes, a server and client PCs on the network, and it also opens from a browser."
+      ]
+    ]
+  },
+  "cashier": {
+    "ar": [
+      [
+        "بيشتغل مع الميزان والباركود؟",
+        "أيوه، نقطة بيع بالباركود والميزان."
+      ],
+      [
+        "فيه آجل ونقاط ولاء للعملاء؟",
+        "أيوه: العملاء والآجل ونقاط الولاء، والدليفري."
+      ],
+      [
+        "ينفع أكتر من كاشير؟",
+        "أيوه، جهاز رئيسي وأجهزة فرعية، ولكل كاشير وردية وتقفيل خزنة."
+      ]
+    ],
+    "en": [
+      [
+        "Does it work with scales and barcodes?",
+        "Yes, a barcode and scale point of sale."
+      ],
+      [
+        "Are there credit customers and loyalty points?",
+        "Yes: customers, credit and loyalty points, plus delivery."
+      ],
+      [
+        "Can I have several cashiers?",
+        "Yes, a main PC and branch PCs, with a shift and cash closing for each cashier."
+      ]
+    ]
+  },
+  "cashier-stores": {
+    "ar": [
+      [
+        "مناسب لأي نوع محل؟",
+        "أيوه، للمحلات المتنوعة: ملابس وعطور وموبايلات وأدوات منزلية."
+      ],
+      [
+        "فيه سيريال وضمان وصيانة؟",
+        "أيوه، السيريال والضمان والصيانة، مناسب لمحلات الموبايلات والأجهزة."
+      ],
+      [
+        "بيطلّع أرباح المحل؟",
+        "أيوه، تقارير المبيعات والأرباح، والورديات والخزينة."
+      ]
+    ],
+    "en": [
+      [
+        "Is it suitable for any kind of shop?",
+        "Yes, for all kinds of shops: clothes, perfumes, mobiles and home goods."
+      ],
+      [
+        "Is there serial numbers, warranty and repairs?",
+        "Yes, serials, warranty and repairs — good for mobile and electronics shops."
+      ],
+      [
+        "Does it show the shop's profit?",
+        "Yes, sales and profit reports, plus shifts and cash."
+      ]
+    ]
+  },
+  "cashier-lite": {
+    "ar": [
+      [
+        "ده لجهاز واحد؟",
+        "أيوه، كاشير بسيط وسريع لجهاز واحد — مناسب للمحلات الصغيرة."
+      ],
+      [
+        "فيه عروض ودليفري؟",
+        "أيوه: الدليفري والعروض ونقاط الولاء."
+      ],
+      [
+        "بيعرّفني كسبت كام النهارده؟",
+        "أيوه، تقفيل الوردية والتقارير اليومية والأرباح."
+      ]
+    ],
+    "en": [
+      [
+        "Is it for one PC?",
+        "Yes, a simple and fast cashier for one PC — suitable for small shops."
+      ],
+      [
+        "Are there offers and delivery?",
+        "Yes: delivery, offers and loyalty points."
+      ],
+      [
+        "Does it show how much I made today?",
+        "Yes, shift closing, daily reports and profits."
+      ]
+    ]
+  },
+  "restaurant": {
+    "ar": [
+      [
+        "الويتر ياخد الطلب من الموبايل؟",
+        "أيوه، الصالة والطاولات والويتر من الموبايل، والطلب بيوصل لشاشة المطبخ وطابعاته."
+      ],
+      [
+        "فيه دليفري ومنصات؟",
+        "أيوه: الدليفري والطيارين والمنصات، والمنيو والعروض ومنيو QR."
+      ],
+      [
+        "بيحسب تكلفة الأكلة؟",
+        "أيوه، المخزن والوصفات والتكلفة، ومعاها الورديات والخزنة والمصروفات والمرتبات."
+      ]
+    ],
+    "en": [
+      [
+        "Can waiters take orders from their phones?",
+        "Yes, the hall, tables and waiters work from the phone, and the order goes to the kitchen screen and printers."
+      ],
+      [
+        "Is there delivery and online platforms?",
+        "Yes: delivery, drivers and platforms, the menu, offers and a QR menu."
+      ],
+      [
+        "Does it calculate the cost of each dish?",
+        "Yes, store, recipes and cost, together with shifts, cash, expenses and salaries."
+      ]
+    ]
+  },
+  "hotel": {
+    "ar": [
+      [
+        "ينفع للشقق الفندقية وسكن الطلاب؟",
+        "أيوه، للفنادق والشقق الفندقية وسكن الطلاب."
+      ],
+      [
+        "فيه حجز أونلاين؟",
+        "أيوه، الحجز أونلاين، ومعاه الاستقبال والمغادرة والفواتير والمدفوعات."
+      ],
+      [
+        "ينفع على جهاز واحد؟",
+        "أيوه، جهاز واحد أو سيرفر وأجهزة — على حسب حجم الفندق."
+      ]
+    ],
+    "en": [
+      [
+        "Does it fit serviced apartments and student housing?",
+        "Yes, for hotels, serviced apartments and student housing."
+      ],
+      [
+        "Is there online booking?",
+        "Yes, online booking, together with check-in, check-out, invoices and payments."
+      ],
+      [
+        "Does it work on one PC?",
+        "Yes, one PC or a server with client PCs — depending on the hotel size."
+      ]
+    ]
+  },
+  "hotel-pro": {
+    "ar": [
+      [
+        "إيه الفرق بينه وبين برنامج الفنادق العادي؟",
+        "برو فيه مخطط الحجوزات والهاوس كيبنج وصور هوية النزلاء والورديات — مناسب للفنادق اللي فيها استقبال وفريق."
+      ],
+      [
+        "بياناتي بتتحفظ فين؟",
+        "البيانات بتتحفظ في 3 أماكن، فلو جهاز باظ البيانات مابتضيعش."
+      ],
+      [
+        "ينفع أكتر من جهاز؟",
+        "أيوه، جهاز رئيسي وأجهزة فرعية."
+      ]
+    ],
+    "en": [
+      [
+        "How is it different from the regular hotel program?",
+        "Pro adds the reservations chart, housekeeping, guest ID photos and shifts — suitable for hotels with a front desk and a team."
+      ],
+      [
+        "Where is my data saved?",
+        "Data is saved in 3 places, so a broken PC does not lose your data."
+      ],
+      [
+        "Does it work on several PCs?",
+        "Yes, a main PC and branch PCs."
+      ]
+    ]
+  },
+  "hr-pro": {
+    "ar": [
+      [
+        "بيسحب البصمة من الأجهزة لوحده؟",
+        "أيوه، سحب البصمة من الأجهزة (ZKTeco وغيرها) تلقائي."
+      ],
+      [
+        "بيحسب المرتبات والإضافي؟",
+        "أيوه: الورديات والجداول، الإجازات والأذونات والإضافي، والمرتبات والسلف والقطعة واللوائح."
+      ],
+      [
+        "الموظف يقدر يشوف بياناته؟",
+        "أيوه، بوابة الموظفين من الموبايل."
+      ]
+    ],
+    "en": [
+      [
+        "Does it pull fingerprint data from the devices by itself?",
+        "Yes, attendance is pulled automatically from fingerprint devices (ZKTeco and others)."
+      ],
+      [
+        "Does it calculate payroll and overtime?",
+        "Yes: shifts and schedules, leaves, permissions and overtime, payroll, loans, piece-rate and policies."
+      ],
+      [
+        "Can employees see their own data?",
+        "Yes, through the employee portal on their phones."
+      ]
+    ]
+  }
+}

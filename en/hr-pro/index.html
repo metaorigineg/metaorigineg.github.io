@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta Origin - HR Pro | Official download</title>
     <meta name="description" content="HR Pro: employees and the organization chart, downloading attendance from fingerprint devices (ZKTeco and others), shifts and schedules, leaves, permissions and overtime, payroll, advances and piece rates, regulations, and an employee portal on the phone. Server (Windows service) and devices.">
+    <link rel="canonical" href="https://metaorigineg.github.io/en/hr-pro/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Meta Origin">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://metaorigineg.github.io/en/hr-pro/">
     <meta property="og:title" content="Meta Origin - HR Pro | Official download">
     <meta property="og:description" content="HR Pro: employees and the organization chart, downloading attendance from fingerprint devices (ZKTeco and others), shifts and schedules, leaves, permissions and overtime, payroll, advances and piece rates, regulations, and an employee portal on the phone. Server (Windows service) and devices.">
-    <meta property="og:image" content="https://metaorigineg.github.io/icons/hr-pro.png">
+    <meta property="og:image" content="https://metaorigineg.github.io/img/og/hr-pro.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meta Origin - HR Pro | Official download">
+    <meta name="twitter:description" content="HR Pro: employees and the organization chart, downloading attendance from fingerprint devices (ZKTeco and others), shifts and schedules, leaves, permissions and overtime, payroll, advances and piece rates, regulations, and an employee portal on the phone. Server (Windows service) and devices.">
+    <meta name="twitter:image" content="https://metaorigineg.github.io/img/og/hr-pro.jpg">
     <meta name="theme-color" content="#0b0f19">
     <link rel="icon" href="../../img/company-logo.png">
     <link rel="alternate" hreflang="ar" href="https://metaorigineg.github.io/hr-pro/">
     <link rel="alternate" hreflang="en" href="https://metaorigineg.github.io/en/hr-pro/">
+    <link rel="alternate" hreflang="x-default" href="https://metaorigineg.github.io/hr-pro/">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Meta Origin - HR Pro","alternateName":"Attendance & Payroll for Factories","description":"HR Pro: employees and the organization chart, downloading attendance from fingerprint devices (ZKTeco and others), shifts and schedules, leaves, permissions and overtime, payroll, advances and piece rates, regulations, and an employee portal on the phone. Server (Windows service) and devices.","applicationCategory":"BusinessApplication","applicationSubCategory":"HR for factories","operatingSystem":"Windows 10, Windows 11","url":"https://metaorigineg.github.io/en/hr-pro/","image":"https://metaorigineg.github.io/icons/hr-pro.png","inLanguage":["ar","en"],"softwareVersion":"0.8.0","dateModified":"2026-10-28","downloadUrl":"https://github.com/metaorigineg/metaorigineg.github.io/releases/download/hr-pro-v0.8.0/Meta-Origin-HR-Pro-0.8.0.rar","fileSize":"354 MB","publisher":{"@type":"Organization","name":"Meta Origin","url":"https://metaorigineg.github.io/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it pull fingerprint data from the devices by itself?","acceptedAnswer":{"@type":"Answer","text":"Yes, attendance is pulled automatically from fingerprint devices (ZKTeco and others)."}},{"@type":"Question","name":"Does it calculate payroll and overtime?","acceptedAnswer":{"@type":"Answer","text":"Yes: shifts and schedules, leaves, permissions and overtime, payroll, loans, piece-rate and policies."}},{"@type":"Question","name":"Can employees see their own data?","acceptedAnswer":{"@type":"Answer","text":"Yes, through the employee portal on their phones."}},{"@type":"Question","name":"Is the program free?","acceptedAnswer":{"@type":"Answer","text":"You get a full 14-day trial with every screen; after that you need a license — message us on WhatsApp for prices that fit your business."}},{"@type":"Question","name":"Does it work on more than one PC?","acceptedAnswer":{"@type":"Answer","text":"Yes: a main PC holds the data and other devices connect on the same network, and many programs also open from the browser and the phone."}},{"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"Your data stays on your own computer, with automatic backups in two places (and encrypted backups to Google Drive or OneDrive), permissions for every employee and a log of every action."}},{"@type":"Question","name":"Is the program in English too?","acceptedAnswer":{"@type":"Answer","text":"Yes, the programs work in Arabic and English and you can switch between them."}},{"@type":"Question","name":"What if something goes wrong?","acceptedAnswer":{"@type":"Answer","text":"Inside the program there is a «Send problem report» button, or message us directly on WhatsApp and we will help."}}]}</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,6 +41,7 @@
         .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
         .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
         .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
 </head>
@@ -42,6 +57,7 @@
                 </div>
             </a>
             <div class="flex items-center gap-2">
+                <a href="../../en/updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>Updates</a>
                 <a href="../../en/#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>All programs</span></a>
                 <a href="../../hr-pro/" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
                 <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
@@ -71,6 +87,7 @@
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-certificate acc"></i><span><strong class="text-emerald-400">Official version</strong> from Meta Origin</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-code-branch acc"></i><span>Version: <strong class="text-white" dir="ltr">0.8.0</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-calendar-day acc"></i><span>Updated: <strong class="text-white">28/10/2026</strong></span></div>
+                
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>Language: <strong class="text-white">English / عربي</strong></span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span><strong class="text-white">14-day</strong> free trial</span></div>
             </div>
@@ -103,6 +120,7 @@
                 </div>
             </div>
             
+            <p class="text-center text-sm"><a href="../../en/updates/#hr-pro" class="font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> Release history (latest: 0.8.0)</a></p>
         </section>
 
         <section class="space-y-8 pt-4">
@@ -195,9 +213,12 @@
             </div>
         </section>
 
-        <section class="space-y-4">
+        <section id="faq" class="space-y-4">
             <h2 class="text-2xl font-bold text-white text-center flex items-center justify-center gap-2"><i class="fa-solid fa-circle-question acc"></i> FAQ</h2>
             <div class="space-y-3 max-w-3xl mx-auto">
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Does it pull fingerprint data from the devices by itself?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Yes, attendance is pulled automatically from fingerprint devices (ZKTeco and others).</p></details>
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Does it calculate payroll and overtime?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Yes: shifts and schedules, leaves, permissions and overtime, payroll, loans, piece-rate and policies.</p></details>
+                <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Can employees see their own data?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Yes, through the employee portal on their phones.</p></details>
                 <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Is the program free?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">You get a full 14-day trial with every screen; after that you need a license — message us on WhatsApp for prices that fit your business.</p></details>
                 <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Does it work on more than one PC?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Yes: a main PC holds the data and other devices connect on the same network, and many programs also open from the browser and the phone.</p></details>
                 <details class="bg-cardbg border border-gray-800 rounded-xl p-4 group"><summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">Is my data safe?<i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary><p class="text-gray-400 text-sm mt-3 leading-relaxed">Your data stays on your own computer, with automatic backups in two places (and encrypted backups to Google Drive or OneDrive), permissions for every employee and a log of every action.</p></details>
@@ -304,7 +325,7 @@
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 <a href="mailto:meta.origin@outlook.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin@outlook.com</a><a href="mailto:meta.origin.eg@gmail.com" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> meta.origin.eg@gmail.com</a>
             </div>
-            <p><a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
+            <p><a href="../../en/updates/" class="hover:text-white underline">Latest updates</a> · <a href="../../privacy/" class="hover:text-white underline">Privacy Policy · سياسة الخصوصية</a></p>
             <p>All rights reserved &copy; 2026 - Meta Origin - HR Pro</p>
         </div>
     </footer>
@@ -320,6 +341,11 @@
             const t = document.getElementById('toast'); document.getElementById('toastMessage').textContent = m;
             t.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); t.classList.add('opacity-100', 'translate-y-0');
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
+        }
+        function pickBiz(i, btn) {
+            document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
+            document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
+            const r = document.getElementById('pickResult'); if (r && r.getBoundingClientRect().top > innerHeight - 120) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
         function filterPrograms(q) {
