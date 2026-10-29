@@ -723,6 +723,16 @@ function compareLink(p, base) {
         </a>`;
 }
 
+/** خانة في المقارنة التفصيلية: "y" ✓، "n" ✗، [عربي، إنجليزي] كلمة (ولو بتبدأ بـ ✓ بتاخد أيقونة الصح) */
+function cmpCell(v) {
+  const ok = '<i class="fa-solid fa-circle-check text-emerald-400" title="' + L('موجود', 'Included') + '"></i>';
+  if (v === 'y') return ok;
+  if (v === 'n') return '<i class="fa-solid fa-circle-xmark text-gray-600" title="' + L('مش موجود', 'Not included') + '"></i>';
+  const t = (v || ['—', '—'])[LANG === 'en' ? 1 : 0];
+  if (t === '—') return '<span class="text-gray-600">—</span>';
+  return t.startsWith('✓') ? `${ok} <span class="text-gray-300">${bidi(t.replace(/^✓\s*/, ''))}</span>` : `<span class="text-gray-200">${bidi(t)}</span>`;
+}
+
 function comparePage() {
   const base = L('../', '../../');
   const home = homeOf(base);
@@ -730,7 +740,7 @@ function comparePage() {
     <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-12">
         <section class="text-center space-y-3">
             <h1 class="text-3xl md:text-5xl font-black text-white flex items-center justify-center gap-3"><i class="fa-solid fa-scale-balanced acc"></i>${L('مقارنة البرامج', 'Compare programs')}</h1>
-            <p class="text-gray-400 max-w-2xl mx-auto">${L('محتار بين برنامجين شبه بعض؟ هنا الفرق بينهم في جدول واحد.', 'Torn between two similar programs? Here is the difference in one table.')}</p>
+            <p class="text-gray-400 max-w-2xl mx-auto">${L('محتار بين برنامجين شبه بعض؟ هنا الفرق بينهم ميزة ميزة — البيع والمخزون والفلوس والرقابة والأجهزة.', 'Torn between two similar programs? Here is the difference feature by feature — selling, stock, money, control and PCs.')}</p>
             <div class="flex flex-wrap justify-center gap-2 pt-2">${CMP.map((g) => `<a href="#${g.id}" class="bg-cardbg border border-gray-700 hover:border-gray-500 px-4 py-2 rounded-xl text-sm font-bold text-gray-200"><i class="fa-solid ${g.icon} acc"></i> <span>${bidi(g[LANG].t)}</span></a>`).join('')}</div>
         </section>
 ${CMP.map((g) => { const ps = g.slugs.map(prog); return `        <section id="${g.id}" class="space-y-5 scroll-mt-24">
@@ -746,10 +756,13 @@ ${ps.map((p) => `                        <th class="p-3 text-${L('right', 'left'
                     </tr></thead>
                     <tbody>
 ${g.rows.map((r) => `                        <tr class="border-t border-gray-800"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-bold align-top">${esc(r[LANG])}</th>${ps.map((p) => { const c = (r.v[p.slug] || ['—', '—'])[LANG === 'en' ? 1 : 0]; return `<td class="p-3 text-gray-200 align-top">${c === '✓' ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : esc(c)}</td>`; }).join('')}</tr>`).join('\n')}
+${(g.sections || []).map((sct) => `                        <tr class="border-t border-gray-700 bg-cardbg"><th colspan="${ps.length + 1}" class="px-3 pt-4 pb-2 text-${L('right', 'left')} text-white font-extrabold">${esc(sct[LANG])}</th></tr>
+${sct.rows.map((r) => `                        <tr class="border-t border-gray-800/70"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-medium align-top">${bidi(r[LANG])}</th>${ps.map((p) => `<td class="p-3 align-top">${cmpCell(r.v[p.slug])}</td>`).join('')}</tr>`).join('\n')}`).join('\n')}
                         <tr class="border-t border-gray-800 bg-cardbg"><th class="p-3 text-${L('right', 'left')} acc font-bold align-top">${L('اختاره لو…', 'Choose it if…')}</th>${ps.map((p) => `<td class="p-3 align-top"><p class="text-white font-bold">${esc((g.pick[p.slug] || ['', ''])[LANG === 'en' ? 1 : 0])}</p><a href="${home}${p.slug}/" class="inline-flex items-center gap-1 mt-2 text-xs font-bold acc hover:underline">${L('تفاصيل وتحميل', 'Details & download')} <i class="fa-solid fa-arrow-${L('left', 'right')}"></i></a></td>`).join('')}</tr>
                     </tbody>
                 </table>
             </div>
+            ${g.sections ? `<p class="text-xs text-gray-500"><i class="fa-solid fa-circle-check text-emerald-400"></i> ${L('موجود', 'included')} · <i class="fa-solid fa-circle-xmark text-gray-600"></i> ${L('مش موجود', 'not included')} · — ${L('مش من مميزاته الأساسية', 'not one of its main features')}</p>` : ''}
         </section>`; }).join('\n')}
 ${requestForm(base)}
     </main>` + footer(base, 'Meta Origin');
