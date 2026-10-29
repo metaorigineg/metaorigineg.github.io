@@ -59,7 +59,8 @@ try {
     const f = path.join(HERE, '..', dir, 'services', 'changelog.py');
     if (!fs.existsSync(f)) continue;
     fresh[slug] = {};
-    for (const m of fs.readFileSync(f, 'utf8').matchAll(/\('(\d+\.\d+\.\d+)',[^\[]*\[([\s\S]*?)\]\),/g)) fresh[slug][m[1]] = [...m[2].matchAll(/'((?:[^'\\]|\\.)*)'/g)].map((x) => x[1]);
+    // أول مرة الإصدار يظهر = الأحدث (HR Enterprise فيه تاريخ HR القديم بنفس أرقام الإصدارات تحت) — زي البرنامج نفسه
+    for (const m of fs.readFileSync(f, 'utf8').matchAll(/\('(\d+\.\d+\.\d+)',[^\[]*\[([\s\S]*?)\]\),/g)) if (!(m[1] in fresh[slug])) fresh[slug][m[1]] = [...m[2].matchAll(/'((?:[^'\\]|\\.)*)'/g)].map((x) => x[1]);
   }
   if (Object.keys(fresh).length) { UPDATES = fresh; fs.writeFileSync(UPDATES_FILE, JSON.stringify(UPDATES, null, 1) + '\n'); }
 } catch (e) { console.log('مقدرتش أقرا ملاحظات الإصدارات (هستخدم المحفوظ):', e.message); }
