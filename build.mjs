@@ -82,6 +82,7 @@ try {
     }
     if (list.length < 100) break;
   }
+  delete fresh['license-manager']; // مدير التراخيص مالوش أي حاجة على الموقع
   DLS = fresh; fs.writeFileSync(DL_FILE, JSON.stringify(DLS, null, 2) + '\n');
 } catch (e) { console.log('مقدرتش أجيب عدد التحميلات (هستخدم المحفوظ):', e.message); }
 const DL_MIN = 10; // أقل من كده مابيظهرش (رقم صغير شكله وحش)
@@ -397,6 +398,40 @@ function downloadCard(d, wide) {
                 </div>`;
 }
 
+// لينكات التحميل التانية (Google Drive، MediaFire، …): المالك بيضيفها من صفحة «التحميلات» (سيرفر التراخيص /dl)، والصفحة بتجيبها وهي بتفتح
+// وبتعرض بس اللي إصدارها = آخر إصدار (اللينك القديم بيختفي لوحده بعد أي تحديث)
+const MIRRORS_API = 'https://metaorigin-licenses.meta-origin-eg.workers.dev/v1/public/mirrors';
+const MIRROR_STYLE = {
+  gdrive: { name: 'Google Drive', icon: 'fa-brands fa-google-drive', tone: '#60a5fa', badge: 'موصى به', note: 'سيرفر سريع ومستقر' },
+  mediafire: { name: 'MediaFire', icon: 'fa-solid fa-fire', tone: '#f87171', badge: 'تحميل مباشر', note: 'تحميل فوري بضغطة واحدة' },
+  mega: { name: 'Mega.nz', icon: 'fa-solid fa-m', tone: '#f43f5e', badge: 'مشفّر وآمن', note: 'سيرفر عالي السرعة' },
+  koofr: { name: 'Koofr', icon: 'fa-solid fa-box-archive', tone: '#fbbf24', badge: 'سحابي مميز', note: 'رابط مباشر ودائم' },
+  pcloud: { name: 'pCloud', icon: 'fa-solid fa-cloud', tone: '#38bdf8', badge: 'سحابي مميز', note: 'رابط مباشر ودائم' },
+  '4shared': { name: '4shared', icon: 'fa-solid fa-folder-open', tone: '#818cf8', badge: 'أرشيف', note: 'سيرفر تحميل بديل' },
+  terabox: { name: 'TeraBox', icon: 'fa-solid fa-hard-drive', tone: '#2dd4bf', badge: 'تخزين سحابي', note: 'تنسيق مضغوط RAR' },
+  onedrive: { name: 'Microsoft OneDrive', icon: 'fa-brands fa-windows', tone: '#0ea5e9', badge: 'مايكروسوفت', note: 'سيرفر سحابي معتمد وعالي الاعتمادية' },
+  dropbox: { name: 'Dropbox', icon: 'fa-brands fa-dropbox', tone: '#3b82f6', badge: 'رسمي', note: 'تحميل آمن وسريع' },
+};
+function mirrorsJs(slug, ver) {
+  const T = (d) => downloadCard({ name: '@N@', icon: '@I@', tone: '@C@', badge: d.badge, note: '@T@', url: '@U@', password: d.password });
+  const styles = Object.fromEntries(Object.entries(MIRROR_STYLE).map(([k, v]) => [k, { ...v, badge: badge(v.badge), note: badge(v.note) }]));
+  return `
+            <script>
+            (function () {
+              var S = ${JSON.stringify(styles)}, A = ${JSON.stringify(T({ badge: '@B@' }))}, P = ${JSON.stringify(T({ badge: '@B@', password: '@P@' }))};
+              var e = function (s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+              fetch(${JSON.stringify(MIRRORS_API + '?slug=' + slug)}).then(function (r) { return r.json(); }).then(function (b) {
+                var g = document.getElementById('dlGrid'); if (!g || !b || !b.mirrors) return;
+                (b.mirrors[${JSON.stringify(slug)}] || []).filter(function (m) { return m.ver === ${JSON.stringify(ver)} && S[m.provider] && m.url.indexOf('https://') === 0; }).forEach(function (m) {
+                  var s = S[m.provider], h = (m.password ? P : A).split('@N@').join(e(s.name)).split('@I@').join(s.icon).split('@C@').join(s.tone).split('@B@').join(e(s.badge))
+                    .split('@T@').join(e(s.note)).split('@U@').join(e(m.url)).split('@P@').join(e(String(m.password).replace(/[^0-9A-Za-z._-]/g, '')));
+                  g.insertAdjacentHTML('beforeend', h);
+                });
+              }).catch(function () {});
+            })();
+            </script>`;
+}
+
 function programPage(p) {
   const base = L('../', '../../');
   const sub = `${p.slug}/`;
@@ -408,7 +443,7 @@ function programPage(p) {
   const has = (p.downloads || []).length > 0;
   const ask = wa(D.company.whatsapp, L(`عايز برنامج ${p.product} (${p.nameAr})`, `I would like the program ${p.product}`));
   const grid = has ? `
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div id="dlGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p.downloads.length % 2 ? '' : '')).join('\n')}
             </div>` : `
             <div class="bg-cardbg border border-acc rounded-3xl p-8 text-center space-y-4 glow-effect">
@@ -468,7 +503,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-cloud-arrow-down acc"></i><span>${has ? L('سيرفرات التحميل المتاحة', 'Download servers') : L('تحميل البرنامج', 'Download')}</span></h2>
                 <p class="text-gray-400 text-xs md:text-sm">${has ? L('اختر المنصة أو السيرفر المفضل لديك لبدء التحميل المباشر', 'Pick any platform or server to start downloading') : L('تواصل معنا وهنوصلك البرنامج', 'Contact us and we will send you the program')}</p>
-            </div>${grid}
+            </div>${grid}${rel && rel.published ? mirrorsJs(p.slug, rel.version) : ''}
             ${rel && rel.notes.length && LANG === 'ar' ? `<details class="bg-cardbg border border-gray-800 rounded-2xl p-5 group" open>
                 <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center"><span><i class="fa-solid fa-wand-magic-sparkles acc"></i> إيه الجديد في الإصدار <span dir="ltr">${esc(rel.version)}</span></span><i class="fa-solid fa-chevron-down acc text-xs transition group-open:rotate-180"></i></summary>
                 <ul class="mt-3 space-y-2 text-sm text-gray-300">${rel.notes.map((n) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${esc(n)}</span></li>`).join('')}</ul>
