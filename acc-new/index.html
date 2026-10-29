@@ -41,7 +41,10 @@
         .card-hover:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 10px 25px -5px rgba(var(--acc-rgb), .18); }
         .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
         .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
-        .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .zoom.on { display: flex; flex-direction: column; gap: 10px; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .zoom.big { padding: 8px; } .zoom.big img { max-width: 98vw; max-height: calc(100vh - 60px); border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+        .zoom a { color: #e5e7eb; font-size: 13px; font-weight: 700; background: rgba(255,255,255,.12); padding: 6px 14px; border-radius: 999px; display: none; } .zoom.big a { display: inline-block; }
+        .video-wide { width: min(1280px, calc(100vw - 32px)); margin-inline: calc((100% - min(1280px, calc(100vw - 32px))) / 2); }
         .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
@@ -168,9 +171,10 @@
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-brands fa-youtube text-red-500"></i><span>فيديو الشرح</span></h2>
                 <p class="text-gray-400 text-xs md:text-sm">شرح كامل للبرنامج بالعامية المصرية — <a class="acc underline" href="https://www.youtube.com/@Meta.Origin-eg" target="_blank" rel="noopener noreferrer">وفيديوهات تانية على القناة</a></p>
             </div>
-            <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-2xl aspect-video bg-black">
-                <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/OqXCivF91OM" title="Meta Origin - Acc New" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-wide rounded-2xl overflow-hidden border border-gray-800 shadow-2xl aspect-video bg-black">
+                <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/OqXCivF91OM?rel=0&modestbranding=1&playsinline=1" title="Meta Origin - Acc New" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
             </div>
+            <p class="text-center text-xs text-gray-400">لو الصورة مش واضحة: اختار <b>1080p</b> من ⚙️ في المشغّل، أو <a class="acc underline font-bold" href="https://youtu.be/OqXCivF91OM" target="_blank" rel="noopener noreferrer">شاهده على يوتيوب بجودة عالية</a></p>
         </section>
 
         <section id="screens" class="space-y-6">
@@ -179,28 +183,28 @@
                 <p class="text-gray-400 text-xs md:text-sm">اضغط على أي صورة عشان تكبّرها</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/1.webp')">
-                    <img src="../shots/acc-new/1.webp" alt="لوحة التحكم" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/1.webp', true)">
+                    <img src="../shots/acc-new/1.webp" alt="لوحة التحكم" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top">
                     <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">لوحة التحكم</figcaption>
                 </figure>
-                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/2.webp')">
-                    <img src="../shots/acc-new/2.webp" alt="فواتير المبيعات" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/2.webp', true)">
+                    <img src="../shots/acc-new/2.webp" alt="فواتير المبيعات" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top">
                     <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">فواتير المبيعات</figcaption>
                 </figure>
-                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/3.webp')">
-                    <img src="../shots/acc-new/3.webp" alt="الأصناف" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/3.webp', true)">
+                    <img src="../shots/acc-new/3.webp" alt="الأصناف" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top">
                     <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">الأصناف</figcaption>
                 </figure>
-                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/4.webp')">
-                    <img src="../shots/acc-new/4.webp" alt="العملاء" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/4.webp', true)">
+                    <img src="../shots/acc-new/4.webp" alt="العملاء" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top">
                     <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">العملاء</figcaption>
                 </figure>
-                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/5.webp')">
-                    <img src="../shots/acc-new/5.webp" alt="الموظفين والمرتبات" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/5.webp', true)">
+                    <img src="../shots/acc-new/5.webp" alt="الموظفين والمرتبات" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top">
                     <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">الموظفين والمرتبات</figcaption>
                 </figure>
-                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/6.webp')">
-                    <img src="../shots/acc-new/6.webp" alt="نقطة البيع" loading="lazy" class="w-full aspect-[16/10] object-cover object-top">
+                <figure class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden card-hover cursor-zoom-in" onclick="zoomImg('../shots/acc-new/6.webp', true)">
+                    <img src="../shots/acc-new/6.webp" alt="نقطة البيع" loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top">
                     <figcaption class="px-4 py-2.5 text-sm font-bold text-gray-200">نقطة البيع</figcaption>
                 </figure>
             </div>
@@ -344,7 +348,7 @@
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white border px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" style="border-color:rgba(var(--acc-rgb),.5)">
         <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">تم النسخ بنجاح!</span>
     </div>
-    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""><a id="zoomFull" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">افتح الصورة بحجمها الكامل</a></div>
     <a href="https://wa.me/201150606002?text=%D8%B9%D9%86%D8%AF%D9%8A%20%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20Meta%20Origin%20-%20Acc%20New" target="_blank" rel="noopener noreferrer" title="كلّمنا واتساب" class="fixed bottom-5 left-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
     <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
@@ -392,7 +396,7 @@
             document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
             const r = document.getElementById('pickResult'); if (r && r.getBoundingClientRect().top > innerHeight - 120) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-        function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
+        function zoomImg(src, big) { document.getElementById('zoomImg').src = src; document.getElementById('zoomFull').href = src; const z = document.getElementById('zoom'); z.classList.toggle('big', !!big); z.classList.add('on'); }
         function filterPrograms(q) {
             q = q.trim(); let shown = 0;
             document.querySelectorAll('[data-prog]').forEach((el) => { const ok = !q || el.dataset.prog.includes(q); el.style.display = ok ? '' : 'none'; if (ok) shown++; });

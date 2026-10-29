@@ -38,7 +38,10 @@
         .card-hover:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 10px 25px -5px rgba(var(--acc-rgb), .18); }
         .ring-grad { background: linear-gradient(135deg, var(--acc), #2563eb 60%, rgba(var(--acc-rgb), .6)); }
         .zoom { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px; }
-        .zoom.on { display: flex; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .zoom.on { display: flex; flex-direction: column; gap: 10px; } .zoom img { max-width: min(92vw, 640px); max-height: 90vh; border-radius: 18px; }
+        .zoom.big { padding: 8px; } .zoom.big img { max-width: 98vw; max-height: calc(100vh - 60px); border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+        .zoom a { color: #e5e7eb; font-size: 13px; font-weight: 700; background: rgba(255,255,255,.12); padding: 6px 14px; border-radius: 999px; display: none; } .zoom.big a { display: inline-block; }
+        .video-wide { width: min(1280px, calc(100vw - 32px)); margin-inline: calc((100% - min(1280px, calc(100vw - 32px))) / 2); }
         .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
@@ -115,7 +118,7 @@
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white border px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" style="border-color:rgba(var(--acc-rgb),.5)">
         <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">تم النسخ بنجاح!</span>
     </div>
-    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""></div>
+    <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""><a id="zoomFull" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">افتح الصورة بحجمها الكامل</a></div>
     <a href="https://wa.me/201150606002?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AA%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%20Meta%20Origin" target="_blank" rel="noopener noreferrer" title="كلّمنا واتساب" class="fixed bottom-5 left-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
     <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
@@ -163,7 +166,7 @@
             document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
             const r = document.getElementById('pickResult'); if (r && r.getBoundingClientRect().top > innerHeight - 120) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-        function zoomImg(src) { document.getElementById('zoomImg').src = src; document.getElementById('zoom').classList.add('on'); }
+        function zoomImg(src, big) { document.getElementById('zoomImg').src = src; document.getElementById('zoomFull').href = src; const z = document.getElementById('zoom'); z.classList.toggle('big', !!big); z.classList.add('on'); }
         function filterPrograms(q) {
             q = q.trim(); let shown = 0;
             document.querySelectorAll('[data-prog]').forEach((el) => { const ok = !q || el.dataset.prog.includes(q); el.style.display = ok ? '' : 'none'; if (ok) shown++; });
