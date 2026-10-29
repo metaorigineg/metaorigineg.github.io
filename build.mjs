@@ -801,12 +801,23 @@ function updatesPage() {
   const home = LANG === 'en' ? base + 'en/' : base;
   const progs = D.programs.filter((p) => REL[p.slug] || Object.keys(UPDATES[p.slug] || {}).length);
   const latest = progs.filter((p) => REL[p.slug]).sort((a, b) => REL[b.slug].date.localeCompare(REL[a.slug].date) || a.product.localeCompare(b.product));
-  // الإصدارات اللي نزلت نفس اليوم بنفس الملاحظات (زي ميزة نزلت في كل البرامج) = كارت واحد
+  // الإصدارات اللي نزلت نفس اليوم وبينها ملاحظة مشتركة (زي ميزة نزلت في كل البرامج بسطر مختلف حسب نوع البرنامج) = كارت واحد
   const groups = [];
   for (const p of latest) {
-    const r = REL[p.slug]; const key = r.date + '|' + r.notes.join('|');
-    const g = groups.find((x) => x.key === key);
-    if (g) g.items.push(p); else groups.push({ key, date: r.date, notes: r.notes, items: [p] });
+    const r = REL[p.slug];
+    const g = groups.find((x) => x.date === r.date && r.notes.some((n) => x.items.some((q) => REL[q.slug].notes.includes(n))));
+    if (g) g.items.push(p); else groups.push({ date: r.date, items: [p] });
+  }
+  // الملاحظات: اللي في كل البرامج عادي، واللي في أغلبها «ما عدا …»، واللي في قليل منها «في: …»
+  const short = (q) => q.product.replace('Meta Origin - ', '');
+  const names = (list) => list.map((q) => `<bdi>${esc(short(q))}</bdi>`).join(L('، ', ', '));
+  for (const g of groups) {
+    const order = [];
+    for (const q of g.items) for (const n of REL[q.slug].notes) if (!order.includes(n)) order.push(n);
+    const has = (n) => g.items.filter((q) => REL[q.slug].notes.includes(n));
+    g.notes = order.map((n) => ({ n, has: has(n) })).sort((a, b) => b.has.length - a.has.length || order.indexOf(a.n) - order.indexOf(b.n))
+      .map(({ n, has: h }) => ({ n, who: h.length === g.items.length ? '' : h.length * 2 >= g.items.length
+        ? L('ما عدا: ', 'except: ') + names(g.items.filter((q) => !h.includes(q))) : L('في: ', 'in: ') + names(h) }));
   }
   const notesDir = LANG === 'en' ? ' dir="rtl" lang="ar"' : '';
   const li = (n) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>${esc(n)}</span></li>`;
@@ -823,7 +834,7 @@ function updatesPage() {
             <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-star acc"></i>${L('أحدث الإصدارات', 'Newest releases')}</h2>
 ${groups.map((g) => `            <article class="bg-cardbg border border-gray-800 rounded-2xl p-5 space-y-4" style="border-${L('right', 'left')}:3px solid ${g.items.length === 1 ? g.items[0].color : 'var(--acc)'}">
                 <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-calendar-day acc"></i> ${fmtDay(g.date)}${g.items.length > 1 ? ` · ${L(`نزل في <strong class="text-white">${g.items.length}</strong> برنامج`, `released for <strong class="text-white">${g.items.length}</strong> programs`)}` : ''}</div>
-                ${g.notes.length ? `<ul class="space-y-1.5 text-gray-200"${notesDir}>${g.notes.map(li).join('')}</ul>` : ''}
+                ${g.notes.length ? `<ul class="space-y-1.5 text-gray-200"${notesDir}>${g.notes.map((x) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>${esc(x.n)}${x.who ? ` <span class="text-xs text-gray-400">(${x.who})</span>` : ''}</span></li>`).join('')}</ul>` : ''}
                 <div class="grid grid-cols-1 sm:grid-cols-2 ${g.items.length > 2 ? 'lg:grid-cols-3' : ''} gap-2">
 ${g.items.map((p) => `                    <a href="${home}${p.slug}/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
                         <img src="${base}icons/${p.slug}.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
