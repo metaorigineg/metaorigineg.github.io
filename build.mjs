@@ -502,6 +502,7 @@ ${p.video ? `
             <p class="text-center text-xs text-gray-400">${L('لو الصورة مش واضحة: اختار <b>1080p</b> من ⚙️ في المشغّل، أو', 'If it looks blurry: pick <b>1080p</b> from ⚙️ in the player, or')} <a class="acc underline font-bold" href="${esc(p.video)}" target="_blank" rel="noopener noreferrer">${L('شاهده على يوتيوب بجودة عالية', 'watch it on YouTube in HD')}</a></p>
         </section>` : ''}
 ${gallery(p, base)}
+${programArticles(p, base)}
 ${installAndFaq(p)}
 ${requestForm(base, p)}
 ${team(base)}
@@ -644,6 +645,25 @@ const CMP = JSON.parse(fs.readFileSync(path.join(HERE, 'compare.json'), 'utf8'))
   .map((g) => ({ ...g, slugs: g.slugs.filter((s) => D.programs.some((p) => p.slug === s)) })).filter((g) => g.slugs.length > 1);
 const ART = JSON.parse(fs.readFileSync(path.join(HERE, 'articles.json'), 'utf8')).articles;
 const prog = (s) => D.programs.find((p) => p.slug === s);
+/** «مقالات عن البرنامج» في صفحة كل برنامج (عربي بس — المقالات عربي): المقال الخاص بيه (program = slug) الأول، وبعده اللي ليها علاقة */
+function programArticles(p, base) {
+  if (LANG !== 'ar') return '';
+  const list = ART.filter((a) => a.program === p.slug || a.related.includes(p.slug)).sort((x, y) => (y.program === p.slug) - (x.program === p.slug)).slice(0, 7);
+  if (!list.length) return '';
+  return `
+        <section id="articles" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-newspaper acc"></i><span>مقالات عن البرنامج</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">نصايح عملية لشغلك — <a class="acc underline" href="${base}articles/">كل المقالات</a></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+${list.map((a) => `                <a href="${base}articles/${a.slug}/" class="flex gap-4 bg-cardbg border border-gray-800 hover:border-gray-600 rounded-2xl p-5 card-hover${a.program === p.slug ? ' md:col-span-2' : ''}">
+                    <i class="fa-solid ${esc(a.icon)} acc text-2xl mt-1 flex-shrink-0"></i>
+                    <span class="space-y-1"><span class="block font-bold text-white leading-7">${bidi(a.t)}</span><span class="block text-gray-400 text-sm leading-6">${bidi(a.d)}</span></span>
+                </a>`).join('\n')}
+            </div>
+        </section>`;
+}
 // النص العربي اللي فيه أسماء إنجليزي (Cashier ولا Hotel Pro؟): كل اسم إنجليزي في <bdi> عشان علامات الترقيم ماتتنقلش
 const bidi = (t) => (LANG === 'ar' ? esc(t).replace(/[A-Za-z][A-Za-z0-9.]*(?:[ -][A-Za-z0-9][A-Za-z0-9.]*)*/g, (m) => `<bdi>${m}</bdi>`) : esc(t));
 const homeOf = (base) => (LANG === 'en' ? base + 'en/' : base);
