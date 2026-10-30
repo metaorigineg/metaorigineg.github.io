@@ -29,7 +29,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it work for a shop, a trading company and a factory?","acceptedAnswer":{"@type":"Answer","text":"Yes — you pick your business (shop, trading company or factory) and each one has its own database."}},{"@type":"Question","name":"Is there a point of sale and inventory?","acceptedAnswer":{"@type":"Answer","text":"Yes: sales and point of sale, inventory and manufacturing, customers, suppliers and cheques, journal entries and reports."}},{"@type":"Question","name":"What is the smart assistant?","acceptedAnswer":{"@type":"Answer","text":"Ask it in Arabic about your business (this month vs last, late customers, items running out, best-selling item…) and it answers from your real numbers. It needs the internet and an AI service key."}},{"@type":"Question","name":"Is the program free?","acceptedAnswer":{"@type":"Answer","text":"You get a full 14-day trial with every screen; after that you need a license — message us on WhatsApp for prices that fit your business."}},{"@type":"Question","name":"Does it work on more than one PC?","acceptedAnswer":{"@type":"Answer","text":"Yes: a main PC holds the data and other devices connect on the same network, and many programs also open from the browser and the phone."}},{"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"Your data stays on your own computer, with automatic backups in two places (and encrypted backups to Google Drive or OneDrive), permissions for every employee and a log of every action."}},{"@type":"Question","name":"Is the program in English too?","acceptedAnswer":{"@type":"Answer","text":"Yes, the programs work in Arabic and English and you can switch between them."}},{"@type":"Question","name":"What if something goes wrong?","acceptedAnswer":{"@type":"Answer","text":"Inside the program there is a «Send problem report» button, or message us directly on WhatsApp and we will help."}}]}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../../assets/site.css?v=dbbfeee269">
+    <link rel="stylesheet" href="../../assets/site.css?v=fb2b82f3af">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -144,6 +144,47 @@
             <p class="text-center text-sm"><a href="../../en/updates/#acc-new" class="font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> Release history (latest: 1.10.0)</a></p>
         </section>
 
+
+        <section id="plans" class="space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-tags acc"></i><span>Plans & prices</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm">Start with the plan that fits and upgrade any time — the 14-day trial opens everything</p>
+            </div>
+            <div id="moPlans" class="space-y-5">
+            <div class="flex flex-wrap justify-center gap-3"><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="cyc"><button type="button" data-v="m" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">Monthly</button><button type="button" data-v="y" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Yearly — 2 months free</button><button type="button" data-v="l" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Lifetime</button></div><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="cur"><button type="button" data-v="egp" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">EGP</button><button type="button" data-v="usd" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">USD</button></div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="relative bg-cardbg border border-gray-800 rounded-2xl p-5 flex flex-col gap-2">
+                
+                <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">Acc New Starter</div>
+                <div class="text-gray-400 text-xs">Shop</div>
+                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="299" data-usd="6"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Accounting, point of sale, stock and reports</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Shop</span></li></ul>
+                <a href="https://wa.me/201150606002?text=I%20would%20like%20Meta%20Origin%20-%20Acc%20New%20Starter" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">Request this plan</a>
+            </div><div class="relative bg-cardbg border border-acc rounded-2xl p-5 flex flex-col gap-2">
+                <span class="absolute -top-3 right-5 bg-acc text-xs font-bold px-3 py-0.5 rounded-full">Most popular</span>
+                <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">Acc New Business</div>
+                <div class="text-gray-400 text-xs">Shop and trading company</div>
+                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="499" data-usd="10"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Accounting, point of sale, stock and reports</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Shop</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Trading company</span></li></ul>
+                <a href="https://wa.me/201150606002?text=I%20would%20like%20Meta%20Origin%20-%20Acc%20New%20Business" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">Request this plan</a>
+            </div><div class="relative bg-cardbg border border-gray-800 rounded-2xl p-5 flex flex-col gap-2">
+                
+                <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">Acc New PRO</div>
+                <div class="text-gray-400 text-xs">Everything</div>
+                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="699" data-usd="14"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Accounting, point of sale, stock and reports</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Shop</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Trading company</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Factory</span></li></ul>
+                <a href="https://wa.me/201150606002?text=I%20would%20like%20Meta%20Origin%20-%20Acc%20New%20PRO" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">Request this plan</a>
+            </div>
+            </div>
+            <div class="space-y-2"><h3 class="font-bold text-white">Activities</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden"><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800 first:border-t-0"><span class="flex-1 text-sm text-white">Shop</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="149" data-usd="3"></span> <span class="mo-per"></span></span></div><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800 first:border-t-0"><span class="flex-1 text-sm text-white">Trading company</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="149" data-usd="3"></span> <span class="mo-per"></span></span></div><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800 first:border-t-0"><span class="flex-1 text-sm text-white">Factory</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="149" data-usd="3"></span> <span class="mo-per"></span></span></div><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800"><span class="flex-1 text-sm text-white">Each extra PC on the network</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="99" data-usd="2"></span> <span class="mo-per"></span></span></div></div></div>
+            </div>
+            <script>(function(){var Y=10,LF=24,ar=false,c='m',u='egp',el=document.getElementById('moPlans');
+function draw(){var n=c==='m'?1:c==='y'?Y:LF,per=c==='m'?(ar?'/ شهر':'/ month'):c==='y'?(ar?'/ سنة':'/ year'):(ar?'مرة واحدة':'one time');
+el.querySelectorAll('.mo-price').forEach(function(x){var v=(+x.getAttribute('data-'+u)*n).toLocaleString('en-US');x.textContent=u==='usd'?'⁦$'+v+'⁩':(ar?v+' جنيه':'EGP '+v);});
+el.querySelectorAll('.mo-per').forEach(function(x){x.textContent=per;});
+el.querySelectorAll('[data-seg] button').forEach(function(b){var on=b.getAttribute('data-v')===(b.parentNode.getAttribute('data-seg')==='cyc'?c:u);b.classList.toggle('bg-acc',on);b.classList.toggle('text-gray-400',!on);});}
+el.addEventListener('click',function(e){var b=e.target.closest('[data-seg] button');if(!b)return;if(b.parentNode.getAttribute('data-seg')==='cyc')c=b.getAttribute('data-v');else u=b.getAttribute('data-v');draw();});draw();})();</script>
+        </section>
 
         <a href="../../en/compare/#accounting" class="block bg-cardbg border border-gray-800 hover:border-gray-600 rounded-2xl p-5 card-hover">
             <div class="flex items-center gap-4">
