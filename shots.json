@@ -466,5 +466,31 @@
    "f": "shots/hr-enterprise/6.webp",
    "t": "إدارة المستخدمين"
   }
+ ],
+ "restaurant-pos": [
+  {
+   "f": "shots/restaurant-pos/1.webp",
+   "t": "الكاشير (نقطة البيع)"
+  },
+  {
+   "f": "shots/restaurant-pos/2.webp",
+   "t": "شاشة المطبخ (KDS)"
+  },
+  {
+   "f": "shots/restaurant-pos/3.webp",
+   "t": "الوصفات وتكلفة الطبق"
+  },
+  {
+   "f": "shots/restaurant-pos/4.webp",
+   "t": "الفروع"
+  },
+  {
+   "f": "shots/restaurant-pos/5.webp",
+   "t": "التقارير"
+  },
+  {
+   "f": "shots/restaurant-pos/6.webp",
+   "t": "الباقات"
+  }
  ]
 }

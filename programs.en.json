@@ -168,6 +168,17 @@
       ],
       "shots": ["Cashier", "Kitchen", "Menu & prices", "Shift", "Live view", "Dining hall & tables"]
     },
+    "restaurant-pos": {
+      "name": "Restaurant POS — Starter · Business · PRO", "category": "Restaurants, cafés & branch chains",
+      "short": "Starter, Business and PRO plans — from one restaurant to a chain of branches.",
+      "about": "Point of sale for restaurants and cafés in plans that fit your size (Starter, Business and PRO): cashier, orders, reservations, delivery and the kitchen screen, recipes and dish cost, inventory, purchasing and suppliers, customers and loyalty points, multiple branches and transfers, reports and analytics, and staff permissions. Cashier PCs, tablets and the kitchen open it in the browser on the network, and a daily report arrives by email.",
+      "features": [
+        { "t": "Plans that fit you", "d": "Start with Starter and add parts or branches when you need them." },
+        { "t": "Cashier & kitchen", "d": "Dine-in, takeaway and delivery, and a kitchen screen per station." },
+        { "t": "Recipes & branches", "d": "The cost of every dish, a central store and transfers between branches." }
+      ],
+      "shots": ["Cashier", "Kitchen screen", "Recipes & dish cost", "Branches", "Reports", "Plans"]
+    },
     "hotel": {
       "name": "Hotels & Serviced Apartments", "category": "Hotels, apartments & student housing",
       "short": "Bookings, student housing, online booking.",

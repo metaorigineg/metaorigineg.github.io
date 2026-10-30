@@ -448,5 +448,35 @@
         "Yes, through the employee portal on their phones."
       ]
     ]
+  },
+  "restaurant-pos": {
+    "ar": [
+      [
+        "إيه الفرق بين Starter و Business و PRO؟",
+        "Starter = الأساسي (الكاشير والطلبات والحجوزات والديليفري والمطبخ) لفرع واحد، Business بيزوّد المخزن والمشتريات والوصفات والولاء والتقارير المتقدمة لحد 3 فروع، و PRO فيه كل الأجزاء لحد 10 فروع. وتقدر تزوّد أي جزء لوحده."
+      ],
+      [
+        "الأجهزة التانية محتاجة تسطيب؟",
+        "الكاشير والتابلت وشاشة المطبخ بيفتحوه من المتصفح على نفس الشبكة، ومعاه مثبّت «جهاز تاني» بيعمل اختصار للبرنامج ووكيل الطباعة."
+      ],
+      [
+        "بيحسب تكلفة الطبق؟",
+        "أيوه، الوصفات وتكلفة الطبق والخامات بتتخصم من المخزون لوحدها (في Business و PRO)."
+      ]
+    ],
+    "en": [
+      [
+        "What is the difference between Starter, Business and PRO?",
+        "Starter is the core (cashier, orders, reservations, delivery and kitchen) for one branch, Business adds inventory, purchasing, recipes, loyalty and advanced reports for up to 3 branches, and PRO has every part for up to 10 branches. Any part can also be added on its own."
+      ],
+      [
+        "Do the other devices need an install?",
+        "Cashier PCs, tablets and kitchen screens open it in the browser on the same network, and there is an \"other device\" installer that adds a shortcut and the print agent."
+      ],
+      [
+        "Does it calculate the cost of each dish?",
+        "Yes, recipes and dish cost, and ingredients are deducted from stock automatically (in Business and PRO)."
+      ]
+    ]
   }
 }

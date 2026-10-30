@@ -17,7 +17,7 @@ DIRS = {
     'pharmacy': 'Meta Origin - Pharmacy', 'sales-erp': 'Meta Origin - Sales ERP', 'clinic': 'Meta Origin - Clinic', 'school': 'Meta Origin - School',
     'erp': 'Meta Origin - ERP System', 'acc': 'Meta Origin - Acc', 'acc-new': 'Meta Origin - Acc New', 'stores': 'Meta Origin - Stores',
     'hotel': 'Meta Origin - Hotel', 'hotel-pro': 'Meta Origin - Hotel Pro', 'cashier': 'Meta Origin - Cashier', 'cashier-stores': 'Meta Origin - Cashier Stores',
-    'cashier-lite': 'Meta Origin - Cashier Lite', 'cashier-clothes': 'Meta Origin - Cashier Clothes', 'restaurant': 'Meta Origin - Restaurant',
+    'cashier-lite': 'Meta Origin - Cashier Lite', 'cashier-clothes': 'Meta Origin - Cashier Clothes', 'restaurant': 'Meta Origin - Restaurant', 'restaurant-pos': 'Meta Origin - Restaurant POS',
     'hr': 'Meta Origin - HR', 'hr-pro': 'Meta Origin - HR Pro', 'hr-enterprise': 'Meta Origin - HR SQL Server',
 }
 MAX_W = 2560  # أكبر من كده مالوش لازمة على الشاشات (والملف بيكبر)
