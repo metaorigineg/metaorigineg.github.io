@@ -87,9 +87,12 @@ try {
 } catch (e) { console.log('مقدرتش أجيب عدد التحميلات (هستخدم المحفوظ):', e.message); }
 const DL_MIN = 10; // أقل من كده مابيظهرش (رقم صغير شكله وحش)
 const fmtNum = (n) => n.toLocaleString('en-US');
-// برامج مخفية مؤقتًا من الموقع ("hidden": true في programs.json): مالهاش كارت ولا صفحة ولا مكان في الخريطة (صفحتها القديمة بتتمسح)
-for (const p of D.programs.filter((x) => x.hidden)) fs.rmSync(path.join(HERE, p.slug), { recursive: true, force: true });
-D.programs = D.programs.filter((p) => !p.hidden);
+// إظهار/إخفاء البرامج (2026-10-30): كل البرامج بتتبني، وأي حاجة تخص برنامج عليها data-ps="<slug>". المخفي بيتحدد من سيرفر التراخيص
+// (/v1/public/site — صاحب البرامج بيغيّره من صفحة «التحميلات») وبيتطبّق في المتصفح في خلال دقيقة؛ "hidden": true في programs.json = الافتراضي
+// لحد ما السيرفر يرد (ومابيدخلش في sitemap). البرنامج اللي ماينفعش يظهر أبدًا يتشال من programs.json خالص.
+const BAKED_HIDDEN = D.programs.filter((x) => x.hidden).map((x) => x.slug);
+const SITE_API = 'https://metaorigin-licenses.meta-origin-eg.workers.dev/v1/public/site';
+const psAttr = (slugs) => ` data-ps="${[].concat(slugs).join(' ')}"`;
 const YEAR = new Date().getFullYear();
 // اللغتين: العربي في الجذر والإنجليزي تحت /en/ (نفس الصفحات). النصوص الإنجليزي للبرامج والشركة في programs.en.json
 const EN = JSON.parse(fs.readFileSync(path.join(HERE, 'programs.en.json'), 'utf8'));
@@ -112,13 +115,18 @@ const onColor = (hex) => {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.18 ? '#0b0f19' : '#ffffff';
 };
 
-function head({ title, desc, accent, base, image, sub = '', ld = [], arOnly = false }) {
+// [data-ps="a"] بيستخبى لو البرنامج مخفي؛ [data-ps="a b"] (زرار في «إيه المناسب ليك») بيستخبى لو كلهم مخفيين (في الـ script)
+function hideCss(list) {
+  return list.length ? list.map((x) => `[data-ps="${x}"]`).join(',') + '{display:none!important}' : '';
+}
+function head({ title, desc, accent, base, image, sub = '', ld = [], arOnly = false, pageSlug = '' }) {
   const url = LANG === 'en' ? `${SITE}en/${sub}` : `${SITE}${sub}`;
   const img = SITE + image.replace(/^(?:\.\.\/)+|^\.\//, '');
   const wide = /img\/og\//.test(image); // صورة الدعاية العريضة 1200×630 (غير كده = أيقونة مربعة)
   return `<!DOCTYPE html>
-<html lang="${LANG}" dir="${L('rtl', 'ltr')}" class="dark">
+<html lang="${LANG}" dir="${L('rtl', 'ltr')}" class="dark"${pageSlug ? ` data-page-ps="${pageSlug}"` : ''}>
 <head>
+    <style id="moHide">${hideCss(BAKED_HIDDEN)}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(title)}</title>
@@ -272,6 +280,24 @@ function footer(base, name) {
             setTimeout(() => { t.classList.remove('opacity-100', 'translate-y-0'); t.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); }, 3000);
         }
 ${requestJs()}
+        // إظهار/إخفاء البرامج من سيرفر التراخيص (صفحة «التحميلات» بتاعة صاحب البرامج)
+        (function () {
+            var GONE = ${JSON.stringify(`<main id="psGone" class="max-w-xl mx-auto px-4 py-24 w-full text-center space-y-4"><div class="w-16 h-16 mx-auto rounded-2xl bg-acc-soft flex items-center justify-center text-3xl"><i class="fa-solid fa-hourglass-half"></i></div><h1 class="text-2xl font-extrabold text-white">${L('البرنامج ده مش متاح على الموقع دلوقتي', 'This program is not available on the site right now')}</h1><p class="text-gray-400">${L('كلّمنا واتساب وهنساعدك تختار البرنامج المناسب لنشاطك.', 'WhatsApp us and we will help you pick the right program.')}</p><a href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold"><i class="fa-brands fa-whatsapp"></i> ${L('كلّمنا واتساب', 'WhatsApp us')}</a></main>`)};
+            var apply = function (hidden) {
+                var hid = function (s) { return hidden.indexOf(s) >= 0; };
+                document.getElementById('moHide').textContent = hidden.length ? hidden.map(function (s) { return '[data-ps="' + s + '"]'; }).join(',') + '{display:none!important}' : '';
+                document.querySelectorAll('[data-ps*=" "]').forEach(function (el) { el.style.display = el.dataset.ps.split(' ').every(hid) ? 'none' : ''; });
+                document.querySelectorAll('[data-cat]').forEach(function (sec) { sec.hidden = ![].some.call(sec.querySelectorAll('[data-ps]'), function (e) { return !hid(e.dataset.ps); }); });
+                var n = document.getElementById('nProg'); if (n) n.textContent = n.dataset.all.split(' ').filter(function (s) { return !hid(s); }).length;
+                var page = document.documentElement.dataset.pagePs, m = document.querySelector('main'), g = document.getElementById('psGone');
+                if (page && m) {
+                    if (hid(page) && !g) { m.style.display = 'none'; m.insertAdjacentHTML('afterend', GONE); }
+                    else if (!hid(page) && g) { g.remove(); m.style.display = ''; }
+                }
+            };
+            apply(${JSON.stringify(BAKED_HIDDEN)});
+            fetch(${JSON.stringify(SITE_API)}).then(function (r) { return r.json(); }).then(function (b) { if (b && Array.isArray(b.hidden)) apply(b.hidden); }).catch(function () {});
+        })();
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
             document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
@@ -467,7 +493,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
     mainEntity: faqList(p).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
   }];
   const ogImg = fs.existsSync(path.join(HERE, 'img', 'og', `${p.slug}.jpg`)) ? `${base}img/og/${p.slug}.jpg` : `${base}icons/${p.slug}.png`;
-  return head({ title, desc: pField(p, 'about'), accent: p.color, base, image: ogImg, sub, ld }) + header(base, { back: true, sub }) + `
+  return head({ title, desc: pField(p, 'about'), accent: p.color, base, image: ogImg, sub, ld, pageSlug: p.slug }) + header(base, { back: true, sub }) + `
     <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-12">
         <section class="text-center space-y-6">
             <div class="relative inline-block">
@@ -560,7 +586,7 @@ ${team(base)}
 function homePage() {
   const base = L('./', '../');
   const cats = Object.entries(D.categories).map(([id, name]) => ({ id, name: LANG === 'en' ? EN.categories[id] || name : name, items: D.programs.filter((p) => p.cat === id) })).filter((c) => c.items.length);
-  const card = (p) => `                <a href="${p.slug}/" data-prog="${esc([p.product, p.nameAr, p.category, p.short, pName(p), pField(p, 'category'), pField(p, 'short')].join(' ').toLowerCase())}" class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:${p.color}">
+  const card = (p) => `                <a href="${p.slug}/"${psAttr(p.slug)} data-prog="${esc([p.product, p.nameAr, p.category, p.short, pName(p), pField(p, 'category'), pField(p, 'short')].join(' ').toLowerCase())}" class="prog-card bg-cardbg border border-gray-800 rounded-2xl p-5 flex gap-4 items-start transition hover:-translate-y-1" style="--c:${p.color}">
                     <img src="${base}icons/${p.slug}.png" alt="" class="w-16 h-16 rounded-2xl flex-shrink-0" loading="lazy">
                     <div class="min-w-0 space-y-1">
                         <div class="flex items-center gap-2 flex-wrap">
@@ -596,7 +622,7 @@ function homePage() {
                 <p class="text-gray-400 text-xs md:text-sm">${L('اختار نشاطك وإحنا نقولك تبدأ بإيه', 'Pick your business and we will tell you where to start')}</p>
             </div>
             <div class="flex flex-wrap justify-center gap-2">
-${PICKER.map((x, i) => `                <button data-pick-btn onclick="pickBiz(${i}, this)" class="bg-cardbg border border-gray-700 hover:border-gray-500 text-gray-200 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition active:scale-95"><i class="fa-solid ${x.ic}"></i>${esc(x.t)}</button>`).join('\n')}
+${PICKER.map((x, i) => `                <button${psAttr(x.items.map((p) => p.slug))} data-pick-btn onclick="pickBiz(${i}, this)" class="bg-cardbg border border-gray-700 hover:border-gray-500 text-gray-200 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition active:scale-95"><i class="fa-solid ${x.ic}"></i>${esc(x.t)}</button>`).join('\n')}
             </div>
             <div id="pickResult">
 ${PICKER.map((x, i) => `                <div data-pick="${i}" style="display:none" class="space-y-3">
@@ -609,7 +635,7 @@ ${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
                 <p class="text-center text-xs text-gray-500 pt-1">${L('مش لاقي نشاطك؟', 'Not sure?')} <a class="acc underline" href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer">${L('كلّمنا واتساب وهنقولك المناسب', 'WhatsApp us and we will advise you')}</a></p>
             </div>
         </section>`;
-  const totalDl = Object.entries(DLS).filter(([s]) => D.programs.some((p) => p.slug === s)).reduce((a, [, n]) => a + n, 0);
+  const totalDl = Object.entries(DLS).filter(([s]) => D.programs.some((p) => p.slug === s) && !BAKED_HIDDEN.includes(s)).reduce((a, [, n]) => a + n, 0);
   const ld = [{
     '@context': 'https://schema.org', '@type': 'Organization', name: 'Meta Origin', alternateName: 'Meta Origin Software', url: SITE, logo: `${SITE}img/company-logo.png`,
     email: D.company.emails[0], sameAs: [D.company.facebook, D.company.youtube, D.company.instagram].filter(Boolean),
@@ -633,7 +659,7 @@ ${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
                 <a href="mailto:${esc(D.company.emails[0])}" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-solid fa-envelope acc"></i> ${L('راسلنا بالإيميل', 'Email us')}</a>
             </div>
             <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
-                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong class="text-white">${D.programs.length}</strong> ${L('برنامج', 'programs')}</span></div>
+                <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong id="nProg" data-all="${D.programs.map((p) => p.slug).join(' ')}" class="text-white">${D.programs.length - BAKED_HIDDEN.length}</strong> ${L('برنامج', 'programs')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-language acc"></i><span>${L('عربي و English', 'English & Arabic')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-network-wired acc"></i><span>${L('جهاز واحد أو شبكة أو أونلاين', 'One PC, network or online')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>${L('14 يوم تجربة مجانية', '14-day free trial')}</span></div>
@@ -706,7 +732,7 @@ const homeOf = (base) => (LANG === 'en' ? base + 'en/' : base);
 
 /** فورم «اطلب البرنامج»: بيكتب رسالة واتساب جاهزة بالبيانات (مفيش أي حاجة بتتحفظ أو بتتبعت لسيرفر) */
 function requestForm(base, p) {
-  const opts = D.programs.map((x) => `<option value="${esc(x.product)}"${p && x.slug === p.slug ? ' selected' : ''}>${esc(x.product.replace('Meta Origin - ', ''))} — ${esc(pName(x))}</option>`).join('');
+  const opts = D.programs.map((x) => `<option${psAttr(x.slug)} value="${esc(x.product)}"${p && x.slug === p.slug ? ' selected' : ''}>${esc(x.product.replace('Meta Origin - ', ''))} — ${esc(pName(x))}</option>`).join('');
   const field = 'w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc';
   return `
         <section id="request" class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 space-y-5 glow-effect">
@@ -787,13 +813,13 @@ ${CMP.map((g) => { const ps = g.slugs.map(prog); return `        <section id="${
                 <table class="w-full text-sm min-w-[560px]">
                     <thead><tr class="bg-cardbg">
                         <th class="p-3 w-36"></th>
-${ps.map((p) => `                        <th class="p-3 text-${L('right', 'left')} align-top"><a href="${home}${p.slug}/" class="flex items-center gap-2 group"><img src="${base}icons/${p.slug}.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0"><span><span class="block font-extrabold text-white group-hover:underline" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-[11px] font-bold" style="color:${p.color}">${esc(pName(p))}</span></span></a></th>`).join('\n')}
+${ps.map((p) => `                        <th${psAttr(p.slug)} class="p-3 text-${L('right', 'left')} align-top"><a href="${home}${p.slug}/" class="flex items-center gap-2 group"><img src="${base}icons/${p.slug}.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0"><span><span class="block font-extrabold text-white group-hover:underline" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-[11px] font-bold" style="color:${p.color}">${esc(pName(p))}</span></span></a></th>`).join('\n')}
                     </tr></thead>
                     <tbody>
-${g.rows.map((r) => `                        <tr class="border-t border-gray-800"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-bold align-top">${esc(r[LANG])}</th>${ps.map((p) => { const c = (r.v[p.slug] || ['—', '—'])[LANG === 'en' ? 1 : 0]; return `<td class="p-3 text-gray-200 align-top">${c === '✓' ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : esc(c)}</td>`; }).join('')}</tr>`).join('\n')}
+${g.rows.map((r) => `                        <tr class="border-t border-gray-800"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-bold align-top">${esc(r[LANG])}</th>${ps.map((p) => { const c = (r.v[p.slug] || ['—', '—'])[LANG === 'en' ? 1 : 0]; return `<td${psAttr(p.slug)} class="p-3 text-gray-200 align-top">${c === '✓' ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : esc(c)}</td>`; }).join('')}</tr>`).join('\n')}
 ${(g.sections || []).map((sct) => `                        <tr class="border-t border-gray-700 bg-cardbg"><th colspan="${ps.length + 1}" class="px-3 pt-4 pb-2 text-${L('right', 'left')} text-white font-extrabold">${esc(sct[LANG])}</th></tr>
-${sct.rows.map((r) => `                        <tr class="border-t border-gray-800/70"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-medium align-top">${bidi(r[LANG])}</th>${ps.map((p) => `<td class="p-3 align-top">${cmpCell(r.v[p.slug])}</td>`).join('')}</tr>`).join('\n')}`).join('\n')}
-                        <tr class="border-t border-gray-800 bg-cardbg"><th class="p-3 text-${L('right', 'left')} acc font-bold align-top">${L('اختاره لو…', 'Choose it if…')}</th>${ps.map((p) => `<td class="p-3 align-top"><p class="text-white font-bold">${esc((g.pick[p.slug] || ['', ''])[LANG === 'en' ? 1 : 0])}</p><a href="${home}${p.slug}/" class="inline-flex items-center gap-1 mt-2 text-xs font-bold acc hover:underline">${L('تفاصيل وتحميل', 'Details & download')} <i class="fa-solid fa-arrow-${L('left', 'right')}"></i></a></td>`).join('')}</tr>
+${sct.rows.map((r) => `                        <tr class="border-t border-gray-800/70"><th class="p-3 text-${L('right', 'left')} text-gray-400 font-medium align-top">${bidi(r[LANG])}</th>${ps.map((p) => `<td${psAttr(p.slug)} class="p-3 align-top">${cmpCell(r.v[p.slug])}</td>`).join('')}</tr>`).join('\n')}`).join('\n')}
+                        <tr class="border-t border-gray-800 bg-cardbg"><th class="p-3 text-${L('right', 'left')} acc font-bold align-top">${L('اختاره لو…', 'Choose it if…')}</th>${ps.map((p) => `<td${psAttr(p.slug)} class="p-3 align-top"><p class="text-white font-bold">${esc((g.pick[p.slug] || ['', ''])[LANG === 'en' ? 1 : 0])}</p><a href="${home}${p.slug}/" class="inline-flex items-center gap-1 mt-2 text-xs font-bold acc hover:underline">${L('تفاصيل وتحميل', 'Details & download')} <i class="fa-solid fa-arrow-${L('left', 'right')}"></i></a></td>`).join('')}</tr>
                     </tbody>
                 </table>
             </div>
@@ -812,7 +838,7 @@ function articlesIndex() {
             <h1 class="text-3xl md:text-5xl font-black text-white flex items-center justify-center gap-3"><i class="fa-solid fa-newspaper acc"></i>مقالات ونصايح</h1>
             <p class="text-gray-400">نصايح عملية لشغلك — من خبرتنا مع المحلات والصيدليات والمطاعم والشركات.</p>
         </section>
-${ART.map((a) => `        <a href="${a.slug}/" class="block bg-cardbg border border-gray-800 rounded-2xl p-6 card-hover space-y-2">
+${ART.map((a) => `        <a href="${a.slug}/"${a.program ? psAttr(a.program) : ''} class="block bg-cardbg border border-gray-800 rounded-2xl p-6 card-hover space-y-2">
             <div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-acc-soft flex items-center justify-center text-lg flex-shrink-0"><i class="fa-solid ${a.icon}"></i></div><h2 class="text-lg md:text-xl font-extrabold text-white">${esc(a.t)}</h2></div>
             <p class="text-gray-400 text-sm leading-relaxed">${esc(a.d)}</p>
             <span class="text-xs text-gray-500"><i class="fa-solid fa-calendar-day"></i> ${fmtDay(a.date)}</span>
@@ -838,7 +864,7 @@ function articlePage(a) {
         <article class="space-y-4">
 ${a.b.map(block).join('\n')}
         </article>
-        ${rel.length ? `<section class="pt-6 space-y-3"><h2 class="text-lg font-bold text-white">برامج ليها علاقة</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${rel.map((p) => `<a href="${base}${p.slug}/" class="flex items-center gap-3 bg-cardbg border border-gray-800 hover:border-gray-600 rounded-xl p-3"><img src="${base}icons/${p.slug}.png" alt="" class="w-10 h-10 rounded-lg"><span><span class="block font-bold text-white text-sm" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-xs" style="color:${p.color}">${esc(p.nameAr)}</span></span></a>`).join('')}</div></section>` : ''}
+        ${rel.length ? `<section class="pt-6 space-y-3"><h2 class="text-lg font-bold text-white">برامج ليها علاقة</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${rel.map((p) => `<a href="${base}${p.slug}/"${psAttr(p.slug)} class="flex items-center gap-3 bg-cardbg border border-gray-800 hover:border-gray-600 rounded-xl p-3"><img src="${base}icons/${p.slug}.png" alt="" class="w-10 h-10 rounded-lg"><span><span class="block font-bold text-white text-sm" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-xs" style="color:${p.color}">${esc(p.nameAr)}</span></span></a>`).join('')}</div></section>` : ''}
 ${requestForm(base, rel.length === 1 ? rel[0] : null)}
     </main>` + footer(base, 'Meta Origin');
 }
@@ -884,7 +910,7 @@ ${groups.map((g) => `            <article class="bg-cardbg border border-gray-80
                 <div class="flex items-center gap-2 text-sm text-gray-400"><i class="fa-solid fa-calendar-day acc"></i> ${fmtDay(g.date)}${g.items.length > 1 ? ` · ${L(`نزل في <strong class="text-white">${g.items.length}</strong> برنامج`, `released for <strong class="text-white">${g.items.length}</strong> programs`)}` : ''}</div>
                 ${g.notes.length ? `<ul class="space-y-1.5 text-gray-200"${notesDir}>${g.notes.map((x) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1 flex-shrink-0"></i><span>${esc(x.n)}${x.who ? ` <span class="text-xs text-gray-400">(${x.who})</span>` : ''}</span></li>`).join('')}</ul>` : ''}
                 <div class="grid grid-cols-1 sm:grid-cols-2 ${g.items.length > 2 ? 'lg:grid-cols-3' : ''} gap-2">
-${g.items.map((p) => `                    <a href="${home}${p.slug}/#downloads" class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
+${g.items.map((p) => `                    <a href="${home}${p.slug}/#downloads"${psAttr(p.slug)} class="flex items-center gap-3 bg-darkbg border border-gray-800 hover:border-gray-600 rounded-xl p-2.5 transition">
                         <img src="${base}icons/${p.slug}.png" alt="" class="w-9 h-9 rounded-lg flex-shrink-0" loading="lazy">
                         <span class="min-w-0 flex-1"><span class="block font-bold text-white text-sm truncate" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</span><span class="block text-[11px] truncate" style="color:${p.color}">${esc(pName(p))}</span></span>
                         <span class="text-[11px] bg-acc-soft px-2 py-0.5 rounded-full font-bold" dir="ltr">v${esc(REL[p.slug].version)}</span>
@@ -895,7 +921,7 @@ ${g.items.map((p) => `                    <a href="${home}${p.slug}/#downloads" 
 
         <section class="space-y-4">
             <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left acc"></i>${L('سجل الإصدارات لكل برنامج', 'Release history by program')}</h2>
-${progs.filter((p) => Object.keys(UPDATES[p.slug] || {}).length).map((p) => { const vs = Object.keys(UPDATES[p.slug]).sort(vcmp); return `            <details id="${p.slug}" class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
+${progs.filter((p) => Object.keys(UPDATES[p.slug] || {}).length).map((p) => { const vs = Object.keys(UPDATES[p.slug]).sort(vcmp); return `            <details id="${p.slug}"${psAttr(p.slug)} class="bg-cardbg border border-gray-800 rounded-2xl p-5 group scroll-mt-24">
                 <summary class="cursor-pointer list-none flex items-center gap-4">
                     ${icon(p)}
                     <div class="min-w-0 flex-1"><div class="font-extrabold text-white" dir="ltr">${esc(p.product)}</div><div class="text-xs text-gray-400">${vs.length} ${L('إصدار', vs.length > 1 ? 'releases' : 'release')}</div></div>
@@ -995,7 +1021,7 @@ LANG = 'ar';
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
 fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[SITE, ...D.programs.map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${[SITE, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);
