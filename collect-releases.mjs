@@ -20,7 +20,7 @@ const MAP = {
   school: ['Meta Origin - School', 'school'], erp: ['Meta Origin - ERP System', 'erp'], acc: ['Meta Origin - Acc', 'acc'], 'acc-new': ['Meta Origin - Acc New', 'accnew'],
   stores: ['Meta Origin - Stores', 'stores'], hotel: ['Meta Origin - Hotel', 'hotel'], 'hotel-pro': ['Meta Origin - Hotel Pro', 'hotelpro'], cashier: ['Meta Origin - Cashier', 'cashier'],
   'cashier-stores': ['Meta Origin - Cashier Stores', 'kashier'], 'cashier-lite': ['Meta Origin - Cashier Lite', 'cashierlite'], 'cashier-clothes': ['Meta Origin - Cashier Clothes', 'clothes'],
-  restaurant: ['Meta Origin - Restaurant', 'restaurant'], hr: ['Meta Origin - HR', 'hr'], 'hr-pro': ['Meta Origin - HR Pro', 'hrpro'], 'hr-enterprise': ['Meta Origin - HR Enterprise', 'hrenterprise'],
+  restaurant: ['Meta Origin - Restaurant', 'restaurant'], 'restaurant-pos': ['Meta Origin - Restaurant POS', 'restaurantpos'], hr: ['Meta Origin - HR', 'hr'], 'hr-pro': ['Meta Origin - HR Pro', 'hrpro'], 'hr-enterprise': ['Meta Origin - HR Enterprise', 'hrenterprise'],
 };
 const NOT_LIVE = /$^/; // سيرفر التراخيص الأونلاين شغال من 2026-10-20 — مفيش حاجة تتخبّى
 

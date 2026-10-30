@@ -192,6 +192,22 @@
     ],
     "published": true
   },
+  "restaurant-pos": {
+    "version": "1.0.0",
+    "date": "2026-10-30",
+    "sizeMB": 129,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Restaurant POS\\Meta Origin - Restaurant POS.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-Restaurant-POS-1.0.0.rar",
+    "tag": "restaurant-pos-v1.0.0",
+    "notes": [
+      "أول إصدار من Meta Origin - Restaurant POS (Starter / Business / PRO): الكاشير والصالة والحجوزات والديليفري وشاشة المطبخ، المنيو بالأحجام والإضافات والكومبو، الوصفات وتكلفة الطبق، المخازن والمشتريات والجرد، العملاء والولاء، والتقارير.",
+      "الدخول باسم المستخدم، وتصميم بالنهاري والليلي و11 لون تختار منهم أو لون من عندك (المظهر في الشريط اللي فوق).",
+      "الباقات من الترخيص نفسه، وشاشة «الباقات» فيها الأسعار وطلب الترقية على واتساب.",
+      "التحديث من جوّه البرنامج بنسخة احتياطية قبله، والأجهزة التانية بتتحدّث من الجهاز الرئيسي."
+    ],
+    "published": true
+  },
   "hotel": {
     "version": "1.13.0",
     "date": "2026-10-29",
