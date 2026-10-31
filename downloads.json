@@ -1,9 +1,12 @@
 {
+  "restaurant": 9,
   "restaurant-pos": 0,
+  "clinic": 10,
+  "acc": 8,
+  "acc-new": 11,
   "stores": 9,
   "school": 8,
   "sales-erp": 17,
-  "restaurant": 9,
   "pharmacy": 11,
   "hr": 11,
   "hr-pro": 26,
@@ -11,11 +14,8 @@
   "hotel": 11,
   "hotel-pro": 9,
   "erp": 10,
-  "clinic": 10,
   "cashier": 13,
   "cashier-stores": 10,
   "cashier-lite": 7,
-  "cashier-clothes": 4,
-  "acc": 8,
-  "acc-new": 11
+  "cashier-clothes": 4
 }
