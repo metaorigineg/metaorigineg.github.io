@@ -430,6 +430,8 @@ function downloadCard(d, wide) {
 // لينكات التحميل التانية (Google Drive، MediaFire، …): المالك بيضيفها من صفحة «التحميلات» (سيرفر التراخيص /dl)، والصفحة بتجيبها وهي بتفتح
 // وبتعرض بس اللي إصدارها = آخر إصدار (اللينك القديم بيختفي لوحده بعد أي تحديث)
 const MIRRORS_API = 'https://metaorigin-licenses.meta-origin-eg.workers.dev/v1/public/mirrors';
+// آراء العملاء المنشورة (العميل وافق + صاحب البرامج وافق) — سيرفر التراخيص src/feedback.js
+const REVIEWS_API = 'https://metaorigin-licenses.meta-origin-eg.workers.dev/v1/public/reviews';
 const MIRROR_STYLE = {
   gdrive: { name: 'Google Drive', icon: 'fa-brands fa-google-drive', tone: '#60a5fa', badge: 'موصى به', note: 'سيرفر سريع ومستقر' },
   mediafire: { name: 'MediaFire', icon: 'fa-solid fa-fire', tone: '#f87171', badge: 'تحميل مباشر', note: 'تحميل فوري بضغطة واحدة' },
@@ -462,6 +464,27 @@ function mirrorsJs(slug, ver) {
 }
 
 // «الباقات والأسعار» في صفحة البرنامج: شهري / سنوي (شهرين هدية) / مدى الحياة، بالجنيه أو بالدولار (السكريبت تحت بيبدّل الأرقام)
+// «آراء العملاء» في صفحة البرنامج: القسم مستخبي لحد ما يبقى فيه تقييم منشور (بيتجاب وقت فتح الصفحة)
+function reviewsSection(p) {
+  const ar = LANG === 'ar';
+  return `
+        <section id="reviews" class="space-y-5" hidden>
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-star acc"></i><span>${L('آراء العملاء', 'Customer reviews')}</span></h2>
+                <p class="text-gray-400 text-xs md:text-sm" id="revSum"></p>
+            </div>
+            <div id="revList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <script>(function(){var ar=${ar};fetch(${JSON.stringify(REVIEWS_API)}+'?slug='+${JSON.stringify(p.slug)}).then(function(r){return r.json()}).then(function(b){
+if(!b||!b.count)return;var sec=document.getElementById('reviews'),esc=function(t){return String(t||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var st=function(n){var o='';for(var i=1;i<=5;i++)o+='<i class="fa-'+(i<=n?'solid':'regular')+' fa-star" style="color:#f59e0b"></i>';return o};
+document.getElementById('revSum').innerHTML=st(Math.round(b.avg))+' <b class="text-white">'+b.avg+'</b> · '+b.count+(ar?' تقييم':' reviews');
+document.getElementById('revList').innerHTML=b.reviews.map(function(r){return '<div class="bg-cardbg border border-gray-800 rounded-2xl p-5 space-y-2"><div class="flex items-center justify-between gap-2"><b class="text-white text-sm">'+esc(r.name)+'</b><span>'+st(r.stars)+'</span></div>'+
+(r.body?'<p class="text-gray-300 text-sm leading-relaxed">'+esc(r.body)+'</p>':'')+(r.reply?'<p class="text-xs text-gray-400 border-t border-gray-800 pt-2"><i class="fa-solid fa-reply acc"></i> Meta Origin: '+esc(r.reply)+'</p>':'')+'</div>'}).join('');
+sec.hidden=false;}).catch(function(){});})();</script>
+        </section>
+`;
+}
+
 function plansSection(p) {
   const P = PLANS && PLANS.programs[p.slug];
   if (!P) return '';
@@ -586,7 +609,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             ${LANG === 'en' && Object.keys(UPDATES[p.slug] || {}).length ? `<p class="text-center text-sm"><a href="${base}en/updates/#${p.slug}" class="font-bold acc hover:underline"><i class="fa-solid fa-clock-rotate-left"></i> Release history${rel ? ` (latest: ${esc(rel.version)})` : ''}</a></p>` : ''}
         </section>
 
-${plansSection(p)}${compareLink(p, base)}
+${plansSection(p)}${reviewsSection(p)}${compareLink(p, base)}
         <section class="space-y-8 pt-4">
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white">${L(`لماذا <span dir="ltr">${esc(p.product)}</span>؟`, `Why ${esc(p.product)}?`)}</h2>
