@@ -1,17 +1,14 @@
 {
   "pharmacy": {
-    "version": "1.4.0",
+    "version": "1.4.1",
     "date": "2026-10-31",
     "sizeMB": 244,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Pharmacy\\Meta Origin - Pharmacy.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Pharmacy-1.4.0.rar",
-    "tag": "pharmacy-v1.4.0",
+    "asset": "Meta-Origin-Pharmacy-1.4.1.rar",
+    "tag": "pharmacy-v1.4.1",
     "notes": [
-      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
-      "الباقات: صفحة «الباقات» جوّه البرنامج (Pharmacy Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "الترخيص بيقفل فعلًا الأجزاء اللي مش في الباقة (مش بس بيخفيها من القائمة). الترخيص القديم = كله مفتوح زي ما هو.",
-      "الأرقام العربي (٠١٢…): لو كتبت أو لزقت رقم بالعربي في أي خانة (مبلغ، كمية، سعر، موبايل، بحث) بيتحوّل إنجليزي لوحده — قبل كده خانة الرقم كانت بتفضل فاضية والمبلغ يتحفظ صفر."
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
@@ -31,16 +28,15 @@
     "published": true
   },
   "clinic": {
-    "version": "1.14.0",
+    "version": "1.14.1",
     "date": "2026-10-31",
     "sizeMB": 429,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Clinic\\Meta Origin - Clinic.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Clinic-1.14.0.rar",
-    "tag": "clinic-v1.14.0",
+    "asset": "Meta-Origin-Clinic-1.14.1.rar",
+    "tag": "clinic-v1.14.1",
     "notes": [
-      "الباقات: في شاشة الترخيص (Clinic Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "التخصص اللي مش في الترخيص مقفول كمان من المتصفح (مش بس مستخبي من القائمة). الترخيص القديم من غير باقات = كل التخصصات زي ما هي."
+      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج."
     ],
     "published": true
   },
@@ -76,28 +72,30 @@
     "published": true
   },
   "acc": {
-    "version": "1.9.0",
+    "version": "1.9.1",
     "date": "2026-10-31",
     "sizeMB": 383,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc\\Meta Origin - Acc.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Acc-1.9.0.rar",
-    "tag": "acc-v1.9.0",
+    "asset": "Meta-Origin-Acc-1.9.1.rar",
+    "tag": "acc-v1.9.1",
     "notes": [
-      "الباقات: في صفحة الترخيص (Acc Starter / Business / PRO) بالأسعار شهري أو سنوي أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب — واسم الباقة تحت اسم البرنامج."
+      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
   "acc-new": {
-    "version": "1.11.0",
+    "version": "1.11.1",
     "date": "2026-10-31",
     "sizeMB": 224,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc New\\Meta Origin - Acc New.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Acc-New-1.11.0.rar",
-    "tag": "acc-new-v1.11.0",
+    "asset": "Meta-Origin-Acc-New-1.11.1.rar",
+    "tag": "acc-new-v1.11.1",
     "notes": [
-      "الباقات: في «الإعدادات ← الترخيص» (Acc New Starter / Business / PRO) بالأسعار شهري أو سنوي أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب — واسم الباقة تحت اسم البرنامج."
+      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
@@ -117,76 +115,67 @@
     "published": true
   },
   "cashier": {
-    "version": "1.17.0",
+    "version": "1.17.1",
     "date": "2026-10-31",
     "sizeMB": 233,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier\\Meta Origin - Cashier.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-1.17.0.rar",
-    "tag": "cashier-v1.17.0",
+    "asset": "Meta-Origin-Cashier-1.17.1.rar",
+    "tag": "cashier-v1.17.1",
     "notes": [
-      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
-      "الباقات: صفحة «الباقات» جوّه البرنامج (Cashier Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "الترخيص بيقفل فعلًا الأجزاء اللي مش في الباقة (مش بس بيخفيها من القائمة). الترخيص القديم = كله مفتوح زي ما هو."
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
   "cashier-stores": {
-    "version": "1.20.0",
+    "version": "1.20.1",
     "date": "2026-10-31",
     "sizeMB": 224,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Stores\\Meta Origin - Cashier Stores.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Stores-1.20.0.rar",
-    "tag": "cashier-stores-v1.20.0",
+    "asset": "Meta-Origin-Cashier-Stores-1.20.1.rar",
+    "tag": "cashier-stores-v1.20.1",
     "notes": [
-      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
-      "الباقات: صفحة «الباقات» جوّه البرنامج (Cashier Stores Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "الترخيص بيقفل فعلًا الأجزاء اللي مش في الباقة (مش بس بيخفيها من القائمة). الترخيص القديم = كله مفتوح زي ما هو."
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
   "cashier-lite": {
-    "version": "0.12.0",
+    "version": "0.12.1",
     "date": "2026-10-31",
     "sizeMB": 117,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Lite\\Meta Origin - Cashier Lite.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Lite-0.12.0.rar",
-    "tag": "cashier-lite-v0.12.0",
+    "asset": "Meta-Origin-Cashier-Lite-0.12.1.rar",
+    "tag": "cashier-lite-v0.12.1",
     "notes": [
-      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
-      "الباقات: صفحة «الباقات» جوّه البرنامج (Cashier Lite Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "الترخيص بيقفل فعلًا الأجزاء اللي مش في الباقة (مش بس بيخفيها من القائمة). الترخيص القديم = كله مفتوح زي ما هو."
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
   "cashier-clothes": {
-    "version": "0.11.0",
+    "version": "0.11.1",
     "date": "2026-10-31",
     "sizeMB": 135,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Clothes-0.11.0.rar",
-    "tag": "cashier-clothes-v0.11.0",
+    "asset": "Meta-Origin-Cashier-Clothes-0.11.1.rar",
+    "tag": "cashier-clothes-v0.11.1",
     "notes": [
-      "«رأيك يهمنا» في «حول البرنامج»: قيّم البرنامج، اقترح ميزة (ودوس «أنا كمان» على اقتراحات العملاء التانيين)، أو ابعت شكوى — والرسالة بتوصل لـ Meta Origin مباشرة، وردّنا بيوصلك جوّه البرنامج.",
-      "الباقات: صفحة «الباقات» جوّه البرنامج (Cashier Clothes Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "الترخيص بيقفل فعلًا الأجزاء اللي مش في الباقة (مش بس بيخفيها من القائمة). الترخيص القديم = كله مفتوح زي ما هو."
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": false
   },
   "restaurant": {
-    "version": "1.5.0",
+    "version": "1.5.1",
     "date": "2026-10-31",
     "sizeMB": 226,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Restaurant\\Meta Origin - Restaurant.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Restaurant-1.5.0.rar",
-    "tag": "restaurant-v1.5.0",
+    "asset": "Meta-Origin-Restaurant-1.5.1.rar",
+    "tag": "restaurant-v1.5.1",
     "notes": [
-      "الباقات: صفحة «الباقات» جوّه البرنامج (Restaurant Starter / Business / PRO) بالأسعار شهري أو سنوي (شهرين هدية) أو مدى الحياة، بالجنيه أو بالدولار، وزرار واتساب للترقية — واسم الباقة تحت اسم البرنامج.",
-      "الترخيص بيقفل فعلًا الأجزاء اللي مش في الباقة (الصالة / الدليفري / شاشة المطبخ / المخزن والوصفات) — مش بس بيخفيها من القائمة. الترخيص القديم من غير باقة = كله مفتوح زي ما هو."
+      "تصليح: صفحة «الباقات» بقت بتكتب اسم باقتك صح للترخيص المفعّل."
     ],
     "published": true
   },
