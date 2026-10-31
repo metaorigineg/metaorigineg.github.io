@@ -1,4 +1,9 @@
 {
+  "pharmacy": 11,
+  "cashier": 13,
+  "cashier-stores": 10,
+  "cashier-lite": 7,
+  "cashier-clothes": 4,
   "restaurant": 9,
   "restaurant-pos": 2,
   "clinic": 12,
@@ -7,15 +12,10 @@
   "stores": 9,
   "school": 8,
   "sales-erp": 17,
-  "pharmacy": 11,
   "hr": 11,
   "hr-pro": 26,
   "hr-enterprise": 9,
   "hotel": 11,
   "hotel-pro": 9,
-  "erp": 10,
-  "cashier": 13,
-  "cashier-stores": 10,
-  "cashier-lite": 7,
-  "cashier-clothes": 4
+  "erp": 10
 }
