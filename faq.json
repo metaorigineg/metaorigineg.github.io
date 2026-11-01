@@ -478,5 +478,65 @@
         "Yes, recipes and dish cost, and ingredients are deducted from stock automatically (in Business and PRO)."
       ]
     ]
+  },
+  "gym": {
+    "ar": [
+      [
+        "ينفع أكتر من جهاز استقبال؟",
+        "أيوه — جهاز رئيسي عليه البيانات وأجهزة استقبال ومدربين على نفس الشبكة، وكل عضو ليه صفحة على موبايله."
+      ],
+      [
+        "بيقبل البصمة والباركود؟",
+        "أيوه، الحضور بالباركود أو QR من الموبايل أو جهاز البصمة، وبيمنع المنتهي والمتجمد حسب قواعدك."
+      ],
+      [
+        "ينفع الاشتراك بالتقسيط؟",
+        "أيوه، الباقي بيتقسم أقساط بتواريخ، والقسط اللي معاده لسه مجاش مش بيتحسب مديونية."
+      ]
+    ],
+    "en": [
+      [
+        "Can I have more than one reception PC?",
+        "Yes — a main PC with the data and reception and trainer PCs on the same network, and every member has a page on their phone."
+      ],
+      [
+        "Does it work with fingerprint and barcode?",
+        "Yes, check-in by barcode, QR from the phone or a fingerprint device, blocking expired and frozen members by your rules."
+      ],
+      [
+        "Can members pay in installments?",
+        "Yes, the rest is split into dated installments, and an installment not due yet does not count as debt."
+      ]
+    ]
+  },
+  "center": {
+    "ar": [
+      [
+        "ينفع لسنتر بأكتر من فرع؟",
+        "أيوه — جهاز رئيسي وأجهزة استقبال وفروع على الشبكة، وصاحب السنتر يتابع كل فرع."
+      ],
+      [
+        "بيحسب مستحقات المدرسين؟",
+        "أيوه، لكل مدرس طريقته: نسبة من المحصّل، بالحصة، بالطالب، مرتب ثابت، أو إيجار قاعة — والسلف بتتخصم لوحدها."
+      ],
+      [
+        "ولي الأمر بيعرف الغياب والدرجات؟",
+        "أيوه، رسالة الغياب بتتبعت لوحدها، وكل طالب ليه صفحة بالحضور والدرجات والحساب."
+      ]
+    ],
+    "en": [
+      [
+        "Does it work for a center with several branches?",
+        "Yes — a main PC, reception PCs and branches on the network, and the owner follows every branch."
+      ],
+      [
+        "Does it calculate teachers' pay?",
+        "Yes, each teacher has their own method: a share of collections, per session, per student, a fixed salary or room rent — advances are deducted automatically."
+      ],
+      [
+        "Do parents get absences and marks?",
+        "Yes, the absence message goes out automatically, and every student has a page with attendance, marks and balance."
+      ]
+    ]
   }
 }

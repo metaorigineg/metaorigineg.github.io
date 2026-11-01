@@ -492,5 +492,73 @@
    "f": "shots/restaurant-pos/6.webp",
    "t": "الباقات"
   }
+ ],
+ "gym": [
+  {
+   "f": "shots/gym/1.webp",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/gym/2.webp",
+   "t": "تسجيل الحضور"
+  },
+  {
+   "f": "shots/gym/3.webp",
+   "t": "الأعضاء"
+  },
+  {
+   "f": "shots/gym/4.webp",
+   "t": "الباقات والأسعار"
+  },
+  {
+   "f": "shots/gym/5.webp",
+   "t": "المدربين والبرايفت"
+  },
+  {
+   "f": "shots/gym/6.webp",
+   "t": "الخزنة والمصروفات"
+  },
+  {
+   "f": "shots/gym/7.webp",
+   "t": "بيع المنتجات"
+  },
+  {
+   "f": "shots/gym/8.webp",
+   "t": "التقارير"
+  }
+ ],
+ "center": [
+  {
+   "f": "shots/center/1.webp",
+   "t": "لوحة التحكم"
+  },
+  {
+   "f": "shots/center/2.webp",
+   "t": "تسجيل الحضور"
+  },
+  {
+   "f": "shots/center/3.webp",
+   "t": "الطلاب"
+  },
+  {
+   "f": "shots/center/4.webp",
+   "t": "تحصيل الفلوس"
+  },
+  {
+   "f": "shots/center/5.webp",
+   "t": "المجموعات"
+  },
+  {
+   "f": "shots/center/6.webp",
+   "t": "الامتحانات والدرجات"
+  },
+  {
+   "f": "shots/center/7.webp",
+   "t": "المدرسين والمستحقات"
+  },
+  {
+   "f": "shots/center/8.webp",
+   "t": "التقارير"
+  }
  ]
 }

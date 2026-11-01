@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 WS = os.path.dirname(HERE)
 # slug الموقع ← فولدر البرنامج (اللي فيه help/)
 DIRS = {
-    'pharmacy': 'Meta Origin - Pharmacy', 'sales-erp': 'Meta Origin - Sales ERP', 'clinic': 'Meta Origin - Clinic', 'school': 'Meta Origin - School',
+    'pharmacy': 'Meta Origin - Pharmacy', 'gym': 'Meta Origin - Gym', 'center': 'Meta Origin - Center', 'sales-erp': 'Meta Origin - Sales ERP', 'clinic': 'Meta Origin - Clinic', 'school': 'Meta Origin - School',
     'erp': 'Meta Origin - ERP System', 'acc': 'Meta Origin - Acc', 'acc-new': 'Meta Origin - Acc New', 'stores': 'Meta Origin - Stores',
     'hotel': 'Meta Origin - Hotel', 'hotel-pro': 'Meta Origin - Hotel Pro', 'cashier': 'Meta Origin - Cashier', 'cashier-stores': 'Meta Origin - Cashier Stores',
     'cashier-lite': 'Meta Origin - Cashier Lite', 'cashier-clothes': 'Meta Origin - Cashier Clothes', 'restaurant': 'Meta Origin - Restaurant', 'restaurant-pos': 'Meta Origin - Restaurant POS',

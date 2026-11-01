@@ -21,8 +21,9 @@
     "accounting": "Accounting, inventory & factories",
     "medical": "Pharmacies & clinics",
     "hospitality": "Hotels & restaurants",
-    "education": "Schools",
-    "hr": "HR & payroll"
+    "education": "Schools & learning centers",
+    "hr": "HR & payroll",
+    "fitness": "Gyms & fitness"
   },
   "team": [
     { "role": "Founder & CEO", "bio": "Leads Meta Origin's vision and product development. He turns what organizations really need into practical systems that save time and keep the books right, and personally follows solution design, installation and customer support." },
@@ -211,6 +212,30 @@
         { "t": "Employee portal", "d": "Employees see their salary and leaves on their phone." }
       ],
       "shots": ["Home", "Employees", "Daily attendance", "Payroll", "Shifts", "Fingerprint devices"]
+    },
+    "gym": {
+      "name": "Gym Management", "category": "Gyms & fitness clubs",
+      "short": "Barcode & fingerprint check-in, memberships & installments, personal training and a protected cash drawer.",
+      "about": "A complete system for gyms and fitness clubs: check-in by barcode, QR or fingerprint, members and memberships by days or sessions with installments, freezing and family plans, offers and coupons, trainers and personal training with commissions, classes and men / women hours, body measurements and workout plans, supplement sales and stock, lockers, staff and payroll, shifts and a protected cash drawer, leads, WhatsApp messages and reports. A main PC + reception and trainer PCs on the network, and a page for every member on their phone.",
+      "features": [
+        { "t": "Check-in in a second", "d": "Scan the member card by barcode, QR or fingerprint, blocking expired, frozen or unpaid members by your rules." },
+        { "t": "Memberships & installments", "d": "Plans by days or sessions, dated installments, freeze and extend, family plans, offers and coupons." },
+        { "t": "Personal training & trainers", "d": "Session packages and each trainer's commission as a percentage or per session." },
+        { "t": "A protected cash drawer", "d": "Reception closes the shift without seeing the expected cash; discounts, credit and cash-outs need the manager." }
+      ],
+      "shots": ["Dashboard", "Check-in", "Members", "Plans & prices", "Trainers & personal training", "Cash & expenses", "Shop", "Reports"]
+    },
+    "center": {
+      "name": "Learning Center Management", "category": "Learning centers & tutoring",
+      "short": "Card check-in, fees and installments, teachers' pay, exams and parents.",
+      "about": "A complete system for learning centers and tutoring: student check-in by QR card, camera, gate or fingerprint, monthly or per-session fees and courses in installments, groups and timetable without room clashes, exams, bubble sheets and a question bank, lesson videos, teachers' pay in every way, books and notes, shifts and a protected cash drawer, staff and payroll, offers, room bookings, parent messages and campaigns with a page for every student, and reports and forecasts. A main PC + reception PCs and branches, and the teacher's phone.",
+      "features": [
+        { "t": "Card check-in", "d": "Present or late by the session time, guests and make-up sessions, and an absence message to the parent." },
+        { "t": "Fees & teachers' pay", "d": "Monthly, per session or installments, and each teacher's pay by their own method." },
+        { "t": "Exams & bubble sheets", "d": "Fast marks and ranking, QR bubble sheets marked from a photo, a question bank and online exams." },
+        { "t": "Parents", "d": "A page for every student with attendance, marks and balance, messages and campaigns." }
+      ],
+      "shots": ["Dashboard", "Attendance", "Students", "Collecting fees", "Groups", "Exams & marks", "Teachers & pay", "Reports"]
     }
   }
 }
