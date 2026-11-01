@@ -1,5 +1,6 @@
 {
-  "school": 12,
+  "school": 15,
+  "clinic": 17,
   "stores": 12,
   "sales-erp": 20,
   "restaurant": 15,
@@ -11,7 +12,6 @@
   "hotel-pro": 13,
   "gym": 5,
   "erp": 19,
-  "clinic": 17,
   "center": 4,
   "cashier": 19,
   "cashier-stores": 16,
