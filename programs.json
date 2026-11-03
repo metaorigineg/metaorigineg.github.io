@@ -70,9 +70,17 @@
     "facebook": "https://www.facebook.com/meta.origin.eg",
     "instagram": "https://www.instagram.com/meta.origin.coding/",
     "emails": [
-      "meta.origin@outlook.com",
-      "meta.origin.eg@gmail.com"
-    ]
+      "support@metaorigineg.com",
+      "sales@metaorigineg.com",
+      "info@metaorigineg.com",
+      "owner@metaorigineg.com"
+    ],
+    "emailLabels": {
+      "support@metaorigineg.com": ["الدعم الفني", "Technical support"],
+      "sales@metaorigineg.com": ["المبيعات والاشتراكات", "Sales & subscriptions"],
+      "info@metaorigineg.com": ["الاستفسارات العامة", "General inquiries"],
+      "owner@metaorigineg.com": ["الإدارة", "Management"]
+    }
   },
   "categories": {
     "retail": "الكاشير ونقاط البيع",

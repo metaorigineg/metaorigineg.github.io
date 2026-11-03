@@ -14,6 +14,8 @@ const RELEASE_REPO = 'metaorigineg/metaorigineg.github.io';
 const directUrl = (r) => `https://github.com/${RELEASE_REPO}/releases/download/${r.tag}/${r.asset}`;
 const fmtDay = (d) => { const [y, m, dd] = d.split('-'); return `${Number(dd)}/${Number(m)}/${y}`; };
 const SITE = 'https://metaorigineg.com/'; // الدومين من 2026-11-03 (metaorigineg.github.io بيحوّل عليه لوحده — ملف CNAME)
+// كل إيميل والغرض منه (programs.json company.emailLabels) — الدعم الفني الأول. no-reply@ (كود التفعيل) مش على الموقع.
+const mailLabel = (e) => { const l = (D.company.emailLabels || {})[e]; return l ? (LANG === 'en' ? l[1] : l[0]) : ''; };
 
 // فيديوهات الشرح: من قناة اليوتيوب نفسها (آخر الفيديوهات) — أي فيديو عنوانه فيه «Meta Origin - <البرنامج>» و«الشرح الكامل» بيتربط بصفحة البرنامج
 // لوحده. اللي مالوش فيديو لسه بيروح على القناة. لو مفيش نت وقت البناء: آخر روابط اتحفظت في videos.json.
@@ -236,7 +238,7 @@ ${m.phones.map((p) => `                        <div class="flex items-center jus
                 </div>`).join('\n')}
             </div>
             <div class="bg-cardbg border border-gray-800 rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
-${D.company.emails.map((e) => `                <a href="mailto:${esc(e)}" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="truncate" dir="ltr">${esc(e)}</span></a>`).join('\n')}
+${D.company.emails.map((e) => `                <a href="mailto:${esc(e)}" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200 min-w-0"><i class="fa-solid fa-envelope acc"></i><span class="min-w-0"><span class="block text-xs text-gray-400 font-normal">${esc(mailLabel(e))}</span><span class="block truncate" dir="ltr">${esc(e)}</span></span></a>`).join('\n')}
                 <a href="${esc(D.company.instagram)}" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-instagram text-pink-500"></i> ${L('انستجرام', 'Instagram')}</a>
                 <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="bg-darkbg border border-gray-800 hover:border-gray-600 p-3 rounded-xl flex items-center gap-2 font-bold text-gray-200"><i class="fa-brands fa-facebook text-[#1877f2]"></i> ${L('فيسبوك', 'Facebook')}</a>
             </div>
@@ -263,7 +265,7 @@ function footer(base, name) {
                 <a href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" title="${L('واتساب', 'WhatsApp')}"><i class="fa-brands fa-whatsapp"></i> ${L('واتساب', 'WhatsApp')}</a>
             </div>
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
-                ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
+                ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5" title="${esc(mailLabel(e))}"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
             <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${LANG === 'en' ? base + 'en/' : base}compare/" class="hover:text-white underline">${L('مقارنة البرامج', 'Compare programs')}</a> · ${LANG === 'ar' ? `<a href="${base}articles/" class="hover:text-white underline">مقالات ونصايح</a> · ` : ''}<a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a> · <a href="${base}terms/" class="hover:text-white underline">${L('شروط الاستخدام', 'Terms of Use')}</a></p>
             <p>${L('جميع الحقوق محفوظة', 'All rights reserved')} &copy; ${YEAR} - ${esc(name)}</p>
