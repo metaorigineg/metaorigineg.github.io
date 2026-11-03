@@ -538,5 +538,35 @@
         "Yes, the absence message goes out automatically, and every student has a page with attendance, marks and balance."
       ]
     ]
+  },
+  "vertex": {
+    "ar": [
+      [
+        "بيشتغل لمصر والسعودية؟",
+        "أيوه — تختار البلد أول مرة: الضريبة والتأمينات ونهاية الخدمة والفوترة الإلكترونية بتتظبط على البلد."
+      ],
+      [
+        "ينفع أشتري جزء بس؟",
+        "أيوه، الحسابات أساسي وتزوّد الأجزاء اللي محتاجها (مبيعات، مخزون، تصنيع، رواتب، مشاريع…) أو تاخد باقة Starter / Business / PRO."
+      ],
+      [
+        "ينفع أكتر من جهاز؟",
+        "أيوه — جهاز رئيسي عليه البيانات والأجهزة التانية على الشبكة ببرنامج الأجهزة أو من المتصفح."
+      ]
+    ],
+    "en": [
+      [
+        "Does it work for Egypt and Saudi Arabia?",
+        "Yes — choose the country on first run: tax, social insurance, end of service and e-invoicing follow it."
+      ],
+      [
+        "Can I buy only some parts?",
+        "Yes — accounting is the core and you add the parts you need (sales, inventory, manufacturing, payroll, projects…) or take a Starter / Business / PRO plan."
+      ],
+      [
+        "Can I use more than one PC?",
+        "Yes — a main PC holds the data and other PCs connect over the network with the client app or the browser."
+      ]
+    ]
   }
 }

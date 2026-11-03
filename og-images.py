@@ -4,7 +4,7 @@ import json, os
 from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 END = os.path.join(HERE, '..', 'Program End')
-MAP = {'pharmacy': 'Pharmacy', 'gym': 'Gym', 'center': 'Center', 'sales-erp': 'Sales ERP', 'clinic': 'Clinic', 'school': 'School', 'erp': 'ERP System', 'acc': 'Acc', 'acc-new': 'Acc New',
+MAP = {'pharmacy': 'Pharmacy', 'gym': 'Gym', 'center': 'Center', 'sales-erp': 'Sales ERP', 'vertex': 'Vertex ERP', 'clinic': 'Clinic', 'school': 'School', 'erp': 'ERP System', 'acc': 'Acc', 'acc-new': 'Acc New',
        'stores': 'Stores', 'hotel': 'Hotel', 'hotel-pro': 'Hotel Pro', 'cashier': 'Cashier', 'cashier-stores': 'Cashier Stores', 'cashier-lite': 'Cashier Lite',
        'cashier-clothes': 'Cashier Clothes', 'restaurant': 'Restaurant', 'restaurant-pos': 'Restaurant POS', 'hr': 'HR', 'hr-pro': 'HR Pro', 'hr-enterprise': 'HR Enterprise'}
 out = os.path.join(HERE, 'img', 'og'); os.makedirs(out, exist_ok=True)

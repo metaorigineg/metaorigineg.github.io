@@ -560,5 +560,39 @@
    "f": "shots/center/8.webp",
    "t": "التقارير"
   }
+ ],
+ "vertex": [
+  {
+   "f": "shots/vertex/1.webp",
+   "t": "لوحة المعلومات"
+  },
+  {
+   "f": "shots/vertex/2.webp",
+   "t": "القيود والترحيل"
+  },
+  {
+   "f": "shots/vertex/3.webp",
+   "t": "فواتير البيع"
+  },
+  {
+   "f": "shots/vertex/4.webp",
+   "t": "مراقبة المخزون"
+  },
+  {
+   "f": "shots/vertex/5.webp",
+   "t": "أوامر التصنيع"
+  },
+  {
+   "f": "shots/vertex/6.webp",
+   "t": "نقاط البيع"
+  },
+  {
+   "f": "shots/vertex/7.webp",
+   "t": "الرواتب"
+  },
+  {
+   "f": "shots/vertex/8.webp",
+   "t": "المشاريع والمقاولات"
+  }
  ]
 }

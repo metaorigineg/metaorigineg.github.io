@@ -41,7 +41,7 @@ const PLANS = fs.existsSync(PLANS_FILE) ? JSON.parse(fs.readFileSync(PLANS_FILE,
 
 // سجل الإصدارات (صفحة «آخر التحديثات»): كل إصدار وملاحظاته من tools/shared/whats-new/whats-new.js (+ changelog.py بتاع HR)،
 // بيتحفظ في updates.json عشان البناء يشتغل حتى لو الفولدرات دي مش موجودة.
-const WN_KEY = { pharmacy: 'pharmacy', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
+const WN_KEY = { pharmacy: 'pharmacy', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', vertex: 'vertex', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
   hotel: 'hotel', 'hotel-pro': 'hotelpro', cashier: 'cashier', 'cashier-stores': 'kashier', 'cashier-lite': 'cashierlite', 'cashier-clothes': 'clothes',
   restaurant: 'restaurant', hr: 'hr', 'hr-pro': 'hrpro', 'hr-enterprise': 'hrenterprise' };
 const UPDATES_FILE = path.join(HERE, 'updates.json');
@@ -677,6 +677,7 @@ function homePage() {
     ['fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
     ['fa-chalkboard-user', 'سنتر تعليمي أو دروس', 'Learning center or tutoring', ['center']],
     ['fa-dumbbell', 'جيم أو صالة رياضية', 'Gym or fitness club', ['gym']],
+    ['fa-cubes', 'شركة كبيرة محتاجة ERP متكامل (مصر أو السعودية)', 'Company needing a complete ERP (Egypt or KSA)', ['vertex']],
     ['fa-cart-shopping', 'سوبر ماركت أو بقالة', 'Supermarket or grocery', ['cashier', 'cashier-lite']],
     ['fa-shirt', 'محل ملابس أو عطور أو موبايلات', 'Clothes, perfume or mobile shop', ['cashier-stores', 'cashier-clothes']],
     ['fa-store', 'محل صغير بجهاز واحد', 'Small shop with one PC', ['cashier-lite']],

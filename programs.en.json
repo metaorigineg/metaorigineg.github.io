@@ -236,6 +236,18 @@
         { "t": "Parents", "d": "A page for every student with attendance, marks and balance, messages and campaigns." }
       ],
       "shots": ["Dashboard", "Attendance", "Students", "Collecting fees", "Groups", "Exams & marks", "Teachers & pay", "Reports"]
+    },
+    "vertex": {
+      "name": "Vertex ERP", "category": "Complete ERP for companies & factories (Egypt & Saudi Arabia)",
+      "short": "Accounting, sales, purchasing, inventory, manufacturing, fixed assets, POS, payroll and projects in one system.",
+      "about": "A complete ERP for Egypt and Saudi Arabia, built the way big ERP systems work: every document is a draft, then posted with a journal entry, and every department shares the same accounts — accounting with tax returns and financial statements, sales and purchasing (quotes, orders, invoices, returns), inventory at average cost with counts and stock monitoring, manufacturing with models and production orders, fixed assets and depreciation, POS with sessions and blind closing, HR and payroll (social insurance, tax and end of service for Egypt and Saudi Arabia), projects and contracting, reports and e-invoicing. A main PC + network PCs or the browser.",
+      "features": [
+        { "t": "Real double-entry accounting", "d": "Chart of accounts, journal entries and vouchers with posting, tax returns and financial statements — every document posts its own entry." },
+        { "t": "Sales, stock & manufacturing", "d": "From quote to invoice and return, average-cost inventory with counts, and production orders costed with materials and labour." },
+        { "t": "Payroll for Egypt & KSA", "d": "Employees, attendance, leave and payroll with insurance, tax and end of service by country." },
+        { "t": "Projects & POS", "d": "Projects and contracting with progress bills and costs, and POS with sessions and blind cash closing." }
+      ],
+      "shots": ["Dashboard", "Journal entries & posting", "Sales invoices", "Stock monitor", "Production orders", "Point of sale", "Payroll", "Projects & contracting"]
     }
   }
 }
