@@ -492,7 +492,10 @@ function plansSection(p) {
   if (!P) return '';
   const ar = LANG === 'ar';
   const T = (x) => esc(ar ? x.ar : x.en);
-  const price = (x) => `<span class="mo-price" data-egp="${x.egp}" data-usd="${x.usd}"></span>`;
+  const C = P.cloud; // النسخة السحابية: أسعارها لوحدها (plans.json ← cloud)
+  const cb = (b) => (C ? C.bundles.find((x) => x.code === b.code) : null);
+  const price = (x, c) => `<span class="mo-price" data-egp="${x.egp}" data-usd="${x.usd}"${c ? ` data-cegp="${c.egp}" data-cusd="${c.usd}"` : ''}></span>`;
+  const once = (x) => `<span class="mo-once" data-egp="${x.egp}" data-usd="${x.usd}"></span>`;
   const ask = (t) => wa(D.company.whatsapp, t);
   const cards = P.bundles.map((b) => {
     const items = b.bits != null ? P.parts.filter((x) => b.bits & x.bit).map(T) : [T(b)];
@@ -500,7 +503,7 @@ function plansSection(p) {
                 ${b.recommended ? `<span class="absolute -top-3 right-5 bg-acc text-xs font-bold px-3 py-0.5 rounded-full">${L('الأنسب لأغلب العملاء', 'Most popular')}</span>` : ''}
                 <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">${esc(P.product + ' ' + b.edition)}</div>
                 <div class="text-gray-400 text-xs">${T(b)}</div>
-                <div class="text-2xl font-black acc">${price(b)} <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <div class="text-2xl font-black acc">${price(b, cb(b))} <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
                 <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${T(P.core)}</span></li>${items.map((t) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${t}</span></li>`).join('')}</ul>
                 <a href="${ask(L('عايز ', 'I would like ') + 'Meta Origin - ' + P.product + ' ' + b.edition)}" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">${L('اطلب الباقة دي', 'Request this plan')}</a>
             </div>`;
@@ -515,18 +518,27 @@ function plansSection(p) {
                 <p class="text-gray-400 text-xs md:text-sm">${L('ابدأ بالباقة اللي تناسبك وزوّد وقت ما تحتاج — والتجربة 14 يوم بكل حاجة', 'Start with the plan that fits and upgrade any time — the 14-day trial opens everything')}</p>
             </div>
             <div id="moPlans" class="space-y-5">
-            <div class="flex flex-wrap justify-center gap-3">${seg('cyc', [['m', L('شهري', 'Monthly')], ['y', L('سنوي — شهرين هدية', 'Yearly — 2 months free')], ['l', L('مدى الحياة', 'Lifetime')]])}${seg('cur', [['egp', L('بالجنيه', 'EGP')], ['usd', L('بالدولار', 'USD')]])}</div>
+            <div class="flex flex-wrap justify-center gap-3">${C ? seg('kind', [['desk', L('على الكمبيوتر', 'Desktop')], ['cloud', L('على النت (سحابي)', 'Online (cloud)')]]) : ''}${seg('cyc', [['m', L('شهري', 'Monthly')], ['y', L('سنوي — شهرين هدية', 'Yearly — 2 months free')], ['l', L('مدى الحياة', 'Lifetime')]])}${seg('cur', [['egp', L('بالجنيه', 'EGP')], ['usd', L('بالدولار', 'USD')]])}</div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             ${cards}
             </div>
-            <div class="space-y-2"><h3 class="font-bold text-white">${T(P.partsTitle)}</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden">${parts}${dev}</div></div>
+            <div class="space-y-2 mo-desk"><h3 class="font-bold text-white">${T(P.partsTitle)}</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden">${parts}${dev}</div></div>
+            ${C ? `<div class="space-y-2 mo-cloud" hidden><h3 class="font-bold text-white">${L('مع الاشتراك السحابي', 'With the cloud plan')}</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden">
+              <div class="flex flex-wrap items-center gap-3 px-4 py-2.5"><span class="flex-1 text-sm text-white">${L('الأجهزة من المتصفح والموبايل', 'Devices from the browser and phone')}</span><span class="text-sm text-gray-400">${L('مفتوحة — من غير حد', 'Unlimited')}</span></div>
+              <div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800"><span class="flex-1 text-sm text-white">${L('البرنامج على الكمبيوتر كمان (ببلاش مع الاشتراك)', 'The desktop program too (free with the plan)')}</span><span class="text-sm text-gray-400">${once(C.desktopDevice)} ${L('لكل جهاز — مرة واحدة', 'per PC — one time')}</span></div>
+              <div class="px-4 py-2.5 border-t border-gray-800 text-xs text-gray-400">${L('مشترك في نسخة الكمبيوتر وعايز اللي على النت كمان؟ بسعر الاشتراك السحابي.', 'On the desktop plan and want the online edition too? At the cloud plan price.')}${C.url ? ` <a class="acc" href="${esc(C.url)}" target="_blank" rel="noopener">${esc(C.url.replace(/^https?:\/\//, ''))}</a>` : ''}</div>
+            </div></div>` : ''}
             </div>
-            <script>(function(){var Y=${PLANS.yearMonths},LF=${PLANS.lifetimeMonths},ar=${ar},c='m',u='egp',el=document.getElementById('moPlans');
-function draw(){var n=c==='m'?1:c==='y'?Y:LF,per=c==='m'?(ar?'/ شهر':'/ month'):c==='y'?(ar?'/ سنة':'/ year'):(ar?'مرة واحدة':'one time');
-el.querySelectorAll('.mo-price').forEach(function(x){var v=(+x.getAttribute('data-'+u)*n).toLocaleString('en-US');x.textContent=u==='usd'?'⁦$'+v+'⁩':(ar?v+' جنيه':'EGP '+v);});
+            <script>(function(){var Y=${PLANS.yearMonths},LF=${PLANS.lifetimeMonths},ar=${ar},c='m',u='egp',k='desk',el=document.getElementById('moPlans');
+function draw(){if(k==='cloud'&&c==='l')c='y';var n=c==='m'?1:c==='y'?Y:LF,per=c==='m'?(ar?'/ شهر':'/ month'):c==='y'?(ar?'/ سنة':'/ year'):(ar?'مرة واحدة':'one time');
+var fm=function(v){v=v.toLocaleString('en-US');return u==='usd'?'⁦$'+v+'⁩':(ar?v+' جنيه':'EGP '+v);};
+el.querySelectorAll('.mo-price').forEach(function(x){var a=k==='cloud'&&x.hasAttribute('data-c'+u)?'data-c'+u:'data-'+u;x.textContent=fm(+x.getAttribute(a)*n);});
+el.querySelectorAll('.mo-once').forEach(function(x){x.textContent=fm(+x.getAttribute('data-'+u));});
+el.querySelectorAll('.mo-desk').forEach(function(x){x.hidden=k==='cloud';});el.querySelectorAll('.mo-cloud').forEach(function(x){x.hidden=k!=='cloud';});
+el.querySelectorAll('[data-seg=cyc] [data-v=l]').forEach(function(x){x.hidden=k==='cloud';});
 el.querySelectorAll('.mo-per').forEach(function(x){x.textContent=per;});
-el.querySelectorAll('[data-seg] button').forEach(function(b){var on=b.getAttribute('data-v')===(b.parentNode.getAttribute('data-seg')==='cyc'?c:u);b.classList.toggle('bg-acc',on);b.classList.toggle('text-gray-400',!on);});}
-el.addEventListener('click',function(e){var b=e.target.closest('[data-seg] button');if(!b)return;if(b.parentNode.getAttribute('data-seg')==='cyc')c=b.getAttribute('data-v');else u=b.getAttribute('data-v');draw();});draw();})();</script>
+el.querySelectorAll('[data-seg] button').forEach(function(b){var g=b.parentNode.getAttribute('data-seg'),on=b.getAttribute('data-v')===(g==='cyc'?c:g==='kind'?k:u);b.classList.toggle('bg-acc',on);b.classList.toggle('text-gray-400',!on);});}
+el.addEventListener('click',function(e){var b=e.target.closest('[data-seg] button');if(!b)return;var g=b.parentNode.getAttribute('data-seg');if(g==='cyc')c=b.getAttribute('data-v');else if(g==='kind')k=b.getAttribute('data-v');else u=b.getAttribute('data-v');draw();});draw();})();</script>
         </section>
 `;
 }
