@@ -13,7 +13,7 @@ const REL = fs.existsSync(path.join(HERE, 'releases.json')) ? JSON.parse(fs.read
 const RELEASE_REPO = 'metaorigineg/metaorigineg.github.io';
 const directUrl = (r) => `https://github.com/${RELEASE_REPO}/releases/download/${r.tag}/${r.asset}`;
 const fmtDay = (d) => { const [y, m, dd] = d.split('-'); return `${Number(dd)}/${Number(m)}/${y}`; };
-const SITE = 'https://metaorigineg.github.io/';
+const SITE = 'https://metaorigineg.com/'; // الدومين من 2026-11-03 (metaorigineg.github.io بيحوّل عليه لوحده — ملف CNAME)
 
 // فيديوهات الشرح: من قناة اليوتيوب نفسها (آخر الفيديوهات) — أي فيديو عنوانه فيه «Meta Origin - <البرنامج>» و«الشرح الكامل» بيتربط بصفحة البرنامج
 // لوحده. اللي مالوش فيديو لسه بيروح على القناة. لو مفيش نت وقت البناء: آخر روابط اتحفظت في videos.json.
