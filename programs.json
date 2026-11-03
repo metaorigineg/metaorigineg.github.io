@@ -86,6 +86,7 @@
   "programs": [
     {
       "slug": "pharmacy",
+      "online": "https://pharmacy.metaorigineg.com/#/signup",
       "cat": "medical",
       "product": "Meta Origin - Pharmacy",
       "nameAr": "نظام الصيدليات",

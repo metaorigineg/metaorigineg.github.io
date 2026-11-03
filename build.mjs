@@ -265,7 +265,7 @@ function footer(base, name) {
             <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" dir="ltr">
                 ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
-            <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${LANG === 'en' ? base + 'en/' : base}compare/" class="hover:text-white underline">${L('مقارنة البرامج', 'Compare programs')}</a> · ${LANG === 'ar' ? `<a href="${base}articles/" class="hover:text-white underline">مقالات ونصايح</a> · ` : ''}<a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a></p>
+            <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${LANG === 'en' ? base + 'en/' : base}compare/" class="hover:text-white underline">${L('مقارنة البرامج', 'Compare programs')}</a> · ${LANG === 'ar' ? `<a href="${base}articles/" class="hover:text-white underline">مقالات ونصايح</a> · ` : ''}<a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a> · <a href="${base}terms/" class="hover:text-white underline">${L('شروط الاستخدام', 'Terms of Use')}</a></p>
             <p>${L('جميع الحقوق محفوظة', 'All rights reserved')} &copy; ${YEAR} - ${esc(name)}</p>
         </div>
     </footer>
@@ -592,6 +592,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             </div>
             <div class="flex flex-wrap justify-center gap-3">
                 <a href="#downloads" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-download"></i> ${L('تحميل البرنامج', 'Download')}</a>
+                ${p.online ? `<a href="${esc(p.online)}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-cloud"></i> ${L('جرّب أونلاين — من غير تسطيب', 'Try it online — no install')}</a>` : ''}
                 <a href="${esc(p.video || D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-brands fa-youtube text-lg"></i> ${p.video ? L('شاهد فيديو الشرح', 'Watch the video guide') : L('فيديوهات الشرح على اليوتيوب', 'Video guides on YouTube')}</a>
             </div>
         </section>
@@ -1015,6 +1016,73 @@ ${vs.map((v) => `                    <div class="space-y-1.5">
 }
 
 /** سياسة الخصوصية (عربي + إنجليزي) — جوجل ومايكروسوفت بيطلبوا رابطها عشان النسخ الاحتياطي على Google Drive / OneDrive */
+function termsPage() {
+  const base = '../';
+  const mail = D.company.emails[0];
+  const sec = (t, body) => `<section class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-3"><h2 class="text-lg md:text-xl font-bold text-white">${t}</h2>${body}</section>`;
+  const ul = (items) => `<ul class="list-disc ps-6 space-y-2 text-gray-300 leading-8">${items.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+  return head({ title: 'شروط الاستخدام | Meta Origin', desc: 'شروط استخدام برامج Meta Origin والنسخ على النت — Terms of Use', accent: '#3b82f6', base, image: 'img/company-logo.png' }) + header(base, { back: true, sub: '' }) + `
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 w-full">
+        <h1 class="text-3xl md:text-4xl font-black text-white">شروط الاستخدام</h1>
+        <p class="text-gray-400">آخر تحديث: 3 نوفمبر 2026 — تنطبق على برامج Meta Origin والنسخ على النت (زي الصيدليات أونلاين). باستخدامك للبرنامج انت موافق على الشروط دي و<a class="acc underline" href="${base}privacy/">سياسة الخصوصية</a>.</p>
+${sec('الحساب', ul([
+  'لازم البيانات اللي بتسجّل بيها تكون صحيحة، والإيميل حقيقي وبتاعك (بيتأكد بكود).',
+  'انت مسئول عن كلمات السر بتاعتك وبتاعة موظفينك، وعن الأجهزة اللي بتربطها بحسابك. ننصح بتشغيل «التحقق بخطوتين».',
+  'التجربة المجانية 14 يوم لكل إيميل على كل برنامج — مرة واحدة.',
+]))}
+${sec('الاشتراك والدفع', ul([
+  'بعد التجربة البرنامج بيشتغل بالاشتراك (شهري أو سنوي) حسب الباقة والأسعار المعلنة وقت الاشتراك. الدفع بيتم بالتواصل معانا (واتساب)، والتفعيل من عندنا.',
+  'لو الاشتراك خلص البرنامج بيتقفل لحد التجديد — والبيانات بتفضل محفوظة ومش بتتمسح.',
+  'الاشتراك اللي اتدفع مابيترجعش فلوسه عن المدة اللي فاتت منه.',
+]))}
+${sec('بياناتك', ul([
+  'البيانات اللي بتدخلها في البرنامج ملكك. تقدر تنزّل نسخة كاملة منها في أي وقت من الإعدادات.',
+  'لو طلبت مسح الحساب بنمسحه هو وكل بياناته نهائيًا — ومايترجعش.',
+  'بنحافظ على بياناتك بأحسن الطرق المتاحة (اتصال مشفّر، قاعدة لكل عميل، نسخ احتياطية عند مزود الاستضافة)، وننصحك برضه تنزّل نسخة من بياناتك بشكل دوري.',
+]))}
+${sec('الاستخدام المسموح', ul([
+  'ممنوع استخدام البرنامج في أي حاجة مخالفة للقانون، أو محاولة الدخول على حسابات أو بيانات حد تاني، أو تعطيل الخدمة.',
+  'من حقنا نوقف أي حساب بيخالف الشروط دي.',
+]))}
+${sec('المسئولية', ul([
+  'بنبذل أقصى جهد عشان الخدمة تفضل شغالة ومن غير أخطاء، لكن ممكن يحصل انقطاع لصيانة أو لأسباب خارج إيدينا (النت، مزود الاستضافة).',
+  'البرنامج أداة مساعدة في إدارة الشغل؛ مراجعة الحسابات والقرارات المالية والطبية مسئولية صاحب النشاط.',
+  'ممكن نعدّل الشروط دي، وبنعلن التعديل على الصفحة دي بتاريخه.',
+]))}
+${sec('التواصل', `<p class="text-gray-300 leading-8">لأي سؤال أو طلب مسح الحساب: <a class="acc underline" href="mailto:${esc(mail)}">${esc(mail)}</a> أو واتساب <a class="acc underline" href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener">${esc(D.company.whatsapp)}</a>.</p>`)}
+
+        <div dir="ltr" lang="en" class="space-y-6 pt-6 text-left">
+        <h1 class="text-3xl md:text-4xl font-black text-white">Terms of Use</h1>
+        <p class="text-gray-400">Last updated: November 3, 2026 — applies to Meta Origin programs and online editions. By using the program you agree to these terms and the <a class="acc underline" href="${base}privacy/">Privacy Policy</a>.</p>
+${sec('Account', ul([
+  'Sign-up details must be correct, and the email must be real and yours (it is confirmed with a code).',
+  'You are responsible for your and your staff\'s passwords and for the devices you link to your account. We recommend turning on two-step login.',
+  'The free trial is 14 days per email per program — once.',
+]))}
+${sec('Subscription and payment', ul([
+  'After the trial the program works by subscription (monthly or yearly) according to the plan and prices published at the time. Payment is arranged with us (WhatsApp) and we activate the subscription.',
+  'When the subscription ends the program locks until renewal — the data is kept, not deleted.',
+  'Paid subscription periods already used are not refundable.',
+]))}
+${sec('Your data', ul([
+  'The data you enter is yours. You can download a full copy at any time from the settings.',
+  'If you ask us to delete the account, we delete it and all its data permanently.',
+  'We protect your data with the best available means (encrypted connections, a separate database per customer, provider backups), and we recommend downloading a copy regularly too.',
+]))}
+${sec('Acceptable use', ul([
+  'Do not use the program for anything illegal, to access other people\'s accounts or data, or to disrupt the service.',
+  'We may suspend any account that breaks these terms.',
+]))}
+${sec('Liability', ul([
+  'We do our best to keep the service available and error-free, but interruptions may happen for maintenance or reasons outside our control (internet, hosting provider).',
+  'The program is a tool to help manage the business; reviewing accounts and financial or medical decisions remains the business owner\'s responsibility.',
+  'We may update these terms and will publish changes on this page with their date.',
+]))}
+${sec('Contact', `<p class="text-gray-300 leading-8">Questions or account deletion requests: <a class="acc underline" href="mailto:${esc(mail)}">${esc(mail)}</a> or WhatsApp +20 ${esc(D.company.whatsapp)}.</p>`)}
+        </div>
+    </main>` + footer(base, 'Meta Origin');
+}
+
 function privacyPage() {
   const base = '../';
   const mail = D.company.emails[0];
@@ -1023,10 +1091,17 @@ function privacyPage() {
   return head({ title: 'سياسة الخصوصية | Meta Origin', desc: 'سياسة الخصوصية لبرامج Meta Origin — Privacy Policy', accent: '#3b82f6', base, image: 'img/company-logo.png' }) + header(base, { back: true, sub: '' }) + `
     <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 w-full">
         <h1 class="text-3xl md:text-4xl font-black text-white">سياسة الخصوصية</h1>
-        <p class="text-gray-400">آخر تحديث: 28 أكتوبر 2026 — تنطبق على كل برامج Meta Origin (Meta Origin Software).</p>
-${sec('بياناتك على جهازك', ul([
-  'برامجنا بتشتغل على أجهزة العميل نفسه: كل بيانات الشغل (المبيعات، الحسابات، العملاء، الموظفين…) بتتحفظ على جهاز العميل أو السيرفر بتاعه، ومش بتتبعت لينا.',
+        <p class="text-gray-400">آخر تحديث: 3 نوفمبر 2026 — تنطبق على كل برامج Meta Origin (Meta Origin Software). شوف كمان <a class="acc underline" href="${base}terms/">شروط الاستخدام</a>.</p>
+${sec('برامج الكمبيوتر: بياناتك على جهازك', ul([
+  'برامج الكمبيوتر (الديسكتوب) بتشتغل على أجهزة العميل نفسه: كل بيانات الشغل (المبيعات، الحسابات، العملاء، الموظفين…) بتتحفظ على جهاز العميل أو السيرفر بتاعه، ومش بتتبعت لينا.',
   'إحنا مش بنبيع ولا بنشارك أي بيانات مع أي حد، ومش بنستخدمها في إعلانات.',
+]))}
+${sec('النسخ على النت (زي الصيدليات أونلاين pharmacy.metaorigineg.com)', ul([
+  'بيانات الشغل بتتحفظ على سيرفرات Cloudflare (شركة عالمية لاستضافة المواقع)، وكل عميل ليه قاعدة بيانات لوحده مقفولة عليه — محدش من العملاء التانيين يقدر يشوفها.',
+  'عند التسجيل بنحتفظ بـ: اسم المحل، اسم صاحبه، الموبايل، الإيميل، واسم الدخول — عشان الحساب والدعم الفني والاشتراك. كلمة السر بتتحفظ متشفّرة (مش ممكن حد يقراها حتى إحنا).',
+  'الإيميل بيتأكد بكود بنبعته من no-reply@metaorigineg.com (عن طريق خدمات الإرسال Resend و Brevo)، وبنحتفظ إن الإيميل ده خد تجربة مجانية على البرنامج ده.',
+  'على كل جهاز بيدخل بنحفظ «علامة الجهاز المربوط» (في المتصفح نفسه) واسم نوع الجهاز وآخر دخول — عشان صاحب الحساب يشوف أجهزته ويفصل أي جهاز.',
+  'إحنا (Meta Origin) مابنفتحش بيانات شغلك إلا لو طلبت الدعم الفني بنفسك. البيانات ملكك: تقدر تنزّل نسخة منها في أي وقت، ولو طلبت مسح الحساب بنمسحها نهائيًا.',
 ]))}
 ${sec('الترخيص', ul([
   'عشان التفعيل، البرنامج بيبعت لسيرفر التراخيص بتاعنا «كود الجهاز» (رقم محسوب من مكونات الجهاز، مش بيكشف أي بيانات شخصية) واسم البرنامج وإصداره.',
@@ -1045,10 +1120,17 @@ ${sec('التواصل', `<p class="text-gray-300 leading-8">لأي سؤال عن
 
         <div dir="ltr" lang="en" class="space-y-6 pt-6 text-left">
         <h1 class="text-3xl md:text-4xl font-black text-white">Privacy Policy</h1>
-        <p class="text-gray-400">Last updated: October 28, 2026 — applies to all Meta Origin programs (Meta Origin Software).</p>
-${sec('Your data stays on your computer', ul([
-  'Our programs run on the customer\'s own computers. All business data (sales, accounts, customers, employees…) is stored on the customer\'s device or their own server and is not sent to us.',
+        <p class="text-gray-400">Last updated: November 3, 2026 — applies to all Meta Origin programs (Meta Origin Software). See also the <a class="acc underline" href="${base}terms/">Terms of Use</a>.</p>
+${sec('Desktop programs: your data stays on your computer', ul([
+  'Our desktop programs run on the customer\'s own computers. All business data (sales, accounts, customers, employees…) is stored on the customer\'s device or their own server and is not sent to us.',
   'We do not sell or share any data with anyone, and we do not use it for advertising.',
+]))}
+${sec('Online editions (such as Pharmacy online, pharmacy.metaorigineg.com)', ul([
+  'Business data is stored on Cloudflare servers; every customer has a separate database that no other customer can access.',
+  'At sign-up we keep the business name, the owner\'s name, mobile number, email and username — for the account, support and the subscription. Passwords are stored hashed (no one, including us, can read them).',
+  'The email is confirmed with a code sent from no-reply@metaorigineg.com (through the Resend and Brevo sending services), and we record that the email used the free trial of that program.',
+  'For every device that signs in we keep a "linked device" mark (in that browser), the device type and the last sign-in time, so the account owner can see and unlink devices.',
+  'We (Meta Origin) do not open your business data unless you ask for support yourself. The data is yours: you can download a copy at any time, and if you ask us to delete the account we delete it permanently.',
 ]))}
 ${sec('Licensing', ul([
   'For activation, the program sends our license server a "machine code" (a value derived from the computer\'s hardware that does not reveal personal information), the program name and its version.',
@@ -1070,6 +1152,8 @@ ${sec('Contact', `<p class="text-gray-300 leading-8">Privacy questions: <a class
 
 fs.mkdirSync(path.join(HERE, 'privacy'), { recursive: true });
 fs.writeFileSync(path.join(HERE, 'privacy', 'index.html'), privacyPage());
+fs.mkdirSync(path.join(HERE, 'terms'), { recursive: true });
+fs.writeFileSync(path.join(HERE, 'terms', 'index.html'), termsPage());
 fs.rmSync(path.join(HERE, 'en'), { recursive: true, force: true }); // الإنجليزي بيتولّد كله من جديد (البرامج المخفية ماتفضلش)
 for (const lang of ['ar', 'en']) {
   LANG = lang;
@@ -1096,7 +1180,7 @@ LANG = 'ar';
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
 fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[SITE, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${[SITE, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`, `${SITE}terms/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);
