@@ -1,11 +1,11 @@
 {
+  "pharmacy": 23,
   "vertex": 5,
   "stores": 20,
-  "school": 18,
+  "school": 19,
   "sales-erp": 33,
-  "restaurant": 21,
-  "restaurant-pos": 12,
-  "pharmacy": 23,
+  "restaurant": 22,
+  "restaurant-pos": 13,
   "hr": 18,
   "hr-pro": 31,
   "hr-enterprise": 15,
@@ -19,6 +19,6 @@
   "cashier-stores": 22,
   "cashier-lite": 15,
   "cashier-clothes": 8,
-  "acc": 21,
+  "acc": 22,
   "acc-new": 23
 }
