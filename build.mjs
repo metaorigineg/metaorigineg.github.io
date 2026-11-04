@@ -43,7 +43,7 @@ const PLANS = fs.existsSync(PLANS_FILE) ? JSON.parse(fs.readFileSync(PLANS_FILE,
 
 // سجل الإصدارات (صفحة «آخر التحديثات»): كل إصدار وملاحظاته من tools/shared/whats-new/whats-new.js (+ changelog.py بتاع HR)،
 // بيتحفظ في updates.json عشان البناء يشتغل حتى لو الفولدرات دي مش موجودة.
-const WN_KEY = { pharmacy: 'pharmacy', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', vertex: 'vertex', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
+const WN_KEY = { pharmacy: 'pharmacy', lawyer: 'lawyer', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', vertex: 'vertex', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
   hotel: 'hotel', 'hotel-pro': 'hotelpro', cashier: 'cashier', 'cashier-stores': 'kashier', 'cashier-lite': 'cashierlite', 'cashier-clothes': 'clothes',
   restaurant: 'restaurant', hr: 'hr', 'hr-pro': 'hrpro', 'hr-enterprise': 'hrenterprise' };
 const UPDATES_FILE = path.join(HERE, 'updates.json');
@@ -689,6 +689,7 @@ function homePage() {
   const PICKER = [
     ['fa-prescription-bottle-medical', 'صيدلية', 'Pharmacy', ['pharmacy']],
     ['fa-stethoscope', 'عيادة أو مركز طبي', 'Clinic or medical center', ['clinic']],
+    ['fa-scale-balanced', 'مكتب محاماة', 'Law office', ['lawyer']],
     ['fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
     ['fa-chalkboard-user', 'سنتر تعليمي أو دروس', 'Learning center or tutoring', ['center']],
     ['fa-dumbbell', 'جيم أو صالة رياضية', 'Gym or fitness club', ['gym']],

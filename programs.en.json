@@ -23,7 +23,8 @@
     "hospitality": "Hotels & restaurants",
     "education": "Schools & learning centers",
     "hr": "HR & payroll",
-    "fitness": "Gyms & fitness"
+    "fitness": "Gyms & fitness",
+    "legal": "Law & legal"
   },
   "team": [
     { "role": "Founder & CEO", "bio": "Leads Meta Origin's vision and product development. He turns what organizations really need into practical systems that save time and keep the books right, and personally follows solution design, installation and customer support." },
@@ -37,6 +38,38 @@
     "سيرفر سحابي معتمد وعالي الاعتمادية": "Reliable certified cloud server"
   },
   "programs": {
+    "lawyer": {
+      "name": "Law Office Management",
+      "category": "Law offices & cases",
+      "short": "Cases, hearing rolls, appeal deadlines, clients and fees — on your PC or online, and from your phone at court.",
+      "about": "A complete system for law offices: a full file for every case with its parties and court levels, the daily hearing roll and decisions, appeal deadlines calculated automatically from the judgment date, clients and powers of attorney with a private follow-up page for each client, a document archive searchable inside the text, templates printed on the office letterhead, a legal library, fees, expenses and receipts, WhatsApp reminders, and reports. A main PC in the office with lawyers on their phones — or online with no PC in the office at all.",
+      "features": [
+        {
+          "t": "Hearing rolls",
+          "d": "Each day's roll by court and circuit, decisions and next sessions, and a printed roll for the lawyer going to court."
+        },
+        {
+          "t": "Automatic appeal deadlines",
+          "d": "Deadlines calculated from the judgment date, holidays included, with a reminder before they run out."
+        },
+        {
+          "t": "Complete case file",
+          "d": "Parties, court levels, sessions, documents, fees and tasks in one place, and a client report in one click."
+        },
+        {
+          "t": "Clients & powers of attorney",
+          "d": "Each client's account and POAs with expiry dates, and a follow-up page they open on their phone."
+        },
+        {
+          "t": "Documents & templates",
+          "d": "An archive searchable inside the text, and pleadings, notices and contracts filled from the case data."
+        },
+        {
+          "t": "From your phone at court",
+          "d": "The roll and decisions on the phone even with no signal, sent automatically when it returns."
+        }
+      ]
+    },
     "pharmacy": {
       "name": "Pharmacy Management", "category": "Pharmacies & medicines",
       "short": "One pharmacy or a chain: batches & expiry, insurance and controlled drugs.",

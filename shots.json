@@ -1,4 +1,30 @@
 {
+ "lawyer": [
+   {
+     "f": "shots/lawyer/1.webp",
+     "t": "لوحة اليوم"
+   },
+   {
+     "f": "shots/lawyer/2.webp",
+     "t": "الرول والجلسات"
+   },
+   {
+     "f": "shots/lawyer/3.webp",
+     "t": "ملف القضية"
+   },
+   {
+     "f": "shots/lawyer/4.webp",
+     "t": "المواعيد القانونية"
+   },
+   {
+     "f": "shots/lawyer/5.webp",
+     "t": "الموكلين والتوكيلات"
+   },
+   {
+     "f": "shots/lawyer/6.webp",
+     "t": "الحسابات والأتعاب"
+   }
+ ],
  "pharmacy": [
   {
    "f": "shots/pharmacy/1.webp",

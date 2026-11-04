@@ -16,7 +16,7 @@ const OUT = path.join(HERE, 'releases.json');
 const old = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
 // slug الموقع ← فولدر Program End + مفتاح whats-new
 const MAP = {
-  pharmacy: ['Meta Origin - Pharmacy', 'pharmacy'], gym: ['Meta Origin - Gym', 'gym'], center: ['Meta Origin - Center', 'center'], 'sales-erp': ['Meta Origin - Sales ERP', 'saleserp'], vertex: ['Meta Origin - Vertex ERP', 'vertex'], clinic: ['Meta Origin - Clinic', 'clinic'],
+  pharmacy: ['Meta Origin - Pharmacy', 'pharmacy'], lawyer: ['Meta Origin - Lawyer', 'lawyer'], gym: ['Meta Origin - Gym', 'gym'], center: ['Meta Origin - Center', 'center'], 'sales-erp': ['Meta Origin - Sales ERP', 'saleserp'], vertex: ['Meta Origin - Vertex ERP', 'vertex'], clinic: ['Meta Origin - Clinic', 'clinic'],
   school: ['Meta Origin - School', 'school'], erp: ['Meta Origin - ERP System', 'erp'], acc: ['Meta Origin - Acc', 'acc'], 'acc-new': ['Meta Origin - Acc New', 'accnew'],
   stores: ['Meta Origin - Stores', 'stores'], hotel: ['Meta Origin - Hotel', 'hotel'], 'hotel-pro': ['Meta Origin - Hotel Pro', 'hotelpro'], cashier: ['Meta Origin - Cashier', 'cashier'],
   'cashier-stores': ['Meta Origin - Cashier Stores', 'kashier'], 'cashier-lite': ['Meta Origin - Cashier Lite', 'cashierlite'], 'cashier-clothes': ['Meta Origin - Cashier Clothes', 'clothes'],
