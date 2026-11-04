@@ -124,6 +124,7 @@
     },
     {
       "slug": "sales-erp",
+      "online": "https://sales.metaorigineg.com/#/signup",
       "cat": "accounting",
       "product": "Meta Origin - Sales ERP",
       "nameAr": "المبيعات والمخازن والحسابات",
@@ -153,6 +154,7 @@
     },
     {
       "slug": "vertex",
+      "online": "https://vertex.metaorigineg.com/#/signup",
       "cat": "accounting",
       "product": "Meta Origin - Vertex ERP",
       "nameAr": "نظام ERP المتكامل (Vertex)",
@@ -370,6 +372,7 @@
     },
     {
       "slug": "stores",
+      "online": "https://stores.metaorigineg.com/#/signup",
       "cat": "accounting",
       "product": "Meta Origin - Stores",
       "nameAr": "المخازن ومتابعة الإنتاج",
