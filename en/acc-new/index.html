@@ -100,7 +100,7 @@
             </div>
             <div class="flex flex-wrap justify-center gap-3">
                 <a href="#downloads" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-download"></i> Download</a>
-                
+                <a href="https://accnew.metaorigineg.com/#/signup" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-cloud"></i> Try it online</a>
                 <a href="https://youtu.be/OqXCivF91OM" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-brands fa-youtube text-lg"></i> Watch the video guide</a>
             </div>
         </section>
@@ -111,6 +111,16 @@
                 <p class="text-gray-400 text-xs md:text-sm">Pick any platform or server to start downloading</p>
             </div>
             <div id="dlGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-cardbg border border-sky-500/40 rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 bg-sky-500/15 text-sky-300"><i class="fa-solid fa-cloud"></i></div>
+                        <div>
+                            <div class="flex items-center gap-2"><h3 class="font-bold text-white text-base md:text-lg">Works in the cloud</h3><span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30"><i class="fa-solid fa-cloud"></i>Cloud</span></div>
+                            <p class="text-xs text-gray-400 mt-1">Open it from a browser or phone, with your data anywhere</p>
+                        </div>
+                    </div>
+                    <a href="https://accnew.metaorigineg.com/#/signup" target="_blank" rel="noopener" class="bg-sky-600 hover:bg-sky-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-bold text-sm whitespace-nowrap flex items-center gap-2 transition"><span>Try it online</span><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                </div>
                 <div class="bg-cardbg border border-gray-800 rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4" >
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:#3d5afe1a;color:#3d5afe"><i class="fa-brands fa-github"></i></div>
@@ -152,33 +162,37 @@
                 <p class="text-gray-400 text-xs md:text-sm">Start with the plan that fits and upgrade any time — the 14-day trial opens everything</p>
             </div>
             <div id="moPlans" class="space-y-5">
-            <div class="flex flex-wrap justify-center gap-3"><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="cyc"><button type="button" data-v="m" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">Monthly</button><button type="button" data-v="y" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Yearly — 2 months free</button><button type="button" data-v="l" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Lifetime</button></div><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="cur"><button type="button" data-v="egp" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">EGP</button><button type="button" data-v="usd" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">USD</button></div></div>
+            <div class="flex flex-wrap justify-center gap-3"><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="kind"><button type="button" data-v="desk" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">Desktop</button><button type="button" data-v="cloud" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Online (cloud)</button></div><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="cyc"><button type="button" data-v="m" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">Monthly</button><button type="button" data-v="y" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Yearly — 2 months free</button><button type="button" data-v="l" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">Lifetime</button></div><div class="inline-flex bg-cardbg border border-gray-800 rounded-xl p-1 gap-1" data-seg="cur"><button type="button" data-v="egp" class="px-3 py-1 rounded-lg text-xs font-bold bg-acc">EGP</button><button type="button" data-v="usd" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400">USD</button></div></div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="relative bg-cardbg border border-gray-800 rounded-2xl p-5 flex flex-col gap-2">
                 
                 <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">Acc New Starter</div>
                 <div class="text-gray-400 text-xs">Shop</div>
-                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="299" data-usd="6"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="299" data-usd="6" data-cegp="449" data-cusd="9"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
                 <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Accounting, point of sale, stock and reports</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Shop</span></li></ul>
                 <a href="https://wa.me/201150606002?text=I%20would%20like%20Meta%20Origin%20-%20Acc%20New%20Starter" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">Request this plan</a>
             </div><div class="relative bg-cardbg border border-acc rounded-2xl p-5 flex flex-col gap-2">
                 <span class="absolute -top-3 right-5 bg-acc text-xs font-bold px-3 py-0.5 rounded-full">Most popular</span>
                 <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">Acc New Business</div>
                 <div class="text-gray-400 text-xs">Shop and trading company</div>
-                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="499" data-usd="10"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="499" data-usd="10" data-cegp="699" data-cusd="14"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
                 <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Accounting, point of sale, stock and reports</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Shop</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Trading company</span></li></ul>
                 <a href="https://wa.me/201150606002?text=I%20would%20like%20Meta%20Origin%20-%20Acc%20New%20Business" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">Request this plan</a>
             </div><div class="relative bg-cardbg border border-gray-800 rounded-2xl p-5 flex flex-col gap-2">
                 
                 <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">Acc New PRO</div>
                 <div class="text-gray-400 text-xs">Everything</div>
-                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="699" data-usd="14"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
+                <div class="text-2xl font-black acc"><span class="mo-price" data-egp="699" data-usd="14" data-cegp="999" data-cusd="20"></span> <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
                 <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Accounting, point of sale, stock and reports</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Shop</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Trading company</span></li><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>Factory</span></li></ul>
                 <a href="https://wa.me/201150606002?text=I%20would%20like%20Meta%20Origin%20-%20Acc%20New%20PRO" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">Request this plan</a>
             </div>
             </div>
             <div class="space-y-2"><h3 class="font-bold text-white">Activities</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden"><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800 first:border-t-0"><span class="flex-1 text-sm text-white">Shop</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="149" data-usd="3"></span> <span class="mo-per"></span></span></div><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800 first:border-t-0"><span class="flex-1 text-sm text-white">Trading company</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="149" data-usd="3"></span> <span class="mo-per"></span></span></div><div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800 first:border-t-0"><span class="flex-1 text-sm text-white">Factory</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="149" data-usd="3"></span> <span class="mo-per"></span></span></div><div class="mo-desk flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800"><span class="flex-1 text-sm text-white">Each extra PC on the network</span><span class="text-sm text-gray-400"><span class="mo-price" data-egp="99" data-usd="2"></span> <span class="mo-per"></span></span></div></div></div>
-            
+            <div class="space-y-2 mo-cloud" style="display:none"><h3 class="font-bold text-white">With the cloud plan</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden">
+              <div class="flex flex-wrap items-center gap-3 px-4 py-2.5"><span class="flex-1 text-sm text-white">Devices from the browser and phone</span><span class="text-sm text-gray-400">Unlimited</span></div>
+              <div class="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-gray-800"><span class="flex-1 text-sm text-white">The desktop program too (free with the plan)</span><span class="text-sm text-gray-400"><span class="mo-once" data-egp="100" data-usd="2"></span> per PC — one time</span></div>
+              <div class="px-4 py-2.5 border-t border-gray-800 text-xs text-gray-400">On the desktop plan and want the online edition too? At the cloud plan price. <a class="acc" href="https://accnew.metaorigineg.com" target="_blank" rel="noopener">accnew.metaorigineg.com</a></div>
+            </div></div>
             </div>
             <script>(function(){var Y=10,LF=24,ar=false,c='m',u='egp',k='desk',el=document.getElementById('moPlans');
 function draw(){if(k==='cloud'&&c==='l')c='y';var n=c==='m'?1:c==='y'?Y:LF,per=c==='m'?(ar?'/ شهر':'/ month'):c==='y'?(ar?'/ سنة':'/ year'):(ar?'مرة واحدة':'one time');
