@@ -1,4 +1,5 @@
 {
+  "restaurant": 22,
   "gym": 13,
   "center": 12,
   "vertex": 12,
@@ -13,7 +14,6 @@
   "clinic": 30,
   "acc": 29,
   "school": 20,
-  "restaurant": 22,
   "hr-pro": 32,
   "hotel": 23,
   "hotel-pro": 21,
