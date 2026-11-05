@@ -4,6 +4,7 @@
   "gym": 13,
   "center": 12,
   "cashier": 29,
+  "cashier-stores": 24,
   "cashier-lite": 18,
   "vertex": 12,
   "stores": 30,
@@ -19,7 +20,6 @@
   "school": 20,
   "hr-pro": 32,
   "hotel-pro": 21,
-  "cashier-stores": 24,
   "cashier-clothes": 8,
   "acc-new": 24
 }
