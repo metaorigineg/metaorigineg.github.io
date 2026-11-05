@@ -505,7 +505,7 @@ function plansSection(p) {
   if (!P) return '';
   const ar = LANG === 'ar';
   const T = (x) => esc(ar ? x.ar : x.en);
-  const C = P.cloud; // النسخة السحابية: أسعارها لوحدها (plans.json ← cloud)
+  const C = p.online ? P.cloud : null; // النسخة السحابية، لما تكون متنشرة بس: أسعارها لوحدها (plans.json ← cloud)
   const cb = (b) => (C ? C.bundles.find((x) => x.code === b.code) : null);
   const price = (x, c) => `<span class="mo-price" data-egp="${x.egp}" data-usd="${x.usd}"${c ? ` data-cegp="${c.egp}" data-cusd="${c.usd}"` : ''}></span>`;
   const once = (x) => `<span class="mo-once" data-egp="${x.egp}" data-usd="${x.usd}"></span>`;
