@@ -217,15 +217,15 @@
     "published": true
   },
   "hotel": {
-    "version": "1.17.0",
+    "version": "1.17.1",
     "date": "2026-11-05",
     "sizeMB": 331,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel\\Meta Origin - Hotel.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Hotel-1.17.0.rar",
-    "tag": "hotel-v1.17.0",
+    "asset": "Meta-Origin-Hotel-1.17.1.rar",
+    "tag": "hotel-v1.17.1",
     "notes": [
-      "«ارفع بياناتي للويب»: انقل بيانات الفندق من الكمبيوتر لنسخة النت مرة واحدة من الإعدادات، وبياناتك على الكمبيوتر مابتتغيرش."
+      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
     ],
     "published": true
   },
