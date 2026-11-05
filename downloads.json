@@ -1,5 +1,6 @@
 {
   "restaurant": 25,
+  "hotel": 23,
   "gym": 13,
   "center": 12,
   "vertex": 12,
@@ -15,7 +16,6 @@
   "acc": 29,
   "school": 20,
   "hr-pro": 32,
-  "hotel": 23,
   "hotel-pro": 21,
   "cashier": 26,
   "cashier-stores": 23,
