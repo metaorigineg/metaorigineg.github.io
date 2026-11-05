@@ -3,6 +3,7 @@
   "hotel": 27,
   "gym": 13,
   "center": 12,
+  "cashier-lite": 16,
   "vertex": 12,
   "stores": 30,
   "sales-erp": 41,
@@ -19,7 +20,6 @@
   "hotel-pro": 21,
   "cashier": 26,
   "cashier-stores": 23,
-  "cashier-lite": 16,
   "cashier-clothes": 8,
   "acc-new": 24
 }
