@@ -408,6 +408,19 @@ ${FAQ.map(([q, a]) => `                <details class="bg-cardbg border border-g
         </section>`;
 }
 
+// البرامج اللي ليها نسخة على النت: شعار جنب «متاح للتحميل» وكارت جنب كروت التحميل
+const cloudPill = () => `<span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30"><i class="fa-solid fa-cloud"></i>${L('سحابي', 'Cloud')}</span>`;
+const cloudCard = (p) => `                <div class="bg-cardbg border border-sky-500/40 rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 bg-sky-500/15 text-sky-300"><i class="fa-solid fa-cloud"></i></div>
+                        <div>
+                            <div class="flex items-center gap-2"><h3 class="font-bold text-white text-base md:text-lg">${L('شغال سحابي', 'Works in the cloud')}</h3>${cloudPill()}</div>
+                            <p class="text-xs text-gray-400 mt-1">${L('افتحه من المتصفح أو الموبايل، وبياناتك معاك من أي مكان', 'Open it from a browser or phone, with your data anywhere')}</p>
+                        </div>
+                    </div>
+                    <a href="${esc(p.online)}" target="_blank" rel="noopener" class="bg-sky-600 hover:bg-sky-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-bold text-sm whitespace-nowrap flex items-center gap-2 transition"><span>${L('جرّب أونلاين', 'Try it online')}</span><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                </div>`;
+
 function downloadCard(d, wide) {
   const color = d.tone || '#9ca3af';
   return `                <div class="bg-cardbg border ${d.password ? '' : 'border-gray-800'} rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4${wide ? ' md:col-span-2' : ''}" ${d.password ? `style="border-color:${color}55"` : ''}>
@@ -555,7 +568,7 @@ function programPage(p) {
   const ask = wa(D.company.whatsapp, L(`عايز برنامج ${p.product} (${p.nameAr})`, `I would like the program ${p.product}`));
   const grid = has ? `
             <div id="dlGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p.downloads.length % 2 ? '' : '')).join('\n')}
+${p.online ? cloudCard(p) + '\n' : ''}${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p.downloads.length % 2 ? '' : '')).join('\n')}
             </div>` : `
             <div class="bg-cardbg border border-acc rounded-3xl p-8 text-center space-y-4 glow-effect">
                 <div class="w-16 h-16 mx-auto rounded-2xl bg-acc-soft flex items-center justify-center text-3xl"><i class="fa-solid fa-hourglass-half"></i></div>
@@ -606,7 +619,7 @@ ${p.downloads.map((d, i) => downloadCard(d) + (i === p.downloads.length - 1 && p
             </div>
             <div class="flex flex-wrap justify-center gap-3">
                 <a href="#downloads" class="inline-flex items-center gap-2 bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-download"></i> ${L('تحميل البرنامج', 'Download')}</a>
-                ${p.online ? `<a href="${esc(p.online)}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-cloud"></i> ${L('جرّب أونلاين — من غير تسطيب', 'Try it online — no install')}</a>` : ''}
+                ${p.online ? `<a href="${esc(p.online)}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-solid fa-cloud"></i> ${L('جرّب أونلاين', 'Try it online')}</a>` : ''}
                 <a href="${esc(p.video || D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95"><i class="fa-brands fa-youtube text-lg"></i> ${p.video ? L('شاهد فيديو الشرح', 'Watch the video guide') : L('فيديوهات الشرح على اليوتيوب', 'Video guides on YouTube')}</a>
             </div>
         </section>
@@ -678,7 +691,7 @@ function homePage() {
                         <div class="flex items-center gap-2 flex-wrap">
                             <h3 class="font-extrabold text-white text-base" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</h3>
                             ${p.isNew ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-amber-400 text-black">${L('جديد', 'New')}</span>` : ''}
-                            ${(p.downloads || []).length || REL[p.slug]?.published ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">${L('متاح للتحميل', 'Available')}</span>` : `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">${L('قريبًا', 'Soon')}</span>`}
+                            ${(p.downloads || []).length || REL[p.slug]?.published ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">${L('متاح للتحميل', 'Available')}</span>${p.online ? cloudPill() : ''}` : `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">${L('قريبًا', 'Soon')}</span>`}
                         </div>
                         <div class="text-sm font-bold" style="color:${p.color}">${esc(pName(p))}</div>
                         <p class="text-xs text-gray-400 leading-relaxed">${esc(pField(p, 'short'))}</p>
