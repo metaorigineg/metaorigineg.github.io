@@ -1,4 +1,6 @@
 {
+  "gym": 9,
+  "center": 8,
   "vertex": 12,
   "stores": 30,
   "sales-erp": 41,
@@ -15,8 +17,6 @@
   "hr-pro": 32,
   "hotel": 23,
   "hotel-pro": 21,
-  "gym": 9,
-  "center": 8,
   "cashier": 26,
   "cashier-stores": 23,
   "cashier-lite": 16,
