@@ -712,6 +712,7 @@
     },
     {
       "slug": "gym",
+      "online": "https://gym.metaorigineg.com/#/signup",
       "cat": "fitness",
       "product": "Meta Origin - Gym",
       "nameAr": "نظام الجيم",
@@ -745,6 +746,7 @@
     },
     {
       "slug": "center",
+      "online": "https://center.metaorigineg.com/#/signup",
       "cat": "education",
       "product": "Meta Origin - Center",
       "nameAr": "نظام السناتر التعليمية",
