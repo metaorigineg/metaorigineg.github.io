@@ -1,6 +1,6 @@
 {
   "restaurant": 27,
-  "hotel": 30,
+  "hotel": 32,
   "hotel-pro": 25,
   "gym": 13,
   "center": 13,
@@ -12,7 +12,7 @@
   "vertex": 13,
   "stores": 31,
   "sales-erp": 43,
-  "restaurant-pos": 23,
+  "restaurant-pos": 24,
   "pharmacy": 35,
   "lawyer": 11,
   "hr": 22,
@@ -20,6 +20,6 @@
   "erp": 36,
   "clinic": 31,
   "acc": 32,
-  "school": 21,
-  "hr-pro": 34
+  "school": 22,
+  "hr-pro": 35
 }
