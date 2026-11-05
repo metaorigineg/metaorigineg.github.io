@@ -177,15 +177,15 @@
     "published": true
   },
   "cashier-clothes": {
-    "version": "0.14.0",
+    "version": "0.14.1",
     "date": "2026-11-05",
     "sizeMB": 135,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Clothes-0.14.0.rar",
-    "tag": "cashier-clothes-v0.14.0",
+    "asset": "Meta-Origin-Cashier-Clothes-0.14.1.rar",
+    "tag": "cashier-clothes-v0.14.1",
     "notes": [
-      "«ارفع بياناتي للويب»: انقل بيانات المحل من الكمبيوتر لنسخة النت مرة واحدة من الإعدادات، وبياناتك على الكمبيوتر مابتتغيرش."
+      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
     ],
     "published": false
   },
