@@ -1,44 +1,40 @@
 {
   "pharmacy": {
-    "version": "1.8.1",
-    "date": "2026-11-05",
+    "version": "1.8.2",
+    "date": "2026-11-06",
     "sizeMB": 246,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Pharmacy\\Meta Origin - Pharmacy.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Pharmacy-1.8.1.rar",
-    "tag": "pharmacy-v1.8.1",
+    "asset": "Meta-Origin-Pharmacy-1.8.2.rar",
+    "tag": "pharmacy-v1.8.2",
     "notes": [
-      "فاتورة الشراء: اقتراحات الأصناف بقت بتظهر فوق جدول الفاتورة وأنت بتكتب اسم الصنف (كانت بتستخبى وراه)."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "sales-erp": {
-    "version": "1.9.0",
-    "date": "2026-11-04",
+    "version": "1.9.1",
+    "date": "2026-11-07",
     "sizeMB": 231,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Sales ERP\\Meta Origin - Sales ERP.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Sales-ERP-1.9.0.rar",
-    "tag": "sales-erp-v1.9.0",
+    "asset": "Meta-Origin-Sales-ERP-1.9.1.rar",
+    "tag": "sales-erp-v1.9.1",
     "notes": [
-      "«ارفع بياناتي للويب» (الإعدادات، للمالك): انقل كل بياناتك مرة واحدة للنسخة اللي على النت sales.metaorigineg.com بكود من صفحتك هناك. بيانات الكمبيوتر مش بتتغيّر، ومفيش مزامنة بعد النقل.",
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: القائمة بتتفتح فوق الصفحة وبتتقفل لوحدها بعد ما تختار، والشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس.",
-      "صفحة الباقات فيها أسعار «على الكمبيوتر» و«على النت»."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "vertex": {
-    "version": "1.1.0",
-    "date": "2026-11-04",
+    "version": "1.1.1",
+    "date": "2026-11-07",
     "sizeMB": 238,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Vertex ERP\\Meta Origin - Vertex ERP.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Vertex-ERP-1.1.0.rar",
-    "tag": "vertex-v1.1.0",
+    "asset": "Meta-Origin-Vertex-ERP-1.1.1.rar",
+    "tag": "vertex-v1.1.1",
     "notes": [
-      "«ارفع بياناتي للويب» (الإعدادات، للمالك): انقل كل بياناتك مرة واحدة للنسخة اللي على النت vertex.metaorigineg.com بكود من صفحتك هناك. بيانات الكمبيوتر مش بتتغيّر، ومفيش مزامنة بعد النقل.",
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: القائمة بتتفتح فوق الصفحة وبتتقفل لوحدها بعد ما تختار، والشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس.",
-      "صفحة الباقات فيها أسعار «على الكمبيوتر» و«على النت»."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
@@ -56,16 +52,15 @@
     "published": true
   },
   "lawyer": {
-    "version": "1.5.0",
-    "date": "2026-11-04",
+    "version": "1.5.1",
+    "date": "2026-11-06",
     "sizeMB": 361,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Lawyer\\Meta Origin - Lawyer.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Lawyer-1.5.0.rar",
-    "tag": "lawyer-v1.5.0",
+    "asset": "Meta-Origin-Lawyer-1.5.1.rar",
+    "tag": "lawyer-v1.5.1",
     "notes": [
-      "«ارفع بياناتي للويب»: انقل الموكلين والقضايا والجلسات والمستندات والحسابات والمستخدمين لمكتبك على النت مرة واحدة بكود من صفحتك هناك (الإعدادات ← ارفع بياناتي للويب). بيانات الكمبيوتر مابتتغيرش، وبعد النقل الكمبيوتر والنت بيبقوا نسختين منفصلين.",
-      "النسخة على النت: تصدير واستيراد Excel، وإشعارات الموبايل بتذكير الجلسات والمواعيد، وقراية النص من صور المستندات وملفات PDF."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
@@ -84,121 +79,119 @@
     "published": true
   },
   "erp": {
-    "version": "1.11.1",
-    "date": "2026-11-04",
+    "version": "1.11.2",
+    "date": "2026-11-07",
     "sizeMB": 390,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - ERP System\\Meta Origin - ERP System.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-ERP-System-1.11.1.rar",
-    "tag": "erp-v1.11.1",
+    "asset": "Meta-Origin-ERP-System-1.11.2.rar",
+    "tag": "erp-v1.11.2",
     "notes": [
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: القائمة بتتفتح فوق الصفحة وبتتقفل لوحدها بعد ما تختار، والشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو نسخك الاحتياطية بتترفع على Google Drive / OneDrive رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "acc": {
-    "version": "1.11.1",
-    "date": "2026-11-04",
+    "version": "1.11.2",
+    "date": "2026-11-07",
     "sizeMB": 385,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc\\Meta Origin - Acc.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Acc-1.11.1.rar",
-    "tag": "acc-v1.11.1",
+    "asset": "Meta-Origin-Acc-1.11.2.rar",
+    "tag": "acc-v1.11.2",
     "notes": [
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: القائمة بتتفتح فوق الصفحة وبتتقفل لوحدها بعد ما تختار، والشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو نسخك الاحتياطية بتترفع على Google Drive / OneDrive رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "acc-new": {
-    "version": "1.14.1",
-    "date": "2026-11-05",
+    "version": "1.14.2",
+    "date": "2026-11-07",
     "sizeMB": 226,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Acc New\\Meta Origin - Acc New.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Acc-New-1.14.1.rar",
-    "tag": "acc-new-v1.14.1",
+    "asset": "Meta-Origin-Acc-New-1.14.2.rar",
+    "tag": "acc-new-v1.14.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "stores": {
-    "version": "1.13.0",
-    "date": "2026-11-04",
+    "version": "1.13.1",
+    "date": "2026-11-07",
     "sizeMB": 166,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Stores\\Meta Origin - Stores.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Stores-1.13.0.rar",
-    "tag": "stores-v1.13.0",
+    "asset": "Meta-Origin-Stores-1.13.1.rar",
+    "tag": "stores-v1.13.1",
     "notes": [
-      "«ارفع بياناتي للويب» (الإعدادات، للمالك): انقل كل بياناتك مرة واحدة للنسخة اللي على النت stores.metaorigineg.com بكود من صفحتك هناك. بيانات الكمبيوتر مش بتتغيّر، ومفيش مزامنة بعد النقل.",
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: القائمة بتتفتح فوق الصفحة وبتتقفل لوحدها بعد ما تختار، والشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس.",
-      "صفحة الباقات فيها أسعار «على الكمبيوتر» و«على النت»."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو نسخك الاحتياطية بتترفع على Google Drive / OneDrive رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "cashier": {
-    "version": "1.20.1",
-    "date": "2026-11-05",
+    "version": "1.20.2",
+    "date": "2026-11-06",
     "sizeMB": 234,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier\\Meta Origin - Cashier.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-1.20.1.rar",
-    "tag": "cashier-v1.20.1",
+    "asset": "Meta-Origin-Cashier-1.20.2.rar",
+    "tag": "cashier-v1.20.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "cashier-stores": {
-    "version": "1.23.1",
-    "date": "2026-11-05",
+    "version": "1.23.2",
+    "date": "2026-11-07",
     "sizeMB": 226,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Stores\\Meta Origin - Cashier Stores.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Stores-1.23.1.rar",
-    "tag": "cashier-stores-v1.23.1",
+    "asset": "Meta-Origin-Cashier-Stores-1.23.2.rar",
+    "tag": "cashier-stores-v1.23.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "cashier-lite": {
-    "version": "0.15.1",
-    "date": "2026-11-05",
+    "version": "0.15.2",
+    "date": "2026-11-06",
     "sizeMB": 118,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Lite\\Meta Origin - Cashier Lite.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Lite-0.15.1.rar",
-    "tag": "cashier-lite-v0.15.1",
+    "asset": "Meta-Origin-Cashier-Lite-0.15.2.rar",
+    "tag": "cashier-lite-v0.15.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "cashier-clothes": {
-    "version": "0.14.1",
-    "date": "2026-11-05",
+    "version": "0.14.2",
+    "date": "2026-11-07",
     "sizeMB": 135,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Clothes\\Meta Origin - Cashier Clothes.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Clothes-0.14.1.rar",
-    "tag": "cashier-clothes-v0.14.1",
+    "asset": "Meta-Origin-Cashier-Clothes-0.14.2.rar",
+    "tag": "cashier-clothes-v0.14.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": false
   },
   "restaurant": {
-    "version": "1.8.0",
-    "date": "2026-11-05",
+    "version": "1.8.1",
+    "date": "2026-11-07",
     "sizeMB": 228,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Restaurant\\Meta Origin - Restaurant.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Restaurant-1.8.0.rar",
-    "tag": "restaurant-v1.8.0",
+    "asset": "Meta-Origin-Restaurant-1.8.1.rar",
+    "tag": "restaurant-v1.8.1",
     "notes": [
-      "«ارفع بياناتي للويب»: انقل بيانات المطعم من الكمبيوتر لنسختك على النت مرة واحدة (من القائمة ← ارفع بياناتي للويب)، والنسخة اللي على النت: restaurant.metaorigineg.com."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
@@ -217,61 +210,47 @@
     "published": true
   },
   "hotel": {
-    "version": "1.17.1",
-    "date": "2026-11-05",
+    "version": "1.17.2",
+    "date": "2026-11-07",
     "sizeMB": 331,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel\\Meta Origin - Hotel.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Hotel-1.17.1.rar",
-    "tag": "hotel-v1.17.1",
+    "asset": "Meta-Origin-Hotel-1.17.2.rar",
+    "tag": "hotel-v1.17.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو نسخك الاحتياطية بتترفع على Google Drive / OneDrive رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "hotel-pro": {
-    "version": "3.20.1",
-    "date": "2026-11-05",
+    "version": "3.20.2",
+    "date": "2026-11-07",
     "sizeMB": 231,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Hotel Pro\\Meta Origin - Hotel Pro.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Hotel-Pro-3.20.1.rar",
-    "tag": "hotel-pro-v3.20.1",
+    "asset": "Meta-Origin-Hotel-Pro-3.20.2.rar",
+    "tag": "hotel-pro-v3.20.2",
     "notes": [
-      "الشرح فيه طريقة نقل بياناتك لنسخة النت، وصفحة الباقات فيها أسعار النسخة اللي على النت."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
-  "hr": {
-    "version": "1.13.1",
-    "date": "2026-11-04",
-    "sizeMB": 221,
-    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR\\Meta Origin - HR.rar",
-    "kind": "RAR",
-    "asset": "Meta-Origin-HR-1.13.1.rar",
-    "tag": "hr-v1.13.1",
-    "notes": [
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: الشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس."
-    ],
-    "published": false
-  },
   "hr-pro": {
-    "version": "0.12.0",
-    "date": "2026-11-03",
+    "version": "0.12.1",
+    "date": "2026-11-07",
     "sizeMB": 355,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR Pro\\Meta Origin - HR Pro.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-HR-Pro-0.12.0.rar",
-    "tag": "hr-pro-v0.12.0",
+    "asset": "Meta-Origin-HR-Pro-0.12.1.rar",
+    "tag": "hr-pro-v0.12.1",
     "notes": [
-      "شاشة «أول تشغيل» جديدة: أول مرة البرنامج بيطلب اسم الشركة واسم صاحبها والموبايل والإيميل واسم الدخول وكلمة سر جديدة — كلهم إجباري، وبيوصلوا لـ Meta Origin (من غير كلمة السر) عشان الدعم الفني والتفعيل. لو البرنامج متسطب قبل كده، المدير بيكتب البيانات دي مرة واحدة بعد الدخول.",
-      "«اطلب الباقة دي» في صفحة الباقات بقت بتفتح طلب تفعيل كامل: اسمك والشركة والموبايل والباقة ومدة الاشتراك وطريقة الدفع (نقدي / انستاباي / محفظة إلكترونية / تحويل بنكي)، والطلب بيوصل لـ Meta Origin بالباقة اللي اخترتها."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "hr-enterprise": {
     "version": "1.7.1",
-    "date": "2026-11-04",
+    "date": "2026-11-07",
     "sizeMB": 452,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR Enterprise\\Meta Origin - HR Enterprise.rar",
     "kind": "RAR",
@@ -283,29 +262,28 @@
     "published": false
   },
   "gym": {
-    "version": "1.5.0",
-    "date": "2026-11-05",
+    "version": "1.5.1",
+    "date": "2026-11-06",
     "sizeMB": 246,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Gym\\Meta Origin - Gym.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Gym-1.5.0.rar",
-    "tag": "gym-v1.5.0",
+    "asset": "Meta-Origin-Gym-1.5.1.rar",
+    "tag": "gym-v1.5.1",
     "notes": [
-      "«ارفع بياناتي للويب»: انقل بيانات الجيم من الكمبيوتر لنسختك على النت مرة واحدة (الإعدادات ← ارفع بياناتي للويب)، والنسخة اللي على النت: gym.metaorigineg.com."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   },
   "center": {
-    "version": "1.7.0",
-    "date": "2026-11-05",
+    "version": "1.7.1",
+    "date": "2026-11-06",
     "sizeMB": 247,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Center\\Meta Origin - Center.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Center-1.7.0.rar",
-    "tag": "center-v1.7.0",
+    "asset": "Meta-Origin-Center-1.7.1.rar",
+    "tag": "center-v1.7.1",
     "notes": [
-      "«ارفع بياناتي للويب»: انقل بيانات السنتر من الكمبيوتر لنسختك على النت مرة واحدة (الإعدادات ← ارفع بياناتي للويب)، والنسخة اللي على النت: center.metaorigineg.com.",
-      "إلغاء صرف مستحقات المدرس ومرتب الموظف بقى شغال — كان بيرفض الإلغاء."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": true
   }
