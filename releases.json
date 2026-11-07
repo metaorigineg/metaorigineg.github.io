@@ -235,6 +235,19 @@
     ],
     "published": true
   },
+  "hr": {
+    "version": "1.13.2",
+    "date": "2026-11-07",
+    "sizeMB": 221,
+    "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR\\Meta Origin - HR.rar",
+    "kind": "RAR",
+    "asset": "Meta-Origin-HR-1.13.2.rar",
+    "tag": "hr-v1.13.2",
+    "notes": [
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
+    ],
+    "published": false
+  },
   "hr-pro": {
     "version": "0.12.1",
     "date": "2026-11-07",
