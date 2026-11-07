@@ -157,15 +157,16 @@
     "published": true
   },
   "cashier-lite": {
-    "version": "0.15.2",
-    "date": "2026-11-06",
-    "sizeMB": 118,
+    "version": "0.16.0",
+    "date": "2026-11-07",
+    "sizeMB": 119,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Cashier Lite\\Meta Origin - Cashier Lite.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Cashier-Lite-0.15.2.rar",
-    "tag": "cashier-lite-v0.15.2",
+    "asset": "Meta-Origin-Cashier-Lite-0.16.0.rar",
+    "tag": "cashier-lite-v0.16.0",
     "notes": [
-      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو عندك نسخة احتياطية (ملف على الجهاز أو على فلاشة، أو على Google Drive / OneDrive) رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
+      "المزامنة مع النسخة اللي على النت (للمشتركين): الإعدادات ← «المزامنة مع النت» واربط الجهاز بكود من صفحتك على النت. البيع اللي على الكمبيوتر (حتى من غير نت) بيوصل للنت، واللي بيتعمل على النت (من الموبايل) بينزل هنا. محتاجة ترخيص الكمبيوتر للجهاز.",
+      "من غير نت: «البيع والفلوس بس» أو «كل حاجة» — المدير بيختار. أي عملية النت يرفضها (مخزون، حد آجل) بتظهر للمدير، وأقصى مدة من غير مزامنة 7 أيام."
     ],
     "published": true
   },
@@ -262,15 +263,15 @@
     "published": true
   },
   "hr-enterprise": {
-    "version": "1.7.1",
+    "version": "1.7.2",
     "date": "2026-11-07",
     "sizeMB": 452,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - HR Enterprise\\Meta Origin - HR Enterprise.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-HR-Enterprise-1.7.1.rar",
-    "tag": "hr-enterprise-v1.7.1",
+    "asset": "Meta-Origin-HR-Enterprise-1.7.2.rar",
+    "tag": "hr-enterprise-v1.7.2",
     "notes": [
-      "فتح البرنامج من الموبايل والتابلت بقى متظبط: الشاشات داخلة في عرض الموبايل، والجداول العريضة بتتسكرول جوّه نفسها، والخانات والأزرار مقاس اللمس."
+      "شاشة أول تشغيل فيها «عندي حساب أو بيانات قبل كده»: لو نسخك الاحتياطية بتترفع على Google Drive / OneDrive رجّع بياناتك منها على طول بدل ما تعمل حساب جديد."
     ],
     "published": false
   },
