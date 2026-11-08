@@ -3,6 +3,7 @@
   "stores": 43,
   "sales-erp": 49,
   "restaurant": 35,
+  "restaurant-pos-vip": 2,
   "restaurant-pos": 27,
   "pharmacy": 41,
   "lawyer": 17,
@@ -21,6 +22,5 @@
   "cashier-clothes": 12,
   "acc": 38,
   "acc-new": 37,
-  "school": 25,
-  "restaurant-pos-vip": 2
+  "school": 25
 }
