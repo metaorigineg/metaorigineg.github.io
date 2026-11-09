@@ -4,16 +4,46 @@
     "tagline": "Software Studio",
     "about": "Meta Origin is an Egyptian software company building complete management systems for pharmacies, clinics, schools, hotels, factories, warehouses, restaurants, shops and trading companies: accounting, inventory, payroll, point of sale and reports. Our goal is easy-to-use software that runs on a single PC, on a whole network or online — with technical support close to you from installation until everything runs smoothly.",
     "strengths": [
-      { "t": "Arabic & English", "d": "Every program works in Arabic and English and you can switch at any time — invoices and reports follow the same language." },
-      { "t": "One PC, network or online", "d": "A single PC, a main PC with devices on the network, or from the browser and phone from anywhere." },
-      { "t": "Security & permissions", "d": "Permissions for every employee and a log of every action, with protection against money tampering (discounts, voids and credit need the manager)." },
-      { "t": "Automatic backups", "d": "Automatic backups in two places plus encrypted backups to Google Drive or OneDrive, backup testing and an alert if a backup is late." },
-      { "t": "Your look, your brand", "d": "More than 45 themes in light and dark mode, different styles and menu layouts, and your shop's name and logo inside the program." },
-      { "t": "Reports & export", "d": "Detailed reports and dashboards, Excel and PDF export, invoices and statements on WhatsApp, and importing items from Excel." },
-      { "t": "Your phone in your hand", "d": "A manager page on the phone, a barcode reader using the phone camera, and a daily report by email." },
-      { "t": "Guides & videos", "d": "Step-by-step help for every screen inside the program, a PDF user guide, and explainer videos on YouTube." },
-      { "t": "Try before you buy", "d": "A full 14-day trial, plus a demo copy full of sample data to try every screen without touching your own data." },
-      { "t": "Support & updates", "d": "Installation, training and support on WhatsApp, and updates installed from inside the program without affecting your data." }
+      {
+        "t": "Arabic & English",
+        "d": "Every program works in Arabic and English and you can switch at any time — invoices and reports follow the same language."
+      },
+      {
+        "t": "One PC, network or online",
+        "d": "A single PC, a main PC with devices on the network, or from the browser and phone from anywhere."
+      },
+      {
+        "t": "Security & permissions",
+        "d": "Permissions for every employee and a log of every action, with protection against money tampering (discounts, voids and credit need the manager)."
+      },
+      {
+        "t": "Automatic backups",
+        "d": "Automatic backups in two places plus encrypted backups to Google Drive or OneDrive, backup testing and an alert if a backup is late."
+      },
+      {
+        "t": "Your look, your brand",
+        "d": "More than 45 themes in light and dark mode, different styles and menu layouts, and your shop's name and logo inside the program."
+      },
+      {
+        "t": "Reports & export",
+        "d": "Detailed reports and dashboards, Excel and PDF export, invoices and statements on WhatsApp, and importing items from Excel."
+      },
+      {
+        "t": "Your phone in your hand",
+        "d": "A manager page on the phone, a barcode reader using the phone camera, and a daily report by email."
+      },
+      {
+        "t": "Guides & videos",
+        "d": "Step-by-step help for every screen inside the program, a PDF user guide, and explainer videos on YouTube."
+      },
+      {
+        "t": "Try before you buy",
+        "d": "A full 14-day trial, plus a demo copy full of sample data to try every screen without touching your own data."
+      },
+      {
+        "t": "Support & updates",
+        "d": "Installation, training and support on WhatsApp, and updates installed from inside the program without affecting your data."
+      }
     ]
   },
   "categories": {
@@ -27,14 +57,32 @@
     "legal": "Law & legal"
   },
   "team": [
-    { "role": "Founder & CEO", "bio": "Leads Meta Origin's vision and product development. He turns what organizations really need into practical systems that save time and keep the books right, and personally follows solution design, installation and customer support." },
-    { "role": "Co-founder", "bio": "Co-founded Meta Origin and leads business development and customer relations. He makes sure every organization gets the system that fits its size and way of working, and follows training and after-sales service." }
+    {
+      "role": "Founder & CEO",
+      "bio": "Leads Meta Origin's vision and product development. He turns what organizations really need into practical systems that save time and keep the books right, and personally follows solution design, installation and customer support."
+    },
+    {
+      "role": "Co-founder",
+      "bio": "Co-founded Meta Origin and leads business development and customer relations. He makes sure every organization gets the system that fits its size and way of working, and follows training and after-sales service."
+    }
   ],
   "badges": {
-    "موصى به": "Recommended", "سيرفر سريع ومستقر": "Fast and stable server", "تحميل مباشر": "Direct download", "تحميل فوري بضغطة واحدة": "One-click download",
-    "مشفّر وآمن": "Encrypted & safe", "سيرفر عالي السرعة": "High-speed server", "يتطلب باسورد": "Password required", "سحابي مميز": "Premium cloud",
-    "رابط مباشر ودائم": "Permanent direct link", "أرشيف": "Archive", "سيرفر تحميل بديل": "Alternative server", "تخزين سحابي": "Cloud storage",
-    "تنسيق مضغوط RAR": "RAR archive", "رسمي": "Official", "تحميل آمن وسريع": "Safe and fast download", "مايكروسوفت": "Microsoft",
+    "موصى به": "Recommended",
+    "سيرفر سريع ومستقر": "Fast and stable server",
+    "تحميل مباشر": "Direct download",
+    "تحميل فوري بضغطة واحدة": "One-click download",
+    "مشفّر وآمن": "Encrypted & safe",
+    "سيرفر عالي السرعة": "High-speed server",
+    "يتطلب باسورد": "Password required",
+    "سحابي مميز": "Premium cloud",
+    "رابط مباشر ودائم": "Permanent direct link",
+    "أرشيف": "Archive",
+    "سيرفر تحميل بديل": "Alternative server",
+    "تخزين سحابي": "Cloud storage",
+    "تنسيق مضغوط RAR": "RAR archive",
+    "رسمي": "Official",
+    "تحميل آمن وسريع": "Safe and fast download",
+    "مايكروسوفت": "Microsoft",
     "سيرفر سحابي معتمد وعالي الاعتمادية": "Reliable certified cloud server"
   },
   "programs": {
@@ -71,216 +119,618 @@
       ]
     },
     "pharmacy": {
-      "name": "Pharmacy Management", "category": "Pharmacies & medicines",
+      "name": "Pharmacy Management",
+      "category": "Pharmacies & medicines",
       "short": "One pharmacy or a chain: batches & expiry, insurance and controlled drugs.",
       "about": "A complete system for pharmacies and drug stores: barcode point of sale by box and strip, items with batches and expiry dates, alerts, shortages and reorders, purchases and suppliers, insurance, credit and chronic patients, controlled drugs and interactions, branches and transfers, shifts and cash, delivery, and reports. A main PC + cashier devices on the network and the owner's phone.",
       "features": [
-        { "t": "Medicines catalogue", "d": "Full management of medicines, doses, alternatives, batches and expiry dates." },
-        { "t": "Barcode & fast selling", "d": "Very fast selling and invoicing, label printing, and support for all barcode readers." },
-        { "t": "Accurate reports & profit", "d": "Track shortages and suppliers, with detailed financial reports for profit and stock." }
+        {
+          "t": "Medicines catalogue",
+          "d": "Full management of medicines, doses, alternatives, batches and expiry dates."
+        },
+        {
+          "t": "Barcode & fast selling",
+          "d": "Very fast selling and invoicing, label printing, and support for all barcode readers."
+        },
+        {
+          "t": "Accurate reports & profit",
+          "d": "Track shortages and suppliers, with detailed financial reports for profit and stock."
+        }
       ],
-      "shots": ["Dashboard", "Customers & credit", "Items", "Purchases", "Reports", "Point of sale"]
+      "shots": [
+        "Dashboard",
+        "Customers & credit",
+        "Items",
+        "Purchases",
+        "Reports",
+        "Point of sale"
+      ]
     },
     "sales-erp": {
-      "name": "Sales, Inventory & Accounting", "category": "Sales, inventory & accounting",
+      "name": "Sales, Inventory & Accounting",
+      "category": "Sales, inventory & accounting",
       "short": "Cloud from anywhere or desktop without internet: sales, stock, accounts and 94 reports.",
       "about": "Sales, inventory and accounting for multi-branch shops and trading companies: point of sale with units (piece/box/carton) and 3 price levels, purchases and returns, branch transfers and stock counts, customers, suppliers and cheques, cash, banks and wallets, salespeople and commissions, and 94 reports. Cloud (PC and phone on the same data by subscription) or desktop without internet.",
       "features": [
-        { "t": "Professional point of sale", "d": "Barcode, units and 3 price levels per customer, split payments, held invoices and keyboard shortcuts." },
-        { "t": "Branches & warehouses", "d": "Stock per branch with average cost, transfers with receiving, stock counts, damages and barcode labels." },
-        { "t": "Accounts & 94 reports", "d": "Cash, banks, wallets and cheques, debt aging, income statement — every report to Excel, PDF and WhatsApp." }
+        {
+          "t": "Professional point of sale",
+          "d": "Barcode, units and 3 price levels per customer, split payments, held invoices and keyboard shortcuts."
+        },
+        {
+          "t": "Branches & warehouses",
+          "d": "Stock per branch with average cost, transfers with receiving, stock counts, damages and barcode labels."
+        },
+        {
+          "t": "Accounts & 94 reports",
+          "d": "Cash, banks, wallets and cheques, debt aging, income statement — every report to Excel, PDF and WhatsApp."
+        }
       ],
-      "shots": ["Dashboard", "Purchase invoices", "Cash", "Customers", "Reports", "Point of sale"]
+      "shots": [
+        "Dashboard",
+        "Purchase invoices",
+        "Cash",
+        "Customers",
+        "Reports",
+        "Point of sale"
+      ]
     },
     "clinic": {
-      "name": "Clinics & Medical Centers", "category": "Clinics & medical centers",
+      "name": "Clinics & Medical Centers",
+      "category": "Clinics & medical centers",
       "short": "Bookings and queue, patient file, prescriptions and every specialty.",
       "about": "Management for clinics and medical centers: patients and their files, bookings, queue and waiting screen, examination and prescriptions, dental, physiotherapy, lab and radiology, invoices, insurance and doctors' shares, store, accounts and reports. Specialties are set by the license. Server and devices, and from the browser too.",
       "features": [
-        { "t": "Bookings & queue", "d": "Appointments, queue and waiting screen, with patient reminders." },
-        { "t": "Patient file", "d": "Examination, prescriptions, lab tests, radiology and the full medical history in one place." },
-        { "t": "Every specialty", "d": "Dental, physiotherapy, lab, radiology, ENT, cardiology, orthopedics, surgeries and inpatient stays." }
+        {
+          "t": "Bookings & queue",
+          "d": "Appointments, queue and waiting screen, with patient reminders."
+        },
+        {
+          "t": "Patient file",
+          "d": "Examination, prescriptions, lab tests, radiology and the full medical history in one place."
+        },
+        {
+          "t": "Every specialty",
+          "d": "Dental, physiotherapy, lab, radiology, ENT, cardiology, orthopedics, surgeries and inpatient stays."
+        }
       ],
-      "shots": ["Dashboard", "Today's reception (queue)", "Lab & radiology", "Invoices & collection", "Surgeries", "Pharmacy sales"]
+      "shots": [
+        "Dashboard",
+        "Today's reception (queue)",
+        "Lab & radiology",
+        "Invoices & collection",
+        "Surgeries",
+        "Pharmacy sales"
+      ]
     },
     "school": {
-      "name": "School Accounting & Management", "category": "Schools & universities",
+      "name": "School Accounting & Management",
+      "category": "Schools & universities",
       "short": "Fees and installments, attendance and grades, buses and canteen.",
       "about": "Accounting and management for schools and universities: collecting fees, installments and arrears, students and enrollment, attendance, grades and WhatsApp to parents, buses, canteen and activities, payroll, general ledger and financial statements, and a reports center with dashboards. Server and devices.",
       "features": [
-        { "t": "Fees & installments", "d": "Collect fees and installments and follow up on arrears." },
-        { "t": "Students", "d": "Enrollment, attendance, grades and WhatsApp to parents." },
-        { "t": "Services & accounts", "d": "Buses, canteen, activities, payroll and financial statements." }
+        {
+          "t": "Fees & installments",
+          "d": "Collect fees and installments and follow up on arrears."
+        },
+        {
+          "t": "Students",
+          "d": "Enrollment, attendance, grades and WhatsApp to parents."
+        },
+        {
+          "t": "Services & accounts",
+          "d": "Buses, canteen, activities, payroll and financial statements."
+        }
       ],
-      "shots": ["Dashboard", "Collection", "Students", "Attendance", "Management reports", "Bus routes"]
+      "shots": [
+        "Dashboard",
+        "Collection",
+        "Students",
+        "Attendance",
+        "Management reports",
+        "Bus routes"
+      ]
     },
     "erp": {
-      "name": "Garment Factory Management", "category": "Garment factories",
+      "name": "Garment Factory Management",
+      "category": "Garment factories",
       "short": "Cutting and production, quality and packing, costing and accounts.",
       "about": "Management for garment factories: production orders and their stages, cutting plans, materials and warehouses, quality and packing, piece-rate wages, costing, sales and purchases, and reports. Server and devices, and from the browser too.",
       "features": [
-        { "t": "Cutting & production", "d": "Production orders and their stages, cutting plans and a tracking board." },
-        { "t": "Quality & packing", "d": "Quality control, packing and piece-rate wages." },
-        { "t": "Costing & accounts", "d": "Cost of every style, warehouses, sales and purchases." }
+        {
+          "t": "Cutting & production",
+          "d": "Production orders and their stages, cutting plans and a tracking board."
+        },
+        {
+          "t": "Quality & packing",
+          "d": "Quality control, packing and piece-rate wages."
+        },
+        {
+          "t": "Costing & accounts",
+          "d": "Cost of every style, warehouses, sales and purchases."
+        }
       ],
-      "shots": ["Dashboard", "Units of measure", "Styles", "Purchase suggestions", "Cutting plan", "Production orders"]
+      "shots": [
+        "Dashboard",
+        "Units of measure",
+        "Styles",
+        "Purchase suggestions",
+        "Cutting plan",
+        "Production orders"
+      ]
     },
     "acc": {
-      "name": "General Accounting", "category": "General accounting",
+      "name": "General Accounting",
+      "category": "General accounting",
       "short": "Journals, cash, banks and financial statements, with packages per business.",
       "about": "General accounting: chart of accounts and journals, cash, banks and cheques, suppliers, assets and budgets, and financial statements; with packages per business type (schools, universities, factories, companies, shops). Server and devices, and from the browser too.",
       "features": [
-        { "t": "Journals & ledgers", "d": "Chart of accounts, daily journals and trial balance." },
-        { "t": "Cash & banks", "d": "Cash, banks, cheques, assets and budgets." },
-        { "t": "Financial statements", "d": "Income statement, balance sheet and dashboards." }
+        {
+          "t": "Journals & ledgers",
+          "d": "Chart of accounts, daily journals and trial balance."
+        },
+        {
+          "t": "Cash & banks",
+          "d": "Cash, banks, cheques, assets and budgets."
+        },
+        {
+          "t": "Financial statements",
+          "d": "Income statement, balance sheet and dashboards."
+        }
       ],
-      "shots": ["Home", "Quick collection", "Students list", "Collection", "Academic years & terms", "Reports center"]
+      "shots": [
+        "Home",
+        "Quick collection",
+        "Students list",
+        "Collection",
+        "Academic years & terms",
+        "Reports center"
+      ]
     },
     "acc-new": {
-      "name": "Accounting & Point of Sale", "category": "Shops, trading companies & factories",
+      "name": "Accounting & Point of Sale",
+      "category": "Shops, trading companies & factories",
       "short": "A shop, trading company or factory: sales, stock, manufacturing and journals.",
       "about": "Hesabat New: a shop, trading company or factory (each business has its own database), sales and point of sale, inventory and manufacturing, customers, suppliers and cheques, journals and reports, and a smart assistant. A main PC and devices on the network.",
       "features": [
-        { "t": "For every business", "d": "A shop, trading company or factory — each with its own database." },
-        { "t": "Inventory & manufacturing", "d": "Inventory, manufacturing, customers, suppliers and cheques." },
-        { "t": "Smart assistant", "d": "Journals, reports and an assistant that answers your questions." }
+        {
+          "t": "For every business",
+          "d": "A shop, trading company or factory — each with its own database."
+        },
+        {
+          "t": "Inventory & manufacturing",
+          "d": "Inventory, manufacturing, customers, suppliers and cheques."
+        },
+        {
+          "t": "Smart assistant",
+          "d": "Journals, reports and an assistant that answers your questions."
+        }
       ],
-      "shots": ["Dashboard", "Sales invoices", "Items", "Customers", "Employees & payroll", "Point of sale"]
+      "shots": [
+        "Dashboard",
+        "Sales invoices",
+        "Items",
+        "Customers",
+        "Employees & payroll",
+        "Point of sale"
+      ]
     },
     "stores": {
-      "name": "Warehouses & Production Tracking", "category": "Warehouses & factories",
+      "name": "Warehouses & Production Tracking",
+      "category": "Warehouses & factories",
       "short": "Stock vouchers and counts, production orders, style tracking.",
       "about": "Warehouse management: items and balances, receiving, issue and transfer vouchers, stock counts, suppliers, production orders and their cost, a style tracking board, and stock movement reports. Server and devices, and from the browser too.",
       "features": [
-        { "t": "Vouchers & counts", "d": "Receiving, issue and transfer vouchers and stock counts." },
-        { "t": "Production orders", "d": "The style and its components, planned versus actual." },
-        { "t": "Tracking & reports", "d": "Style tracking board and stock movement reports." }
+        {
+          "t": "Vouchers & counts",
+          "d": "Receiving, issue and transfer vouchers and stock counts."
+        },
+        {
+          "t": "Production orders",
+          "d": "The style and its components, planned versus actual."
+        },
+        {
+          "t": "Tracking & reports",
+          "d": "Style tracking board and stock movement reports."
+        }
       ],
-      "shots": ["Dashboard", "Purchase invoices", "Inventory", "Planning & tracking", "Production orders", "Production (daily log)"]
+      "shots": [
+        "Dashboard",
+        "Purchase invoices",
+        "Inventory",
+        "Planning & tracking",
+        "Production orders",
+        "Production (daily log)"
+      ]
     },
     "cashier": {
-      "name": "Supermarket Cashier", "category": "Supermarkets",
+      "name": "Supermarket Cashier",
+      "category": "Supermarkets",
       "short": "Barcode and scale, shifts, delivery.",
       "about": "Supermarket point of sale: selling by barcode and scale, items and stock, purchases and suppliers, customers, credit and loyalty points, delivery, shifts and cash, and reports. A main PC and sub devices.",
       "features": [
-        { "t": "Barcode & scale", "d": "Fast selling by barcode and scale barcodes." },
-        { "t": "Shifts & cash", "d": "Open and close shifts and reconcile the drawer." },
-        { "t": "Delivery & customers", "d": "Delivery, credit and loyalty points." }
+        {
+          "t": "Barcode & scale",
+          "d": "Fast selling by barcode and scale barcodes."
+        },
+        {
+          "t": "Shifts & cash",
+          "d": "Open and close shifts and reconcile the drawer."
+        },
+        {
+          "t": "Delivery & customers",
+          "d": "Delivery, credit and loyalty points."
+        }
       ],
-      "shots": ["Sales", "Customers & credit", "Items & stock", "Purchases", "Owner dashboard", "Shift"]
+      "shots": [
+        "Sales",
+        "Customers & credit",
+        "Items & stock",
+        "Purchases",
+        "Owner dashboard",
+        "Shift"
+      ]
     },
     "cashier-stores": {
-      "name": "Cashier for Every Shop", "category": "All kinds of shops",
+      "name": "Cashier for Every Shop",
+      "category": "All kinds of shops",
       "short": "Clothes, perfumes, mobiles and home goods.",
       "about": "Point of sale for all kinds of shops: fast barcode selling, stock and purchases, serials, warranty and repairs, shifts and cash, customers, and sales and profit reports. A main PC and sub devices.",
       "features": [
-        { "t": "For every business", "d": "Clothes, perfumes, mobiles and home goods." },
-        { "t": "Serials & warranty", "d": "Track serials, warranty and repairs." },
-        { "t": "Profit & reports", "d": "Sales, profit and stock reports." }
+        {
+          "t": "For every business",
+          "d": "Clothes, perfumes, mobiles and home goods."
+        },
+        {
+          "t": "Serials & warranty",
+          "d": "Track serials, warranty and repairs."
+        },
+        {
+          "t": "Profit & reports",
+          "d": "Sales, profit and stock reports."
+        }
       ],
-      "shots": ["Home", "Products & stock", "Customers", "Employees", "Point of sale", "Invoices & returns"]
+      "shots": [
+        "Home",
+        "Products & stock",
+        "Customers",
+        "Employees",
+        "Point of sale",
+        "Invoices & returns"
+      ]
     },
     "cashier-lite": {
-      "name": "Market Cashier (single PC)", "category": "Markets & small shops",
+      "name": "Market Cashier (single PC)",
+      "category": "Markets & small shops",
       "short": "Barcode selling, delivery and offers, shift closing and profit.",
       "about": "A simple, fast point of sale for a single PC: items and stock, delivery, offers and loyalty points, shift closing, and daily and profit reports.",
       "features": [
-        { "t": "Fast selling", "d": "Barcode and wholesale selling on one PC." },
-        { "t": "Offers & delivery", "d": "Offers, loyalty points and delivery." },
-        { "t": "Closing & profit", "d": "Shift closing, daily reports and profit." }
+        {
+          "t": "Fast selling",
+          "d": "Barcode and wholesale selling on one PC."
+        },
+        {
+          "t": "Offers & delivery",
+          "d": "Offers, loyalty points and delivery."
+        },
+        {
+          "t": "Closing & profit",
+          "d": "Shift closing, daily reports and profit."
+        }
       ],
-      "shots": ["New item", "Regular invoice", "Open & close shift", "Invoices screen (F4)", "Delivery & phone orders", "Customers"]
+      "shots": [
+        "New item",
+        "Regular invoice",
+        "Open & close shift",
+        "Invoices screen (F4)",
+        "Delivery & phone orders",
+        "Customers"
+      ]
     },
     "restaurant": {
-      "name": "Restaurant & Café Cashier", "category": "Restaurants, cafés & delivery",
+      "name": "Restaurant & Café Cashier",
+      "category": "Restaurants, cafés & delivery",
       "short": "Dining hall and tables, kitchen and delivery, store and recipes.",
       "about": "Point of sale for restaurants, cafés and delivery: cashier, dining hall and tables with waiters on their phones, kitchen screen and printers, delivery drivers and platforms, menu, offers and a QR menu, store, recipes and costing, shifts, cash, expenses and payroll, and reports.",
       "features": [
-        { "t": "Dining hall & tables", "d": "Tables, waiters on their phones and a QR menu." },
-        { "t": "Kitchen & delivery", "d": "Kitchen screen and printers, drivers and platforms." },
-        { "t": "Store & recipes", "d": "The cost of every meal from its recipe, and the store." }
+        {
+          "t": "Dining hall & tables",
+          "d": "Tables, waiters on their phones and a QR menu."
+        },
+        {
+          "t": "Kitchen & delivery",
+          "d": "Kitchen screen and printers, drivers and platforms."
+        },
+        {
+          "t": "Store & recipes",
+          "d": "The cost of every meal from its recipe, and the store."
+        }
       ],
-      "shots": ["Cashier", "Kitchen", "Menu & prices", "Shift", "Live view", "Dining hall & tables"]
+      "shots": [
+        "Cashier",
+        "Kitchen",
+        "Menu & prices",
+        "Shift",
+        "Live view",
+        "Dining hall & tables"
+      ]
     },
     "restaurant-pos": {
-      "name": "Restaurant POS — Starter · Business · PRO", "category": "Restaurants, cafés & branch chains",
+      "name": "Restaurant POS — Starter · Business · PRO",
+      "category": "Restaurants, cafés & branch chains",
       "short": "Starter, Business and PRO plans — from one restaurant to a chain of branches.",
       "about": "Point of sale for restaurants and cafés in plans that fit your size (Starter, Business and PRO): cashier, orders, reservations, delivery and the kitchen screen, recipes and dish cost, inventory, purchasing and suppliers, customers and loyalty points, multiple branches and transfers, reports and analytics, and staff permissions. Cashier PCs, tablets and the kitchen open it in the browser on the network, and a daily report arrives by email.",
       "features": [
-        { "t": "Plans that fit you", "d": "Start with Starter and add parts or branches when you need them." },
-        { "t": "Cashier & kitchen", "d": "Dine-in, takeaway and delivery, and a kitchen screen per station." },
-        { "t": "Recipes & branches", "d": "The cost of every dish, a central store and transfers between branches." }
+        {
+          "t": "Plans that fit you",
+          "d": "Start with Starter and add parts or branches when you need them."
+        },
+        {
+          "t": "Cashier & kitchen",
+          "d": "Dine-in, takeaway and delivery, and a kitchen screen per station."
+        },
+        {
+          "t": "Recipes & branches",
+          "d": "The cost of every dish, a central store and transfers between branches."
+        }
       ],
-      "shots": ["Cashier", "Kitchen screen", "Recipes & dish cost", "Branches", "Reports", "Plans"]
+      "shots": [
+        "Cashier",
+        "Kitchen screen",
+        "Recipes & dish cost",
+        "Branches",
+        "Reports",
+        "Plans"
+      ]
     },
     "hotel": {
-      "name": "Hotels & Serviced Apartments", "category": "Hotels, apartments & student housing",
+      "name": "Hotels & Serviced Apartments",
+      "category": "Hotels, apartments & student housing",
       "short": "Bookings, student housing, online booking.",
       "about": "Bookings for hotels, serviced apartments and student housing: rooms, bookings and guests, check-in and check-out, online booking, invoices, payments and occupancy reports. A single PC or a server and devices.",
       "features": [
-        { "t": "Rooms & bookings", "d": "Bookings, check-in, check-out and guests." },
-        { "t": "Online booking", "d": "An online booking page and mobile pages." },
-        { "t": "Occupancy & invoices", "d": "Invoices, payments and occupancy reports." }
+        {
+          "t": "Rooms & bookings",
+          "d": "Bookings, check-in, check-out and guests."
+        },
+        {
+          "t": "Online booking",
+          "d": "An online booking page and mobile pages."
+        },
+        {
+          "t": "Occupancy & invoices",
+          "d": "Invoices, payments and occupancy reports."
+        }
       ],
-      "shots": ["Dashboard", "Bookings", "Units & rooms", "Housekeeping", "Reports", "Booking calendar"]
+      "shots": [
+        "Dashboard",
+        "Bookings",
+        "Units & rooms",
+        "Housekeeping",
+        "Reports",
+        "Booking calendar"
+      ]
     },
     "hotel-pro": {
-      "name": "Hotel Management (Pro)", "category": "Hotels",
+      "name": "Hotel Management (Pro)",
+      "category": "Hotels",
       "short": "Booking chart, housekeeping, reports.",
       "about": "Hotel management (Pro): rooms and the booking chart, guests and ID photos, invoices, cash and shifts, housekeeping, expenses and reports. Data saved in 3 places, with a main PC and sub devices.",
       "features": [
-        { "t": "Booking chart", "d": "Rooms and bookings chart with drag & drop." },
-        { "t": "Housekeeping", "d": "Room cleaning follow-up and expenses." },
-        { "t": "Cash & reports", "d": "Invoices, cash, shifts and reports." }
+        {
+          "t": "Booking chart",
+          "d": "Rooms and bookings chart with drag & drop."
+        },
+        {
+          "t": "Housekeeping",
+          "d": "Room cleaning follow-up and expenses."
+        },
+        {
+          "t": "Cash & reports",
+          "d": "Invoices, cash, shifts and reports."
+        }
       ],
-      "shots": ["Dashboard", "Rooms", "Invoices & payments", "Activity log", "Booking chart", "Bookings"]
+      "shots": [
+        "Dashboard",
+        "Rooms",
+        "Invoices & payments",
+        "Activity log",
+        "Booking chart",
+        "Bookings"
+      ]
     },
     "hr-pro": {
-      "name": "Attendance & Payroll for Factories", "category": "HR for factories",
+      "name": "Attendance & Payroll for Factories",
+      "category": "HR for factories",
       "short": "Attendance, automatic fingerprint download, shifts.",
       "about": "HR Pro: employees and the organization chart, downloading attendance from fingerprint devices (ZKTeco and others), shifts and schedules, leaves, permissions and overtime, payroll, advances and piece rates, regulations, and an employee portal on the phone. Server (Windows service) and devices.",
       "features": [
-        { "t": "Automatic fingerprint download", "d": "From ZKTeco and other devices." },
-        { "t": "Shifts & overtime", "d": "Shifts, schedules, permissions and overtime." },
-        { "t": "Employee portal", "d": "Employees see their salary and leaves on their phone." }
+        {
+          "t": "Automatic fingerprint download",
+          "d": "From ZKTeco and other devices."
+        },
+        {
+          "t": "Shifts & overtime",
+          "d": "Shifts, schedules, permissions and overtime."
+        },
+        {
+          "t": "Employee portal",
+          "d": "Employees see their salary and leaves on their phone."
+        }
       ],
-      "shots": ["Home", "Employees", "Daily attendance", "Payroll", "Shifts", "Fingerprint devices"]
+      "shots": [
+        "Home",
+        "Employees",
+        "Daily attendance",
+        "Payroll",
+        "Shifts",
+        "Fingerprint devices"
+      ]
     },
     "gym": {
-      "name": "Gym Management", "category": "Gyms & fitness clubs",
+      "name": "Gym Management",
+      "category": "Gyms & fitness clubs",
       "short": "Barcode & fingerprint check-in, memberships & installments, personal training and a protected cash drawer.",
       "about": "A complete system for gyms and fitness clubs: check-in by barcode, QR or fingerprint, members and memberships by days or sessions with installments, freezing and family plans, offers and coupons, trainers and personal training with commissions, classes and men / women hours, body measurements and workout plans, supplement sales and stock, lockers, staff and payroll, shifts and a protected cash drawer, leads, WhatsApp messages and reports. A main PC + reception and trainer PCs on the network, and a page for every member on their phone.",
       "features": [
-        { "t": "Check-in in a second", "d": "Scan the member card by barcode, QR or fingerprint, blocking expired, frozen or unpaid members by your rules." },
-        { "t": "Memberships & installments", "d": "Plans by days or sessions, dated installments, freeze and extend, family plans, offers and coupons." },
-        { "t": "Personal training & trainers", "d": "Session packages and each trainer's commission as a percentage or per session." },
-        { "t": "A protected cash drawer", "d": "Reception closes the shift without seeing the expected cash; discounts, credit and cash-outs need the manager." }
+        {
+          "t": "Check-in in a second",
+          "d": "Scan the member card by barcode, QR or fingerprint, blocking expired, frozen or unpaid members by your rules."
+        },
+        {
+          "t": "Memberships & installments",
+          "d": "Plans by days or sessions, dated installments, freeze and extend, family plans, offers and coupons."
+        },
+        {
+          "t": "Personal training & trainers",
+          "d": "Session packages and each trainer's commission as a percentage or per session."
+        },
+        {
+          "t": "A protected cash drawer",
+          "d": "Reception closes the shift without seeing the expected cash; discounts, credit and cash-outs need the manager."
+        }
       ],
-      "shots": ["Dashboard", "Check-in", "Members", "Plans & prices", "Trainers & personal training", "Cash & expenses", "Shop", "Reports"]
+      "shots": [
+        "Dashboard",
+        "Check-in",
+        "Members",
+        "Plans & prices",
+        "Trainers & personal training",
+        "Cash & expenses",
+        "Shop",
+        "Reports"
+      ]
     },
     "center": {
-      "name": "Learning Center Management", "category": "Learning centers & tutoring",
+      "name": "Learning Center Management",
+      "category": "Learning centers & tutoring",
       "short": "Card check-in, fees and installments, teachers' pay, exams and parents.",
       "about": "A complete system for learning centers and tutoring: student check-in by QR card, camera, gate or fingerprint, monthly or per-session fees and courses in installments, groups and timetable without room clashes, exams, bubble sheets and a question bank, lesson videos, teachers' pay in every way, books and notes, shifts and a protected cash drawer, staff and payroll, offers, room bookings, parent messages and campaigns with a page for every student, and reports and forecasts. A main PC + reception PCs and branches, and the teacher's phone.",
       "features": [
-        { "t": "Card check-in", "d": "Present or late by the session time, guests and make-up sessions, and an absence message to the parent." },
-        { "t": "Fees & teachers' pay", "d": "Monthly, per session or installments, and each teacher's pay by their own method." },
-        { "t": "Exams & bubble sheets", "d": "Fast marks and ranking, QR bubble sheets marked from a photo, a question bank and online exams." },
-        { "t": "Parents", "d": "A page for every student with attendance, marks and balance, messages and campaigns." }
+        {
+          "t": "Card check-in",
+          "d": "Present or late by the session time, guests and make-up sessions, and an absence message to the parent."
+        },
+        {
+          "t": "Fees & teachers' pay",
+          "d": "Monthly, per session or installments, and each teacher's pay by their own method."
+        },
+        {
+          "t": "Exams & bubble sheets",
+          "d": "Fast marks and ranking, QR bubble sheets marked from a photo, a question bank and online exams."
+        },
+        {
+          "t": "Parents",
+          "d": "A page for every student with attendance, marks and balance, messages and campaigns."
+        }
       ],
-      "shots": ["Dashboard", "Attendance", "Students", "Collecting fees", "Groups", "Exams & marks", "Teachers & pay", "Reports"]
+      "shots": [
+        "Dashboard",
+        "Attendance",
+        "Students",
+        "Collecting fees",
+        "Groups",
+        "Exams & marks",
+        "Teachers & pay",
+        "Reports"
+      ]
     },
     "vertex": {
-      "name": "Vertex ERP", "category": "Complete ERP for companies & factories (Egypt & Saudi Arabia)",
+      "name": "Vertex ERP",
+      "category": "Complete ERP for companies & factories (Egypt & Saudi Arabia)",
       "short": "Accounting, sales, purchasing, inventory, manufacturing, fixed assets, POS, payroll and projects in one system.",
       "about": "A complete ERP for Egypt and Saudi Arabia, built the way big ERP systems work: every document is a draft, then posted with a journal entry, and every department shares the same accounts — accounting with tax returns and financial statements, sales and purchasing (quotes, orders, invoices, returns), inventory at average cost with counts and stock monitoring, manufacturing with models and production orders, fixed assets and depreciation, POS with sessions and blind closing, HR and payroll (social insurance, tax and end of service for Egypt and Saudi Arabia), projects and contracting, reports and e-invoicing. A main PC + network PCs or the browser.",
       "features": [
-        { "t": "Real double-entry accounting", "d": "Chart of accounts, journal entries and vouchers with posting, tax returns and financial statements — every document posts its own entry." },
-        { "t": "Sales, stock & manufacturing", "d": "From quote to invoice and return, average-cost inventory with counts, and production orders costed with materials and labour." },
-        { "t": "Payroll for Egypt & KSA", "d": "Employees, attendance, leave and payroll with insurance, tax and end of service by country." },
-        { "t": "Projects & POS", "d": "Projects and contracting with progress bills and costs, and POS with sessions and blind cash closing." }
+        {
+          "t": "Real double-entry accounting",
+          "d": "Chart of accounts, journal entries and vouchers with posting, tax returns and financial statements — every document posts its own entry."
+        },
+        {
+          "t": "Sales, stock & manufacturing",
+          "d": "From quote to invoice and return, average-cost inventory with counts, and production orders costed with materials and labour."
+        },
+        {
+          "t": "Payroll for Egypt & KSA",
+          "d": "Employees, attendance, leave and payroll with insurance, tax and end of service by country."
+        },
+        {
+          "t": "Projects & POS",
+          "d": "Projects and contracting with progress bills and costs, and POS with sessions and blind cash closing."
+        }
       ],
-      "shots": ["Dashboard", "Journal entries & posting", "Sales invoices", "Stock monitor", "Production orders", "Point of sale", "Payroll", "Projects & contracting"]
+      "shots": [
+        "Dashboard",
+        "Journal entries & posting",
+        "Sales invoices",
+        "Stock monitor",
+        "Production orders",
+        "Point of sale",
+        "Payroll",
+        "Projects & contracting"
+      ]
+    },
+    "sufra": {
+      "name": "Sufra — Restaurant & Café Management",
+      "category": "Restaurants, cafés & delivery",
+      "short": "Fast POS, table map, kitchen screen, delivery and stock with the cost of every dish — waiters and drivers on their phones.",
+      "about": "Sufra runs every kind of restaurant and café: a fast POS (dine-in, takeaway, delivery, pickup and delivery apps) with sizes, add-ons, combos and weighed items, a table map with move, merge and split bills, kitchen tickets per station with a kitchen screen and a call screen, delivery zones and drivers, customers with points and credit, shifts with blind cash-up and Z report, stock and recipes with the cost of every dish, staff and payroll, reservations, a QR menu, and reports that watch the money. One main PC in the restaurant; cashiers, waiters, drivers and the kitchen join over the network.",
+      "features": [
+        {
+          "t": "POS in seconds",
+          "d": "Dine-in, takeaway, delivery and apps; sizes, add-ons and combos; split payments and keyboard shortcuts."
+        },
+        {
+          "t": "Table map",
+          "d": "The floor in colours, move, merge and split bills, and waiters order from their phones."
+        },
+        {
+          "t": "Kitchen & call screen",
+          "d": "A ticket per station, a kitchen screen coloured by time, and a talking call screen for guests."
+        },
+        {
+          "t": "Delivery & drivers",
+          "d": "Zones and fees, drivers on their phones, and each driver's cash settled in a second."
+        },
+        {
+          "t": "Stock & dish cost",
+          "d": "A recipe per item deducted on sale, expiry, waste and stock counts, and a dish margin report."
+        },
+        {
+          "t": "Money control",
+          "d": "Blind drawer cash-up, manager approval for discounts and voids, and a suspicious-activity report by the minute."
+        }
+      ]
+    },
+    "lab": {
+      "name": "Medical Lab Management",
+      "category": "Medical laboratories",
+      "short": "Reception to report in minutes: barcoded samples, results with reference ranges, analyzer interfacing, and a QR report on WhatsApp.",
+      "about": "A complete system for medical laboratories: register the visit, tests, packages and contracts in a minute (even from a photo of the prescription), barcoded samples received by scanner, results with age/sex reference ranges, critical values, calculated items and doctor approval, a report in Arabic or English with a QR to verify it and pages for the patient and the doctor, analyzer interfacing over ASTM and HL7, QC with Westgard rules and ISO 15189 quality, reagents stock with expiry, cash, contracts, insurance and doctor commissions, home collection and branches, and reports. One main PC in the lab; other PCs and phones join over the network.",
+      "features": [
+        {
+          "t": "Reception in a minute",
+          "d": "Patient, tests, packages, contract and discount — the receipt and tube labels in one click."
+        },
+        {
+          "t": "Barcoded samples",
+          "d": "A tube per sample type, scanner receiving, and rejection with a reason and a recollection."
+        },
+        {
+          "t": "Results & approval",
+          "d": "Reference ranges by age and sex, critical values, calculated items, and a delta check."
+        },
+        {
+          "t": "Analyzer interfacing",
+          "d": "ASTM and HL7 for popular analyzers, results flow in, and auto-verification of normals."
+        },
+        {
+          "t": "QR report & WhatsApp",
+          "d": "A professional signed PDF, patient and doctor pages, and sending on WhatsApp."
+        },
+        {
+          "t": "ISO 15189 quality",
+          "d": "QC with Westgard rules, maintenance, documents, training, complaints and quality indicators."
+        }
+      ]
     }
   }
 }

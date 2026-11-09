@@ -43,7 +43,7 @@ const PLANS = fs.existsSync(PLANS_FILE) ? JSON.parse(fs.readFileSync(PLANS_FILE,
 
 // سجل الإصدارات (صفحة «آخر التحديثات»): كل إصدار وملاحظاته من tools/shared/whats-new/whats-new.js (+ changelog.py بتاع HR)،
 // بيتحفظ في updates.json عشان البناء يشتغل حتى لو الفولدرات دي مش موجودة.
-const WN_KEY = { pharmacy: 'pharmacy', lawyer: 'lawyer', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', vertex: 'vertex', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
+const WN_KEY = { pharmacy: 'pharmacy', lawyer: 'lawyer', sufra: 'sufra', lab: 'lab', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', vertex: 'vertex', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
   hotel: 'hotel', 'hotel-pro': 'hotelpro', cashier: 'cashier', 'cashier-stores': 'kashier', 'cashier-lite': 'cashierlite', 'cashier-clothes': 'clothes',
   restaurant: 'restaurant', hr: 'hr', 'hr-pro': 'hrpro', 'hr-enterprise': 'hrenterprise' };
 const UPDATES_FILE = path.join(HERE, 'updates.json');
@@ -703,6 +703,7 @@ function homePage() {
     ['fa-prescription-bottle-medical', 'صيدلية', 'Pharmacy', ['pharmacy']],
     ['fa-stethoscope', 'عيادة أو مركز طبي', 'Clinic or medical center', ['clinic']],
     ['fa-scale-balanced', 'مكتب محاماة', 'Law office', ['lawyer']],
+    ['fa-flask-vial', 'معمل تحاليل', 'Medical lab', ['lab']],
     ['fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
     ['fa-chalkboard-user', 'سنتر تعليمي أو دروس', 'Learning center or tutoring', ['center']],
     ['fa-dumbbell', 'جيم أو صالة رياضية', 'Gym or fitness club', ['gym']],
@@ -710,7 +711,7 @@ function homePage() {
     ['fa-cart-shopping', 'سوبر ماركت أو بقالة', 'Supermarket or grocery', ['cashier', 'cashier-lite']],
     ['fa-shirt', 'محل ملابس أو عطور أو موبايلات', 'Clothes, perfume or mobile shop', ['cashier-stores', 'cashier-clothes']],
     ['fa-store', 'محل صغير بجهاز واحد', 'Small shop with one PC', ['cashier-lite']],
-    ['fa-utensils', 'مطعم أو كافيه أو دليفري', 'Restaurant, café or delivery', ['restaurant', 'restaurant-pos']],
+    ['fa-utensils', 'مطعم أو كافيه أو دليفري', 'Restaurant, café or delivery', ['sufra', 'restaurant', 'restaurant-pos']],
     ['fa-code-branch', 'سلسلة مطاعم أو كافيهات بفروع', 'Restaurant or café chain with branches', ['restaurant-pos', 'restaurant']],
     ['fa-hotel', 'فندق أو شقق أو سكن طلاب', 'Hotel, apartments or student housing', ['hotel-pro', 'hotel']],
     ['fa-industry', 'مصنع ملابس', 'Garment factory', ['erp', 'stores']],

@@ -1,624 +1,692 @@
 {
- "lawyer": [
-   {
-     "f": "shots/lawyer/1.webp",
-     "t": "لوحة اليوم"
-   },
-   {
-     "f": "shots/lawyer/2.webp",
-     "t": "الرول والجلسات"
-   },
-   {
-     "f": "shots/lawyer/3.webp",
-     "t": "ملف القضية"
-   },
-   {
-     "f": "shots/lawyer/4.webp",
-     "t": "المواعيد القانونية"
-   },
-   {
-     "f": "shots/lawyer/5.webp",
-     "t": "الموكلين والتوكيلات"
-   },
-   {
-     "f": "shots/lawyer/6.webp",
-     "t": "الحسابات والأتعاب"
-   }
- ],
- "pharmacy": [
-  {
-   "f": "shots/pharmacy/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/pharmacy/2.webp",
-   "t": "العملاء والآجل"
-  },
-  {
-   "f": "shots/pharmacy/3.webp",
-   "t": "الأصناف"
-  },
-  {
-   "f": "shots/pharmacy/4.webp",
-   "t": "المشتريات"
-  },
-  {
-   "f": "shots/pharmacy/5.webp",
-   "t": "التقارير"
-  },
-  {
-   "f": "shots/pharmacy/6.webp",
-   "t": "نقطة البيع"
-  }
- ],
- "sales-erp": [
-  {
-   "f": "shots/sales-erp/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/sales-erp/2.webp",
-   "t": "فواتير المشتريات"
-  },
-  {
-   "f": "shots/sales-erp/3.webp",
-   "t": "الخزينة"
-  },
-  {
-   "f": "shots/sales-erp/4.webp",
-   "t": "العملاء"
-  },
-  {
-   "f": "shots/sales-erp/5.webp",
-   "t": "التقارير والاستعلامات"
-  },
-  {
-   "f": "shots/sales-erp/6.webp",
-   "t": "نقطة البيع"
-  }
- ],
- "clinic": [
-  {
-   "f": "shots/clinic/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/clinic/2.webp",
-   "t": "استقبال النهارده (الطابور)"
-  },
-  {
-   "f": "shots/clinic/3.webp",
-   "t": "التحاليل والأشعة"
-  },
-  {
-   "f": "shots/clinic/4.webp",
-   "t": "الفواتير والتحصيل"
-  },
-  {
-   "f": "shots/clinic/5.webp",
-   "t": "العمليات"
-  },
-  {
-   "f": "shots/clinic/6.webp",
-   "t": "بيع (الصيدلية)"
-  }
- ],
- "school": [
-  {
-   "f": "shots/school/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/school/2.webp",
-   "t": "التحصيل"
-  },
-  {
-   "f": "shots/school/3.webp",
-   "t": "الطلاب"
-  },
-  {
-   "f": "shots/school/4.webp",
-   "t": "الحضور والغياب"
-  },
-  {
-   "f": "shots/school/5.webp",
-   "t": "تقارير الإدارة"
-  },
-  {
-   "f": "shots/school/6.webp",
-   "t": "خطوط الباصات"
-  }
- ],
- "erp": [
-  {
-   "f": "shots/erp/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/erp/2.webp",
-   "t": "وحدات القياس"
-  },
-  {
-   "f": "shots/erp/3.webp",
-   "t": "الموديلات"
-  },
-  {
-   "f": "shots/erp/4.webp",
-   "t": "اقتراحات الشراء"
-  },
-  {
-   "f": "shots/erp/5.webp",
-   "t": "تخطيط القص"
-  },
-  {
-   "f": "shots/erp/6.webp",
-   "t": "أوامر الإنتاج"
-  }
- ],
- "acc": [
-  {
-   "f": "shots/acc/1.webp",
-   "t": "الرئيسية"
-  },
-  {
-   "f": "shots/acc/2.webp",
-   "t": "التحصيل السريع"
-  },
-  {
-   "f": "shots/acc/3.webp",
-   "t": "قائمة الطلاب"
-  },
-  {
-   "f": "shots/acc/4.webp",
-   "t": "التحصيل"
-  },
-  {
-   "f": "shots/acc/5.webp",
-   "t": "السنوات الدراسية والتراما"
-  },
-  {
-   "f": "shots/acc/6.webp",
-   "t": "مركز التقارير"
-  }
- ],
- "acc-new": [
-  {
-   "f": "shots/acc-new/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/acc-new/2.webp",
-   "t": "فواتير المبيعات"
-  },
-  {
-   "f": "shots/acc-new/3.webp",
-   "t": "الأصناف"
-  },
-  {
-   "f": "shots/acc-new/4.webp",
-   "t": "العملاء"
-  },
-  {
-   "f": "shots/acc-new/5.webp",
-   "t": "الموظفين والمرتبات"
-  },
-  {
-   "f": "shots/acc-new/6.webp",
-   "t": "نقطة البيع"
-  }
- ],
- "stores": [
-  {
-   "f": "shots/stores/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/stores/2.webp",
-   "t": "فواتير الشراء"
-  },
-  {
-   "f": "shots/stores/3.webp",
-   "t": "المخزون"
-  },
-  {
-   "f": "shots/stores/4.webp",
-   "t": "التخطيط والمتابعة"
-  },
-  {
-   "f": "shots/stores/5.webp",
-   "t": "أوامر الإنتاج"
-  },
-  {
-   "f": "shots/stores/6.webp",
-   "t": "الإنتاج (التسجيل اليومي)"
-  }
- ],
- "hotel": [
-  {
-   "f": "shots/hotel/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/hotel/2.webp",
-   "t": "الحجوزات"
-  },
-  {
-   "f": "shots/hotel/3.webp",
-   "t": "الوحدات والغرف"
-  },
-  {
-   "f": "shots/hotel/4.webp",
-   "t": "التنضيف"
-  },
-  {
-   "f": "shots/hotel/5.webp",
-   "t": "التقارير"
-  },
-  {
-   "f": "shots/hotel/6.webp",
-   "t": "تقويم الحجوزات"
-  }
- ],
- "hotel-pro": [
-  {
-   "f": "shots/hotel-pro/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/hotel-pro/2.webp",
-   "t": "إدارة الغرف"
-  },
-  {
-   "f": "shots/hotel-pro/3.webp",
-   "t": "الفواتير والمدفوعات"
-  },
-  {
-   "f": "shots/hotel-pro/4.webp",
-   "t": "سجل العمليات"
-  },
-  {
-   "f": "shots/hotel-pro/5.webp",
-   "t": "مخطط الحجوزات"
-  },
-  {
-   "f": "shots/hotel-pro/6.webp",
-   "t": "الحجوزات"
-  }
- ],
- "cashier": [
-  {
-   "f": "shots/cashier/1.webp",
-   "t": "البيع"
-  },
-  {
-   "f": "shots/cashier/2.webp",
-   "t": "العملاء والآجل"
-  },
-  {
-   "f": "shots/cashier/3.webp",
-   "t": "الأصناف والمخزن"
-  },
-  {
-   "f": "shots/cashier/4.webp",
-   "t": "المشتريات"
-  },
-  {
-   "f": "shots/cashier/5.webp",
-   "t": "لوحة المالك"
-  },
-  {
-   "f": "shots/cashier/6.webp",
-   "t": "الوردية"
-  }
- ],
- "cashier-stores": [
-  {
-   "f": "shots/cashier-stores/1.webp",
-   "t": "الرئيسية"
-  },
-  {
-   "f": "shots/cashier-stores/2.webp",
-   "t": "المنتجات والمخزون"
-  },
-  {
-   "f": "shots/cashier-stores/3.webp",
-   "t": "العملاء"
-  },
-  {
-   "f": "shots/cashier-stores/4.webp",
-   "t": "الموظفين"
-  },
-  {
-   "f": "shots/cashier-stores/5.webp",
-   "t": "نقطة البيع"
-  },
-  {
-   "f": "shots/cashier-stores/6.webp",
-   "t": "الفواتير والمرتجع"
-  }
- ],
- "cashier-lite": [
-  {
-   "f": "shots/cashier-lite/1.webp",
-   "t": "إضافة صنف جديد"
-  },
-  {
-   "f": "shots/cashier-lite/2.webp",
-   "t": "فاتورة عادية"
-  },
-  {
-   "f": "shots/cashier-lite/3.webp",
-   "t": "فتح وقفل الوردية"
-  },
-  {
-   "f": "shots/cashier-lite/4.webp",
-   "t": "شاشة الفواتير (F4)"
-  },
-  {
-   "f": "shots/cashier-lite/5.webp",
-   "t": "الدليفري وطلبات التليفون"
-  },
-  {
-   "f": "shots/cashier-lite/6.webp",
-   "t": "العملاء"
-  }
- ],
- "cashier-clothes": [
-  {
-   "f": "shots/cashier-clothes/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/cashier-clothes/2.webp",
-   "t": "العملاء"
-  },
-  {
-   "f": "shots/cashier-clothes/3.webp",
-   "t": "المصاريف النثرية"
-  },
-  {
-   "f": "shots/cashier-clothes/4.webp",
-   "t": "نقطة البيع"
-  },
-  {
-   "f": "shots/cashier-clothes/5.webp",
-   "t": "الفواتير"
-  },
-  {
-   "f": "shots/cashier-clothes/6.webp",
-   "t": "المرتجعات"
-  }
- ],
- "restaurant": [
-  {
-   "f": "shots/restaurant/1.webp",
-   "t": "الكاشير"
-  },
-  {
-   "f": "shots/restaurant/2.webp",
-   "t": "المطبخ"
-  },
-  {
-   "f": "shots/restaurant/3.webp",
-   "t": "المنيو والأسعار"
-  },
-  {
-   "f": "shots/restaurant/4.webp",
-   "t": "الوردية"
-  },
-  {
-   "f": "shots/restaurant/5.webp",
-   "t": "المتابعة"
-  },
-  {
-   "f": "shots/restaurant/6.webp",
-   "t": "الصالة والطاولات"
-  }
- ],
- "hr": [
-  {
-   "f": "shots/hr/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/hr/2.webp",
-   "t": "الموظفين"
-  },
-  {
-   "f": "shots/hr/3.webp",
-   "t": "الحضور والانصراف"
-  },
-  {
-   "f": "shots/hr/4.webp",
-   "t": "المرتبات"
-  },
-  {
-   "f": "shots/hr/5.webp",
-   "t": "التقارير"
-  },
-  {
-   "f": "shots/hr/6.webp",
-   "t": "إدارة المستخدمين"
-  }
- ],
- "hr-pro": [
-  {
-   "f": "shots/hr-pro/1.webp",
-   "t": "الرئيسية"
-  },
-  {
-   "f": "shots/hr-pro/2.webp",
-   "t": "الموظفون"
-  },
-  {
-   "f": "shots/hr-pro/3.webp",
-   "t": "الحضور اليومي"
-  },
-  {
-   "f": "shots/hr-pro/4.webp",
-   "t": "مسير الرواتب"
-  },
-  {
-   "f": "shots/hr-pro/5.webp",
-   "t": "الورديات"
-  },
-  {
-   "f": "shots/hr-pro/6.webp",
-   "t": "أجهزة البصمة"
-  }
- ],
- "hr-enterprise": [
-  {
-   "f": "shots/hr-enterprise/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/hr-enterprise/2.webp",
-   "t": "الموظفين"
-  },
-  {
-   "f": "shots/hr-enterprise/3.webp",
-   "t": "الحضور والانصراف"
-  },
-  {
-   "f": "shots/hr-enterprise/4.webp",
-   "t": "المرتبات"
-  },
-  {
-   "f": "shots/hr-enterprise/5.webp",
-   "t": "التقارير"
-  },
-  {
-   "f": "shots/hr-enterprise/6.webp",
-   "t": "إدارة المستخدمين"
-  }
- ],
- "restaurant-pos": [
-  {
-   "f": "shots/restaurant-pos/1.webp",
-   "t": "الكاشير (نقطة البيع)"
-  },
-  {
-   "f": "shots/restaurant-pos/2.webp",
-   "t": "شاشة المطبخ (KDS)"
-  },
-  {
-   "f": "shots/restaurant-pos/3.webp",
-   "t": "الوصفات وتكلفة الطبق"
-  },
-  {
-   "f": "shots/restaurant-pos/4.webp",
-   "t": "الفروع"
-  },
-  {
-   "f": "shots/restaurant-pos/5.webp",
-   "t": "التقارير"
-  },
-  {
-   "f": "shots/restaurant-pos/6.webp",
-   "t": "الباقات"
-  }
- ],
- "gym": [
-  {
-   "f": "shots/gym/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/gym/2.webp",
-   "t": "تسجيل الحضور"
-  },
-  {
-   "f": "shots/gym/3.webp",
-   "t": "الأعضاء"
-  },
-  {
-   "f": "shots/gym/4.webp",
-   "t": "الباقات والأسعار"
-  },
-  {
-   "f": "shots/gym/5.webp",
-   "t": "المدربين والبرايفت"
-  },
-  {
-   "f": "shots/gym/6.webp",
-   "t": "الخزنة والمصروفات"
-  },
-  {
-   "f": "shots/gym/7.webp",
-   "t": "بيع المنتجات"
-  },
-  {
-   "f": "shots/gym/8.webp",
-   "t": "التقارير"
-  }
- ],
- "center": [
-  {
-   "f": "shots/center/1.webp",
-   "t": "لوحة التحكم"
-  },
-  {
-   "f": "shots/center/2.webp",
-   "t": "تسجيل الحضور"
-  },
-  {
-   "f": "shots/center/3.webp",
-   "t": "الطلاب"
-  },
-  {
-   "f": "shots/center/4.webp",
-   "t": "تحصيل الفلوس"
-  },
-  {
-   "f": "shots/center/5.webp",
-   "t": "المجموعات"
-  },
-  {
-   "f": "shots/center/6.webp",
-   "t": "الامتحانات والدرجات"
-  },
-  {
-   "f": "shots/center/7.webp",
-   "t": "المدرسين والمستحقات"
-  },
-  {
-   "f": "shots/center/8.webp",
-   "t": "التقارير"
-  }
- ],
- "vertex": [
-  {
-   "f": "shots/vertex/1.webp",
-   "t": "لوحة المعلومات"
-  },
-  {
-   "f": "shots/vertex/2.webp",
-   "t": "القيود والترحيل"
-  },
-  {
-   "f": "shots/vertex/3.webp",
-   "t": "فواتير البيع"
-  },
-  {
-   "f": "shots/vertex/4.webp",
-   "t": "مراقبة المخزون"
-  },
-  {
-   "f": "shots/vertex/5.webp",
-   "t": "أوامر التصنيع"
-  },
-  {
-   "f": "shots/vertex/6.webp",
-   "t": "نقاط البيع"
-  },
-  {
-   "f": "shots/vertex/7.webp",
-   "t": "الرواتب"
-  },
-  {
-   "f": "shots/vertex/8.webp",
-   "t": "المشاريع والمقاولات"
-  }
- ]
+  "lawyer": [
+    {
+      "f": "shots/lawyer/1.webp",
+      "t": "لوحة اليوم"
+    },
+    {
+      "f": "shots/lawyer/2.webp",
+      "t": "الرول والجلسات"
+    },
+    {
+      "f": "shots/lawyer/3.webp",
+      "t": "ملف القضية"
+    },
+    {
+      "f": "shots/lawyer/4.webp",
+      "t": "المواعيد القانونية"
+    },
+    {
+      "f": "shots/lawyer/5.webp",
+      "t": "الموكلين والتوكيلات"
+    },
+    {
+      "f": "shots/lawyer/6.webp",
+      "t": "الحسابات والأتعاب"
+    }
+  ],
+  "pharmacy": [
+    {
+      "f": "shots/pharmacy/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/pharmacy/2.webp",
+      "t": "العملاء والآجل"
+    },
+    {
+      "f": "shots/pharmacy/3.webp",
+      "t": "الأصناف"
+    },
+    {
+      "f": "shots/pharmacy/4.webp",
+      "t": "المشتريات"
+    },
+    {
+      "f": "shots/pharmacy/5.webp",
+      "t": "التقارير"
+    },
+    {
+      "f": "shots/pharmacy/6.webp",
+      "t": "نقطة البيع"
+    }
+  ],
+  "sales-erp": [
+    {
+      "f": "shots/sales-erp/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/sales-erp/2.webp",
+      "t": "فواتير المشتريات"
+    },
+    {
+      "f": "shots/sales-erp/3.webp",
+      "t": "الخزينة"
+    },
+    {
+      "f": "shots/sales-erp/4.webp",
+      "t": "العملاء"
+    },
+    {
+      "f": "shots/sales-erp/5.webp",
+      "t": "التقارير والاستعلامات"
+    },
+    {
+      "f": "shots/sales-erp/6.webp",
+      "t": "نقطة البيع"
+    }
+  ],
+  "clinic": [
+    {
+      "f": "shots/clinic/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/clinic/2.webp",
+      "t": "استقبال النهارده (الطابور)"
+    },
+    {
+      "f": "shots/clinic/3.webp",
+      "t": "التحاليل والأشعة"
+    },
+    {
+      "f": "shots/clinic/4.webp",
+      "t": "الفواتير والتحصيل"
+    },
+    {
+      "f": "shots/clinic/5.webp",
+      "t": "العمليات"
+    },
+    {
+      "f": "shots/clinic/6.webp",
+      "t": "بيع (الصيدلية)"
+    }
+  ],
+  "school": [
+    {
+      "f": "shots/school/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/school/2.webp",
+      "t": "التحصيل"
+    },
+    {
+      "f": "shots/school/3.webp",
+      "t": "الطلاب"
+    },
+    {
+      "f": "shots/school/4.webp",
+      "t": "الحضور والغياب"
+    },
+    {
+      "f": "shots/school/5.webp",
+      "t": "تقارير الإدارة"
+    },
+    {
+      "f": "shots/school/6.webp",
+      "t": "خطوط الباصات"
+    }
+  ],
+  "erp": [
+    {
+      "f": "shots/erp/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/erp/2.webp",
+      "t": "وحدات القياس"
+    },
+    {
+      "f": "shots/erp/3.webp",
+      "t": "الموديلات"
+    },
+    {
+      "f": "shots/erp/4.webp",
+      "t": "اقتراحات الشراء"
+    },
+    {
+      "f": "shots/erp/5.webp",
+      "t": "تخطيط القص"
+    },
+    {
+      "f": "shots/erp/6.webp",
+      "t": "أوامر الإنتاج"
+    }
+  ],
+  "acc": [
+    {
+      "f": "shots/acc/1.webp",
+      "t": "الرئيسية"
+    },
+    {
+      "f": "shots/acc/2.webp",
+      "t": "التحصيل السريع"
+    },
+    {
+      "f": "shots/acc/3.webp",
+      "t": "قائمة الطلاب"
+    },
+    {
+      "f": "shots/acc/4.webp",
+      "t": "التحصيل"
+    },
+    {
+      "f": "shots/acc/5.webp",
+      "t": "السنوات الدراسية والتراما"
+    },
+    {
+      "f": "shots/acc/6.webp",
+      "t": "مركز التقارير"
+    }
+  ],
+  "acc-new": [
+    {
+      "f": "shots/acc-new/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/acc-new/2.webp",
+      "t": "فواتير المبيعات"
+    },
+    {
+      "f": "shots/acc-new/3.webp",
+      "t": "الأصناف"
+    },
+    {
+      "f": "shots/acc-new/4.webp",
+      "t": "العملاء"
+    },
+    {
+      "f": "shots/acc-new/5.webp",
+      "t": "الموظفين والمرتبات"
+    },
+    {
+      "f": "shots/acc-new/6.webp",
+      "t": "نقطة البيع"
+    }
+  ],
+  "stores": [
+    {
+      "f": "shots/stores/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/stores/2.webp",
+      "t": "فواتير الشراء"
+    },
+    {
+      "f": "shots/stores/3.webp",
+      "t": "المخزون"
+    },
+    {
+      "f": "shots/stores/4.webp",
+      "t": "التخطيط والمتابعة"
+    },
+    {
+      "f": "shots/stores/5.webp",
+      "t": "أوامر الإنتاج"
+    },
+    {
+      "f": "shots/stores/6.webp",
+      "t": "الإنتاج (التسجيل اليومي)"
+    }
+  ],
+  "hotel": [
+    {
+      "f": "shots/hotel/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/hotel/2.webp",
+      "t": "الحجوزات"
+    },
+    {
+      "f": "shots/hotel/3.webp",
+      "t": "الوحدات والغرف"
+    },
+    {
+      "f": "shots/hotel/4.webp",
+      "t": "التنضيف"
+    },
+    {
+      "f": "shots/hotel/5.webp",
+      "t": "التقارير"
+    },
+    {
+      "f": "shots/hotel/6.webp",
+      "t": "تقويم الحجوزات"
+    }
+  ],
+  "hotel-pro": [
+    {
+      "f": "shots/hotel-pro/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/hotel-pro/2.webp",
+      "t": "إدارة الغرف"
+    },
+    {
+      "f": "shots/hotel-pro/3.webp",
+      "t": "الفواتير والمدفوعات"
+    },
+    {
+      "f": "shots/hotel-pro/4.webp",
+      "t": "سجل العمليات"
+    },
+    {
+      "f": "shots/hotel-pro/5.webp",
+      "t": "مخطط الحجوزات"
+    },
+    {
+      "f": "shots/hotel-pro/6.webp",
+      "t": "الحجوزات"
+    }
+  ],
+  "cashier": [
+    {
+      "f": "shots/cashier/1.webp",
+      "t": "البيع"
+    },
+    {
+      "f": "shots/cashier/2.webp",
+      "t": "العملاء والآجل"
+    },
+    {
+      "f": "shots/cashier/3.webp",
+      "t": "الأصناف والمخزن"
+    },
+    {
+      "f": "shots/cashier/4.webp",
+      "t": "المشتريات"
+    },
+    {
+      "f": "shots/cashier/5.webp",
+      "t": "لوحة المالك"
+    },
+    {
+      "f": "shots/cashier/6.webp",
+      "t": "الوردية"
+    }
+  ],
+  "cashier-stores": [
+    {
+      "f": "shots/cashier-stores/1.webp",
+      "t": "الرئيسية"
+    },
+    {
+      "f": "shots/cashier-stores/2.webp",
+      "t": "المنتجات والمخزون"
+    },
+    {
+      "f": "shots/cashier-stores/3.webp",
+      "t": "العملاء"
+    },
+    {
+      "f": "shots/cashier-stores/4.webp",
+      "t": "الموظفين"
+    },
+    {
+      "f": "shots/cashier-stores/5.webp",
+      "t": "نقطة البيع"
+    },
+    {
+      "f": "shots/cashier-stores/6.webp",
+      "t": "الفواتير والمرتجع"
+    }
+  ],
+  "cashier-lite": [
+    {
+      "f": "shots/cashier-lite/1.webp",
+      "t": "إضافة صنف جديد"
+    },
+    {
+      "f": "shots/cashier-lite/2.webp",
+      "t": "فاتورة عادية"
+    },
+    {
+      "f": "shots/cashier-lite/3.webp",
+      "t": "فتح وقفل الوردية"
+    },
+    {
+      "f": "shots/cashier-lite/4.webp",
+      "t": "شاشة الفواتير (F4)"
+    },
+    {
+      "f": "shots/cashier-lite/5.webp",
+      "t": "الدليفري وطلبات التليفون"
+    },
+    {
+      "f": "shots/cashier-lite/6.webp",
+      "t": "العملاء"
+    }
+  ],
+  "cashier-clothes": [
+    {
+      "f": "shots/cashier-clothes/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/cashier-clothes/2.webp",
+      "t": "العملاء"
+    },
+    {
+      "f": "shots/cashier-clothes/3.webp",
+      "t": "المصاريف النثرية"
+    },
+    {
+      "f": "shots/cashier-clothes/4.webp",
+      "t": "نقطة البيع"
+    },
+    {
+      "f": "shots/cashier-clothes/5.webp",
+      "t": "الفواتير"
+    },
+    {
+      "f": "shots/cashier-clothes/6.webp",
+      "t": "المرتجعات"
+    }
+  ],
+  "restaurant": [
+    {
+      "f": "shots/restaurant/1.webp",
+      "t": "الكاشير"
+    },
+    {
+      "f": "shots/restaurant/2.webp",
+      "t": "المطبخ"
+    },
+    {
+      "f": "shots/restaurant/3.webp",
+      "t": "المنيو والأسعار"
+    },
+    {
+      "f": "shots/restaurant/4.webp",
+      "t": "الوردية"
+    },
+    {
+      "f": "shots/restaurant/5.webp",
+      "t": "المتابعة"
+    },
+    {
+      "f": "shots/restaurant/6.webp",
+      "t": "الصالة والطاولات"
+    }
+  ],
+  "hr": [
+    {
+      "f": "shots/hr/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/hr/2.webp",
+      "t": "الموظفين"
+    },
+    {
+      "f": "shots/hr/3.webp",
+      "t": "الحضور والانصراف"
+    },
+    {
+      "f": "shots/hr/4.webp",
+      "t": "المرتبات"
+    },
+    {
+      "f": "shots/hr/5.webp",
+      "t": "التقارير"
+    },
+    {
+      "f": "shots/hr/6.webp",
+      "t": "إدارة المستخدمين"
+    }
+  ],
+  "hr-pro": [
+    {
+      "f": "shots/hr-pro/1.webp",
+      "t": "الرئيسية"
+    },
+    {
+      "f": "shots/hr-pro/2.webp",
+      "t": "الموظفون"
+    },
+    {
+      "f": "shots/hr-pro/3.webp",
+      "t": "الحضور اليومي"
+    },
+    {
+      "f": "shots/hr-pro/4.webp",
+      "t": "مسير الرواتب"
+    },
+    {
+      "f": "shots/hr-pro/5.webp",
+      "t": "الورديات"
+    },
+    {
+      "f": "shots/hr-pro/6.webp",
+      "t": "أجهزة البصمة"
+    }
+  ],
+  "hr-enterprise": [
+    {
+      "f": "shots/hr-enterprise/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/hr-enterprise/2.webp",
+      "t": "الموظفين"
+    },
+    {
+      "f": "shots/hr-enterprise/3.webp",
+      "t": "الحضور والانصراف"
+    },
+    {
+      "f": "shots/hr-enterprise/4.webp",
+      "t": "المرتبات"
+    },
+    {
+      "f": "shots/hr-enterprise/5.webp",
+      "t": "التقارير"
+    },
+    {
+      "f": "shots/hr-enterprise/6.webp",
+      "t": "إدارة المستخدمين"
+    }
+  ],
+  "restaurant-pos": [
+    {
+      "f": "shots/restaurant-pos/1.webp",
+      "t": "الكاشير (نقطة البيع)"
+    },
+    {
+      "f": "shots/restaurant-pos/2.webp",
+      "t": "شاشة المطبخ (KDS)"
+    },
+    {
+      "f": "shots/restaurant-pos/3.webp",
+      "t": "الوصفات وتكلفة الطبق"
+    },
+    {
+      "f": "shots/restaurant-pos/4.webp",
+      "t": "الفروع"
+    },
+    {
+      "f": "shots/restaurant-pos/5.webp",
+      "t": "التقارير"
+    },
+    {
+      "f": "shots/restaurant-pos/6.webp",
+      "t": "الباقات"
+    }
+  ],
+  "gym": [
+    {
+      "f": "shots/gym/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/gym/2.webp",
+      "t": "تسجيل الحضور"
+    },
+    {
+      "f": "shots/gym/3.webp",
+      "t": "الأعضاء"
+    },
+    {
+      "f": "shots/gym/4.webp",
+      "t": "الباقات والأسعار"
+    },
+    {
+      "f": "shots/gym/5.webp",
+      "t": "المدربين والبرايفت"
+    },
+    {
+      "f": "shots/gym/6.webp",
+      "t": "الخزنة والمصروفات"
+    },
+    {
+      "f": "shots/gym/7.webp",
+      "t": "بيع المنتجات"
+    },
+    {
+      "f": "shots/gym/8.webp",
+      "t": "التقارير"
+    }
+  ],
+  "center": [
+    {
+      "f": "shots/center/1.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/center/2.webp",
+      "t": "تسجيل الحضور"
+    },
+    {
+      "f": "shots/center/3.webp",
+      "t": "الطلاب"
+    },
+    {
+      "f": "shots/center/4.webp",
+      "t": "تحصيل الفلوس"
+    },
+    {
+      "f": "shots/center/5.webp",
+      "t": "المجموعات"
+    },
+    {
+      "f": "shots/center/6.webp",
+      "t": "الامتحانات والدرجات"
+    },
+    {
+      "f": "shots/center/7.webp",
+      "t": "المدرسين والمستحقات"
+    },
+    {
+      "f": "shots/center/8.webp",
+      "t": "التقارير"
+    }
+  ],
+  "vertex": [
+    {
+      "f": "shots/vertex/1.webp",
+      "t": "لوحة المعلومات"
+    },
+    {
+      "f": "shots/vertex/2.webp",
+      "t": "القيود والترحيل"
+    },
+    {
+      "f": "shots/vertex/3.webp",
+      "t": "فواتير البيع"
+    },
+    {
+      "f": "shots/vertex/4.webp",
+      "t": "مراقبة المخزون"
+    },
+    {
+      "f": "shots/vertex/5.webp",
+      "t": "أوامر التصنيع"
+    },
+    {
+      "f": "shots/vertex/6.webp",
+      "t": "نقاط البيع"
+    },
+    {
+      "f": "shots/vertex/7.webp",
+      "t": "الرواتب"
+    },
+    {
+      "f": "shots/vertex/8.webp",
+      "t": "المشاريع والمقاولات"
+    }
+  ],
+  "sufra": [
+    {
+      "f": "shots/sufra/1.webp",
+      "t": "الكاشير"
+    },
+    {
+      "f": "shots/sufra/2.webp",
+      "t": "الطرابيزات"
+    },
+    {
+      "f": "shots/sufra/3.webp",
+      "t": "شاشة المطبخ"
+    },
+    {
+      "f": "shots/sufra/4.webp",
+      "t": "الدليفري"
+    },
+    {
+      "f": "shots/sufra/5.webp",
+      "t": "التقارير"
+    },
+    {
+      "f": "shots/sufra/6.webp",
+      "t": "المخزن والوصفات"
+    },
+    {
+      "f": "shots/sufra/7.webp",
+      "t": "المنيو"
+    },
+    {
+      "f": "shots/sufra/8.webp",
+      "t": "شاشة المالك"
+    }
+  ],
+  "lab": [
+    {
+      "f": "shots/lab/1.webp",
+      "t": "زيارة جديدة"
+    },
+    {
+      "f": "shots/lab/2.webp",
+      "t": "إدخال النتايج"
+    },
+    {
+      "f": "shots/lab/3.webp",
+      "t": "العينات والسحب"
+    },
+    {
+      "f": "shots/lab/4.webp",
+      "t": "الأجهزة والصيانة"
+    },
+    {
+      "f": "shots/lab/5.webp",
+      "t": "لوحة التحكم"
+    },
+    {
+      "f": "shots/lab/6.webp",
+      "t": "الكنترول اليومي"
+    },
+    {
+      "f": "shots/lab/7.webp",
+      "t": "الاعتماد والجودة"
+    },
+    {
+      "f": "shots/lab/8.webp",
+      "t": "التقارير والإحصائيات"
+    }
+  ]
 }
