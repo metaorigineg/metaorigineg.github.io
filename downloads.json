@@ -5,6 +5,7 @@
   "school": 28,
   "sales-erp": 57,
   "restaurant": 38,
+  "restaurant-pos-vip": 4,
   "restaurant-pos": 29,
   "pharmacy": 46,
   "lawyer": 22,
@@ -23,6 +24,5 @@
   "cashier-lite": 27,
   "cashier-clothes": 13,
   "acc": 40,
-  "acc-new": 42,
-  "restaurant-pos-vip": 4
+  "acc-new": 42
 }
