@@ -1,5 +1,6 @@
 {
   "vertex": 24,
+  "sufra": 0,
   "stores": 43,
   "sales-erp": 55,
   "restaurant": 36,
@@ -7,6 +8,7 @@
   "restaurant-pos": 27,
   "pharmacy": 44,
   "lawyer": 20,
+  "lab": 0,
   "hr": 26,
   "hr-pro": 39,
   "hr-enterprise": 23,
