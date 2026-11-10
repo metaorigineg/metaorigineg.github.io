@@ -271,6 +271,7 @@
     },
     {
       "slug": "lab",
+      "online": "https://lab.metaorigineg.com/#/signup",
       "cat": "medical",
       "product": "Meta Origin - Lab",
       "nameAr": "إدارة معامل التحاليل",
