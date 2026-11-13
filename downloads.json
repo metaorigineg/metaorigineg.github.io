@@ -1,4 +1,5 @@
 {
+  "restaurant-pos-vip": 6,
   "vertex": 45,
   "sufra": 52,
   "stores": 50,
@@ -23,6 +24,5 @@
   "cashier-lite": 29,
   "cashier-clothes": 15,
   "acc": 44,
-  "acc-new": 45,
-  "restaurant-pos-vip": 6
+  "acc-new": 45
 }
