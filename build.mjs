@@ -1053,14 +1053,15 @@ function termsPage() {
   return head({ title: 'شروط الاستخدام | Meta Origin', desc: 'شروط استخدام برامج Meta Origin والنسخ على النت — Terms of Use', accent: '#3b82f6', base, image: 'img/company-logo.png' }) + header(base, { back: true, sub: '' }) + `
     <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 w-full">
         <h1 class="text-3xl md:text-4xl font-black text-white">شروط الاستخدام</h1>
-        <p class="text-gray-400">آخر تحديث: 3 نوفمبر 2026 — تنطبق على برامج Meta Origin والنسخ على النت (زي الصيدليات أونلاين). باستخدامك للبرنامج انت موافق على الشروط دي و<a class="acc underline" href="${base}privacy/">سياسة الخصوصية</a>.</p>
+        <p class="text-gray-400">آخر تحديث: 16 نوفمبر 2026 — تنطبق على برامج Meta Origin والنسخ على النت (زي الصيدليات أونلاين). باستخدامك للبرنامج انت موافق على الشروط دي و<a class="acc underline" href="${base}privacy/">سياسة الخصوصية</a>.</p>
 ${sec('الحساب', ul([
   'لازم البيانات اللي بتسجّل بيها تكون صحيحة، والإيميل حقيقي وبتاعك (بيتأكد بكود).',
   'انت مسئول عن كلمات السر بتاعتك وبتاعة موظفينك، وعن الأجهزة اللي بتربطها بحسابك. ننصح بتشغيل «التحقق بخطوتين».',
   'التجربة المجانية 14 يوم لكل إيميل على كل برنامج — مرة واحدة.',
 ]))}
 ${sec('الاشتراك والدفع', ul([
-  'بعد التجربة البرنامج بيشتغل بالاشتراك (شهري أو سنوي) حسب الباقة والأسعار المعلنة وقت الاشتراك. الدفع بيتم بالتواصل معانا (واتساب)، والتفعيل من عندنا.',
+  'بعد التجربة البرنامج بيشتغل بالاشتراك (شهري أو سنوي) حسب الباقة والأسعار المعلنة وقت الاشتراك. الدفع يا إما أونلاين بالكارت من صفحة الاشتراك، يا إما بالتواصل معانا (واتساب) والتفعيل من عندنا.',
+  'الدفع الأونلاين بيتم عن طريق <b>Fungies.io</b> (أو Lemon Squeezy) بصفته <b>البائع الرسمي (Merchant of Record)</b> للطلب: هو اللي بياخد الدفع، وبيطلّع الفاتورة، وبيحسب الضرايب، وشروطه وسياسة الاسترجاع بتاعته بتنطبق على الدفع. وبيانات الكارت بتتكتب عنده بس، مابتوصلناش.',
   'لو الاشتراك خلص البرنامج بيتقفل لحد التجديد — والبيانات بتفضل محفوظة ومش بتتمسح.',
   'الاشتراك اللي اتدفع مابيترجعش فلوسه عن المدة اللي فاتت منه.',
 ]))}
@@ -1082,14 +1083,15 @@ ${sec('التواصل', `<p class="text-gray-300 leading-8">لأي سؤال أو
 
         <div dir="ltr" lang="en" class="space-y-6 pt-6 text-left">
         <h1 class="text-3xl md:text-4xl font-black text-white">Terms of Use</h1>
-        <p class="text-gray-400">Last updated: November 3, 2026 — applies to Meta Origin programs and online editions. By using the program you agree to these terms and the <a class="acc underline" href="${base}privacy/">Privacy Policy</a>.</p>
+        <p class="text-gray-400">Last updated: November 16, 2026 — applies to Meta Origin programs and online editions. By using the program you agree to these terms and the <a class="acc underline" href="${base}privacy/">Privacy Policy</a>.</p>
 ${sec('Account', ul([
   'Sign-up details must be correct, and the email must be real and yours (it is confirmed with a code).',
   'You are responsible for your and your staff\'s passwords and for the devices you link to your account. We recommend turning on two-step login.',
   'The free trial is 14 days per email per program — once.',
 ]))}
 ${sec('Subscription and payment', ul([
-  'After the trial the program works by subscription (monthly or yearly) according to the plan and prices published at the time. Payment is arranged with us (WhatsApp) and we activate the subscription.',
+  'After the trial the program works by subscription (monthly or yearly) according to the plan and prices published at the time. You can pay online by card from the subscription page, or arrange payment with us (WhatsApp) and we activate the subscription.',
+  'Online orders are processed by <b>Fungies.io</b> (or Lemon Squeezy), which acts as the <b>Merchant of Record</b> for the order: it collects the payment, issues the invoice and handles sales tax/VAT, and its terms and refund policy apply to the payment. Card details are entered on its checkout only and never reach us.',
   'When the subscription ends the program locks until renewal — the data is kept, not deleted.',
   'Paid subscription periods already used are not refundable.',
 ]))}
