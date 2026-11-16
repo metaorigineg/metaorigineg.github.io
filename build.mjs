@@ -1061,7 +1061,7 @@ ${sec('الحساب', ul([
 ]))}
 ${sec('الاشتراك والدفع', ul([
   'بعد التجربة البرنامج بيشتغل بالاشتراك (شهري أو سنوي) حسب الباقة والأسعار المعلنة وقت الاشتراك. الدفع يا إما أونلاين بالكارت من صفحة الاشتراك، يا إما بالتواصل معانا (واتساب) والتفعيل من عندنا.',
-  'الدفع الأونلاين بيتم عن طريق <b>Fungies.io</b> (أو Lemon Squeezy) بصفته <b>البائع الرسمي (Merchant of Record)</b> للطلب: هو اللي بياخد الدفع، وبيطلّع الفاتورة، وبيحسب الضرايب، وشروطه وسياسة الاسترجاع بتاعته بتنطبق على الدفع. وبيانات الكارت بتتكتب عنده بس، مابتوصلناش.',
+  'الدفع الأونلاين بيتم عن طريق <b>Fungies.io</b> بصفته <b>البائع الرسمي (Merchant of Record)</b> للطلب: هو اللي بياخد الدفع، وبيطلّع الفاتورة، وبيحسب الضرايب، وشروطه وسياسة الاسترجاع بتاعته بتنطبق على الدفع. وبيانات الكارت بتتكتب عنده بس، مابتوصلناش.',
   'لو الاشتراك خلص البرنامج بيتقفل لحد التجديد — والبيانات بتفضل محفوظة ومش بتتمسح.',
   'الاشتراك اللي اتدفع مابيترجعش فلوسه عن المدة اللي فاتت منه.',
 ]))}
@@ -1091,7 +1091,7 @@ ${sec('Account', ul([
 ]))}
 ${sec('Subscription and payment', ul([
   'After the trial the program works by subscription (monthly or yearly) according to the plan and prices published at the time. You can pay online by card from the subscription page, or arrange payment with us (WhatsApp) and we activate the subscription.',
-  'Online orders are processed by <b>Fungies.io</b> (or Lemon Squeezy), which acts as the <b>Merchant of Record</b> for the order: it collects the payment, issues the invoice and handles sales tax/VAT, and its terms and refund policy apply to the payment. Card details are entered on its checkout only and never reach us.',
+  'Online orders are processed by <b>Fungies.io</b>, which acts as the <b>Merchant of Record</b> for the order: it collects the payment, issues the invoice and handles sales tax/VAT, and its terms and refund policy apply to the payment. Card details are entered on its checkout only and never reach us.',
   'When the subscription ends the program locks until renewal — the data is kept, not deleted.',
   'Paid subscription periods already used are not refundable.',
 ]))}
