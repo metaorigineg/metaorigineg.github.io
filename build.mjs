@@ -704,6 +704,7 @@ function homePage() {
     ['fa-stethoscope', 'عيادة أو مركز طبي', 'Clinic or medical center', ['clinic']],
     ['fa-scale-balanced', 'مكتب محاماة', 'Law office', ['lawyer']],
     ['fa-flask-vial', 'معمل تحاليل', 'Medical lab', ['lab']],
+    ['fa-truck-moving', 'شركة نقل أو أسطول عربيات نقل ثقيل', 'Transport company or truck fleet', ['masar']],
     ['fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
     ['fa-chalkboard-user', 'سنتر تعليمي أو دروس', 'Learning center or tutoring', ['center']],
     ['fa-dumbbell', 'جيم أو صالة رياضية', 'Gym or fitness club', ['gym']],

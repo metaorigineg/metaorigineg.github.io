@@ -54,7 +54,8 @@
     "education": "Schools & learning centers",
     "hr": "HR & payroll",
     "fitness": "Gyms & fitness",
-    "legal": "Law & legal"
+    "legal": "Law & legal",
+    "transport": "Transport & fleets"
   },
   "team": [
     {
@@ -729,6 +730,38 @@
         {
           "t": "ISO 15189 quality",
           "d": "QC with Westgard rules, maintenance, documents, training, complaints and quality indicators."
+        }
+      ]
+    },
+    "masar": {
+      "name": "Masar — Transport Company Management",
+      "category": "Heavy transport companies & fleets",
+      "short": "From the customer's order to collecting the freight: a dispatch board, fleet and document alerts, drivers and their cash, fuel and workshop, invoices and accounts — and the driver on his phone.",
+      "about": "A complete system for heavy transport companies (tractors, trailers, tippers and rigid trucks): trips and a dispatch board with every truck's status, freight priced from the rate list (per trip, ton, container or km) with the driver's, contractor's and owner's shares worked out, the fleet and its documents (licences, insurance, inspection) with alerts before they expire, drivers' cash advances and approved road expenses, fuel consumption per truck, the workshop with scheduled maintenance, spare parts and tyres, customers with delivery sites and credit limits, freight invoices with VAT and withholding tax and cheques, general accounts posted automatically, payroll, reports and profit per truck. Plus the driver app: the trip, its status, proof of delivery with a signature, and road expenses with a photo of the receipt. A main computer in the office with other PCs and phones on the network, and an online edition.",
+      "features": [
+        {
+          "t": "Dispatch board",
+          "d": "Every trip by status (going to load, loaded, on the road, delivered), free trucks, and late trips in red."
+        },
+        {
+          "t": "Driver on his phone",
+          "d": "Sees his trip, updates its status, records delivery with a signature and road expenses with a receipt photo."
+        },
+        {
+          "t": "Fleet & documents",
+          "d": "Tractors and trailers, owned, rented or shared, with licence, insurance and inspection alerts."
+        },
+        {
+          "t": "Fuel & workshop",
+          "d": "Litres per 100 km for every truck with alerts, scheduled maintenance, spare parts and every tyre's history."
+        },
+        {
+          "t": "Freight & invoices",
+          "d": "A rate list per route, invoices with VAT and withholding tax, collections, cheques and credit limits."
+        },
+        {
+          "t": "Profit per truck",
+          "d": "General accounts posted automatically, payroll, and profit per truck, driver, customer and route."
         }
       ]
     }

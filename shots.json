@@ -688,5 +688,39 @@
       "f": "shots/lab/8.webp",
       "t": "التقارير والإحصائيات"
     }
+  ],
+  "masar": [
+    {
+      "f": "shots/masar/1.webp",
+      "t": "لوحة الحركة"
+    },
+    {
+      "f": "shots/masar/2.webp",
+      "t": "رحلة جديدة"
+    },
+    {
+      "f": "shots/masar/3.webp",
+      "t": "ملف الرحلة"
+    },
+    {
+      "f": "shots/masar/4.webp",
+      "t": "الأسطول والأوراق"
+    },
+    {
+      "f": "shots/masar/5.webp",
+      "t": "المصاريف والسولار"
+    },
+    {
+      "f": "shots/masar/6.webp",
+      "t": "الورشة والصيانة"
+    },
+    {
+      "f": "shots/masar/7.webp",
+      "t": "فواتير النولون"
+    },
+    {
+      "f": "shots/masar/8.webp",
+      "t": "التقارير والربح"
+    }
   ]
 }
