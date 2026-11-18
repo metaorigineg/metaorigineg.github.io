@@ -421,7 +421,28 @@ const cloudCard = (p) => `                <div class="bg-cardbg border border-sk
                     <a href="${esc(p.online)}" target="_blank" rel="noopener" class="bg-sky-600 hover:bg-sky-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-bold text-sm whitespace-nowrap flex items-center gap-2 transition"><span>${L('جرّب أونلاين', 'Try it online')}</span><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                 </div>`;
 
+// تطبيق الموبايل: كارت عريض لوحده في صف التحميلات
+function appCard(d) {
+  const c = d.tone || '#3ddc84';
+  const chips = (L(d.chips, d.chipsEn || d.chips) || []).map((t) => `<span class="text-xs px-2.5 py-1 rounded-lg font-bold whitespace-nowrap" style="background:${c}14;color:${c};border:1px solid ${c}33">${esc(t)}</span>`).join('');
+  return `                <div class="bg-cardbg border rounded-2xl p-5 md:p-6 card-hover md:col-span-2 flex flex-col md:flex-row md:items-center gap-5" style="border-color:${c}55;background-image:linear-gradient(135deg,${c}12,transparent 55%)">
+                    <div class="flex items-start gap-4 flex-1 min-w-0">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0" style="background:${c}1f;color:${c}"><i class="${d.icon}"></i></div>
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-extrabold text-white text-lg md:text-xl">${esc(L(d.name, d.nameEn || d.name))}</h3>
+                            <p class="text-sm text-gray-400 mt-1 leading-relaxed">${esc(L(d.note, d.noteEn || d.note))}</p>
+                            <div class="flex flex-wrap gap-2 mt-3">${chips}</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-stretch md:items-center gap-2 flex-shrink-0">
+                        <a href="${esc(d.url)}" rel="noopener noreferrer" class="px-6 py-3 rounded-xl text-sm font-extrabold transition flex items-center justify-center gap-2 active:scale-95 shadow-md" style="background:${c};color:#06281a"><i class="fa-solid fa-download text-xs"></i><span>${L('حمّل التطبيق', 'Download the app')}</span></a>
+                        <span class="text-[11px] text-gray-500 text-center">${esc(L(d.hint, d.hintEn || d.hint))}</span>
+                    </div>
+                </div>`;
+}
+
 function downloadCard(d, wide) {
+  if (d.app) return appCard(d);
   const color = d.tone || '#9ca3af';
   return `                <div class="bg-cardbg border ${d.password ? '' : 'border-gray-800'} rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4${wide ? ' md:col-span-2' : ''}" ${d.password ? `style="border-color:${color}55"` : ''}>
                     <div class="flex items-center gap-4">
