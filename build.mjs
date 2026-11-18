@@ -428,12 +428,12 @@ function downloadCard(d, wide) {
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:${color}1a;color:${color}"><i class="${d.icon}"></i></div>
                         <div>
                             <div class="flex items-center gap-2">
-                                <h3 class="font-bold text-white text-base md:text-lg">${esc(d.name)}</h3>
-                                ${d.badge ? `<span class="text-[10px] md:text-xs px-2 py-0.5 rounded-full font-bold border" style="background:${color}1a;color:${color};border-color:${color}33">${esc(badge(d.badge))}</span>` : ''}
+                                <h3 class="font-bold text-white text-base md:text-lg">${esc(L(d.name, d.nameEn || d.name))}</h3>
+                                ${d.badge ? `<span class="text-[10px] md:text-xs px-2 py-0.5 rounded-full font-bold border" style="background:${color}1a;color:${color};border-color:${color}33">${esc(badge(L(d.badge, d.badgeEn || d.badge)))}</span>` : ''}
                             </div>
                             ${d.password ? `<div class="flex items-center gap-2 mt-1"><span class="text-xs text-gray-400">${L('الباسورد:', 'Password:')}</span>
                                 <button onclick="copyPassword('${esc(d.password)}')" class="font-mono text-xs px-2 py-0.5 rounded border flex items-center gap-1 transition" style="background:${color}33;color:${color};border-color:${color}55"><strong>${esc(d.password)}</strong><i class="fa-regular fa-copy text-[10px]"></i></button></div>`
-    : `<p class="text-xs text-gray-400 mt-1">${esc(badge(d.note || ''))}</p>`}
+    : `<p class="text-xs text-gray-400 mt-1">${esc(badge(L(d.note || '', d.noteEn || d.note || '')))}</p>`}
                         </div>
                     </div>
                     <a href="${esc(d.url)}" target="_blank" rel="noopener noreferrer" class="${d.primary ? 'bg-acc' : d.password ? '' : 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700'} px-4 md:px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition flex items-center gap-2 flex-shrink-0 active:scale-95 shadow-md" ${d.password ? `style="background:${color};color:#111"` : ''}>

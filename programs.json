@@ -319,6 +319,7 @@
       "cat": "transport",
       "product": "Meta Origin - Masar",
       "online": "https://masar.metaorigineg.com/#/signup",
+      "downloads": [{"name":"تطبيق السواق للموبايل","nameEn":"Driver app for Android","icon":"fa-brands fa-android","tone":"#3ddc84","badge":"أندرويد 8 وأحدث","badgeEn":"Android 8 or newer","note":"ملف APK — 81 كيلو · الإصدار 1.0.0 · لو الموبايل طلب، اسمح بالتثبيت من المصدر ده","noteEn":"APK file — 81 KB · version 1.0.0 · allow installing from this source if your phone asks","url":"https://github.com/metaorigineg/metaorigineg.github.io/releases/download/masar-android-v1.0.0/Meta-Origin-Masar-Driver-1.0.0.apk"}],
       "nameAr": "مسار — إدارة شركات النقل",
       "color": "#c2410c",
       "category": "شركات النقل الثقيل والأساطيل",
