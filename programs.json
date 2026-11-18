@@ -316,9 +316,9 @@
     },
     {
       "slug": "masar",
-      "hidden": true,
       "cat": "transport",
       "product": "Meta Origin - Masar",
+      "online": "https://masar.metaorigineg.com/#/signup",
       "nameAr": "مسار — إدارة شركات النقل",
       "color": "#c2410c",
       "category": "شركات النقل الثقيل والأساطيل",

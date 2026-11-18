@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark" data-page-ps="clinic">
 <head>
-    <style id="moHide">[data-ps="masar"],[data-ps="cashier-clothes"],[data-ps="hr"],[data-ps="hr-enterprise"]{display:none!important}</style>
+    <style id="moHide">[data-ps="cashier-clothes"],[data-ps="hr"],[data-ps="hr-enterprise"]{display:none!important}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta Origin - Clinic | مركز التحميل الرسمي</title>
@@ -502,7 +502,7 @@ sec.hidden=false;}).catch(function(){});})();</script>
                     else if (!hid(page) && g) { g.remove(); m.style.display = ''; }
                 }
             };
-            apply(["masar","cashier-clothes","hr","hr-enterprise"]);
+            apply(["cashier-clothes","hr","hr-enterprise"]);
             fetch("https://metaorigin-licenses.meta-origin-eg.workers.dev/v1/public/site").then(function (r) { return r.json(); }).then(function (b) { if (b && Array.isArray(b.hidden)) apply(b.hidden); }).catch(function () {});
         })();
         function pickBiz(i, btn) {
