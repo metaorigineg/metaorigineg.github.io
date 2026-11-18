@@ -65,15 +65,15 @@
     "published": true
   },
   "lab": {
-    "version": "1.5.3",
-    "date": "2026-11-13",
+    "version": "1.5.4",
+    "date": "2026-11-18",
     "sizeMB": 332,
     "file": "E:\\Setup Program Codeing\\Program End\\Meta Origin - Lab\\Meta Origin - Lab.rar",
     "kind": "RAR",
-    "asset": "Meta-Origin-Lab-1.5.3.rar",
-    "tag": "lab-v1.5.3",
+    "asset": "Meta-Origin-Lab-1.5.4.rar",
+    "tag": "lab-v1.5.4",
     "notes": [
-      "تحديثات أمنية وتحسينات عامة في البرنامج."
+      "تصليح استرجاع النسخة الاحتياطية: البرنامج كان بيرفض ملف النسخة وقت الاسترجاع، ودلوقتي بيرجّعها صح."
     ],
     "published": true
   },

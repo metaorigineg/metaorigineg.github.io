@@ -1,5 +1,6 @@
 {
-  "masar": 4,
+  "masar": 10,
+  "lab": 22,
   "vertex": 49,
   "sufra": 55,
   "stores": 55,
@@ -10,7 +11,6 @@
   "restaurant-pos": 39,
   "pharmacy": 55,
   "lawyer": 32,
-  "lab": 22,
   "hr": 32,
   "hr-pro": 46,
   "hr-enterprise": 29,
