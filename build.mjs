@@ -528,7 +528,7 @@ function plansSection(p) {
   const T = (x) => esc(ar ? x.ar : x.en);
   const C = p.online ? P.cloud : null; // النسخة السحابية، لما تكون متنشرة بس: أسعارها لوحدها (plans.json ← cloud)
   const cb = (b) => (C ? C.bundles.find((x) => x.code === b.code) : null);
-  const price = (x, c) => `<span class="mo-price" data-egp="${x.egp}" data-usd="${x.usd}"${c ? ` data-cegp="${c.egp}" data-cusd="${c.usd}"` : ''}></span>`;
+  const price = (x, c) => `<span class="mo-price" data-egp="${x.egp}" data-usd="${x.usd}"${c ? ` data-cegp="${c.egp}" data-cusd="${c.usd}"` : ''}${x.life ? ` data-legp="${x.life.egp}" data-lusd="${x.life.usd}"` : ''}></span>`;
   const once = (x) => `<span class="mo-once" data-egp="${x.egp}" data-usd="${x.usd}"></span>`;
   const ask = (t) => wa(D.company.whatsapp, t);
   const cards = P.bundles.map((b) => {
@@ -566,7 +566,7 @@ function plansSection(p) {
             <script>(function(){var Y=${PLANS.yearMonths},LF=${PLANS.lifetimeMonths},ar=${ar},c='m',u='egp',k='desk',el=document.getElementById('moPlans');
 function draw(){if(k==='cloud'&&c==='l')c='y';var n=c==='m'?1:c==='y'?Y:LF,per=c==='m'?(ar?'/ شهر':'/ month'):c==='y'?(ar?'/ سنة':'/ year'):(ar?'مرة واحدة':'one time');
 var fm=function(v){v=v.toLocaleString('en-US');return u==='usd'?'⁦$'+v+'⁩':(ar?v+' جنيه':'EGP '+v);};
-el.querySelectorAll('.mo-price').forEach(function(x){var a=k==='cloud'&&x.hasAttribute('data-c'+u)?'data-c'+u:'data-'+u;x.textContent=fm(+x.getAttribute(a)*n);});
+el.querySelectorAll('.mo-price').forEach(function(x){var a=k==='cloud'&&x.hasAttribute('data-c'+u)?'data-c'+u:'data-'+u;var l=k!=='cloud'&&c==='l'&&x.getAttribute('data-l'+u);x.textContent=fm(l?+l:+x.getAttribute(a)*n);});
 el.querySelectorAll('.mo-once').forEach(function(x){x.textContent=fm(+x.getAttribute('data-'+u));});
 el.querySelectorAll('.mo-desk').forEach(function(x){x.style.display=k==='cloud'?'none':'';});el.querySelectorAll('.mo-cloud').forEach(function(x){x.style.display=k==='cloud'?'':'none';});
 el.querySelectorAll('[data-seg=cyc] [data-v=l]').forEach(function(x){x.hidden=k==='cloud';});
