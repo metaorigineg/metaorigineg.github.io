@@ -115,6 +115,17 @@ const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<
 const wa = (n, text) => `https://wa.me/2${n}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
 const rgb = (hex) => { const h = hex.replace('#', ''); return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)).join(','); };
 // لون الكلام فوق لون البرنامج (حد الإضاءة 0.18 زي باقي البرامج)
+// أقل سعر في الباقات (في الشهر) من plans.json — «يبدأ من» على الكروت و«اختار نشاطك»
+const startEgp = (slug) => { const b = PLANS?.programs?.[slug]?.bundles; const v = (b || []).map((x) => x.egp).filter(Boolean); return v.length ? Math.min(...v) : null; };
+const priceLine = (p, cls = 'text-sm text-gray-300') => { const x = startEgp(p.slug); return x ? `<p class="${cls}">${L(`يبدأ من <b class="text-white">${fmtNum(x)}</b> ج.م في الشهر`, `From <b class="text-white">EGP ${fmtNum(x)}</b> / month`)}</p>` : ''; };
+// لون اسم البرنامج على الكارت الغامق: بيتفتّح لحد ما يبقى مقروء (تباين 4.5 على #111827) — ألوان زي #0e7490 كانت باهتة
+const readable = (hex) => {
+  const ch = (h) => [0, 2, 4].map((i) => parseInt(h.replace('#', '').slice(i, i + 2), 16));
+  const lum = (c) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
+  const bg = lum([17, 24, 39]); const c0 = ch(hex);
+  for (let t = 0; t <= 1.0001; t += 0.05) { const c = c0.map((v) => Math.round(v + (255 - v) * t)); const r = (lum(c) + 0.05) / (bg + 0.05); if (r >= 4.5) return `rgb(${c.join(',')})`; }
+  return '#ffffff';
+};
 const onColor = (hex) => {
   const [r, g, b] = rgb(hex).split(',').map((v) => { v = v / 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.18 ? '#0b0f19' : '#ffffff';
@@ -176,6 +187,10 @@ ${arOnly ? '' : `    <link rel="alternate" hreflang="ar" href="${SITE}${sub}">
         .zoom a { color: #e5e7eb; font-size: 13px; font-weight: 700; background: rgba(255,255,255,.12); padding: 6px 14px; border-radius: 999px; display: none; } .zoom.big a { display: inline-block; }
         .video-wide { width: min(1280px, calc(100vw - 32px)); margin-inline: calc((100% - min(1280px, calc(100vw - 32px))) / 2); }
         .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
+        [id] { scroll-margin-top: 88px; }
+        .pk-off { display: none !important; }
+        .mo-menu summary::-webkit-details-marker { display: none; }
+        ::selection { background: var(--acc); color: var(--on-acc); }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
 </head>
@@ -191,7 +206,7 @@ function header(base, { back, sub = '' } = {}) {
                 <img src="${base}img/company-logo.png" alt="Meta Origin" class="w-10 h-10 object-cover rounded-xl bg-gray-900 border border-gray-800 p-0.5">
                 <div>
                     <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-l from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block leading-tight">Meta Origin</span>
-                    <span class="text-[10px] text-gray-400 font-semibold block">${L('إدارة الأنظمة والبرمجيات', 'Business software')}</span>
+                    <span class="text-xs text-gray-400 font-semibold block">${L('إدارة الأنظمة والبرمجيات', 'Business software')}</span>
                 </div>
             </a>
             <div class="flex items-center gap-2">
@@ -199,6 +214,17 @@ function header(base, { back, sub = '' } = {}) {
                 ${LANG === 'ar' ? `<a href="${base}articles/" class="hidden xl:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-newspaper acc"></i>مقالات</a>` : ''}
                 <a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>${L('آخر التحديثات', 'Updates')}</a>
                 ${back ? `<a href="${LANG === 'en' ? base + 'en/' : base}#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>${L('كل البرامج', 'All programs')}</span></a>` : `<a href="#programs" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('البرامج', 'Programs')}</a><a href="#why" class="hidden md:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('المميزات', 'Features')}</a><a href="#team" class="hidden sm:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold">${L('تواصل معنا', 'Contact')}</a>`}
+                <details class="md:hidden relative mo-menu">
+                    <summary class="list-none flex items-center gap-2 bg-gray-800/80 text-gray-200 px-3 py-2 rounded-xl text-sm font-bold border border-gray-700 min-h-[44px] cursor-pointer" aria-label="${L('القايمة', 'Menu')}"><i class="fa-solid fa-bars acc"></i><span>${L('القايمة', 'Menu')}</span></summary>
+                    <nav class="absolute ${L('right-0', 'left-0')} top-full mt-2 w-56 max-w-[calc(100vw-2rem)] bg-cardbg border border-gray-700 rounded-2xl p-2 shadow-2xl flex flex-col">
+                        <a href="${homeOf(base)}#picker" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">${L('اختار نشاطك', 'Find your program')}</a>
+                        <a href="${homeOf(base)}#programs" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">${L('كل البرامج', 'All programs')}</a>
+                        <a href="${homeOf(base)}compare/" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">${L('مقارنة البرامج', 'Compare')}</a>
+                        ${LANG === 'ar' ? `<a href="${base}articles/" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">مقالات</a>` : ''}
+                        <a href="${homeOf(base)}updates/" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">${L('آخر التحديثات', 'Updates')}</a>
+                        <a href="${homeOf(base)}#team" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">${L('تواصل معنا', 'Contact')}</a>
+                    </nav>
+                </details>
                 <a href="${otherLang(base, sub)}" hreflang="${L('en', 'ar')}" lang="${L('en', 'ar')}" title="${L('English version', 'النسخة العربي')}" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>${L('English', 'عربي')}</span></a>
                 <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
                     <i class="fa-solid fa-share-nodes acc"></i><span class="hidden sm:inline">${L('مشاركة الصفحة', 'Share')}</span>
@@ -251,7 +277,7 @@ function footer(base, name) {
         <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">${L('تم النسخ بنجاح!', 'Copied!')}</span>
     </div>
     <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""><a id="zoomFull" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">${L('افتح الصورة بحجمها الكامل', 'Open full size')}</a></div>
-    <a href="${wa(D.company.whatsapp, name === 'Meta Origin' ? L('عايز أعرف أكتر عن برامج Meta Origin', 'I would like to know more about Meta Origin programs') : L(`عندي سؤال عن ${name}`, `I have a question about ${name}`))}" target="_blank" rel="noopener noreferrer" title="${L('كلّمنا واتساب', 'Chat on WhatsApp')}" class="fixed bottom-5 ${L('left-5', 'right-5')} z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="${wa(D.company.whatsapp, name === 'Meta Origin' ? L('عايز أعرف أكتر عن برامج Meta Origin', 'I would like to know more about Meta Origin programs') : L(`عندي سؤال عن ${name}`, `I have a question about ${name}`))}" target="_blank" rel="noopener noreferrer" title="${L('كلّمنا واتساب', 'Chat on WhatsApp')}" class="fixed bottom-5 ${L('left-5', 'right-5')} z-40 w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
     <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
             <div class="flex items-center justify-center gap-2 mb-2">
@@ -303,6 +329,12 @@ ${requestJs()}
             apply(${JSON.stringify(BAKED_HIDDEN)});
             fetch(${JSON.stringify(SITE_API)}).then(function (r) { return r.json(); }).then(function (b) { if (b && Array.isArray(b.hidden)) apply(b.hidden); }).catch(function () {});
         })();
+        function pickGroup(g, btn) {
+            document.querySelectorAll('[data-group-btn]').forEach((b) => { const on = b === btn; b.classList.toggle('pick-on', on); b.setAttribute('aria-pressed', on); });
+            document.querySelectorAll('[data-pick-btn]').forEach((b) => { b.classList.toggle('pk-off', b.dataset.g !== g); });
+            const first = [...document.querySelectorAll('[data-pick-btn][data-g="' + g + '"]')].find((b) => getComputedStyle(b).display !== 'none');
+            if (first) first.click();
+        }
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
             document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
@@ -409,7 +441,7 @@ ${FAQ.map(([q, a]) => `                <details class="bg-cardbg border border-g
 }
 
 // البرامج اللي ليها نسخة على النت: شعار جنب «متاح للتحميل» وكارت جنب كروت التحميل
-const cloudPill = () => `<span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30"><i class="fa-solid fa-cloud"></i>${L('سحابي', 'Cloud')}</span>`;
+const cloudPill = () => `<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30"><i class="fa-solid fa-cloud"></i>${L('سحابي', 'Cloud')}</span>`;
 const cloudCard = (p) => `                <div class="bg-cardbg border border-sky-500/40 rounded-2xl p-4 md:p-5 card-hover flex items-center justify-between gap-4">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 bg-sky-500/15 text-sky-300"><i class="fa-solid fa-cloud"></i></div>
@@ -711,55 +743,79 @@ function homePage() {
                     <div class="min-w-0 space-y-1">
                         <div class="flex items-center gap-2 flex-wrap">
                             <h3 class="font-extrabold text-white text-base" dir="ltr">${esc(p.product.replace('Meta Origin - ', ''))}</h3>
-                            ${p.isNew ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-amber-400 text-black">${L('جديد', 'New')}</span>` : ''}
-                            ${(p.downloads || []).length || REL[p.slug]?.published ? `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">${L('متاح للتحميل', 'Available')}</span>${p.online ? cloudPill() : ''}` : `<span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">${L('قريبًا', 'Soon')}</span>`}
+                            ${p.isNew ? `<span class="text-xs px-2 py-0.5 rounded-full font-bold bg-amber-400 text-black">${L('جديد', 'New')}</span>` : ''}
+                            ${(p.downloads || []).length || REL[p.slug]?.published ? (p.online ? cloudPill() : '') : `<span class="text-xs px-2 py-0.5 rounded-full font-bold bg-gray-700/50 text-gray-300 border border-gray-600">${L('قريبًا', 'Soon')}</span>`}
                         </div>
-                        <div class="text-sm font-bold" style="color:${p.color}">${esc(pName(p))}</div>
-                        <p class="text-xs text-gray-400 leading-relaxed">${esc(pField(p, 'short'))}</p>
-                        ${(DLS[p.slug] || 0) >= DL_MIN ? `<p class="text-[11px] text-gray-500"><i class="fa-solid fa-download"></i> ${L('اتحمّل', 'Downloaded')} ${fmtNum(DLS[p.slug])} ${L('مرة', 'times')}</p>` : ''}
+                        <div class="text-sm font-bold" style="color:${readable(p.color)}">${esc(pName(p))}</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">${esc(pField(p, 'short'))}</p>
+                        ${priceLine(p, 'text-xs text-gray-300 pt-1')}
                     </div>
                 </a>`;
-  // «إيه البرنامج المناسب ليك؟» — نوع النشاط ← البرامج المناسبة (المخفية بتتشال لوحدها)
+  // «إيه البرنامج المناسب ليك؟» — 5 مجموعات ← نوع النشاط ← البرنامج الأنسب (بشاشته وسعره وأزراره) + البدايل
+  const GROUPS = [
+    ['medical', 'fa-briefcase-medical', 'طبي', 'Medical'],
+    ['retail', 'fa-store', 'محلات وتجارة', 'Shops & trade'],
+    ['food', 'fa-utensils', 'مطاعم وفنادق', 'Food & hotels'],
+    ['company', 'fa-industry', 'شركات ومصانع', 'Companies & factories'],
+    ['services', 'fa-briefcase', 'خدمات وتعليم', 'Services & education'],
+  ];
   const PICKER = [
-    ['fa-prescription-bottle-medical', 'صيدلية', 'Pharmacy', ['pharmacy']],
-    ['fa-stethoscope', 'عيادة أو مركز طبي', 'Clinic or medical center', ['clinic']],
-    ['fa-scale-balanced', 'مكتب محاماة', 'Law office', ['lawyer']],
-    ['fa-flask-vial', 'معمل تحاليل', 'Medical lab', ['lab']],
-    ['fa-truck-moving', 'شركة نقل أو أسطول عربيات نقل ثقيل', 'Transport company or truck fleet', ['masar']],
-    ['fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
-    ['fa-chalkboard-user', 'سنتر تعليمي أو دروس', 'Learning center or tutoring', ['center']],
-    ['fa-dumbbell', 'جيم أو صالة رياضية', 'Gym or fitness club', ['gym']],
-    ['fa-cubes', 'شركة كبيرة محتاجة ERP متكامل (مصر أو السعودية)', 'Company needing a complete ERP (Egypt or KSA)', ['vertex']],
-    ['fa-cart-shopping', 'سوبر ماركت أو بقالة', 'Supermarket or grocery', ['cashier', 'cashier-lite']],
-    ['fa-shirt', 'محل ملابس أو عطور أو موبايلات', 'Clothes, perfume or mobile shop', ['cashier-stores', 'cashier-clothes']],
-    ['fa-store', 'محل صغير بجهاز واحد', 'Small shop with one PC', ['cashier-lite']],
-    ['fa-utensils', 'مطعم أو كافيه أو دليفري', 'Restaurant, café or delivery', ['sufra', 'restaurant', 'restaurant-pos']],
-    ['fa-code-branch', 'سلسلة مطاعم أو كافيهات بفروع', 'Restaurant or café chain with branches', ['restaurant-pos', 'restaurant']],
-    ['fa-hotel', 'فندق أو شقق أو سكن طلاب', 'Hotel, apartments or student housing', ['hotel-pro', 'hotel']],
-    ['fa-industry', 'مصنع ملابس', 'Garment factory', ['erp', 'stores']],
-    ['fa-truck', 'شركة تجارية أو توزيع (فروع ومخازن)', 'Trading or distribution company', ['sales-erp', 'acc-new']],
-    ['fa-warehouse', 'مخازن وأوامر إنتاج', 'Warehouses & production orders', ['stores', 'acc-new']],
-    ['fa-calculator', 'حسابات شركة', 'Company accounting', ['acc', 'acc-new']],
-    ['fa-id-card', 'مرتبات وحضور وبصمة', 'Payroll, attendance & fingerprint', ['hr-pro', 'hr', 'hr-enterprise']],
-  ].map(([ic, ar, en, slugs]) => ({ ic, t: L(ar, en), items: slugs.map((s) => D.programs.find((p) => p.slug === s)).filter(Boolean) })).filter((x) => x.items.length);
+    ['medical', 'fa-prescription-bottle-medical', 'صيدلية', 'Pharmacy', ['pharmacy']],
+    ['medical', 'fa-stethoscope', 'عيادة أو مركز طبي', 'Clinic or medical center', ['clinic']],
+    ['medical', 'fa-flask-vial', 'معمل تحاليل', 'Medical lab', ['lab']],
+    ['retail', 'fa-cart-shopping', 'سوبر ماركت أو بقالة', 'Supermarket or grocery', ['cashier', 'cashier-lite']],
+    ['retail', 'fa-shirt', 'محل ملابس أو عطور أو موبايلات', 'Clothes, perfume or mobile shop', ['cashier-stores', 'cashier-clothes']],
+    ['retail', 'fa-store', 'محل صغير بجهاز واحد', 'Small shop with one PC', ['cashier-lite']],
+    ['retail', 'fa-truck', 'شركة تجارية أو توزيع (فروع ومخازن)', 'Trading or distribution company', ['sales-erp', 'acc-new']],
+    ['food', 'fa-utensils', 'مطعم أو كافيه أو دليفري', 'Restaurant, café or delivery', ['sufra', 'restaurant', 'restaurant-pos']],
+    ['food', 'fa-code-branch', 'سلسلة مطاعم أو كافيهات بفروع', 'Restaurant or café chain with branches', ['restaurant-pos', 'restaurant']],
+    ['food', 'fa-hotel', 'فندق أو شقق أو سكن طلاب', 'Hotel, apartments or student housing', ['hotel-pro', 'hotel']],
+    ['company', 'fa-cubes', 'شركة محتاجة نظام متكامل (مصر أو السعودية)', 'Company needing a complete ERP (Egypt or KSA)', ['vertex']],
+    ['company', 'fa-industry', 'مصنع ملابس', 'Garment factory', ['erp', 'stores']],
+    ['company', 'fa-warehouse', 'مخازن وأوامر إنتاج', 'Warehouses & production orders', ['stores', 'acc-new']],
+    ['company', 'fa-calculator', 'حسابات شركة', 'Company accounting', ['acc', 'acc-new']],
+    ['company', 'fa-id-card', 'مرتبات وحضور وبصمة', 'Payroll, attendance & fingerprint', ['hr-pro', 'hr', 'hr-enterprise']],
+    ['company', 'fa-truck-moving', 'شركة نقل أو أسطول نقل ثقيل', 'Transport company or truck fleet', ['masar']],
+    ['services', 'fa-scale-balanced', 'مكتب محاماة', 'Law office', ['lawyer']],
+    ['services', 'fa-school', 'مدرسة أو جامعة', 'School or university', ['school']],
+    ['services', 'fa-chalkboard-user', 'سنتر تعليمي أو دروس', 'Learning center or tutoring', ['center']],
+    ['services', 'fa-dumbbell', 'جيم أو صالة رياضية', 'Gym or fitness club', ['gym']],
+  ].map(([g, ic, ar, en, slugs]) => ({ g, ic, t: L(ar, en), items: slugs.map((x) => D.programs.find((p) => p.slug === x)).filter((p) => p && !BAKED_HIDDEN.includes(p.slug)) })).filter((x) => x.items.length);
+  const groups = GROUPS.filter(([id]) => PICKER.some((x) => x.g === id));
+  const firstG = groups[0][0];
+  const firstI = PICKER.findIndex((x) => x.g === firstG);
+  const shotOf = (p) => (SHOTS[p.slug] || [])[0];
+  const featured = (x, i) => {
+    const f = x.items[0]; const sh = shotOf(f); const alt = x.items.slice(1);
+    return `                <div data-pick="${i}"${i === firstI ? '' : ' style="display:none"'} class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-cardbg border border-gray-800 rounded-3xl p-4 md:p-6">
+                    ${sh ? `<button type="button" onclick="zoomImg('${base}${sh.f}', true)" class="block rounded-2xl overflow-hidden border border-gray-700 hover:border-gray-500 transition" aria-label="${L('كبّر الشاشة', 'Enlarge screen')}"><img src="${base}${sh.f}" alt="${esc(L('شاشة من ', 'A screen from ') + pName(f))}" class="w-full aspect-[16/10] object-cover object-top" loading="lazy"></button>` : ''}
+                    <div class="space-y-3 ${L('text-right', 'text-left')}">
+                        <div class="flex items-center gap-3"><img src="${base}icons/${f.slug}.png" alt="" class="w-12 h-12 rounded-xl"><div><h3 class="font-extrabold text-white text-xl" dir="ltr">${esc(f.product.replace('Meta Origin - ', ''))}</h3><div class="text-sm font-bold" style="color:${readable(f.color)}">${esc(pName(f))}</div></div></div>
+                        <p class="text-gray-300 leading-relaxed">${esc(pField(f, 'short'))}</p>
+                        ${priceLine(f, 'text-base text-gray-300')}
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            ${f.online ? `<a href="${esc(f.online)}" target="_blank" rel="noopener" class="bg-acc px-5 py-3 rounded-xl font-extrabold min-h-[44px] flex items-center gap-2"><i class="fa-solid fa-cloud"></i> ${L('جرّب أونلاين', 'Try online')}</a>` : ''}
+                            <a href="${f.slug}/" class="${f.online ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700' : 'bg-acc'} px-5 py-3 rounded-xl font-bold min-h-[44px] flex items-center gap-2"><i class="fa-solid fa-download"></i> ${L('التفاصيل والتحميل', 'Details & download')}</a>
+                            <a href="${wa(D.company.whatsapp, L(`عايز أعرف أكتر عن ${pName(f)}`, `I'd like to know more about ${pName(f)}`))}" target="_blank" rel="noopener noreferrer" class="bg-emerald-700 hover:bg-emerald-600 text-white px-5 py-3 rounded-xl font-bold min-h-[44px] flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> ${L('اسأل على واتساب', 'Ask on WhatsApp')}</a>
+                        </div>
+                        ${alt.length ? `<p class="text-sm text-gray-400 pt-1">${L('وكمان يناسبك:', 'Also fits:')} ${alt.map((a) => `<a href="${a.slug}/" class="font-bold text-gray-200 underline underline-offset-4 hover:text-white"><bdi>${esc(pName(a))}</bdi></a>`).join(L('، ', ', '))}</p>` : ''}
+                    </div>
+                </div>`;
+  };
   const picker = `
-        <section id="picker" class="space-y-6">
+        <section id="picker" class="space-y-5">
             <div class="text-center space-y-2">
-                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-wand-magic-sparkles acc"></i><span>${L('إيه البرنامج المناسب ليك؟', 'Which program is right for you?')}</span></h2>
-                <p class="text-gray-400 text-xs md:text-sm">${L('اختار نشاطك وإحنا نقولك تبدأ بإيه', 'Pick your business and we will tell you where to start')}</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">${L('اختار نشاطك وإحنا نقولك تبدأ بإيه', 'Pick your business and we will tell you where to start')}</h2>
+            </div>
+            <div class="flex flex-wrap justify-center gap-2" role="group" aria-label="${L('مجال الشغل', 'Business area')}">
+${groups.map(([id, ic, ar, en]) => `                <button type="button" data-group-btn="${id}" onclick="pickGroup('${id}', this)" aria-pressed="${id === firstG}" class="${id === firstG ? 'pick-on ' : ''}bg-darkbg border border-gray-600 hover:border-gray-400 text-gray-100 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2 min-h-[44px] transition"><i class="fa-solid ${ic}"></i>${esc(L(ar, en))}</button>`).join('\n')}
             </div>
             <div class="flex flex-wrap justify-center gap-2">
-${PICKER.map((x, i) => `                <button${psAttr(x.items.map((p) => p.slug))} data-pick-btn onclick="pickBiz(${i}, this)" class="bg-cardbg border border-gray-700 hover:border-gray-500 text-gray-200 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition active:scale-95"><i class="fa-solid ${x.ic}"></i>${esc(x.t)}</button>`).join('\n')}
+${PICKER.map((x, i) => `                <button type="button"${psAttr(x.items.map((p) => p.slug))} data-pick-btn data-g="${x.g}" onclick="pickBiz(${i}, this)" class="${x.g === firstG ? '' : 'pk-off '}${i === firstI ? 'pick-on ' : ''}bg-cardbg border border-gray-700 hover:border-gray-500 text-gray-200 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 min-h-[44px] transition active:scale-95"><i class="fa-solid ${x.ic}"></i>${esc(x.t)}</button>`).join('\n')}
             </div>
-            <div id="pickResult">
-${PICKER.map((x, i) => `                <div data-pick="${i}" style="display:none" class="space-y-3">
-                    <p class="text-center text-sm text-gray-300">${x.items.length > 1 ? L(`قدامك ${x.items.length === 2 ? 'اختيارين' : `<strong class="text-white">${x.items.length}</strong> اختيارات`} — الأول هو الأنسب لأغلب الناس:`, `<strong class="text-white">${x.items.length}</strong> options — the first one fits most people:`) : L('البرنامج المناسب ليك:', 'The right program for you:')}</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
-                    </div>
-                </div>`).join('\n')}
-                <p class="text-center text-sm pt-3"><a href="${homeOf(base)}compare/" class="font-bold acc hover:underline"><i class="fa-solid fa-scale-balanced"></i> ${L('محتار بين برنامجين؟ شوف المقارنة بينهم', 'Torn between two programs? See the comparison')}</a></p>
-                <p class="text-center text-xs text-gray-500 pt-1">${L('مش لاقي نشاطك؟', 'Not sure?')} <a class="acc underline" href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer">${L('كلّمنا واتساب وهنقولك المناسب', 'WhatsApp us and we will advise you')}</a></p>
+            <div id="pickResult" aria-live="polite">
+${PICKER.map(featured).join('\n')}
+                <p class="text-center text-sm pt-4"><a href="${homeOf(base)}compare/" class="font-bold acc hover:underline"><i class="fa-solid fa-scale-balanced"></i> ${L('محتار بين برنامجين؟ شوف المقارنة بينهم', 'Torn between two programs? See the comparison')}</a> · <a class="acc underline" href="${wa(D.company.whatsapp, L('محتاج برنامج لنشاطي', 'I need a program for my business'))}" target="_blank" rel="noopener noreferrer">${L('مش لاقي نشاطك؟ كلّمنا واتساب', 'Not listed? WhatsApp us')}</a></p>
             </div>
         </section>`;
   const totalDl = Object.entries(DLS).filter(([s]) => D.programs.some((p) => p.slug === s) && !BAKED_HIDDEN.includes(s)).reduce((a, [, n]) => a + n, 0);
@@ -771,19 +827,14 @@ ${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
   return head({ title: L('Meta Origin | برامج إدارة الشركات والمحلات', 'Meta Origin | Business management software'), desc: company('about'), accent: '#3b82f6', base, image: 'img/company-logo.png', ld }) + header(base) + `
     <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-14">
         <section class="text-center space-y-6">
-            <img src="${base}img/company-logo.png" alt="Meta Origin" class="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl border border-gray-800 bg-gray-900 p-1 glow-effect">
-            <div class="space-y-3">
-                <h1 class="text-4xl md:text-6xl font-black text-white tracking-wide">Meta Origin</h1>
-                <p class="text-gray-400 font-bold">${esc(company('tagline'))}</p>
-                <p class="text-gray-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">${esc(company('about'))}</p>
+            <img src="${base}img/company-logo.png" alt="Meta Origin" class="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-3xl border border-gray-800 bg-gray-900 p-1 glow-effect">
+            <div class="space-y-4">
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight max-w-4xl mx-auto" style="text-wrap:balance">${L('برنامج معمول لنشاطك.. من الكاشير للمرتبات', 'Software made for your business, from the till to payroll')}</h1>
+                <p class="text-gray-300 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">${L('صيدلية، سوبر ماركت، مطعم، مصنع أو شركة: كل نشاط ليه برنامجه المخصوص من Meta Origin، يشتغل على الكمبيوتر من غير نت وعلى الموبايل من أي مكان، والاتنين متزامنين.', 'Pharmacy, supermarket, restaurant, factory or company: every business gets its own Meta Origin program. It works on the PC without internet and online from any phone, and the two stay in sync.')}</p>
             </div>
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="#programs" class="bg-acc px-6 py-3 rounded-xl font-extrabold shadow-lg active:scale-95 flex items-center gap-2"><i class="fa-solid fa-grip"></i> ${L('تصفّح البرامج', 'Browse programs')}</a>
-                <a href="${wa(D.company.whatsapp, L('عايز أعرف أكتر عن برامج Meta Origin', 'I would like to know more about Meta Origin programs'))}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> ${L('كلّمنا واتساب', 'WhatsApp us')}</a>
-                <a href="${esc(D.company.youtube)}" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-youtube"></i> ${L('قناتنا على اليوتيوب', 'Our YouTube channel')}</a>
-                <a href="${esc(D.company.facebook)}" target="_blank" rel="noopener noreferrer" class="bg-[#1877f2] hover:brightness-110 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-brands fa-facebook"></i> ${L('صفحتنا على الفيسبوك', 'Facebook page')}</a>
-                <a href="${esc(D.company.instagram)}" target="_blank" rel="noopener noreferrer" class="text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:brightness-110" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)"><i class="fa-brands fa-instagram"></i> ${L('انستجرام', 'Instagram')}</a>
-                <a href="mailto:${esc(D.company.emails[0])}" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 rounded-xl font-bold flex items-center gap-2"><i class="fa-solid fa-envelope acc"></i> ${L('راسلنا بالإيميل', 'Email us')}</a>
+                <a href="#picker" class="bg-acc px-7 py-3.5 rounded-xl font-extrabold shadow-lg active:scale-95 flex items-center gap-2 min-h-[48px]"><i class="fa-solid fa-store"></i> ${L('اختار نشاطك', 'Find your program')}</a>
+                <a href="${wa(D.company.whatsapp, L('عايز أعرف أكتر عن برامج Meta Origin', 'I would like to know more about Meta Origin programs'))}" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 px-7 py-3.5 rounded-xl font-bold flex items-center gap-2 min-h-[48px]"><i class="fa-brands fa-whatsapp text-emerald-400"></i> ${L('كلّمنا واتساب', 'WhatsApp us')}</a>
             </div>
             <div class="flex flex-wrap justify-center gap-3 pt-2 text-xs md:text-sm text-gray-300">
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-layer-group acc"></i><span><strong id="nProg" data-all="${D.programs.map((p) => p.slug).join(' ')}" class="text-white">${D.programs.length - BAKED_HIDDEN.length}</strong> ${L('برنامج', 'programs')}</span></div>
@@ -791,7 +842,6 @@ ${x.items.map((p) => card(p).replace(/ data-prog="[^"]*"/, '')).join('\n')}
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-network-wired acc"></i><span>${L('جهاز واحد أو شبكة أو أونلاين', 'One PC, network or online')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-gift acc"></i><span>${L('14 يوم تجربة مجانية', '14-day free trial')}</span></div>
                 <div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-headset acc"></i><span>${L('دعم فني وتركيب', 'Support & installation')}</span></div>
-                ${totalDl >= DL_MIN ? `<div class="bg-cardbg border border-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"><i class="fa-solid fa-download acc"></i><span><strong class="text-white">${fmtNum(totalDl)}</strong> ${L('تحميل', 'downloads')}</span></div>` : ''}
             </div>
         </section>
 ${picker}
@@ -800,10 +850,10 @@ ${picker}
             <div class="text-center space-y-2">
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-grip acc"></i><span>${L('برامجنا', 'Our programs')}</span></h2>
                 <p class="text-gray-400 text-xs md:text-sm">${L('اختار البرنامج عشان تشوف تفاصيله وتحمّله', 'Pick a program to see its details and download it')}</p>
-                <div class="max-w-md mx-auto pt-2"><input oninput="filterPrograms(this.value.toLowerCase())" placeholder="${L('ابحث عن برنامج (صيدلية، مطعم، مدرسة، مرتبات…)', 'Search (pharmacy, restaurant, school, payroll…)')}" class="w-full bg-cardbg border border-gray-700 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"></div>
+                <div class="max-w-md mx-auto pt-2"><input oninput="filterPrograms(this.value.toLowerCase())" placeholder="${L('ابحث عن برنامج (صيدلية، مطعم، مدرسة، مرتبات…)', 'Search (pharmacy, restaurant, school, payroll…)')}" class="w-full bg-cardbg border border-gray-700 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-blue-500" aria-label="${L('ابحث عن برنامج', 'Search programs')}"></div>
             </div>
 ${cats.map((c) => `            <div data-cat="${c.id}" class="space-y-4">
-                <h3 class="text-lg font-extrabold text-gray-200 ${L('border-r-4 pr-3', 'border-l-4 pl-3')}" style="border-color:#3b82f6">${esc(c.name)}</h3>
+                <h3 class="text-lg font-extrabold text-gray-200 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full" style="background:#3b82f6"></span>${esc(c.name)}</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 ${c.items.map(card).join('\n')}
                 </div>
@@ -816,11 +866,10 @@ ${c.items.map(card).join('\n')}
                 <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-star acc"></i><span>${L('ليه برامج Meta Origin؟', 'Why Meta Origin?')}</span></h2>
                 <p class="text-gray-400 text-xs md:text-sm">${L('حاجات موجودة في كل برامجنا', 'Included in all our programs')}</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-${D.company.strengths.map((x, i) => (LANG === 'en' && EN.company.strengths[i] ? { ...x, ...EN.company.strengths[i] } : x)).map((x) => `                <div class="bg-cardbg border border-gray-800 p-5 rounded-2xl space-y-2 border-t-2 card-hover" style="border-top-color:${x.color}">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:${x.color}1f;color:${x.color}"><i class="fa-solid ${x.icon}"></i></div>
-                    <h3 class="text-base font-bold text-white">${esc(x.t)}</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">${esc(x.d)}</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8">
+${D.company.strengths.map((x, i) => (LANG === 'en' && EN.company.strengths[i] ? { ...x, ...EN.company.strengths[i] } : x)).map((x) => `                <div class="flex gap-4 items-start">
+                    <div class="w-11 h-11 rounded-xl flex-shrink-0 flex items-center justify-center text-xl bg-acc-soft"><i class="fa-solid ${x.icon}"></i></div>
+                    <div><h3 class="text-base font-bold text-white">${esc(x.t)}</h3><p class="text-gray-400 text-sm leading-relaxed">${esc(x.d)}</p></div>
                 </div>`).join('\n')}
             </div>
         </section>
@@ -860,7 +909,7 @@ const homeOf = (base) => (LANG === 'en' ? base + 'en/' : base);
 /** فورم «اطلب البرنامج»: بيكتب رسالة واتساب جاهزة بالبيانات (مفيش أي حاجة بتتحفظ أو بتتبعت لسيرفر) */
 function requestForm(base, p) {
   const opts = D.programs.map((x) => `<option${psAttr(x.slug)} value="${esc(x.product)}"${p && x.slug === p.slug ? ' selected' : ''}>${esc(x.product.replace('Meta Origin - ', ''))} — ${esc(pName(x))}</option>`).join('');
-  const field = 'w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-acc';
+  const field = 'w-full bg-darkbg border border-gray-700 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-acc';
   return `
         <section id="request" class="bg-cardbg border border-gray-800 rounded-3xl p-6 md:p-8 space-y-5 glow-effect">
             <div class="text-center space-y-2">
@@ -876,8 +925,8 @@ function requestForm(base, p) {
                 <label class="space-y-1"><span class="text-xs font-bold text-gray-300">${L('محتاج إيه؟', 'What do you need?')}</span><select name="need" class="${field}"><option>${L('أعرف السعر', 'A price quote')}</option><option>${L('أجرّب البرنامج', 'To try the program')}</option><option>${L('تركيب وتدريب', 'Installation & training')}</option><option>${L('عندي سؤال', 'I have a question')}</option></select></label>
                 <label class="space-y-1 md:col-span-2"><span class="text-xs font-bold text-gray-300">${L('ملاحظات (اختياري)', 'Notes (optional)')}</span><textarea name="notes" rows="2" maxlength="400" class="${field}" placeholder="${L('أي تفاصيل عن شغلك', 'Anything about your business')}"></textarea></label>
                 <div class="md:col-span-2 flex flex-col items-center gap-2 pt-1">
-                    <button class="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3 rounded-xl font-extrabold flex items-center gap-2 shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp text-lg"></i> ${L('ابعت على الواتساب', 'Send on WhatsApp')}</button>
-                    <p class="text-[11px] text-gray-500">${L('البيانات مش بتتحفظ في الموقع — بتروح في رسالة الواتساب اللي انت بتبعتها بنفسك.', 'Nothing is stored on this site — the details go only in the WhatsApp message you send yourself.')}</p>
+                    <button class="bg-emerald-700 hover:bg-emerald-600 text-white px-8 py-3 rounded-xl font-extrabold flex items-center gap-2 shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp text-lg"></i> ${L('ابعت على الواتساب', 'Send on WhatsApp')}</button>
+                    <p class="text-xs text-gray-400">${L('البيانات مش بتتحفظ في الموقع — بتروح في رسالة الواتساب اللي انت بتبعتها بنفسك.', 'Nothing is stored on this site — the details go only in the WhatsApp message you send yourself.')}</p>
                 </div>
             </form>
         </section>`;

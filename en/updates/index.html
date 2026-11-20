@@ -25,7 +25,7 @@
     <link rel="alternate" hreflang="x-default" href="https://metaorigineg.com/updates/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../../assets/site.css?v=60bc247ca0">
+    <link rel="stylesheet" href="../../assets/site.css?v=1dbf165530">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -43,6 +43,10 @@
         .zoom a { color: #e5e7eb; font-size: 13px; font-weight: 700; background: rgba(255,255,255,.12); padding: 6px 14px; border-radius: 999px; display: none; } .zoom.big a { display: inline-block; }
         .video-wide { width: min(1280px, calc(100vw - 32px)); margin-inline: calc((100% - min(1280px, calc(100vw - 32px))) / 2); }
         .pick-on { background: var(--acc) !important; color: var(--on-acc) !important; border-color: var(--acc) !important; }
+        [id] { scroll-margin-top: 88px; }
+        .pk-off { display: none !important; }
+        .mo-menu summary::-webkit-details-marker { display: none; }
+        ::selection { background: var(--acc); color: var(--on-acc); }
         .prog-card { --c: #3b82f6; } .prog-card:hover { border-color: var(--c); box-shadow: 0 10px 25px -8px color-mix(in srgb, var(--c) 40%, transparent); }
     </style>
 </head>
@@ -54,7 +58,7 @@
                 <img src="../../img/company-logo.png" alt="Meta Origin" class="w-10 h-10 object-cover rounded-xl bg-gray-900 border border-gray-800 p-0.5">
                 <div>
                     <span class="font-black text-lg md:text-xl tracking-wide bg-gradient-to-l from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block leading-tight">Meta Origin</span>
-                    <span class="text-[10px] text-gray-400 font-semibold block">Business software</span>
+                    <span class="text-xs text-gray-400 font-semibold block">Business software</span>
                 </div>
             </a>
             <div class="flex items-center gap-2">
@@ -62,6 +66,17 @@
                 
                 <a href="../../en/updates/" class="hidden lg:flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 text-sm font-bold"><i class="fa-solid fa-bolt acc"></i>Updates</a>
                 <a href="../../en/#programs" class="hidden sm:flex items-center gap-2 bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-grip acc"></i><span>All programs</span></a>
+                <details class="md:hidden relative mo-menu">
+                    <summary class="list-none flex items-center gap-2 bg-gray-800/80 text-gray-200 px-3 py-2 rounded-xl text-sm font-bold border border-gray-700 min-h-[44px] cursor-pointer" aria-label="Menu"><i class="fa-solid fa-bars acc"></i><span>Menu</span></summary>
+                    <nav class="absolute left-0 top-full mt-2 w-56 max-w-[calc(100vw-2rem)] bg-cardbg border border-gray-700 rounded-2xl p-2 shadow-2xl flex flex-col">
+                        <a href="../../en/#picker" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">Find your program</a>
+                        <a href="../../en/#programs" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">All programs</a>
+                        <a href="../../en/compare/" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">Compare</a>
+                        
+                        <a href="../../en/updates/" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">Updates</a>
+                        <a href="../../en/#team" class="px-3 py-3 rounded-xl hover:bg-gray-800 font-bold text-gray-200">Contact</a>
+                    </nav>
+                </details>
                 <a href="../../updates/" hreflang="ar" lang="ar" title="النسخة العربي" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700"><i class="fa-solid fa-language acc"></i><span>عربي</span></a>
                 <button onclick="sharePage()" class="flex items-center gap-2 bg-gray-800/80 hover:bg-gray-700 text-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-gray-700 active:scale-95">
                     <i class="fa-solid fa-share-nodes acc"></i><span class="hidden sm:inline">Share</span>
@@ -2151,7 +2166,7 @@
         <i class="fa-solid fa-circle-check acc text-lg"></i><span id="toastMessage" class="text-xs md:text-sm font-bold">Copied!</span>
     </div>
     <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img id="zoomImg" alt=""><a id="zoomFull" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">Open full size</a></div>
-    <a href="https://wa.me/201150606002?text=I%20would%20like%20to%20know%20more%20about%20Meta%20Origin%20programs" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://wa.me/201150606002?text=I%20would%20like%20to%20know%20more%20about%20Meta%20Origin%20programs" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center text-3xl shadow-2xl active:scale-95"><i class="fa-brands fa-whatsapp"></i></a>
     <footer class="border-t border-gray-800/60 bg-darkbg py-8 mt-12">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-3 text-gray-500 text-xs">
             <div class="flex items-center justify-center gap-2 mb-2">
@@ -2211,6 +2226,12 @@
             apply(["cashier-clothes","hr","hr-enterprise"]);
             fetch("https://metaorigin-licenses.meta-origin-eg.workers.dev/v1/public/site").then(function (r) { return r.json(); }).then(function (b) { if (b && Array.isArray(b.hidden)) apply(b.hidden); }).catch(function () {});
         })();
+        function pickGroup(g, btn) {
+            document.querySelectorAll('[data-group-btn]').forEach((b) => { const on = b === btn; b.classList.toggle('pick-on', on); b.setAttribute('aria-pressed', on); });
+            document.querySelectorAll('[data-pick-btn]').forEach((b) => { b.classList.toggle('pk-off', b.dataset.g !== g); });
+            const first = [...document.querySelectorAll('[data-pick-btn][data-g="' + g + '"]')].find((b) => getComputedStyle(b).display !== 'none');
+            if (first) first.click();
+        }
         function pickBiz(i, btn) {
             document.querySelectorAll('[data-pick]').forEach((el) => { el.style.display = el.dataset.pick === String(i) ? '' : 'none'; });
             document.querySelectorAll('[data-pick-btn]').forEach((b) => b.classList.toggle('pick-on', b === btn));
