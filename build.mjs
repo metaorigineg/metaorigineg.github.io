@@ -563,14 +563,18 @@ function plansSection(p) {
   const price = (x, c) => `<span class="mo-price" data-egp="${x.egp}" data-usd="${x.usd}"${c ? ` data-cegp="${c.egp}" data-cusd="${c.usd}"` : ''}${x.life ? ` data-legp="${x.life.egp}" data-lusd="${x.life.usd}"` : ''}></span>`;
   const once = (x) => `<span class="mo-once" data-egp="${x.egp}" data-usd="${x.usd}"></span>`;
   const ask = (t) => wa(D.company.whatsapp, t);
-  const cards = P.bundles.map((b) => {
-    const items = b.bits != null ? P.parts.filter((x) => b.bits & x.bit).map(T) : [T(b)];
+  // every card starts alike (name, price, button), then what is in it: its summary, the core (first plan) or «everything in the plan
+  // before, plus:» and only what it adds — so the plans tell apart at a glance (owner's request 2026-11-22)
+  const li = (t, head) => `<li class="flex gap-2${head ? ' font-bold text-white' : ''}"><i class="fa-solid ${head === 'layers' ? 'fa-layer-group' : 'fa-check'} acc mt-1"></i><span>${t}</span></li>`;
+  const cards = P.bundles.map((b, i) => {
+    const prev = i ? P.bundles[i - 1] : null;
+    const cum = b.bits != null && prev && prev.bits != null && (prev.bits & b.bits) === prev.bits;
+    const items = b.bits != null ? P.parts.filter((x) => (b.bits & x.bit) && !(cum && (prev.bits & x.bit))).map(T) : [];
     return `<div class="relative bg-cardbg border ${b.recommended ? 'border-acc' : 'border-gray-800'} rounded-2xl p-5 flex flex-col gap-2">
                 ${b.recommended ? `<span class="absolute -top-3 right-5 bg-acc text-xs font-bold px-3 py-0.5 rounded-full">${L('الأنسب لأغلب العملاء', 'Most popular')}</span>` : ''}
                 <div class="text-lg font-extrabold text-white" dir="ltr" style="text-align:start">${esc(P.product + ' ' + b.edition)}</div>
-                <div class="text-gray-400 text-xs">${T(b)}</div>
                 <div class="text-2xl font-black acc">${price(b, cb(b))} <span class="mo-per text-gray-400 text-xs font-bold"></span></div>
-                <ul class="text-sm text-gray-300 space-y-1 flex-1"><li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${T(P.core)}</span></li>${items.map((t) => `<li class="flex gap-2"><i class="fa-solid fa-check acc mt-1"></i><span>${t}</span></li>`).join('')}</ul>
+                <ul class="text-sm text-gray-300 space-y-1 flex-1">${li(T(b), true)}${cum ? li(esc(L('كل اللي في ', 'Everything in ')) + esc(prev.edition) + esc(L('، و:', ', plus:')), 'layers') : li(T(P.core))}${items.map((t) => li(t)).join('')}</ul>
                 <a href="${ask(L('عايز ', 'I would like ') + 'Meta Origin - ' + P.product + ' ' + b.edition)}" target="_blank" rel="noopener noreferrer" class="text-center bg-acc rounded-xl py-2 font-bold text-sm">${L('اطلب الباقة دي', 'Request this plan')}</a>
             </div>`;
   }).join('');
