@@ -45,7 +45,7 @@ const PLANS = fs.existsSync(PLANS_FILE) ? JSON.parse(fs.readFileSync(PLANS_FILE,
 // بيتحفظ في updates.json عشان البناء يشتغل حتى لو الفولدرات دي مش موجودة.
 const WN_KEY = { pharmacy: 'pharmacy', lawyer: 'lawyer', sufra: 'sufra', lab: 'lab', gym: 'gym', center: 'center', 'sales-erp': 'saleserp', vertex: 'vertex', clinic: 'clinic', school: 'school', erp: 'erp', acc: 'acc', 'acc-new': 'accnew', stores: 'stores',
   hotel: 'hotel', 'hotel-pro': 'hotelpro', cashier: 'cashier', 'cashier-stores': 'kashier', 'cashier-lite': 'cashierlite', 'cashier-clothes': 'clothes',
-  restaurant: 'restaurant', hr: 'hr', 'hr-pro': 'hrpro', 'hr-enterprise': 'hrenterprise' };
+  restaurant: 'restaurant', hr: 'hr', 'hr-pro': 'hrpro', 'hr-enterprise': 'hrenterprise', 'erp-garments': 'erpgarments' };
 const UPDATES_FILE = path.join(HERE, 'updates.json');
 let UPDATES = {};
 try { UPDATES = JSON.parse(fs.readFileSync(UPDATES_FILE, 'utf8')); } catch { /* أول مرة */ }
@@ -771,7 +771,7 @@ function homePage() {
     ['food', 'fa-code-branch', 'سلسلة مطاعم أو كافيهات بفروع', 'Restaurant or café chain with branches', ['restaurant-pos', 'restaurant']],
     ['food', 'fa-hotel', 'فندق أو شقق أو سكن طلاب', 'Hotel, apartments or student housing', ['hotel-pro', 'hotel']],
     ['company', 'fa-cubes', 'شركة محتاجة نظام متكامل (مصر أو السعودية)', 'Company needing a complete ERP (Egypt or KSA)', ['vertex']],
-    ['company', 'fa-industry', 'مصنع ملابس', 'Garment factory', ['erp', 'stores']],
+    ['company', 'fa-industry', 'مصنع ملابس', 'Garment factory', ['erp-garments', 'erp', 'stores']],
     ['company', 'fa-warehouse', 'مخازن وأوامر إنتاج', 'Warehouses & production orders', ['stores', 'acc-new']],
     ['company', 'fa-calculator', 'حسابات شركة', 'Company accounting', ['acc', 'acc-new']],
     ['company', 'fa-id-card', 'مرتبات وحضور وبصمة', 'Payroll, attendance & fingerprint', ['hr-pro', 'hr', 'hr-enterprise']],

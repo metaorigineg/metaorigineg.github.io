@@ -764,6 +764,38 @@
           "d": "General accounts posted automatically, payroll, and profit per truck, driver, customer and route."
         }
       ]
+    },
+    "erp-garments": {
+      "name": "ERP Garments — Export Garment Factories",
+      "category": "Export garment factories",
+      "short": "The whole factory from the foreign buyer's order to shipping: samples and tech packs, purchasing, stores and customs, cutting, sewing, quality and packing, export documents, and accounts with fingerprint payroll.",
+      "about": "A complete system for export garment factories: inquiries and costed quotations, the order with its sizes, colours and dates, the style, tech pack, pattern, samples and approvals, planning and follow-up, purchasing and stores (fabric rolls and trims), import, customs and drawback, cutting and bundles, printing, embroidery, washing and subcontracting, sewing lines with hourly output and efficiency, quality and end-of-line checks, finishing and packing, export shipping with the packing list and invoice, local sales, accounts, treasury, cheques and fixed assets, people with attendance from fingerprint machines, payroll and bonuses, and a buyer portal to follow their orders. In English and Arabic, a main PC in the factory with PCs and phones on the network, and an online copy that syncs with the PC.",
+      "features": [
+        {
+          "t": "Orders & samples",
+          "d": "The inquiry and quotation, the order with its sizes and colours, and samples and approvals until the order is confirmed."
+        },
+        {
+          "t": "Tech pack & costing",
+          "d": "The style, materials, operations and pattern, and the expected against the actual cost of every order."
+        },
+        {
+          "t": "Purchasing & stores",
+          "d": "Purchase requests and quotations, fabric rolls and trims, and import and customs."
+        },
+        {
+          "t": "Production & quality",
+          "d": "Cutting and bundles, sewing lines with hourly output and efficiency, end-of-line checks and packing."
+        },
+        {
+          "t": "Shipping & export",
+          "d": "The packing list, invoice, export documents and drawback file, and a portal for the foreign buyer."
+        },
+        {
+          "t": "Accounts & people",
+          "d": "Journals, treasury, cheques and assets, attendance from fingerprint machines, payroll and bonuses."
+        }
+      ]
     }
   }
 }

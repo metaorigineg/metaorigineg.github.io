@@ -722,5 +722,39 @@
       "f": "shots/masar/8.webp",
       "t": "التقارير والربح"
     }
+  ],
+  "erp-garments": [
+    {
+      "f": "shots/erp-garments/1.webp",
+      "t": "الرئيسية"
+    },
+    {
+      "f": "shots/erp-garments/2.webp",
+      "t": "أوردرات العملاء"
+    },
+    {
+      "f": "shots/erp-garments/3.webp",
+      "t": "الموديلات والملف الفني"
+    },
+    {
+      "f": "shots/erp-garments/4.webp",
+      "t": "التخطيط والمتابعة"
+    },
+    {
+      "f": "shots/erp-garments/5.webp",
+      "t": "خطوط الخياطة"
+    },
+    {
+      "f": "shots/erp-garments/6.webp",
+      "t": "الجودة"
+    },
+    {
+      "f": "shots/erp-garments/7.webp",
+      "t": "التصدير والشحن"
+    },
+    {
+      "f": "shots/erp-garments/8.webp",
+      "t": "الحسابات"
+    }
   ]
 }
