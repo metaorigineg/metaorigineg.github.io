@@ -553,6 +553,14 @@ sec.hidden=false;}).catch(function(){});})();</script>
 `;
 }
 
+// the comparison (a program whose sections list their parts — plans.json parts[].items): the section, its parts, ✓ / — per plan
+function compareTable(P, T) {
+  const ok = '<i class="fa-solid fa-check acc"></i>', no = '<span class="text-gray-600">—</span>';
+  const head = `<tr><th class="text-start px-3 py-2">${L('الجزء', 'Part')}</th>${P.bundles.map((b) => `<th class="px-3 py-2 text-center${b.recommended ? ' acc' : ''}">${esc(b.edition)}</th>`).join('')}</tr>`;
+  const rows = P.parts.map((x) => `<tr class="bg-black/20"><td class="px-3 py-2 font-bold text-white" colspan="${P.bundles.length + 1}">${T(x)}</td></tr>` +
+    (x.items || []).map((it) => `<tr class="border-t border-gray-800"><td class="px-3 py-1.5 text-gray-300">${T(it)}</td>${P.bundles.map((b) => `<td class="px-3 py-1.5 text-center">${b.bits & x.bit ? ok : no}</td>`).join('')}</tr>`).join('')).join('');
+  return `<div class="space-y-2"><h3 class="font-bold text-white">${L('قارن بين الباقات', 'Compare the plans')}</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-x-auto"><table class="w-full text-sm">${head}${rows}</table></div></div>`;
+}
 function plansSection(p) {
   const P = PLANS && PLANS.programs[p.slug];
   if (!P) return '';
@@ -568,7 +576,7 @@ function plansSection(p) {
   const li = (t, head) => `<li class="flex gap-2${head ? ' font-bold text-white' : ''}"><i class="fa-solid ${head === 'layers' ? 'fa-layer-group' : 'fa-check'} acc mt-1"></i><span>${t}</span></li>`;
   const cards = P.bundles.map((b, i) => {
     const prev = i ? P.bundles[i - 1] : null;
-    const cum = b.bits != null && prev && prev.bits != null && (prev.bits & b.bits) === prev.bits;
+    const cum = !P.fullList && b.bits != null && prev && prev.bits != null && (prev.bits & b.bits) === prev.bits;
     const items = b.bits != null ? P.parts.filter((x) => (b.bits & x.bit) && !(cum && (prev.bits & x.bit))).map(T) : [];
     return `<div class="relative bg-cardbg border ${b.recommended ? 'border-acc' : 'border-gray-800'} rounded-2xl p-5 flex flex-col gap-2">
                 ${b.recommended ? `<span class="absolute -top-3 right-5 bg-acc text-xs font-bold px-3 py-0.5 rounded-full">${L('الأنسب لأغلب العملاء', 'Most popular')}</span>` : ''}
@@ -592,6 +600,8 @@ function plansSection(p) {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             ${cards}
             </div>
+            ${P.support ? `<div class="mo-life text-sm text-gray-300 bg-cardbg border border-gray-800 rounded-2xl px-4 py-3" style="display:none"><i class="fa-solid fa-screwdriver-wrench acc"></i> ${T(P.support)}</div>` : ''}
+            ${P.parts.some((x) => x.items) ? compareTable(P, T) : ''}
             <div class="space-y-2"><h3 class="font-bold text-white">${T(P.partsTitle)}</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden">${parts}${dev}</div></div>
             ${C ? `<div class="space-y-2 mo-cloud" style="display:none"><h3 class="font-bold text-white">${L('مع الاشتراك السحابي', 'With the cloud plan')}</h3><div class="bg-cardbg border border-gray-800 rounded-2xl overflow-hidden">
               <div class="flex flex-wrap items-center gap-3 px-4 py-2.5"><span class="flex-1 text-sm text-white">${L('الأجهزة من المتصفح والموبايل', 'Devices from the browser and phone')}</span><span class="text-sm text-gray-400">${L('مفتوحة — من غير حد', 'Unlimited')}</span></div>
@@ -599,14 +609,14 @@ function plansSection(p) {
               <div class="px-4 py-2.5 border-t border-gray-800 text-xs text-gray-400">${L('مشترك في نسخة الكمبيوتر وعايز اللي على النت كمان؟ بسعر الاشتراك السحابي.', 'On the desktop plan and want the online edition too? At the cloud plan price.')}${C.url ? ` <a class="acc" href="${esc(C.url)}" target="_blank" rel="noopener">${esc(C.url.replace(/^https?:\/\//, ''))}</a>` : ''}</div>
             </div></div>` : ''}
             </div>
-            <script>(function(){var Y=${PLANS.yearMonths},LF=${PLANS.lifetimeMonths},ar=${ar},c='m',u='egp',k='desk',el=document.getElementById('moPlans');
+            <script>(function(){var Y=${PLANS.yearMonths},LF=${P.lifetimeMonths || PLANS.lifetimeMonths},ar=${ar},c='m',u='egp',k='desk',el=document.getElementById('moPlans');
 function draw(){if(k==='cloud'&&c==='l')c='y';var n=c==='m'?1:c==='y'?Y:LF,per=c==='m'?(ar?'/ شهر':'/ month'):c==='y'?(ar?'/ سنة':'/ year'):(ar?'مرة واحدة':'one time');
 var fm=function(v){v=v.toLocaleString('en-US');return u==='usd'?'⁦$'+v+'⁩':(ar?v+' جنيه':'EGP '+v);};
 el.querySelectorAll('.mo-price').forEach(function(x){var a=k==='cloud'&&x.hasAttribute('data-c'+u)?'data-c'+u:'data-'+u;var l=k!=='cloud'&&c==='l'&&x.getAttribute('data-l'+u);x.textContent=fm(l?+l:+x.getAttribute(a)*n);});
 el.querySelectorAll('.mo-once').forEach(function(x){x.textContent=fm(+x.getAttribute('data-'+u));});
 el.querySelectorAll('.mo-desk').forEach(function(x){x.style.display=k==='cloud'?'none':'';});el.querySelectorAll('.mo-cloud').forEach(function(x){x.style.display=k==='cloud'?'':'none';});
 el.querySelectorAll('[data-seg=cyc] [data-v=l]').forEach(function(x){x.hidden=k==='cloud';});
-el.querySelectorAll('.mo-per').forEach(function(x){x.textContent=per;});
+el.querySelectorAll('.mo-per').forEach(function(x){x.textContent=per;});el.querySelectorAll('.mo-life').forEach(function(x){x.style.display=k!=='cloud'&&c==='l'?'':'none';});
 el.querySelectorAll('[data-seg] button').forEach(function(b){var g=b.parentNode.getAttribute('data-seg'),on=b.getAttribute('data-v')===(g==='cyc'?c:g==='kind'?k:u);b.classList.toggle('bg-acc',on);b.classList.toggle('text-gray-400',!on);});}
 el.addEventListener('click',function(e){var b=e.target.closest('[data-seg] button');if(!b)return;var g=b.parentNode.getAttribute('data-seg');if(g==='cyc')c=b.getAttribute('data-v');else if(g==='kind')k=b.getAttribute('data-v');else u=b.getAttribute('data-v');draw();});draw();})();</script>
         </section>
