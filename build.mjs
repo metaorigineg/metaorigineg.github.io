@@ -297,6 +297,7 @@ function footer(base, name) {
                 ${D.company.emails.map((e) => `<a href="mailto:${esc(e)}" class="hover:text-white flex items-center gap-1.5" title="${esc(mailLabel(e))}"><i class="fa-solid fa-envelope"></i> ${esc(e)}</a>`).join("")}
             </div>
             <p><a href="${LANG === 'en' ? base + 'en/' : base}updates/" class="hover:text-white underline">${L('آخر التحديثات', 'Latest updates')}</a> · <a href="${LANG === 'en' ? base + 'en/' : base}compare/" class="hover:text-white underline">${L('مقارنة البرامج', 'Compare programs')}</a> · ${LANG === 'ar' ? `<a href="${base}articles/" class="hover:text-white underline">مقالات ونصايح</a> · ` : ''}<a href="${base}privacy/" class="hover:text-white underline">${L('سياسة الخصوصية · Privacy Policy', 'Privacy Policy · سياسة الخصوصية')}</a> · <a href="${base}terms/" class="hover:text-white underline">${L('شروط الاستخدام', 'Terms of Use')}</a></p>
+            <p><a href="${base}about/" class="hover:text-white underline">${L('من نحن', 'About us')}</a> · <a href="${base}contact/" class="hover:text-white underline">${L('تواصل معنا', 'Contact us')}</a> · <a href="${base}refund/" class="hover:text-white underline">${L('الاسترداد والإلغاء', 'Refund & Cancellation')}</a> · <a href="${base}delivery/" class="hover:text-white underline">${L('سياسة التسليم', 'Delivery policy')}</a> · ${L('بورسعيد، مصر', 'Port Said, Egypt')} · <a href="tel:+2${esc(D.company.whatsapp)}" class="hover:text-white" dir="ltr">${esc(D.company.whatsapp)}</a></p>
             <p>${L('جميع الحقوق محفوظة', 'All rights reserved')} &copy; ${YEAR} - ${esc(name)}</p>
         </div>
     </footer>
@@ -1149,9 +1150,9 @@ ${sec('الحساب', ul([
 ]))}
 ${sec('الاشتراك والدفع', ul([
   'بعد التجربة البرنامج بيشتغل بالاشتراك (شهري أو سنوي) حسب الباقة والأسعار المعلنة وقت الاشتراك. الدفع يا إما أونلاين بالكارت من صفحة الاشتراك، يا إما بالتواصل معانا (واتساب) والتفعيل من عندنا.',
-  'الدفع الأونلاين بيتم عن طريق <b>Fungies.io</b> بصفته <b>البائع الرسمي (Merchant of Record)</b> للطلب: هو اللي بياخد الدفع، وبيطلّع الفاتورة، وبيحسب الضرايب، وشروطه وسياسة الاسترجاع بتاعته بتنطبق على الدفع. وبيانات الكارت بتتكتب عنده بس، مابتوصلناش.',
+  'الدفع الأونلاين بالكارت بيتم عن طريق شركة دفع معتمدة، وبيانات الكارت بتتكتب في صفحة الدفع بتاعتها بس ومابتوصلناش. كل الأسعار بالجنيه المصري.',
   'لو الاشتراك خلص البرنامج بيتقفل لحد التجديد — والبيانات بتفضل محفوظة ومش بتتمسح.',
-  'الاشتراك اللي اتدفع مابيترجعش فلوسه عن المدة اللي فاتت منه.',
+  'الاسترداد خلال 14 يوم من الدفع والإلغاء في أي وقت — التفاصيل في <a class="acc underline" href="../refund/">سياسة الاسترداد والإلغاء</a>.',
 ]))}
 ${sec('بياناتك', ul([
   'البيانات اللي بتدخلها في البرنامج ملكك. تقدر تنزّل نسخة كاملة منها في أي وقت من الإعدادات.',
@@ -1179,9 +1180,9 @@ ${sec('Account', ul([
 ]))}
 ${sec('Subscription and payment', ul([
   'After the trial the program works by subscription (monthly or yearly) according to the plan and prices published at the time. You can pay online by card from the subscription page, or arrange payment with us (WhatsApp) and we activate the subscription.',
-  'Online orders are processed by <b>Fungies.io</b>, which acts as the <b>Merchant of Record</b> for the order: it collects the payment, issues the invoice and handles sales tax/VAT, and its terms and refund policy apply to the payment. Card details are entered on its checkout only and never reach us.',
+  'Online card payments go through a licensed payment company; card details are entered on its payment page only and never reach us. All prices are in Egyptian pounds (EGP).',
   'When the subscription ends the program locks until renewal — the data is kept, not deleted.',
-  'Paid subscription periods already used are not refundable.',
+  'Refunds within 14 days of payment and cancellation at any time — see the <a class="acc underline" href="../refund/">Refund & Cancellation Policy</a>.',
 ]))}
 ${sec('Your data', ul([
   'The data you enter is yours. You can download a full copy at any time from the settings.',
@@ -1273,6 +1274,72 @@ fs.mkdirSync(path.join(HERE, 'privacy'), { recursive: true });
 fs.writeFileSync(path.join(HERE, 'privacy', 'index.html'), privacyPage());
 fs.mkdirSync(path.join(HERE, 'terms'), { recursive: true });
 fs.writeFileSync(path.join(HERE, 'terms', 'index.html'), termsPage());
+
+// ---------- the pages a payment provider asks for (2026-11-26): about us, contact us, refund & cancellation, delivery.
+// Arabic then English on one page, like the terms and the privacy policy. Prices are in Egyptian pounds on each
+// program's page («الباقات والأسعار»).
+const ADDRESS = ['بورسعيد، مصر', 'Port Said, Egypt'];
+function policyPage(slug, { titleAr, titleEn, desc, ar, en }) {
+  const base = '../';
+  const sec = (t, body) => `<section class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-3"><h2 class="text-lg md:text-xl font-bold text-white">${t}</h2>${body}</section>`;
+  const body = (parts) => parts.map(([t, items]) => sec(t, Array.isArray(items) ? `<ul class="list-disc ps-6 space-y-2 text-gray-300 leading-8">${items.map((x) => `<li>${x}</li>`).join('')}</ul>` : `<div class="text-gray-300 leading-8 space-y-2">${items}</div>`)).join('\n');
+  return head({ title: `${titleAr} | Meta Origin`, desc, accent: '#3b82f6', base, image: 'img/company-logo.png' }) + header(base, { back: true, sub: '' }) + `
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 w-full">
+        <h1 class="text-3xl md:text-4xl font-black text-white">${titleAr}</h1>
+${body(ar)}
+        <div dir="ltr" lang="en" class="space-y-6 pt-6 text-left">
+        <h1 class="text-3xl md:text-4xl font-black text-white">${titleEn}</h1>
+${body(en)}
+        </div>
+    </main>` + footer(base, 'Meta Origin');
+}
+const mailA = (e) => `<a class="acc underline" href="mailto:${esc(e)}" dir="ltr">${esc(e)}</a>`;
+const phoneA = () => `<a class="acc underline" href="tel:+2${esc(D.company.whatsapp)}" dir="ltr">${esc(D.company.whatsapp)}</a> (<a class="acc underline" href="${wa(D.company.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>)`;
+const mailsAr = () => `<ul class="list-disc ps-6 space-y-1">${D.company.emails.map((e) => `<li>${esc((D.company.emailLabels || {})[e]?.[0] || '')}: ${mailA(e)}</li>`).join('')}</ul>`;
+const mailsEn = () => `<ul class="list-disc ps-6 space-y-1">${D.company.emails.map((e) => `<li>${esc((D.company.emailLabels || {})[e]?.[1] || '')}: ${mailA(e)}</li>`).join('')}</ul>`;
+const visible = () => D.programs.filter((p) => !p.hidden && !BAKED_HIDDEN.includes(p.slug));
+const pages = {
+  about: { titleAr: 'من نحن', titleEn: 'About us', desc: 'Meta Origin — شركة برمجيات مصرية — About us',
+    ar: [['Meta Origin', `<p>${esc(D.company.about)}</p><p>المقر: ${ADDRESS[0]}.</p>`],
+      ['بنقدّم إيه', [`برامج إدارة جاهزة (${visible().length} برنامج) لكل نشاط: ${visible().map((p) => `<a class="acc underline" href="${base0()}${p.slug}/">${esc(p.nameAr || p.name)}</a>`).join('، ')}.`,
+        'كل برنامج بيشتغل على الكمبيوتر (جهاز واحد أو شبكة) أو أونلاين من المتصفح والموبايل، وبتجربة مجانية 14 يوم.',
+        'الأسعار بالجنيه المصري في صفحة كل برنامج («الباقات والأسعار»)، شهري أو سنوي.',
+        'الدعم الفني والتركيب والتدريب من فريقنا مباشرة.']],
+      ['تواصل معانا', `<p>تليفون وواتساب: ${phoneA()} — <a class="acc underline" href="${base0()}contact/">صفحة التواصل</a></p>`]],
+    en: [['Meta Origin', `<p>Meta Origin is an Egyptian software company that builds complete management systems for pharmacies, clinics, schools, hotels, factories, stores, restaurants, shops and trading companies: accounts, stores, payroll, point of sale and reports. Our aim is easy Arabic and English software that runs on one PC, on a whole network or online, with technical support close to you from installation until the work runs smoothly.</p><p>Based in ${ADDRESS[1]}.</p>`],
+      ['What we offer', [`Ready management programs (${visible().length}) for each kind of business.`, 'Each program runs on a PC (one or a network) or online from the browser and phone, with a free 14-day trial.', 'Prices in Egyptian pounds on each program\'s page («Plans and prices»), monthly or yearly.', 'Technical support, installation and training directly from our team.']],
+      ['Contact', `<p>Phone and WhatsApp: ${phoneA()} — <a class="acc underline" href="${base0()}contact/">Contact page</a></p>`]] },
+  contact: { titleAr: 'تواصل معنا', titleEn: 'Contact us', desc: 'تواصل مع Meta Origin — Contact Meta Origin',
+    ar: [['التليفون والواتساب', `<p>${phoneA()}</p>`], ['الإيميل', mailsAr()], ['العنوان', `<p>${ADDRESS[0]}</p>`],
+      ['السوشيال', `<p><a class="acc underline" href="${esc(D.company.facebook)}" target="_blank" rel="noopener">فيسبوك</a> · <a class="acc underline" href="${esc(D.company.instagram)}" target="_blank" rel="noopener">انستجرام</a> · <a class="acc underline" href="${esc(D.company.youtube)}" target="_blank" rel="noopener">يوتيوب</a></p>`]],
+    en: [['Phone and WhatsApp', `<p>${phoneA()}</p>`], ['E-mail', mailsEn()], ['Address', `<p>${ADDRESS[1]}</p>`],
+      ['Social media', `<p><a class="acc underline" href="${esc(D.company.facebook)}" target="_blank" rel="noopener">Facebook</a> · <a class="acc underline" href="${esc(D.company.instagram)}" target="_blank" rel="noopener">Instagram</a> · <a class="acc underline" href="${esc(D.company.youtube)}" target="_blank" rel="noopener">YouTube</a></p>`]] },
+  refund: { titleAr: 'سياسة الاسترداد والإلغاء', titleEn: 'Refund & Cancellation Policy', desc: 'سياسة الاسترداد والإلغاء — Refund & Cancellation Policy',
+    ar: [['قبل الدفع', ['كل برنامج ليه تجربة مجانية 14 يوم بكل الأجزاء، من غير كارت ولا دفع — عشان تتأكد إنه مناسب ليك قبل ما تدفع.']],
+      ['الاسترداد', ['تقدر تطلب استرداد المبلغ بالكامل خلال 14 يوم من تاريخ الدفع، من غير ما تقول السبب.',
+        'بعد الـ 14 يوم مفيش استرداد عن المدة اللي اتستخدمت من الاشتراك.',
+        'المبلغ بيرجع بنفس طريقة الدفع (نفس الكارت) خلال 7 لـ 14 يوم عمل من موافقتنا، حسب البنك.',
+        'طلب الاسترداد بيتبعت على الإيميل أو الواتساب برقم العملية والإيميل اللي اشتركت بيه.']],
+      ['الإلغاء', ['تقدر تلغي الاشتراك في أي وقت؛ الإلغاء بيوقف التجديد الجاي، والبرنامج بيفضل شغال لحد آخر المدة المدفوعة.',
+        'بعد انتهاء الاشتراك بياناتك بتفضل محفوظة ومش بتتمسح، وتقدر تنزّل نسخة منها أو تجدّد في أي وقت.',
+        'لو عايز تمسح حسابك وبياناتك نهائيًا ابعتلنا طلب.']],
+      ['للتواصل', `<p>${mailA(D.company.emails.find((e) => /support|sales/.test(e)) || D.company.emails[0])} — ${phoneA()}</p>`]],
+    en: [['Before paying', ['Every program has a free 14-day trial with all its parts, with no card and no payment — so you can make sure it fits before you pay.']],
+      ['Refunds', ['You can ask for a full refund within 14 days of the payment date, with no reason needed.', 'After 14 days, the part of the subscription already used is not refunded.', 'The amount goes back by the same payment method (the same card) within 7 to 14 working days of our approval, depending on the bank.', 'Send the refund request by e-mail or WhatsApp with the transaction number and the e-mail you subscribed with.']],
+      ['Cancellation', ['You can cancel the subscription at any time; cancelling stops the next renewal and the program keeps working until the end of the paid period.', 'After the subscription ends your data is kept, not deleted; you can download a copy or renew at any time.', 'To delete your account and data for good, send us a request.']],
+      ['Contact', `<p>${mailA(D.company.emails.find((e) => /support|sales/.test(e)) || D.company.emails[0])} — ${phoneA()}</p>`]] },
+  delivery: { titleAr: 'سياسة التسليم', titleEn: 'Delivery & Shipping Policy', desc: 'سياسة التسليم — Delivery & Shipping Policy',
+    ar: [['منتجاتنا رقمية', ['كل منتجاتنا برامج بتتسلّم أونلاين — مفيش منتجات بتتشحن ولا مصاريف شحن.']],
+      ['إزاي بيوصلك', ['النسخة اللي على النت: بتشتغل فورًا بعد الدفع على نفس حسابك.',
+        'برامج الكمبيوتر: بتحمّل البرنامج من صفحته على الموقع، والترخيص بيتفعّل على جهازك لوحده من النت (أو بيتبعتلك على الإيميل أو الواتساب) خلال 24 ساعة كحد أقصى من تأكيد الدفع.',
+        'التركيب والتدريب (لو اتفقنا عليهم) بيتحددوا معاك بالتليفون، أونلاين أو في مكانك.']],
+      ['لو حاجة ماوصلتش', [`لو الترخيص ماتفعّلش خلال 24 ساعة كلّمنا على ${phoneA()} أو ${mailA(D.company.emails[0])}.`]]],
+    en: [['Digital products', ['All our products are software delivered online — nothing is shipped and there are no shipping fees.']],
+      ['How you receive it', ['Online edition: works at once after payment, on the same account.', 'Desktop programs: download the program from its page on this site; the licence activates on your PC by itself over the internet (or is sent to you by e-mail or WhatsApp) within 24 hours at most of the payment being confirmed.', 'Installation and training (when agreed) are arranged with you by phone, online or on site.']],
+      ['If something did not arrive', [`If the licence is not active within 24 hours, contact us at ${phoneA()} or ${mailA(D.company.emails[0])}.`]]] },
+};
+function base0() { return '../'; }
+for (const [slug, p] of Object.entries(pages)) { fs.mkdirSync(path.join(HERE, slug), { recursive: true }); fs.writeFileSync(path.join(HERE, slug, 'index.html'), policyPage(slug, p)); }
 fs.rmSync(path.join(HERE, 'en'), { recursive: true, force: true }); // الإنجليزي بيتولّد كله من جديد (البرامج المخفية ماتفضلش)
 for (const lang of ['ar', 'en']) {
   LANG = lang;
@@ -1299,7 +1366,7 @@ LANG = 'ar';
 fs.writeFileSync(path.join(HERE, '404.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/"><title>Meta Origin</title><a href="/">Meta Origin</a>`);
 fs.writeFileSync(path.join(HERE, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[SITE, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`, `${SITE}terms/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${[SITE, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}${p.slug}/`), `${SITE}updates/`, `${SITE}compare/`, `${SITE}articles/`, `${SITE}about/`, `${SITE}contact/`, `${SITE}refund/`, `${SITE}delivery/`, ...ART.map((a) => `${SITE}articles/${a.slug}/`), `${SITE}en/`, ...D.programs.filter((p) => !BAKED_HIDDEN.includes(p.slug)).map((p) => `${SITE}en/${p.slug}/`), `${SITE}en/updates/`, `${SITE}en/compare/`, `${SITE}privacy/`, `${SITE}terms/`].map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
 </urlset>
 `);
 fs.writeFileSync(path.join(HERE, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);
