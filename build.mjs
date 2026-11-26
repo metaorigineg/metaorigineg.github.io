@@ -234,15 +234,18 @@ function header(base, { back, sub = '' } = {}) {
     </header>`;
 }
 
-function team(base, { title = L('فريق العمل وطرق التواصل', 'Our team & contact') } = {}) {
+// the team cards (photos, roles and phone numbers) are hidden for now (the owner, 2026-11-26); true brings them back.
+// The e-mails and the social links under them stay.
+const SHOW_TEAM = false;
+function team(base, { title = SHOW_TEAM ? L('فريق العمل وطرق التواصل', 'Our team & contact') : L('تواصل معنا', 'Contact us') } = {}) {
   return `
         <section id="team" class="space-y-6 pt-4">
             <div class="text-center space-y-2">
-                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-users acc"></i><span>${title}</span></h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2"><i class="fa-solid ${SHOW_TEAM ? 'fa-users' : 'fa-envelope'} acc"></i><span>${title}</span></h2>
                 <p class="text-gray-400 text-xs md:text-sm">${L('تواصل معنا مباشرة للدعم الفني والاستفسارات والتركيب', 'Contact us directly for support, questions and installation')}</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-${D.team.map((m, i) => `                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6${SHOW_TEAM ? '' : ' hidden'}">
+${(SHOW_TEAM ? D.team : []).map((m, i) => `                <div class="bg-cardbg border border-gray-800 rounded-2xl p-6 space-y-4 card-hover">
                     <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
                         <img src="${base}${m.photo}" alt="${esc(m.name)}" title="${L('اضغط لعرض الكارت كامل', 'Click to view the full card')}" onclick="zoomImg('${base}${m.card}')" class="w-16 h-16 rounded-full object-cover border-2 shadow-lg flex-shrink-0 cursor-zoom-in" style="border-color:${i ? '#38bdf8' : 'var(--acc)'}">
                         <div>
